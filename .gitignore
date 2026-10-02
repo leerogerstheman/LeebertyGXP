@@ -46,3 +46,6 @@ tmp/
 logs/
 backups/
 exports/
+
+# Local release archives
+*.zip
