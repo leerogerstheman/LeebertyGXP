@@ -1,0 +1,132 @@
+{
+  "code": "DI-INC",
+  "recordPrefix": "DI",
+  "name": "数据完整性事件",
+  "nameEn": "Data Integrity Incident",
+  "category": "data_integrity",
+  "gxpAreas": ["GMP", "GLP", "GCP", "GDP", "GAMP", "GDPR-DataIntegrity"],
+  "regulationRefs": [
+    "WHO TRS 1033 Annex 4 - Guideline on data integrity (ALCOA+ principles)",
+    "PIC/S PI 041 - Good practices for data management and integrity in regulated GMP/GDP environments",
+    "MHRA GxP Data Integrity Guidance and Definitions (2018)",
+    "EU GMP Annex 11 §7.1 - data integrity, §9 audit trail, §13 incident management",
+    "21 CFR Part 11.10(a)(e) - validation, audit trails; Part 11.300 - controls for identification codes",
+    "FDA Data Integrity and Compliance With Drug CGMP - Questions and Answers (2018)"
+  ],
+  "description": "处理任何可能损害数据完整性（ALCOA+）的事件：数据丢失、审计追踪缺失或被关闭、共用账号、原始数据被覆盖、未记录的重测、时间戳错误、备份不可恢复等。",
+  "descriptionEn": "Handles any event that may compromise data integrity under ALCOA+: data loss, missing or disabled audit trails, shared accounts, overwritten raw data, undocumented retesting, incorrect timestamps, unverifiable backups.",
+  "slaDays": 45,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "reported", "contained", "impact_assessed", "capa_defined", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "事件标题", "labelEn": "Incident title", "type": "text", "required": true },
+    { "key": "summary", "label": "事件描述", "labelEn": "Description", "type": "textarea", "required": true },
+    { "key": "occurredAt", "label": "发生 / 发现日期", "labelEn": "Date of occurrence or detection", "type": "date", "required": true },
+    { "key": "site", "label": "场所 / 系统", "labelEn": "Site or system", "type": "text", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"], "help": "任何可能影响已放行产品或已提交数据的完整性事件应为 critical" },
+    { "key": "batchNumber", "label": "涉及批次 / 研究编号", "labelEn": "Affected batch or study", "type": "text", "required": false }
+  ],
+
+  "steps": [
+    {
+      "code": "report",
+      "name": "报告与初步事实收集",
+      "nameEn": "Report and fact gathering",
+      "role": ["qc_analyst", "production_operator", "lab_technician", "validation_engineer", "qa_specialist", "clinical_monitor"],
+      "type": "task",
+      "onComplete": "reported",
+      "form": [
+        { "key": "incidentCategory", "label": "事件类别", "type": "select", "required": true, "options": ["data_loss", "audit_trail_disabled", "audit_trail_missing", "shared_account", "raw_data_overwritten", "undocumented_retest", "incorrect_timestamp", "backup_unrecoverable", "unauthorised_access", "data_transcription_error", "deleted_records", "other"] },
+        { "key": "systemsInvolved", "label": "涉及系统（名称/版本/供应商）", "type": "textarea", "required": true },
+        { "key": "whenDetected", "label": "发现方式与时间", "type": "textarea", "required": true },
+        { "key": "immediatePreservation", "label": "已采取的保全措施", "type": "textarea", "required": true, "help": "关键：立即停止对相关数据的进一步操作，保全电子与纸质证据" },
+        { "key": "estimatedRecordsAffected", "label": "估计受影响记录数", "type": "text", "required": false }
+      ],
+      "guidance": "发现数据完整性事件后，首要动作是保全证据而非修复。任何修改都可能加重事件性质。"
+    },
+    {
+      "code": "containment",
+      "name": "遏制与保全",
+      "nameEn": "Containment and preservation",
+      "role": ["qa_manager", "validation_engineer", "qa_specialist"],
+      "type": "task",
+      "onComplete": "contained",
+      "requiresFields": ["containmentActions", "systemStatus"],
+      "form": [
+        { "key": "containmentActions", "label": "遏制措施", "type": "textarea", "required": true, "help": "如：冻结系统账号、暂停放行、隔离受影响批次、镜像保存系统数据" },
+        { "key": "systemStatus", "label": "系统当前状态", "type": "select", "required": true, "options": ["in_use_restricted", "in_use_no_restriction", "suspended", "read_only", "shut_down"] },
+        { "key": "forensicImageTaken", "label": "是否已做取证镜像", "type": "select", "required": true, "options": ["yes", "no", "not_applicable"] },
+        { "key": "vendorEngaged", "label": "是否已联系系统供应商", "type": "select", "required": false, "options": ["yes", "no", "not_applicable"] },
+        { "key": "regulatoryNotified", "label": "是否需向监管机构报告", "type": "select", "required": true, "options": ["no", "yes", "assess_further"] },
+        { "key": "accessRevoked", "label": "相关账号权限是否已处理", "type": "textarea", "required": false }
+      ],
+      "guidance": "如涉及共用账号，必须立即停用该账号并为每个用户建立唯一账号（21 CFR Part 11.300(a)）。"
+    },
+    {
+      "code": "impact_assessment",
+      "name": "影响评估",
+      "nameEn": "Impact assessment",
+      "role": ["qa_specialist", "validation_engineer", "qa_manager"],
+      "type": "task",
+      "onComplete": "impact_assessed",
+      "requiresFields": ["dataImpact", "productImpact", "regulatoryImpact"],
+      "persistFields": { "impact_assessment": "dataImpact", "root_cause": "rootCause" },
+      "form": [
+        { "key": "dataImpact", "label": "对数据的影响", "type": "textarea", "required": true, "help": "受影响数据的范围、时间跨度、是否可重建、是否仍可靠" },
+        { "key": "productImpact", "label": "对产品的影响", "type": "textarea", "required": true, "help": "是否影响已放行批次、在制品、稳定性、已上市产品" },
+        { "key": "regulatoryImpact", "label": "对注册与申报的影响", "type": "textarea", "required": true, "help": "是否涉及已提交监管机构的数据" },
+        { "key": "studyImpact", "label": "对研究/试验的影响", "type": "textarea", "required": false },
+        { "key": "reconstructionPossible", "label": "数据是否可重建", "type": "select", "required": true, "options": ["fully", "partially", "not_possible", "not_applicable"] },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true, "help": "区分技术原因与组织原因。多数数据完整性事件的根本原因是组织性的" },
+        { "key": "rootCauseMethod", "label": "分析方法", "type": "select", "required": true, "options": ["5 Whys", "Ishikawa / Fishbone", "Fault Tree Analysis", "Human Error Assessment", "Is-Is Not"] }
+      ],
+      "guidance": "评估必须回答：数据是否仍然可靠？产品是否可以放行？是否需要通知客户或监管机构？"
+    },
+    {
+      "code": "capa",
+      "name": "CAPA 与技术措施",
+      "nameEn": "CAPA and technical remediation",
+      "role": ["qa_manager", "validation_engineer", "engineering"],
+      "type": "signature",
+      "signatureMeaning": "approved",
+      "onComplete": "capa_defined",
+      "form": [
+        { "key": "technicalFix", "label": "技术措施", "type": "textarea", "required": true, "help": "如：启用审计追踪、配置唯一账号、修正时间同步、修复备份任务" },
+        { "key": "proceduralFix", "label": "程序措施", "type": "textarea", "required": true, "help": "如：修订数据管理 SOP、明确原始数据定义、规定复核要求" },
+        { "key": "behaviouralFix", "label": "人员与文化措施", "type": "textarea", "required": true, "help": "如：数据完整性培训、开放文化宣导、明确不得因生产压力违反程序" },
+        { "key": "revalidationRequired", "label": "是否需要再验证", "type": "select", "required": true, "options": ["no", "yes_partial", "yes_full"] },
+        { "key": "recordsReverified", "label": "受影响记录的重新核实方案", "type": "textarea", "required": false },
+        { "key": "capaOwner", "label": "责任人", "type": "text", "required": true },
+        { "key": "capaDueDate", "label": "完成期限", "type": "date", "required": true }
+      ],
+      "guidance": "数据完整性问题的 CAPA 必须同时覆盖技术、程序和人员文化三个层面，仅做技术修复通常无法防止再发。"
+    },
+    {
+      "code": "effectiveness",
+      "name": "有效性检查与关闭",
+      "nameEn": "Effectiveness check and closure",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "requiresFields": ["effectivenessResult", "conclusion"],
+      "persistFields": { "effectiveness_check": "method", "effectiveness_result": "effectivenessResult" },
+      "form": [
+        { "key": "method", "label": "有效性检查方法", "type": "textarea", "required": true, "help": "如：审计追踪完整性核验、账号唯一性核查、持续 3 个月的数据质量抽查" },
+        { "key": "effectivenessResult", "label": "检查结果", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] },
+        { "key": "selfInspectionAdded", "label": "是否加入常规自查项", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "conclusion", "label": "关闭结论", "type": "textarea", "required": true },
+        { "key": "managementReview", "label": "是否纳入管理评审", "type": "select", "required": true, "options": ["yes", "no"] }
+      ],
+      "guidance": "数据完整性事件应纳入管理评审和年度产品质量回顾，作为体系有效性的输入。"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "code": "DEV",
+  "recordPrefix": "DEV",
+  "name": "偏差",
+  "nameEn": "Deviation",
+  "category": "quality_event",
+  "gxpAreas": ["GMP", "GLP", "GCP", "GDP"],
+  "regulationRefs": [
+    "EU GMP Chapter 1.4(x) - deviation from established procedures must be documented and investigated",
+    "21 CFR 211.192 - any unexplained discrepancy shall be thoroughly investigated",
+    "21 CFR 211.100(b) - written procedures shall be followed; deviations documented",
+    "ICH Q10 §3.2.2 - nonconformity and CAPA system"
+  ],
+  "description": "记录并调查任何偏离已批准指令、程序或标准的情况。适用于生产、包装、检验、储存与发运环节。",
+  "descriptionEn": "Records and investigates any departure from an approved instruction, procedure or standard across production, packaging, testing, storage and distribution.",
+  "slaDays": 30,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "reported", "in_assessment", "qa_review", "capa_defined", "closed", "cancelled", "rejected"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled", "rejected"],
+
+  "fields": [
+    { "key": "title", "label": "偏差标题", "labelEn": "Deviation title", "type": "text", "required": true, "help": "一句话描述发生了什么" },
+    { "key": "summary", "label": "偏差描述", "labelEn": "Description", "type": "textarea", "required": true, "help": "客观事实：何地、何时、何人、何物、如何发现" },
+    { "key": "occurredAt", "label": "发生时间", "labelEn": "Date of occurrence", "type": "datetime", "required": true },
+    { "key": "detectedAt", "label": "发现时间", "labelEn": "Date detected", "type": "datetime", "required": false },
+    { "key": "site", "label": "场所", "labelEn": "Site", "type": "text", "required": false },
+    { "key": "department", "label": "责任部门", "labelEn": "Department", "type": "select", "required": false, "options": ["生产部", "包装部", "QC", "QA", "仓储物流", "工程部", "研发部", "临床运营"] },
+    { "key": "batchNumber", "label": "批号 / 研究编号", "labelEn": "Batch / Study number", "type": "text", "required": false },
+    { "key": "product", "label": "产品 / 物料", "labelEn": "Product / Material", "type": "text", "required": false },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"], "help": "critical 表示可能影响患者安全、产品关键质量属性或数据完整性" },
+    { "key": "immediateAction", "label": "即时措施", "labelEn": "Immediate action taken", "type": "textarea", "required": false, "help": "遏制措施：隔离、暂停、复检等" },
+    { "key": "impactAssessment", "label": "影响评估", "labelEn": "Impact assessment", "type": "textarea", "required": false, "help": "对已放行批次、在制品、稳定性、临床受试者的影响" },
+    { "key": "rootCause", "label": "根本原因", "labelEn": "Root cause", "type": "textarea", "required": false },
+    { "key": "rootCauseMethod", "label": "根本原因分析方法", "labelEn": "Root cause method", "type": "select", "required": false, "options": ["5 Whys", "Ishikawa / Fishbone", "Fault Tree Analysis", "FMEA", "Is-Is Not", "Human Error Assessment"] }
+  ],
+
+  "steps": [
+    {
+      "code": "report",
+      "name": "发现与报告",
+      "nameEn": "Detect and report",
+      "role": ["production_operator", "qc_analyst", "lab_technician", "warehouse_keeper", "clinical_monitor", "engineering"],
+      "type": "task",
+      "onComplete": "reported",
+      "form": [
+        { "key": "discoveryContext", "label": "发现经过", "type": "textarea", "required": true },
+        { "key": "immediateAction", "label": "即时措施", "type": "textarea", "required": true }
+      ],
+      "guidance": "任何人发现偏差都有责任立即报告。不要等待，不要先自行处置后再报告。"
+    },
+    {
+      "code": "containment",
+      "name": "隔离与遏制",
+      "nameEn": "Containment",
+      "role": ["production_manager", "qc_manager", "lab_manager", "qa_specialist"],
+      "type": "task",
+      "onComplete": "in_assessment",
+      "form": [
+        { "key": "containmentAction", "label": "遏制措施", "type": "textarea", "required": true },
+        { "key": "affectedLots", "label": "受影响批次 / 单元", "type": "text", "required": false },
+        { "key": "productQuarantined", "label": "是否已隔离产品", "type": "select", "required": true, "options": ["yes", "no", "not_applicable"] }
+      ],
+      "guidance": "遏制必须在不影响调查客观性的前提下立即执行。禁止在调查完成前销毁任何物证。"
+    },
+    {
+      "code": "investigation",
+      "name": "原因调查",
+      "nameEn": "Investigation",
+      "role": ["qa_specialist", "qc_manager", "lab_manager", "production_manager"],
+      "type": "task",
+      "onComplete": "in_assessment",
+      "requiresFields": ["rootCause"],
+      "independentOfAuthor": false,
+      "persistFields": { "root_cause": "rootCause", "root_cause_method": "rootCauseMethod", "impact_assessment": "impactAssessment" },
+      "form": [
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "rootCauseMethod", "label": "分析方法", "type": "select", "required": true, "options": ["5 Whys", "Ishikawa / Fishbone", "Fault Tree Analysis", "FMEA", "Is-Is Not", "Human Error Assessment"] },
+        { "key": "impactAssessment", "label": "影响评估", "type": "textarea", "required": true, "help": "必须覆盖：已放行批次、在制品、上市产品、稳定性样品、受试者安全、数据完整性" },
+        { "key": "dataReviewed", "label": "已审核的数据", "type": "textarea", "required": false, "help": "批记录、审计追踪、图谱、环境监测数据等" }
+      ],
+      "guidance": "调查必须基于证据而非推测。「人员疏忽」不是根本原因，而是需要继续追问的现象。"
+    },
+    {
+      "code": "capa_decision",
+      "name": "CAPA 判定",
+      "nameEn": "CAPA decision",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "approved",
+      "onComplete": "capa_defined",
+      "form": [
+        { "key": "capaRequired", "label": "是否需要 CAPA", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "justification", "label": "判定理由", "type": "textarea", "required": true, "help": "若判定无需 CAPA，必须给出可辩护的理由" },
+        { "key": "correctiveAction", "label": "纠正措施", "type": "textarea", "required": false },
+        { "key": "preventiveAction", "label": "预防措施", "type": "textarea", "required": false },
+        { "key": "capaOwner", "label": "CAPA 责任人", "type": "text", "required": false },
+        { "key": "capaDueDate", "label": "CAPA 期限", "type": "date", "required": false }
+      ],
+      "guidance": "判定「不需要 CAPA」必须记录理由，检查员会重点核查此处。"
+    },
+    {
+      "code": "qa_review",
+      "name": "QA 审核与关闭",
+      "nameEn": "QA review and closure",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "conclusion", "label": "调查结论", "type": "textarea", "required": true },
+        { "key": "batchDisposition", "label": "批次处置", "type": "select", "required": true, "options": ["release", "reject", "reprocess", "rework", "not_applicable"] },
+        { "key": "regulatoryImpact", "label": "是否需要报告监管机构", "type": "select", "required": true, "options": ["no", "yes_field_alert", "yes_variation", "yes_other"] },
+        { "key": "effectivenessCheckDue", "label": "有效性检查到期日", "type": "date", "required": false }
+      ],
+      "guidance": "关闭前确认：根本原因已确定、CAPA 已定义、影响已评估、相关批次已处置。"
+    },
+    {
+      "code": "effectiveness",
+      "name": "CAPA 有效性检查",
+      "nameEn": "Effectiveness check",
+      "role": ["qa_specialist", "qa_manager"],
+      "type": "task",
+      "onComplete": "closed",
+      "optional": true,
+      "persistFields": { "effectiveness_check": "method", "effectiveness_result": "result" },
+      "form": [
+        { "key": "method", "label": "检查方法", "type": "textarea", "required": true, "help": "如：抽查后续 10 批记录、趋势分析、现场复核" },
+        { "key": "result", "label": "检查结果", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] },
+        { "key": "evidence", "label": "客观证据", "type": "textarea", "required": true }
+      ],
+      "guidance": "ICH Q10 要求评估 CAPA 的有效性。若判定无效，需要重新开启调查。"
+    }
+  ]
+}

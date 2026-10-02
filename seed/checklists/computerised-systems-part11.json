@@ -1,0 +1,339 @@
+{
+  "code": "CSV-PART11-ANNEX11",
+  "title": "计算机化系统合规自查表（21 CFR Part 11 + EU GMP Annex 11 + GAMP 5）",
+  "titleEn": "Computerised System Compliance Checklist (21 CFR Part 11 + EU GMP Annex 11 + GAMP 5)",
+  "scope": "self_inspection",
+  "category": "computerised_systems",
+  "gxpAreas": ["GAMP", "GMP", "GLP", "GCP", "GDPR-DataIntegrity"],
+  "regulation": "21 CFR Part 11 Electronic Records; Electronic Signatures; EudraLex Vol 4 Annex 11 Computerised Systems; ISPE GAMP 5 Second Edition; NMPA 药品生产质量管理规范附录《计算机化系统》",
+  "authority": "FDA / European Commission / ISPE / NMPA",
+  "version": "Part 11 (1997, as amended 2003); Annex 11 (2011-06-30); GAMP 5 2nd Ed. (2022); NMPA 附录 (2015)",
+  "description": "用于自查任何产生、处理或保存 GxP 数据的计算机化系统。既可评估本工作台自身，也可用于评估 HPLC/CDS、LIMS、MES、ERP、eCRF、稳定性箱监控系统等第三方系统。每一项均对应检查员会实际测试的具体行为。",
+  "descriptionEn": "Self-inspection checklist for any computerised system creating, processing or storing GxP data. Applicable both to this workbench and to third-party systems such as CDS, LIMS, MES, ERP, EDC and monitoring systems. Each item maps to something an inspector will actually test.",
+  "items": [
+    {
+      "clauseRef": "Annex 11 §4.1 / GAMP 5",
+      "requirement": "系统已按 GAMP 5 软件分类（类别 1/3/4/5）确定验证深度，验证范围基于风险评估，而非一律全套验证或一律豁免",
+      "requirementEn": "The system has a GAMP 5 software category and a risk-based validation scope, rather than blanket validation or blanket exemption",
+      "guidance": "核查是否有书面的系统清单、分类依据、风险评估报告。常见缺陷是所有系统都按同一套模板验证，未体现基于风险的调整。",
+      "guidanceEn": "Look for a documented categorisation and risk assessment driving the validation scope.",
+      "riskLevel": "major",
+      "evidenceHint": "计算机化系统清单、GAMP 分类评估表、风险评估报告、验证计划"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(a) / Annex 11 §4.2",
+      "requirement": "系统经过验证，验证文档包括用户需求说明（URS）、功能与设计说明、测试脚本、测试报告、可追溯矩阵，且需求-测试-缺陷三者可双向追溯",
+      "requirementEn": "The system is validated with URS, functional/design specifications, test scripts, test reports and a traceability matrix linking requirements to tests",
+      "guidance": "随机抽取 URS 中的 3 条需求，核查是否都能在测试脚本中找到对应测试项。追溯矩阵断链是常见缺陷。",
+      "guidanceEn": "Pick 3 URS requirements and confirm each maps to an executed test.",
+      "riskLevel": "critical",
+      "evidenceHint": "URS、功能说明、测试脚本与签署报告、需求追溯矩阵、验证总结报告"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(a) / Annex 11 §4.3-4.4",
+      "requirement": "供应商经过评估，评估内容包括质量管理体系、产品成熟度、技术支持能力、缺陷管理；评估有记录",
+      "requirementEn": "The supplier is assessed for quality system, product maturity, support capability and defect management, with documented evidence",
+      "guidance": "核查供应商审计报告或问卷评估记录。对于类别 1/3 系统可简化，但不能完全没有评估记录。",
+      "guidanceEn": "Verify documented supplier assessment proportionate to the software category.",
+      "riskLevel": "major",
+      "evidenceHint": "供应商评估报告/问卷、供应商资质证明、质量协议、服务级别协议"
+    },
+    {
+      "clauseRef": "Annex 11 §4.6 / §5",
+      "requirement": "系统安装与运行环境经过确认（IQ/OQ），确认在生产使用前完成，环境变更后重新评估",
+      "requirementEn": "Installation and operational qualification are completed before production use, and re-assessed after environment changes",
+      "guidance": "核查 IQ/OQ 签署日期是否早于系统首次用于 GxP 活动的日期。倒签日期属严重缺陷。",
+      "guidanceEn": "Confirm IQ/OQ sign-off predates first GxP use.",
+      "riskLevel": "critical",
+      "evidenceHint": "IQ/OQ 方案与报告、签署日期、首次使用日期记录、变更后的再确认记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(b) / Annex 11 §7.1",
+      "requirement": "系统能以人类可读的电子与纸质形式生成准确的记录副本，包括审计追踪，且导出内容完整不失真",
+      "requirementEn": "The system can generate accurate and complete copies of records in human readable and electronic form, including the audit trail, without loss of content or meaning",
+      "guidance": "实际执行一次导出，核查导出文件是否包含元数据、审计追踪、签名信息。仅导出 PDF 而丢失审计追踪是常见缺陷。",
+      "guidanceEn": "Actually perform an export and verify metadata, audit trail and signatures are preserved.",
+      "riskLevel": "critical",
+      "evidenceHint": "导出功能的测试脚本与执行记录、导出样例文件、导出结果核查记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(c) / Annex 11 §7.2",
+      "requirement": "记录在整个保存期内受到保护，防止损坏、篡改和丢失；有备份与恢复程序，且恢复经过实际测试",
+      "requirementEn": "Records are protected from damage, alteration and loss throughout the retention period; backup and restoration procedures exist and restoration has been actually tested",
+      "guidance": "关键：要求现场演示一次恢复，或提供最近一次恢复演练记录。仅有备份日志而无恢复测试是极常见的严重缺陷。",
+      "guidanceEn": "Ask for evidence of an actual restore test, not just backup logs.",
+      "riskLevel": "critical",
+      "evidenceHint": "记录保存期限规定、备份策略、备份日志、恢复演练报告、异地备份证明、介质管理记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(d) / Annex 11 §12.1",
+      "requirement": "系统访问限于授权人员，每个用户有唯一账号，不存在共用账号或通用账号",
+      "requirementEn": "System access is limited to authorised individuals, each user has a unique account, and no shared or generic accounts exist",
+      "guidance": "实际查看用户列表，寻找：admin、operator、lab、test、guest 等通用账号；多人共用的账号。共用账号是检查中的严重缺陷，直接导致无法追溯责任人。",
+      "guidanceEn": "Inspect the user list for generic or shared accounts; these are critical findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "用户清单与授权审批记录、账号唯一性核查记录、已停用账号清单"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(g) / Annex 11 §12.2",
+      "requirement": "权限按角色或矩阵分配，遵循最小权限原则，关键操作权限经授权审批，权限分配有记录且定期复核",
+      "requirementEn": "Permissions are role or matrix based on least privilege, critical access is authorised and documented, and access rights are periodically reviewed",
+      "guidance": "核查最近一次权限复核记录。常见缺陷是权限只增不减，离职或转岗人员权限未及时回收。",
+      "guidanceEn": "Check the latest periodic access review and whether leavers' access was revoked.",
+      "riskLevel": "critical",
+      "evidenceHint": "权限矩阵、权限分配审批记录、定期权限复核记录、离职/转岗权限回收记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(e) / Annex 11 §9",
+      "requirement": "系统具有计算机生成的、带时间戳的审计追踪，独立记录创建、修改、删除电子记录的操作者、时间与内容变化，且审计追踪无法被修改或关闭",
+      "requirementEn": "The system has a secure, computer-generated, time-stamped audit trail recording operator, time and content changes for create/modify/delete, and the audit trail cannot be modified or switched off",
+      "guidance": "实操测试：修改一条记录，然后查看审计追踪是否记录了旧值、新值、操作者、时间、理由。再尝试关闭审计追踪功能，确认无法关闭或关闭行为本身被记录。检查员会实际做这个测试。",
+      "guidanceEn": "Perform a live test: modify a record, then verify the audit trail captures old value, new value, user, timestamp and reason, and cannot be disabled.",
+      "riskLevel": "critical",
+      "evidenceHint": "审计追踪功能测试记录、审计追踪样例、审计追踪不可关闭的测试证据、权限设置截图"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(e)",
+      "requirement": "记录变更不掩盖先前记录的信息，修改理由被记录并可查阅",
+      "requirementEn": "Record changes do not obscure previously recorded information, and the reason for change is recorded and retrievable",
+      "guidance": "核查系统中是否为每次修改强制填写理由。若理由字段可为空，即为缺陷。",
+      "guidanceEn": "Verify the reason-for-change field is mandatory on every GxP-relevant modification.",
+      "riskLevel": "critical",
+      "evidenceHint": "系统配置截图、修改理由强制性的测试记录、审计追踪中含理由的样例"
+    },
+    {
+      "clauseRef": "Annex 11 §9",
+      "requirement": "审计追踪可按需查阅、可转换为可读形式，并随记录一同保存相同期限",
+      "requirementEn": "The audit trail can be reviewed on demand, converted to a readable form, and is retained for the same period as the records",
+      "guidance": "核查审计追踪的导出与检索能力，以及其在归档策略中是否与业务记录同等对待。",
+      "guidanceEn": "Check audit trail export/search capability and its inclusion in the archival policy.",
+      "riskLevel": "major",
+      "evidenceHint": "审计追踪查阅权限设置、导出功能测试、归档策略文件"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(f)",
+      "requirement": "系统在流程顺序上强制执行规定的步骤顺序，不能跳过或乱序执行",
+      "requirementEn": "The system enforces the permitted sequencing of steps and events where sequencing is required",
+      "guidance": "针对关键流程（如批记录步骤、复核后再放行），实际操作测试能否跳过复核直接放行。",
+      "guidanceEn": "Test whether a review step can be bypassed for critical workflows.",
+      "riskLevel": "major",
+      "evidenceHint": "流程顺序强制的测试脚本与记录、系统配置说明、越权操作尝试记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(h) / §11.30",
+      "requirement": "系统输入的有效性经过检查（数据范围、格式、逻辑校验），防止错误数据进入",
+      "requirementEn": "System input validity is checked through data range, format and logic validation to prevent erroneous data entry",
+      "guidance": "测试输入超范围值（如 pH 15、负重量、未来日期）看系统是否拒绝或警告。",
+      "guidanceEn": "Test out-of-range and illogical inputs to confirm rejection or warning.",
+      "riskLevel": "major",
+      "evidenceHint": "输入校验规则说明、边界值测试记录、校验功能测试脚本"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(i) / §11.300",
+      "requirement": "使用电子签名系统的人员经过培训，培训记录可查；人员有资格使用该系统",
+      "requirementEn": "Persons using electronic signature systems are trained with retrievable records and are qualified to use the system",
+      "guidance": "核查是否有针对该系统的专门培训记录，而非仅通用 GMP 培训。",
+      "guidanceEn": "Look for system-specific training records, not just general GMP training.",
+      "riskLevel": "major",
+      "evidenceHint": "系统操作培训记录、培训考核记录、上岗资格授权记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(j) / Annex 11 §2.4",
+      "requirement": "已建立并执行书面程序，使不使用电子签名的使用者对其行为负责（如要求签名确认）",
+      "requirementEn": "Written procedures hold individuals accountable for actions initiated under their electronic signatures",
+      "guidance": "核查 SOP 是否明确规定不得代签、不得共用密码、账号安全责任。",
+      "guidanceEn": "Verify SOPs explicitly prohibit proxy signing and password sharing.",
+      "riskLevel": "major",
+      "evidenceHint": "数据管理 SOP、账号与密码管理 SOP、员工签署的账号责任声明"
+    },
+    {
+      "clauseRef": "21 CFR 11.10(k) / Annex 11 §4.8",
+      "requirement": "系统文档控制完善，包括变更控制、配置管理、版本管理，且与实际运行版本一致",
+      "requirementEn": "Documentation controls cover change control, configuration management and version control, and match the version actually in production",
+      "guidance": "核对文档中的版本号与系统实际显示的版本号。不一致是常见缺陷。",
+      "guidanceEn": "Compare documented version with the version actually running.",
+      "riskLevel": "major",
+      "evidenceHint": "系统版本记录、变更控制记录、配置管理台账、系统界面版本截图"
+    },
+    {
+      "clauseRef": "21 CFR 11.200(a)(1)(i)",
+      "requirement": "电子签名使用至少两个不同的识别要素（如账号+密码、密码+动态口令/生物特征），且非连续访问会话每次签名时均使用全部要素",
+      "requirementEn": "Electronic signatures employ at least two distinct components, and where continuous access is not used, all components are used at each signing",
+      "guidance": "核查签名时的认证方式。仅凭已登录会话点击「批准」而不重新输入密码，不满足此要求。",
+      "guidanceEn": "Verify re-authentication at signing; clicking approve in an open session alone does not meet the requirement.",
+      "riskLevel": "critical",
+      "evidenceHint": "签名认证流程说明、签名功能测试记录、认证配置截图"
+    },
+    {
+      "clauseRef": "21 CFR 11.200(a)(2)-(3)",
+      "requirement": "电子签名显示签署人姓名、签署日期时间与签署含义（如审核、批准、复核），且签名与记录永久关联、不可被剪切复制到其他记录",
+      "requirementEn": "Signatures display the printed name, date/time and meaning, and are permanently linked to their record so they cannot be excised or copied to another record",
+      "guidance": "实测：签署后查看签名显示信息是否完整；尝试导出后单独复制签名部分，确认无法附加到其他记录。",
+      "guidanceEn": "Verify displayed signature elements and that signatures cannot be transplanted between records.",
+      "riskLevel": "critical",
+      "evidenceHint": "签名显示样例、签名与记录关联的技术说明与测试记录、签署含义代码清单"
+    },
+    {
+      "clauseRef": "21 CFR 11.200(a)(1)(ii)",
+      "requirement": "连续访问会话期间，未授权的使用尝试被阻止，且会话在设定时间后自动失效",
+      "requirementEn": "During continuous access sessions, unauthorised attempts are prevented and sessions terminate after a defined period of inactivity",
+      "guidance": "实测：登录后静置超过设定时限，确认会话失效需重新认证。核查会话超时设置是否合理（通常 15-30 分钟）。",
+      "guidanceEn": "Test the idle timeout by leaving a session idle.",
+      "riskLevel": "critical",
+      "evidenceHint": "会话超时配置截图、超时测试记录、安全策略文件"
+    },
+    {
+      "clauseRef": "21 CFR 11.300(a)",
+      "requirement": "系统通过唯一性检查确保同一人不得在同一系统上建立或使用多个账号，账号不重复分配给他人",
+      "requirementEn": "The system ensures through uniqueness checks that one person cannot establish or use multiple accounts, and accounts are not reassigned",
+      "guidance": "核查是否有账号回收再分配的情况，以及一人多账号的现象。",
+      "guidanceEn": "Check for account reuse/reassignment and duplicate accounts per person.",
+      "riskLevel": "critical",
+      "evidenceHint": "账号申请与审批流程、账号清单与人员对应表、账号回收与再分配记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.300(b)",
+      "requirement": "密码定期检查、召回或修订（如强制过期、历史密码禁用、复杂度要求）",
+      "requirementEn": "Passwords are periodically checked, recalled or revised through expiry, history and complexity controls",
+      "guidance": "核查密码策略配置：最短长度、复杂度、有效期、历史密码数量限制、失败锁定。",
+      "guidanceEn": "Review password policy configuration including length, complexity, expiry, history and lockout.",
+      "riskLevel": "major",
+      "evidenceHint": "密码策略文件、系统密码配置截图、密码过期与强制的测试记录"
+    },
+    {
+      "clauseRef": "21 CFR 11.300(c)",
+      "requirement": "采取程序确保在紧急情况下可使用安全可靠的连续访问会话，且紧急使用有记录与事后报告",
+      "requirementEn": "Procedures exist for emergency use of secure continuous access, with logging and post-event reporting",
+      "guidance": "核查是否有紧急访问程序（如系统故障时的纸质备用流程）及演练记录。",
+      "guidanceEn": "Check for a documented emergency access procedure and any rehearsal.",
+      "riskLevel": "minor",
+      "evidenceHint": "紧急访问程序（业务连续性计划）、紧急访问记录、事后报告"
+    },
+    {
+      "clauseRef": "21 CFR 11.300(d) / Annex 11 §12.3",
+      "requirement": "采取控制措施防止密码被共享、泄露或篡改，密码传输与存储加密",
+      "requirementEn": "Controls prevent password sharing, disclosure or alteration, with encryption of passwords in transit and at rest",
+      "guidance": "核查密码是否以明文存储（可请 IT 确认）、是否通过明文渠道（如邮件、聊天）传递初始密码。",
+      "guidanceEn": "Verify passwords are not stored or transmitted in plaintext.",
+      "riskLevel": "critical",
+      "evidenceHint": "密码存储方式说明（哈希算法）、密码分发流程、账号责任声明"
+    },
+    {
+      "clauseRef": "21 CFR 11.300(e)",
+      "requirement": "对丢失、被盗、泄露的令牌、卡或其他签名载体进行初步与定期检查，确保其未被篡改或替换",
+      "requirementEn": "Initial and periodic checks ensure tokens, cards and other signing devices are not altered or substituted",
+      "guidance": "若系统使用了实体令牌或智能卡，核查其管理与检查记录。纯软件系统可判定为不适用。",
+      "guidanceEn": "If physical tokens are used, verify their custody and inspection records; otherwise mark not applicable.",
+      "riskLevel": "minor",
+      "evidenceHint": "令牌/卡管理台账、发放与回收记录、定期检查记录"
+    },
+    {
+      "clauseRef": "Annex 11 §7.3 / §13",
+      "requirement": "系统故障、停机、数据迁移后的恢复经过确认，事件有记录并纳入事件管理",
+      "requirementEn": "Recovery from breakdown, shutdown and data migration is verified, with events logged and managed under incident management",
+      "guidance": "核查历史故障记录及故障后的恢复确认记录，尤其是故障期间产生的数据如何补录并标记。",
+      "guidanceEn": "Review incident history and how data generated during downtime was captured and marked.",
+      "riskLevel": "major",
+      "evidenceHint": "系统事件台账、故障报告、恢复确认记录、停机期间数据补录记录"
+    },
+    {
+      "clauseRef": "Annex 11 §7.4 / §10",
+      "requirement": "系统支持数据迁移与归档，迁移过程经过验证，迁移前后数据完整性与可读性得到确认",
+      "requirementEn": "The system supports data migration and archiving, with validated migration and verification of data integrity and readability",
+      "guidance": "核查最近一次系统升级或迁移的验证记录，是否核对了迁移前后的数据条数与内容。",
+      "guidanceEn": "Check migration verification records comparing record counts and content before and after.",
+      "riskLevel": "major",
+      "evidenceHint": "数据迁移方案与验证报告、迁移前后数据核对记录、归档数据可读性验证记录"
+    },
+    {
+      "clauseRef": "Annex 11 §10 / §13",
+      "requirement": "已建立正式变更管理程序，变更前评估对系统验证状态、数据完整性、接口的影响，变更后确认系统仍处于验证状态",
+      "requirementEn": "A formal change management procedure assesses impact on validation status, data integrity and interfaces before change, and confirms the validated state after",
+      "guidance": "核查变更记录中是否有对「验证状态影响」的明确评估结论，而非仅技术变更描述。",
+      "guidanceEn": "Verify each change explicitly concludes on validation status impact.",
+      "riskLevel": "critical",
+      "evidenceHint": "变更控制程序、系统变更记录、变更影响评估表、变更后确认记录"
+    },
+    {
+      "clauseRef": "Annex 11 §11.1",
+      "requirement": "系统与其他系统之间的接口经过验证，接口错误与数据传递失败有处理机制",
+      "requirementEn": "Interfaces between systems are validated and mechanisms exist to handle interface errors and transmission failures",
+      "guidance": "核查接口清单、接口测试记录、接口错误日志与处理记录。",
+      "guidanceEn": "Review the interface inventory, test records and error handling logs.",
+      "riskLevel": "major",
+      "evidenceHint": "接口清单、接口规范与验证报告、接口错误日志、数据传递核对记录"
+    },
+    {
+      "clauseRef": "Annex 11 §11.2-11.3",
+      "requirement": "接口数据的人工输入有额外控制（如复核、双人核对），纸质与电子数据并存的混合系统清楚界定哪一方为原始数据",
+      "requirementEn": "Manual entry into interfaces is subject to additional control, and hybrid systems clearly define whether paper or electronic data is the original record",
+      "guidance": "这是混合系统（如仪器打印图谱+工作站数据）的常见缺陷点。核查 SOP 是否明确定义原始数据的介质、保管方式与核对要求。",
+      "guidanceEn": "Hybrid systems must define the original record medium and reconciliation requirements in the SOP.",
+      "riskLevel": "critical",
+      "evidenceHint": "接口人工录入控制程序、双人复核记录、原始数据定义 SOP、纸质与电子数据核对记录"
+    },
+    {
+      "clauseRef": "Annex 11 §12.4 / §13",
+      "requirement": "系统管理员与业务用户的权限分离，管理员不得具有修改 GxP 业务数据的权限，或其对业务数据的任何变更均被审计追踪记录",
+      "requirementEn": "System administrator access is separated from business user access; administrators cannot modify GxP business data, or any such modification is captured by the audit trail",
+      "guidance": "核查 IT/系统管理员的权限范围。管理员可以改任何数据且不被记录，是严重缺陷。",
+      "guidanceEn": "Check whether IT administrators can alter GxP data, and whether such changes are audited.",
+      "riskLevel": "critical",
+      "evidenceHint": "权限角色定义、管理员账号权限清单、管理员操作审计追踪核查记录"
+    },
+    {
+      "clauseRef": "Annex 11 §13 / §16",
+      "requirement": "系统的事件（故障、超限、异常操作、权限变更）均有记录，并按事件管理程序分类处理；关键事件向管理层报告",
+      "requirementEn": "System incidents are logged and managed by classification, with critical incidents escalated to management",
+      "guidance": "核查事件台账是否真实记录了历史故障，而非仅记录成功事件。",
+      "guidanceEn": "Verify the incident log reflects real failures, not only successful events.",
+      "riskLevel": "major",
+      "evidenceHint": "系统事件台账、事件分类与处理记录、管理层报告记录"
+    },
+    {
+      "clauseRef": "Annex 11 §14 / §15",
+      "requirement": "电子记录在整个保存期内可读、可检索，保存期限符合产品注册要求（通常产品有效期后 1 年，或法规规定的更长期限）",
+      "requirementEn": "Electronic records remain readable and retrievable for the full retention period, which meets product registration requirements",
+      "guidance": "核查保存期限规定与实际执行。注意软硬件淘汰后的可读性风险（如老旧系统无法启动）。",
+      "guidanceEn": "Consider readability risk after hardware/software obsolescence.",
+      "riskLevel": "major",
+      "evidenceHint": "记录保存期限规定、归档策略、长期可读性方案（如格式转换）、历史数据可读性验证记录"
+    },
+    {
+      "clauseRef": "Annex 11 §16 / GAMP 5",
+      "requirement": "系统在停用或退役时，数据按批准的程序迁移或归档，退役过程有文件记录并经过批准",
+      "requirementEn": "On decommissioning, data is migrated or archived per an approved procedure, and the retirement is documented and approved",
+      "guidance": "核查是否有系统生命周期清单，标识哪些系统已退役、其数据去向。",
+      "guidanceEn": "Check the system lifecycle inventory for retired systems and their data disposition.",
+      "riskLevel": "major",
+      "evidenceHint": "系统生命周期清单、退役方案与批准记录、数据迁移或归档证据"
+    },
+    {
+      "clauseRef": "Annex 11 §4.5 / §7.1",
+      "requirement": "系统的时间戳使用统一、准确的时间源，时区处理一致，时间变更受控且有记录",
+      "requirementEn": "Timestamps use a consistent, accurate time source with consistent time zone handling, and time changes are controlled and logged",
+      "guidance": "核查服务器与工作站是否配置了统一时间同步。时间不准会导致审计追踪与批记录时间矛盾。",
+      "guidanceEn": "Verify NTP/time synchronisation across servers and workstations.",
+      "riskLevel": "critical",
+      "evidenceHint": "时间同步配置记录、时区设置说明、时间变更审批与记录"
+    },
+    {
+      "clauseRef": "GAMP 5 / Annex 11 §3",
+      "requirement": "系统按风险确定周期性回顾（periodic review）周期，回顾内容包括变更历史、事件、权限、备份恢复、法规变化适应性",
+      "requirementEn": "A risk-based periodic review is performed covering change history, incidents, access, backup/restore and continued regulatory compliance",
+      "guidance": "核查系统周期性回顾计划与实际执行记录。缺少周期性回顾是常见缺陷。",
+      "guidanceEn": "Verify a periodic review schedule exists and has been executed.",
+      "riskLevel": "major",
+      "evidenceHint": "系统周期性回顾计划、回顾报告、回顾中发现的措施跟踪记录"
+    },
+    {
+      "clauseRef": "Annex 11 §6 / GAMP 5",
+      "requirement": "系统精度、准确度与性能符合 GxP 使用要求，关键计算经过独立验证（如手工计算与系统计算对比）",
+      "requirementEn": "System accuracy, precision and performance meet GxP requirements, with critical calculations independently verified",
+      "guidance": "核查关键计算公式（如含量、效价、稀释倍数）是否有独立验证记录。计算公式错误是重大风险。",
+      "guidanceEn": "Look for independent verification of critical calculations.",
+      "riskLevel": "critical",
+      "evidenceHint": "计算方法说明、手工与系统计算结果比对记录、计算验证测试脚本与报告"
+    }
+  ]
+}

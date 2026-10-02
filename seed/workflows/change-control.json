@@ -1,0 +1,142 @@
+{
+  "code": "CC",
+  "recordPrefix": "CC",
+  "name": "变更控制",
+  "nameEn": "Change Control",
+  "category": "quality_system",
+  "gxpAreas": ["GMP", "GLP", "GCP", "GDP", "GAMP"],
+  "regulationRefs": [
+    "ICH Q10 §3.2.3 - change management system, assessment and approval before implementation",
+    "EU GMP Chapter 1.4(xiii) - change control system",
+    "EU GMP Annex 15 §1.5 / §10 - change control during qualification and validation lifecycle",
+    "21 CFR 211.100 - written procedures for changes in production; 211.160 for lab changes",
+    "EU GMP Annex 11 §10 - change management for computerised systems"
+  ],
+  "description": "评估、批准、实施并验证对工艺、设备、物料、方法、文件或计算机化系统的变更。",
+  "descriptionEn": "Assesses, approves, implements and verifies changes to processes, equipment, materials, methods, documents or computerised systems.",
+  "slaDays": 60,
+  "requiresRootCause": false,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "submitted", "impact_assessed", "approved", "in_implementation", "verification", "closed", "rejected", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "rejected", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "变更标题", "labelEn": "Change title", "type": "text", "required": true },
+    { "key": "summary", "label": "变更描述", "labelEn": "Change description", "type": "textarea", "required": true, "help": "现状是什么，拟变更为何" },
+    { "key": "criticality", "label": "变更等级", "labelEn": "Change classification", "type": "select", "required": true, "options": ["minor", "major", "critical"], "help": "major/critical 通常需要再验证" },
+    { "key": "department", "label": "提出部门", "labelEn": "Requesting department", "type": "select", "required": true, "options": ["生产部", "QC", "QA", "工程部", "研发部", "注册部", "仓储物流", "临床运营", "IT"] },
+    { "key": "product", "label": "涉及产品", "labelEn": "Affected product", "type": "text", "required": false },
+    { "key": "batchNumber", "label": "首个受影响批次", "labelEn": "First affected batch", "type": "text", "required": false },
+    { "key": "dueDate", "label": "计划完成日期", "labelEn": "Target completion date", "type": "date", "required": true }
+  ],
+
+  "steps": [
+    {
+      "code": "request",
+      "name": "变更申请",
+      "nameEn": "Change request",
+      "role": ["production_manager", "qc_manager", "lab_manager", "engineering", "validation_engineer", "ra_officer", "qa_specialist", "production_operator"],
+      "type": "task",
+      "onComplete": "submitted",
+      "form": [
+        { "key": "rationale", "label": "变更理由", "type": "textarea", "required": true, "help": "为什么要变更？如：法规要求、工艺改进、偏差纠正、设备老化" },
+        { "key": "currentState", "label": "当前状态", "type": "textarea", "required": true },
+        { "key": "proposedState", "label": "拟变更后状态", "type": "textarea", "required": true },
+        { "key": "changeType", "label": "变更类型", "type": "select", "required": true, "options": ["process", "equipment", "facility", "material_supplier", "analytical_method", "computerised_system", "document", "specification", "packaging", "other"] }
+      ],
+      "guidance": "变更申请应说明技术理由，不能只写「为了合规」。"
+    },
+    {
+      "code": "impact_assessment",
+      "name": "影响评估",
+      "nameEn": "Impact assessment",
+      "role": ["qa_specialist", "validation_engineer", "qc_manager", "production_manager"],
+      "type": "task",
+      "onComplete": "impact_assessed",
+      "requiresFields": ["qualityImpact", "validationImpact", "regulatoryImpact"],
+      "form": [
+        { "key": "qualityImpact", "label": "对产品质量的影响", "type": "textarea", "required": true },
+        { "key": "validationImpact", "label": "对验证状态的影响", "type": "textarea", "required": true, "help": "是否需要再验证 IQ/OQ/PQ？工艺验证？分析方法验证？" },
+        { "key": "regulatoryImpact", "label": "对注册状态的影响", "type": "textarea", "required": true, "help": "是否需要变更注册？是否属于已批准事项？" },
+        { "key": "csvImpact", "label": "对计算机化系统的影响", "type": "textarea", "required": false, "help": "Annex 11 §10：需评估变更对系统验证状态的影响" },
+        { "key": "ehsImpact", "label": "EHS / 职业健康影响", "type": "textarea", "required": false },
+        { "key": "stabilityImpact", "label": "对稳定性试验的影响", "type": "textarea", "required": false },
+        { "key": "trainingImpact", "label": "培训需求", "type": "textarea", "required": false },
+        { "key": "documentImpact", "label": "需修订的文件清单", "type": "textarea", "required": false, "help": "SOP / 批记录 / 检验方法 / 规格标准 编号及版本" }
+      ],
+      "guidance": "影响评估必须覆盖质量、验证、注册、EHS、数据完整性五个维度，漏项是检查中常见的缺陷。"
+    },
+    {
+      "code": "qa_approval",
+      "name": "QA 批准",
+      "nameEn": "QA approval",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "approved",
+      "onComplete": "approved",
+      "form": [
+        { "key": "decision", "label": "批准决定", "type": "select", "required": true, "options": ["approved", "approved_with_conditions", "rejected", "deferred"] },
+        { "key": "conditions", "label": "附加条件", "type": "textarea", "required": false },
+        { "key": "revalidationRequired", "label": "是否需要再验证", "type": "select", "required": true, "options": ["no", "yes_partial", "yes_full"] },
+        { "key": "regulatoryAction", "label": "注册行动", "type": "select", "required": true, "options": ["none", "notification", "variation", "new_application", "assess_further"] },
+        { "key": "implementationOwner", "label": "实施责任人", "type": "text", "required": true },
+        { "key": "targetDate", "label": "实施目标日期", "type": "date", "required": true }
+      ],
+      "guidance": "变更在批准前不得实施。紧急变更也必须事后补办完整变更控制。"
+    },
+    {
+      "code": "implementation",
+      "name": "实施",
+      "nameEn": "Implementation",
+      "role": ["production_manager", "qc_manager", "engineering", "validation_engineer", "trainer", "warehouse_keeper"],
+      "type": "task",
+      "onComplete": "in_implementation",
+      "form": [
+        { "key": "actionsTaken", "label": "已实施内容", "type": "textarea", "required": true },
+        { "key": "documentsUpdated", "label": "已更新文件（编号+版本+生效日期）", "type": "textarea", "required": true },
+        { "key": "trainingCompleted", "label": "培训完成情况", "type": "textarea", "required": false },
+        { "key": "effectiveDate", "label": "变更生效日期", "type": "date", "required": true },
+        { "key": "masterDataUpdated", "label": "主数据是否已更新", "type": "select", "required": false, "options": ["yes", "no", "not_applicable"] }
+      ],
+      "guidance": "文件必须先修订生效，再实施变更。禁止「先做后补文件」。"
+    },
+    {
+      "code": "verification",
+      "name": "验证与确认",
+      "nameEn": "Verification of change",
+      "role": ["validation_engineer", "qa_specialist", "qc_manager", "production_manager"],
+      "type": "task",
+      "onComplete": "verification",
+      "requiresFields": ["verificationResult"],
+      "persistFields": { "effectiveness_check": "verificationMethod", "effectiveness_result": "verificationResult" },
+      "form": [
+        { "key": "verificationMethod", "label": "验证方法", "type": "textarea", "required": true, "help": "如：连续 3 批工艺验证、比对试验、系统测试脚本执行" },
+        { "key": "verificationResult", "label": "验证结论", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] },
+        { "key": "dataCollected", "label": "数据与证据", "type": "textarea", "required": true },
+        { "key": "deviationsDuringChange", "label": "实施过程中发生的偏差", "type": "textarea", "required": false }
+      ],
+      "guidance": "变更后的首批产品通常需要加强监控，相关数据应作为验证证据归档。"
+    },
+    {
+      "code": "closure",
+      "name": "关闭",
+      "nameEn": "Closure",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "conclusion", "label": "关闭结论", "type": "textarea", "required": true },
+        { "key": "allActionsComplete", "label": "所有措施是否已完成", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "outstandingItems", "label": "遗留事项", "type": "textarea", "required": false },
+        { "key": "nextReviewDate", "label": "后续复核日期", "type": "date", "required": false }
+      ],
+      "guidance": "存在未完成措施时不得关闭，或需明确列出遗留事项及跟踪方式。"
+    }
+  ]
+}

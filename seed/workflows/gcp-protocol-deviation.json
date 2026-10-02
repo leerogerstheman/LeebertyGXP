@@ -1,0 +1,127 @@
+{
+  "code": "GCP-PD",
+  "recordPrefix": "PD",
+  "name": "临床试验方案偏离",
+  "nameEn": "Clinical Protocol Deviation",
+  "category": "study_event",
+  "gxpAreas": ["GCP"],
+  "regulationRefs": [
+    "ICH E6(R2) §4.5 - compliance with protocol; §4.5.4 - deviations documented and explained",
+    "ICH E6(R2) §5.20 - monitoring; §5.18.4 - monitoring reports",
+    "21 CFR 312.66 - assurance of IRB review; 312.62 - investigator recordkeeping",
+    "21 CFR 812.150(a)(4) - deviations from the investigational plan in device trials",
+    "ICH E3 §9.2 - reporting of protocol deviations; NMPA GCP (2020) 第 xx 条"
+  ],
+  "description": "记录、评估并报告临床试验中偏离已批准试验方案的事件，区分重要偏离与一般偏离，判断对受试者安全与数据可靠性的影响。",
+  "descriptionEn": "Records, assesses and reports departures from the approved clinical trial protocol, distinguishing important from non-important deviations and judging impact on subject safety and data reliability.",
+  "slaDays": 14,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "identified", "assessed", "reported", "capa_open", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "偏离标题", "labelEn": "Deviation title", "type": "text", "required": true },
+    { "key": "summary", "label": "偏离描述", "labelEn": "Description", "type": "textarea", "required": true },
+    { "key": "protocolNumber", "label": "试验方案编号及版本", "labelEn": "Protocol number and version", "type": "text", "required": true },
+    { "key": "studyCode", "label": "试验项目编号", "labelEn": "Study / trial code", "type": "text", "required": false },
+    { "key": "subjectId", "label": "受试者编号", "labelEn": "Subject identifier", "type": "text", "required": false, "help": "若为受试者相关偏离。注意：本系统不存储受试者身份信息" },
+    { "key": "site", "label": "研究中心", "labelEn": "Investigational site", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "发生日期", "labelEn": "Date of occurrence", "type": "date", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] }
+  ],
+
+  "steps": [
+    {
+      "code": "identify",
+      "name": "识别与记录",
+      "nameEn": "Identification and recording",
+      "role": ["clinical_monitor", "clinical_pi", "qa_specialist", "qa_auditor"],
+      "type": "task",
+      "onComplete": "identified",
+      "form": [
+        { "key": "deviationType", "label": "偏离类型", "type": "select", "required": true, "options": ["informed_consent", "inclusion_exclusion", "visit_window", "prohibited_medication", "study_procedure", "ip_handling", "randomisation", "blinding", "assessment_omitted", "safety_reporting", "other"] },
+        { "key": "protocolRequirement", "label": "方案要求原文", "type": "textarea", "required": true, "help": "引用方案章节号及原文，便于核查" },
+        { "key": "actualConduct", "label": "实际执行情况", "type": "textarea", "required": true },
+        { "key": "discoveredBy", "label": "发现人及方式", "type": "text", "required": true, "help": "监查、稽查、自查、受试者反馈" },
+        { "key": "sourceDataRef", "label": "原始数据来源", "type": "text", "required": false, "help": "病历、检验报告、受试者日记卡、药物发放记录" }
+      ],
+      "guidance": "所有方案偏离都必须记录，包括研究者主动报告和监查发现的。不得因认为「不严重」而不记录。"
+    },
+    {
+      "code": "assess_impact",
+      "name": "影响评估",
+      "nameEn": "Impact assessment",
+      "role": ["clinical_pi", "clinical_monitor", "qa_specialist"],
+      "type": "signature",
+      "signatureMeaning": "reviewed",
+      "onComplete": "assessed",
+      "requiresFields": ["subjectSafetyImpact", "dataIntegrityImpact", "importantDeviation"],
+      "persistFields": { "impact_assessment": "overallImpact", "root_cause": "rootCause" },
+      "form": [
+        { "key": "importantDeviation", "label": "是否属于重要偏离", "type": "select", "required": true, "options": ["yes", "no"], "help": "重要偏离：可能显著影响受试者权益、安全或福祉，或试验数据的完整性、可靠性" },
+        { "key": "subjectSafetyImpact", "label": "对受试者安全的影响", "type": "textarea", "required": true },
+        { "key": "dataIntegrityImpact", "label": "对数据完整性的影响", "type": "textarea", "required": true, "help": "该受试者数据是否仍可用于主要终点分析" },
+        { "key": "subjectContinues", "label": "受试者是否继续参加试验", "type": "select", "required": true, "options": ["continues", "continues_with_monitoring", "withdrawn", "not_applicable"] },
+        { "key": "overallImpact", "label": "总体影响结论", "type": "textarea", "required": true },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "subjectNotified", "label": "是否已告知受试者", "type": "select", "required": false, "options": ["yes", "no", "not_applicable"] }
+      ],
+      "guidance": "影响评估必须由研究者做出医学判断。监查员不能代替研究者评估受试者安全。"
+    },
+    {
+      "code": "report",
+      "name": "报告与通报",
+      "nameEn": "Reporting and notification",
+      "role": ["clinical_pi", "clinical_monitor", "ra_officer", "pharmacovigilance"],
+      "type": "task",
+      "onComplete": "reported",
+      "form": [
+        { "key": "irbNotified", "label": "伦理委员会通报", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "irbDate", "label": "通报日期", "type": "date", "required": false },
+        { "key": "sponsorNotified", "label": "申办者通报", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "regulatoryNotified", "label": "监管机构通报", "type": "select", "required": true, "options": ["yes", "no", "not_required"], "help": "重要偏离可能需按当地法规报告" },
+        { "key": "protocolAmendmentNeeded", "label": "是否需要修订方案", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "reportedTo", "label": "通报对象及日期", "type": "textarea", "required": false }
+      ],
+      "guidance": "重要偏离通常必须通报伦理委员会。是否需报监管机构取决于当地法规和偏离性质。"
+    },
+    {
+      "code": "capa",
+      "name": "纠正预防措施",
+      "nameEn": "Corrective and preventive action",
+      "role": ["clinical_pi", "clinical_monitor", "qa_specialist", "trainer"],
+      "type": "task",
+      "onComplete": "capa_open",
+      "form": [
+        { "key": "siteRetraining", "label": "研究中心再培训", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "retrainingDetail", "label": "培训内容及参加人员", "type": "textarea", "required": false },
+        { "key": "processChange", "label": "流程改进措施", "type": "textarea", "required": false },
+        { "key": "monitoringPlanChange", "label": "监查计划调整", "type": "textarea", "required": false, "help": "如：将该研究中心列为重点监查、增加现场访视频次" },
+        { "key": "capaOwner", "label": "措施责任人", "type": "text", "required": true },
+        { "key": "capaDueDate", "label": "措施期限", "type": "date", "required": true }
+      ],
+      "guidance": "反复发生的同类偏离说明培训或流程存在系统性问题，仅重复培训通常不足以关闭。"
+    },
+    {
+      "code": "close",
+      "name": "关闭",
+      "nameEn": "Closure",
+      "role": ["qa_manager", "qa_specialist", "clinical_pi"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "form": [
+        { "key": "conclusion", "label": "关闭结论", "type": "textarea", "required": true },
+        { "key": "dataUsedInAnalysis", "label": "受影响数据是否纳入分析", "type": "select", "required": true, "options": ["yes_all", "yes_sensitivity_analysis", "excluded", "per_protocol_definition"] },
+        { "key": "listedInReport", "label": "是否列入临床研究报告", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "effectivenessCheckDate", "label": "有效性检查日期", "type": "date", "required": false }
+      ],
+      "guidance": "ICH E3 要求临床研究报告必须列出所有重要方案偏离及其处理方式。"
+    }
+  ]
+}

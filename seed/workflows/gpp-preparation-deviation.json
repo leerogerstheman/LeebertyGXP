@@ -1,0 +1,135 @@
+{
+  "code": "GPP-PREP",
+  "recordPrefix": "PREP",
+  "name": "医疗机构制剂配制偏差",
+  "nameEn": "Hospital Preparation Compounding Deviation",
+  "category": "preparation_event",
+  "gxpAreas": ["GPP"],
+  "regulationRefs": [
+    "NMPA《医疗机构制剂配制质量管理规范》(试行) - 配制管理与质量管理",
+    "《中华人民共和国药品管理法》- 医疗机构制剂管理规定",
+    "WHO Good Pharmacy Practice (GPP) - compounding and preparation",
+    "USP <797> Pharmaceutical Compounding - Sterile Preparations (referenced for aseptic technique expectations)"
+  ],
+  "description": "记录并调查医疗机构制剂配制过程中的偏差：配制参数偏离、无菌操作偏差、物料或效期问题、计算与投料差错等，评估对制剂质量与患者安全的影响。",
+  "descriptionEn": "Records and investigates deviations during hospital preparation compounding: process parameter departures, aseptic technique breaches, material or expiry issues, calculation and weighing errors, and assesses the impact on preparation quality and patient safety.",
+  "slaDays": 14,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "reported", "contained", "investigating", "qa_review", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "偏差标题", "labelEn": "Deviation title", "type": "text", "required": true },
+    { "key": "summary", "label": "偏差描述", "labelEn": "Description", "type": "textarea", "required": true },
+    { "key": "product", "label": "制剂名称与规格", "labelEn": "Preparation and strength", "type": "text", "required": true },
+    { "key": "batchNumber", "label": "配制批号", "labelEn": "Preparation batch number", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "发生时间", "labelEn": "Date of occurrence", "type": "datetime", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"], "help": "已发放至患者的制剂相关偏差应判定为 major 或 critical" },
+    { "key": "department", "label": "配制类型", "labelEn": "Preparation type", "type": "select", "required": true, "options": ["无菌制剂", "非无菌制剂", "静脉营养液", "细胞毒性制剂", "中药制剂", "其他"] }
+  ],
+
+  "steps": [
+    {
+      "code": "report",
+      "name": "发现与报告",
+      "nameEn": "Detect and report",
+      "role": ["lab_technician", "production_operator", "qa_specialist"],
+      "type": "task",
+      "onComplete": "reported",
+      "requiresFields": ["discoveryContext", "immediateAction"],
+      "form": [
+        { "key": "deviationType", "label": "偏差类型", "type": "select", "required": true, "options": ["process_parameter_departure", "aseptic_technique_breach", "calculation_error", "weighing_error", "material_issue", "expired_material", "equipment_failure", "environmental_excursion", "labeling_error", "other"] },
+        { "key": "discoveryContext", "label": "发现经过", "type": "textarea", "required": true },
+        { "key": "immediateAction", "label": "即时措施", "type": "textarea", "required": true, "help": "停止配制、隔离制剂、拦截发放、通知临床科室" },
+        { "key": "dispensedToPatient", "label": "是否已发放至患者", "type": "select", "required": true, "options": ["no_not_dispensed", "dispensed_not_used", "dispensed_and_used", "unknown"], "help": "已使用的必须立即进入患者安全影响评估" },
+        { "key": "patientIdentified", "label": "受影响患者识别情况", "type": "select", "required": false, "options": ["identified", "not_applicable", "under_investigation"] }
+      ],
+      "guidance": "关键判断是「是否已发放至患者」。已使用则必须立即通知临床科室并评估患者影响，不能等调查完成后再处理。"
+    },
+    {
+      "code": "containment",
+      "name": "隔离与患者安全措施",
+      "nameEn": "Quarantine and patient safety measures",
+      "role": ["qa_specialist", "qa_manager"],
+      "type": "task",
+      "onComplete": "contained",
+      "requiresFields": ["containmentAction", "patientSafetyMeasures"],
+      "form": [
+        { "key": "containmentAction", "label": "制剂隔离措施", "type": "textarea", "required": true, "help": "同批未发放部分的隔离与标识" },
+        { "key": "patientSafetyMeasures", "label": "患者安全措施", "type": "textarea", "required": true, "help": "已使用时的临床通知、患者监测安排、必要时召回未使用部分" },
+        { "key": "clinicalNotified", "label": "临床科室通知情况", "type": "text", "required": false, "help": "通知对象、时间、方式" },
+        { "key": "otherBatchesAffected", "label": "是否影响其他配制批次", "type": "select", "required": true, "options": ["no", "yes", "under_evaluation"] },
+        { "key": "affectedBatches", "label": "受影响批次清单", "type": "textarea", "required": false }
+      ],
+      "guidance": "已经给患者的制剂相关问题，临床沟通的及时性比调查的完美更重要。通知记录必须包含时间与接收人。"
+    },
+    {
+      "code": "investigation",
+      "name": "原因调查",
+      "nameEn": "Root cause investigation",
+      "role": ["qa_specialist", "qc_manager", "lab_manager"],
+      "type": "task",
+      "onComplete": "investigating",
+      "requiresFields": ["rootCause", "impactAssessment"],
+      "persistFields": { "root_cause": "rootCause", "impact_assessment": "impactAssessment" },
+      "form": [
+        { "key": "batchRecordReview", "label": "批配制记录复核", "type": "textarea", "required": true, "help": "投料量、配制参数、复核签名、环境监测数据" },
+        { "key": "equipmentCheck", "label": "设备与计量器具状态", "type": "textarea", "required": true, "help": "天平校准状态、灭菌设备、洁净台、计量器具" },
+        { "key": "materialCheck", "label": "物料核查", "type": "textarea", "required": true, "help": "起始物料来源、批号、效期、储存条件、检验报告" },
+        { "key": "environmentalData", "label": "环境监测数据", "type": "textarea", "required": false, "help": "无菌制剂需评估配制期间洁净度、沉降菌、人员监测" },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "rootCauseMethod", "label": "分析方法", "type": "select", "required": true, "options": ["5 Whys", "Ishikawa / Fishbone", "Fault Tree Analysis", "Human Error Assessment"] },
+        { "key": "impactAssessment", "label": "制剂质量与患者影响评估", "type": "textarea", "required": true, "help": "含量、无菌保证、稳定性、给药剂量准确性、患者风险" },
+        { "key": "stabilityReference", "label": "稳定性 / 效期依据", "type": "textarea", "required": false, "help": "该制剂的效期与储存条件依据来源" }
+      ],
+      "guidance": "计算与称量差错必须核对原始记录而非仅仅重算。若原始记录本身没有独立复核签名，则根本原因是复核环节缺失，而非个人计算失误。"
+    },
+    {
+      "code": "qa_review",
+      "name": "QA 审核与处置",
+      "nameEn": "QA review and disposition",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "disposition",
+      "onComplete": "qa_review",
+      "requiresFields": ["conclusion", "disposition"],
+      "form": [
+        { "key": "conclusion", "label": "调查结论", "type": "textarea", "required": true },
+        { "key": "disposition", "label": "制剂处置", "type": "select", "required": true, "options": ["release", "reject_destroy", "reprocess_permitted", "use_with_clinical_approval", "not_applicable_used"] },
+        { "key": "dispositionBasis", "label": "处置依据", "type": "textarea", "required": true },
+        { "key": "capaRequired", "label": "是否需要 CAPA", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "capaJustification", "label": "CAPA 判定理由", "type": "textarea", "required": true },
+        { "key": "patientOutcome", "label": "患者结局跟踪", "type": "textarea", "required": false },
+        { "key": "pvReportRequired", "label": "是否需转药物警戒报告", "type": "select", "required": true, "options": ["yes", "no", "not_applicable"] }
+      ],
+      "guidance": "「使用并临床同意」这一处置需谨慎：必须有临床科室书面同意与理由，且患者已使用或无法替代的情况才适用。已用于患者的偏差须评估是否构成不良事件并转药物警戒。"
+    },
+    {
+      "code": "closure",
+      "name": "关闭与有效性检查",
+      "nameEn": "Closure and effectiveness check",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "requiresFields": ["effectivenessResult"],
+      "persistFields": { "effectiveness_check": "effectivenessMethod", "effectiveness_result": "effectivenessResult" },
+      "form": [
+        { "key": "correctiveActions", "label": "纠正措施", "type": "textarea", "required": true },
+        { "key": "preventiveActions", "label": "预防措施", "type": "textarea", "required": true, "help": "如引入配制计算双人独立复核、条码核对、无菌操作再确认、环境监测加密" },
+        { "key": "documentsRevised", "label": "已修订文件", "type": "textarea", "required": false },
+        { "key": "trainingDelivered", "label": "人员培训", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "effectivenessMethod", "label": "有效性检查方法", "type": "textarea", "required": true },
+        { "key": "effectivenessResult", "label": "有效性结论", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] },
+        { "key": "trendMonitoring", "label": "趋势监控安排", "type": "textarea", "required": false, "help": "同类偏差是否反复发生，需纳入定期趋势分析" }
+      ],
+      "guidance": "配制类偏差的有效性检查应观察足够批次。反复出现的同类问题（如计算差错）说明复核机制设计无效，仅再做一次培训不足以关闭。"
+    }
+  ]
+}

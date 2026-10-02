@@ -1,0 +1,37 @@
+{
+  "name": "gxp-workbench",
+  "version": "1.0.0",
+  "description": "LeebertyGXP - a configuration-driven workbench for GMP/GLP/GCP/GVP/GDP/GPP good-practice operations",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node scripts/seed.js",
+    "test": "node test/run-all.js",
+    "verify-audit": "node scripts/verify-audit.js",
+    "backup": "node scripts/backup.js",
+    "build:exe": "node scripts/build-exe.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "gxp",
+    "gmp",
+    "glp",
+    "gcp",
+    "gvp",
+    "gdp",
+    "good-manufacturing-practice",
+    "computerised-system-validation",
+    "annex-11",
+    "21-cfr-part-11",
+    "audit-trail",
+    "data-integrity",
+    "alcoa-plus",
+    "electronic-signature"
+  ]
+}

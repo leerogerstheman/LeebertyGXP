@@ -1,0 +1,119 @@
+{
+  "code": "CAPA",
+  "recordPrefix": "CAPA",
+  "name": "纠正与预防措施",
+  "nameEn": "Corrective and Preventive Action",
+  "category": "quality_system",
+  "gxpAreas": ["GMP", "GLP", "GCP", "GDP", "GVP"],
+  "regulationRefs": [
+    "ICH Q10 §3.2.2 - corrective and preventive action system, including effectiveness checks",
+    "21 CFR 211.192 - investigations shall extend to other batches that may be affected",
+    "21 CFR 820.100 (via ICH Q10 alignment) - CAPA procedures",
+    "EU GMP Chapter 1.4(xiv) - CAPA implemented and effective"
+  ],
+  "description": "针对已识别的不符合项制定纠正与预防措施，并验证其有效性。",
+  "descriptionEn": "Establishes corrective and preventive actions for identified nonconformities and verifies their effectiveness.",
+  "slaDays": 90,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "raised", "plan_approved", "in_implementation", "effectiveness_review", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "CAPA 标题", "labelEn": "CAPA title", "type": "text", "required": true },
+    { "key": "summary", "label": "问题描述", "labelEn": "Problem statement", "type": "textarea", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] },
+    { "key": "ownerId", "label": "责任人", "labelEn": "Action owner", "type": "user", "required": false },
+    { "key": "dueDate", "label": "完成期限", "labelEn": "Due date", "type": "date", "required": true },
+    { "key": "rootCause", "label": "根本原因", "labelEn": "Root cause", "type": "textarea", "required": false, "help": "若源自偏差/审计，通常已在上游记录中确定" }
+  ],
+
+  "steps": [
+    {
+      "code": "root_cause",
+      "name": "根本原因确认",
+      "nameEn": "Root cause confirmation",
+      "role": ["qa_specialist", "qa_manager", "qc_manager", "lab_manager"],
+      "type": "task",
+      "onComplete": "raised",
+      "requiresFields": ["rootCause"],
+      "persistFields": { "root_cause": "rootCause", "root_cause_method": "method" },
+      "form": [
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "method", "label": "分析方法", "type": "select", "required": true, "options": ["5 Whys", "Ishikawa / Fishbone", "Fault Tree Analysis", "FMEA", "Is-Is Not", "Trend analysis"] },
+        { "key": "scopeAssessment", "label": "范围评估", "labelEn": "Scope / other affected areas", "type": "textarea", "required": true, "help": "是否存在同类问题？其他产线/产品/场所/研究是否受影响？" }
+      ],
+      "guidance": "CAPA 必须针对根本原因，而不是针对现象。纠正措施解决已发生的问题，预防措施防止再次发生。"
+    },
+    {
+      "code": "plan_approval",
+      "name": "措施计划批准",
+      "nameEn": "Action plan approval",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "approved",
+      "onComplete": "plan_approved",
+      "form": [
+        { "key": "correctiveActions", "label": "纠正措施（逐条）", "type": "textarea", "required": true },
+        { "key": "preventiveActions", "label": "预防措施（逐条）", "type": "textarea", "required": true },
+        { "key": "systemicAction", "label": "系统性措施", "type": "textarea", "required": false, "help": "如修订 SOP、增加培训、变更设计、增加复核步骤" },
+        { "key": "ownerPerAction", "label": "各项措施责任人", "type": "textarea", "required": true },
+        { "key": "duePerAction", "label": "各项措施期限", "type": "textarea", "required": true }
+      ],
+      "guidance": "措施必须具体、可执行、可验证。避免「加强培训」「提高意识」这类无法验证的措施。"
+    },
+    {
+      "code": "implementation",
+      "name": "措施实施",
+      "nameEn": "Implementation",
+      "role": ["production_manager", "qc_manager", "lab_manager", "qa_specialist", "engineering", "trainer"],
+      "type": "task",
+      "onComplete": "in_implementation",
+      "form": [
+        { "key": "actionsCompleted", "label": "已完成措施", "type": "textarea", "required": true },
+        { "key": "evidenceRefs", "label": "证据引用", "type": "textarea", "required": true, "help": "如：SOP 编号及版本、培训记录编号、变更控制单号" },
+        { "key": "documentsRevised", "label": "已修订文件", "type": "textarea", "required": false },
+        { "key": "trainingDelivered", "label": "已完成培训", "type": "select", "required": true, "options": ["yes", "no", "not_required"] }
+      ],
+      "guidance": "每项措施都要有客观证据。仅声称「已完成」而无证据，检查时会被判为未实施。"
+    },
+    {
+      "code": "effectiveness_check",
+      "name": "有效性检查",
+      "nameEn": "Effectiveness check",
+      "role": ["qa_specialist", "qa_manager"],
+      "type": "task",
+      "onComplete": "effectiveness_review",
+      "requiresFields": ["result", "evidence"],
+      "persistFields": { "effectiveness_check": "method", "effectiveness_result": "result" },
+      "form": [
+        { "key": "method", "label": "检查方法", "type": "textarea", "required": true },
+        { "key": "sampleSize", "label": "检查样本量", "type": "text", "required": false, "help": "如：后续 10 批、3 个月趋势数据" },
+        { "key": "result", "label": "检查结果", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] },
+        { "key": "evidence", "label": "客观证据", "type": "textarea", "required": true },
+        { "key": "recurrence", "label": "是否再次发生", "type": "select", "required": true, "options": ["no", "yes"] }
+      ],
+      "guidance": "有效性检查应在措施实施后经过足够时间进行，以便观察到真实效果。"
+    },
+    {
+      "code": "closure",
+      "name": "QA 关闭",
+      "nameEn": "QA closure",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "conclusion", "label": "关闭结论", "type": "textarea", "required": true },
+        { "key": "residualRisk", "label": "残余风险", "type": "textarea", "required": false },
+        { "key": "followUpRequired", "label": "是否需要后续跟踪", "type": "select", "required": true, "options": ["no", "yes"] }
+      ],
+      "guidance": "有效性判定为 not_effective 时不得关闭，必须重新开启调查。"
+    }
+  ]
+}

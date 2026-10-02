@@ -1,0 +1,127 @@
+{
+  "code": "OOS",
+  "recordPrefix": "OOS",
+  "name": "超标结果调查",
+  "nameEn": "Out of Specification Investigation",
+  "category": "lab_event",
+  "gxpAreas": ["GMP", "GLP"],
+  "regulationRefs": [
+    "21 CFR 211.192 - any unexplained discrepancy or failure of a batch to meet specifications shall be thoroughly investigated",
+    "21 CFR 211.160(b) - laboratory controls; 211.165 - testing and release for distribution",
+    "EU GMP Chapter 6.3.1-6.3.3 - out of specification results, phase I and phase II investigation",
+    "FDA Guidance: Investigating Out-of-Specification Test Results for Pharmaceutical Production (2006)",
+    "MHRA OOS/OOT guidance; WHO TRS 1019 Annex 3 §10"
+  ],
+  "description": "按阶段一（实验室调查）与阶段二（全面调查）处理超标（OOS）与超趋势（OOT）结果，作出批次处置决定。",
+  "descriptionEn": "Handles out-of-specification and out-of-trend results using phase I laboratory investigation and phase II full investigation, and determines batch disposition.",
+  "slaDays": 30,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "phase1_lab_investigation", "phase2_full_investigation", "qa_review", "disposition", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "调查标题", "labelEn": "Investigation title", "type": "text", "required": true, "help": "如：XX 片含量测定结果 92.1%（标准 95.0-105.0%）" },
+    { "key": "summary", "label": "结果描述", "labelEn": "Result description", "type": "textarea", "required": true },
+    { "key": "batchNumber", "label": "批号", "labelEn": "Batch / Sample number", "type": "text", "required": true },
+    { "key": "product", "label": "产品 / 检品", "labelEn": "Product", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "检验日期", "labelEn": "Test date", "type": "datetime", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] }
+  ],
+
+  "steps": [
+    {
+      "code": "initial_report",
+      "name": "结果报告与初步确认",
+      "nameEn": "Initial report and confirmation",
+      "role": ["qc_analyst", "lab_technician"],
+      "type": "task",
+      "onComplete": "phase1_lab_investigation",
+      "form": [
+        { "key": "testMethod", "label": "检验方法（编号+版本）", "type": "text", "required": true },
+        { "key": "specification", "label": "质量标准限度", "type": "text", "required": true },
+        { "key": "observedResult", "label": "实测结果", "type": "text", "required": true },
+        { "key": "rawDataRef", "label": "原始数据引用", "type": "text", "required": true, "help": "图谱编号、序列号、工作站路径" },
+        { "key": "instrumentUsed", "label": "所用仪器（含校准状态）", "type": "text", "required": true },
+        { "key": "sampleCondition", "label": "样品状态", "type": "textarea", "required": false }
+      ],
+      "guidance": "严禁在未完成调查前重新进样或修改方法。原始数据必须保留，不得被后续数据覆盖。"
+    },
+    {
+      "code": "phase1_lab",
+      "name": "阶段一：实验室调查",
+      "nameEn": "Phase I - Laboratory investigation",
+      "role": ["qc_analyst", "qc_manager", "lab_manager"],
+      "type": "task",
+      "onComplete": "phase2_full_investigation",
+      "requiresFields": ["phase1Conclusion", "labErrorFound"],
+      "form": [
+        { "key": "systemSuitability", "label": "系统适用性检查", "type": "textarea", "required": true },
+        { "key": "chromatogramsReviewed", "label": "图谱审核情况", "type": "textarea", "required": true, "help": "是否有异常峰、气泡、漏液、积分错误" },
+        { "key": "calculationsVerified", "label": "计算复核", "type": "textarea", "required": true, "help": "称量、稀释、单位换算、软件计算参数" },
+        { "key": "instrumentCheck", "label": "仪器状态检查", "type": "textarea", "required": true },
+        { "key": "reagentCheck", "label": "试剂 / 对照品 / 色谱柱检查", "type": "textarea", "required": true, "help": "有效期、批号、储存条件" },
+        { "key": "labErrorFound", "label": "是否发现实验室差错", "type": "select", "required": true, "options": ["yes_assignable_cause", "no", "inconclusive"] },
+        { "key": "phase1Conclusion", "label": "阶段一结论", "type": "textarea", "required": true }
+      ],
+      "guidance": "阶段一仅能推翻因实验室差错导致的无效结果。若无明确实验室差错，结果仍然有效，必须进入阶段二，不得用复测结果平均值掩盖 OOS。"
+    },
+    {
+      "code": "phase2_full",
+      "name": "阶段二：全面调查",
+      "nameEn": "Phase II - Full investigation",
+      "role": ["qc_manager", "qa_specialist", "production_manager", "lab_manager"],
+      "type": "task",
+      "onComplete": "qa_review",
+      "requiresFields": ["rootCause", "productionReview"],
+      "persistFields": { "root_cause": "rootCause", "root_cause_method": "rootCauseMethod", "impact_assessment": "batchImpact" },
+      "form": [
+        { "key": "productionReview", "label": "生产环节审核", "type": "textarea", "required": true, "help": "批记录、投料、工艺参数、设备、清洁、环境监测" },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "rootCauseMethod", "label": "分析方法", "type": "select", "required": true, "options": ["5 Whys", "Ishikawa / Fishbone", "Fault Tree Analysis", "Is-Is Not", "Trend analysis"] },
+        { "key": "batchImpact", "label": "批次与产品影响评估", "type": "textarea", "required": true, "help": "同一批次其他检项、同产品其他批次、已上市批次、稳定性批次" },
+        { "key": "ootAnalysis", "label": "超趋势分析", "type": "textarea", "required": false, "help": "是否属于趋势偏移而非真正超标" }
+      ],
+      "guidance": "阶段二必须由 QA 与生产共同参与。需要注意 OOS 是否属于系统性趋势问题的早期信号。"
+    },
+    {
+      "code": "qa_disposition",
+      "name": "QA 处置决定",
+      "nameEn": "QA disposition",
+      "role": ["qa_manager", "qp"],
+      "type": "signature",
+      "signatureMeaning": "disposition",
+      "onComplete": "disposition",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "retestJustified", "label": "是否允许复测", "type": "select", "required": true, "options": ["no", "yes_documented_reason", "yes_original_invalid"] },
+        { "key": "retestPlan", "label": "复测方案", "type": "textarea", "required": false, "help": "若允许复测：样品量、份数、预先设定的判定规则" },
+        { "key": "resampleJustified", "label": "是否允许重新取样", "type": "select", "required": true, "options": ["no", "yes_documented_reason"] },
+        { "key": "investigationConclusion", "label": "调查结论", "type": "textarea", "required": true },
+        { "key": "batchDisposition", "label": "批次处置", "type": "select", "required": true, "options": ["release", "reject", "reprocess", "rework", "regrade", "extend_investigation"] },
+        { "key": "justification", "label": "处置理由", "type": "textarea", "required": true }
+      ],
+      "guidance": "「复测合格即放行」是检查中最高频的严重缺陷。复测必须有预先设定的方案和统计学依据。"
+    },
+    {
+      "code": "closure",
+      "name": "关闭与有效性",
+      "nameEn": "Closure and effectiveness",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "form": [
+        { "key": "correctiveActions", "label": "纠正预防措施", "type": "textarea", "required": true },
+        { "key": "capaLinks", "label": "关联 CAPA 编号", "type": "textarea", "required": false },
+        { "key": "effectivenessMethod", "label": "有效性检查方法", "type": "textarea", "required": false },
+        { "key": "trendMonitoring", "label": "趋势监控安排", "type": "textarea", "required": false }
+      ],
+      "guidance": "OOS 趋势应纳入产品质量回顾（APR/PQR）。反复出现的同类 OOS 说明 CAPA 无效。"
+    }
+  ]
+}

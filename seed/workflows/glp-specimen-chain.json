@@ -1,0 +1,129 @@
+{
+  "code": "GLP-SPEC",
+  "recordPrefix": "GLPS",
+  "name": "GLP 标本与原始数据链偏差",
+  "nameEn": "GLP Specimen and Raw Data Chain Deviation",
+  "category": "study_event",
+  "gxpAreas": ["GLP"],
+  "regulationRefs": [
+    "OECD Principles of GLP ENV/MC/CHEM(98)17 §2.1.2 (study director), §7 (conduct of the study)",
+    "21 CFR 58.130(e) - specimens shall be identified by test system, study, nature and date of collection",
+    "21 CFR 58.130(c) - all data generated shall be recorded directly, promptly, accurately and legibly",
+    "21 CFR 58.190 - storage and retrieval of records and data; 58.195 retention",
+    "OECD GLP Consensus Document No. 22 - data integrity"
+  ],
+  "description": "记录并调查 GLP 研究中标本标识、交接链、储存条件或原始数据记录环节的偏差，评估对数据完整性与研究结论有效性的影响。",
+  "descriptionEn": "Records and investigates deviations in specimen identification, chain of custody, storage conditions or raw data recording during a GLP study, and assesses the impact on data integrity and the validity of study conclusions.",
+  "slaDays": 21,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": false,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "recorded", "qa_notified", "assessed", "resolved", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "偏差标题", "labelEn": "Deviation title", "type": "text", "required": true },
+    { "key": "summary", "label": "偏差描述", "labelEn": "Description", "type": "textarea", "required": true },
+    { "key": "studyCode", "label": "研究编号", "labelEn": "Study number", "type": "text", "required": true },
+    { "key": "protocolNumber", "label": "试验方案编号及版本", "labelEn": "Study plan number and version", "type": "text", "required": false },
+    { "key": "occurredAt", "label": "发生日期", "labelEn": "Date of occurrence", "type": "date", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] },
+    { "key": "department", "label": "发生环节", "labelEn": "Function involved", "type": "select", "required": true, "options": ["动物房", "临床检验", "病理室", "分析实验室", "供试品管理", "样本库", "档案室"] }
+  ],
+
+  "steps": [
+    {
+      "code": "record",
+      "name": "记录偏差并保全证据",
+      "nameEn": "Record the deviation and preserve evidence",
+      "role": ["lab_technician", "lab_manager", "qa_auditor"],
+      "type": "task",
+      "onComplete": "recorded",
+      "requiresFields": ["whatHappened", "preservationAction"],
+      "form": [
+        { "key": "deviationType", "label": "偏差类型", "type": "select", "required": true, "options": ["specimen_misidentification", "chain_of_custody_break", "storage_excursion", "raw_data_not_contemporaneous", "raw_data_correction_improper", "specimen_loss", "transcription_error", "other"] },
+        { "key": "whatHappened", "label": "事实描述（客观、可核查）", "type": "textarea", "required": true },
+        { "key": "affectedSpecimens", "label": "受影响标本 / 数据", "type": "text", "required": true, "help": "标本编号、数量、采集时间范围" },
+        { "key": "timeWindow", "label": "受影响时间范围", "type": "text", "required": true },
+        { "key": "preservationAction", "label": "已采取的保全措施", "type": "textarea", "required": true, "help": "关键：先保全证据，再修复问题" },
+        { "key": "rawDataRef", "label": "原始数据引用", "type": "text", "required": false }
+      ],
+      "guidance": "GLP 偏差记录本身就是原始数据的一部分。发现后第一动作是保全证据而非修复——任何修改都可能加重事件性质。"
+    },
+    {
+      "code": "qa_notification",
+      "name": "通知 QA 与专题负责人",
+      "nameEn": "Notify QA and the study director",
+      "role": ["qa_auditor", "qa_specialist"],
+      "type": "task",
+      "onComplete": "qa_notified",
+      "form": [
+        { "key": "qaNotifiedAt", "label": "通知时间", "type": "text", "required": true },
+        { "key": "studyDirectorInformed", "label": "是否已通知专题负责人", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "studyDirectorResponse", "label": "专题负责人意见", "type": "textarea", "required": false },
+        { "key": "qaInitialComment", "label": "QA 初步意见", "type": "textarea", "required": true }
+      ],
+      "guidance": "21 CFR 58.35 要求 QA 部门独立于研究实施，直接向管理层报告。QA 的意见必须独立记录，不受专题负责人影响。"
+    },
+    {
+      "code": "impact_assessment",
+      "name": "数据完整性与研究影响评估",
+      "nameEn": "Data integrity and study impact assessment",
+      "role": ["lab_manager", "qa_specialist"],
+      "type": "signature",
+      "signatureMeaning": "reviewed",
+      "onComplete": "assessed",
+      "requiresFields": ["dataIntegrityImpact", "dataValidity", "studyImpact"],
+      "persistFields": { "root_cause": "rootCause", "impact_assessment": "studyImpact" },
+      "form": [
+        { "key": "dataIntegrityImpact", "label": "对数据完整性的影响", "type": "textarea", "required": true, "help": "受影响数据是否仍可归属、清晰、同步、原始、准确、完整" },
+        { "key": "reconstructable", "label": "数据是否可重建或交叉验证", "type": "select", "required": true, "options": ["fully_reconstructable", "partially_with_qualification", "not_reconstructable"] },
+        { "key": "dataValidity", "label": "受影响数据的有效性判定", "type": "select", "required": true, "options": ["valid_data_retained", "valid_with_qualification", "data_excluded", "study_repeated"] },
+        { "key": "studyImpact", "label": "对研究结论的影响", "type": "textarea", "required": true, "help": "是否影响研究目的、终点指标、统计学分析、动物福利" },
+        { "key": "affectedAnimals", "label": "受影响动物 / 标本编号", "type": "text", "required": false },
+        { "key": "affectedParameters", "label": "受影响检测参数", "type": "text", "required": false },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true, "help": "区分个人操作差错与系统性设计缺陷" },
+        { "key": "reportingRequired", "label": "是否需在最终报告中说明", "type": "select", "required": true, "options": ["yes", "no"] }
+      ],
+      "guidance": "21 CFR 58.185(a)(11) 要求最终报告中必须说明偏离试验方案的情况及其对研究结果的影响。判定数据可重建时必须给出重建方法与依据。"
+    },
+    {
+      "code": "resolution",
+      "name": "纠正与预防措施",
+      "nameEn": "Corrective and preventive action",
+      "role": ["lab_manager", "qa_specialist", "trainer"],
+      "type": "task",
+      "onComplete": "resolved",
+      "requiresFields": ["correction", "prevention"],
+      "form": [
+        { "key": "correction", "label": "纠正措施", "type": "textarea", "required": true },
+        { "key": "prevention", "label": "预防措施", "type": "textarea", "required": true },
+        { "key": "sopRevised", "label": "是否修订 SOP 或试验方案", "type": "select", "required": true, "options": ["no", "yes"] },
+        { "key": "sopRef", "label": "文件编号及新版本", "type": "text", "required": false },
+        { "key": "trainingDone", "label": "相关人员培训", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "systemChange", "label": "需要的信息系统改进", "type": "textarea", "required": false, "help": "如标本条码、交接扫描、电子记录强制字段" }
+      ],
+      "guidance": "标本链或数据记录类问题的根本原因往往是流程设计（如手工抄写编号），仅靠再培训无法防止再发，应优先考虑系统性改进。"
+    },
+    {
+      "code": "close",
+      "name": "QA 关闭",
+      "nameEn": "QA closure",
+      "role": ["qa_manager", "qa_auditor"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "qaConclusion", "label": "QA 结论", "type": "textarea", "required": true },
+        { "key": "reportedToManagement", "label": "是否已向管理层报告", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "studyDirectorAgreement", "label": "专题负责人是否认同结论", "type": "select", "required": true, "options": ["yes", "no", "not_consulted"] },
+        { "key": "finalReportReference", "label": "最终报告中的说明位置", "type": "text", "required": false }
+      ],
+      "guidance": "若与专题负责人意见不一致，必须记录分歧内容及最终裁定依据——检查员会重点核查 QA 独立性是否真实存在。"
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "code": "GPP-PREP",
+  "title": "医疗机构制剂配制质量管理规范自查表（GPP / 医院制剂配制）",
+  "titleEn": "Institutional Preparation (Hospital Compounding) Self-Inspection Checklist (NMPA GPP / WHO GPP)",
+  "scope": "self_inspection",
+  "category": "preparation",
+  "gxpAreas": ["GPP"],
+  "regulation": "NMPA《医疗机构制剂配制质量管理规范》(试行);《医疗机构制剂注册管理办法》(试行);《医疗机构处方审核规范》(2018);《药品不良反应报告和监测管理办法》;《麻醉药品和精神药品管理条例》; WHO/FIP Good Pharmacy Practice",
+  "authority": "NMPA / 国家卫生健康委 / WHO",
+  "version": "《医疗机构制剂配制质量管理规范》(试行)（2001 年发布施行）;《医疗机构处方审核规范》(2018);《药品不良反应报告和监测管理办法》(2011); WHO/FIP Good Pharmacy Practice (2011)",
+  "description": "用于医疗机构药学部（药剂科）对自制制剂配制与使用全过程的自查，覆盖机构与人员、房屋与设施、设备、物料、配制管理、质量管理、包装与标签、使用与用药指导、文件记录、委托配制与自查。每一项均为可判定的具体断言，无菌制剂的环境监测、灭菌与无菌操作，以及批配制记录的数据完整性是核查重点。",
+  "descriptionEn": "Self-inspection checklist for hospital pharmacy compounding, covering organisation and personnel, premises and facilities, equipment, materials, preparation management, quality management, packaging and labelling, use and patient counselling, documentation, contract preparation and self-inspection. Sterile preparation controls — environmental monitoring, sterilisation and aseptic technique — and batch record data integrity receive particular depth.",
+  "items": [
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 机构与人员（许可证与配制范围）",
+      "requirement": "《医疗机构制剂许可证》在有效期内，配制品种、剂型与配制范围与许可证核准内容一致，委托或受托配制已按规定备案或批准，未配制许可范围外的品种",
+      "requirementEn": "The institutional preparation licence is valid and the products, dosage forms and preparation scope match the approved licence; contract preparation is filed or approved as required, and no product is prepared outside the licensed scope",
+      "guidance": "索取许可证、制剂批准文号或备案清单与实际配制批记录，逐品种核对。常见缺陷是实际配制了未批准的品种、擅自扩大剂型范围（许可证仅核准非无菌外用制剂却开展注射剂配制），以及委托配制未备案。抽查近 3 个月的配制批记录与许可证范围比对。",
+      "guidanceEn": "Cross-check the licence scope against the preparation log for the last three months; unapproved products or dosage forms are critical findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "《医疗机构制剂许可证》、制剂批准文号或备案凭证、配制品种清单、配制批记录、委托配制备案与批准文件"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 机构与人员（负责人与质量职能）",
+      "requirement": "已任命制剂配制负责人与质量管理负责人，具备药学专业背景与执业药师资格或相应技术职称，职责以书面形式明确，质量管理职能独立于配制操作并对制剂放行有决定权",
+      "requirementEn": "A person in charge of preparation and a person in charge of quality management are appointed with a pharmaceutical background and pharmacist registration or equivalent qualification, with written duties, and the quality function is independent of preparation operations with authority over batch release",
+      "guidance": "核查任命文件、学历与职称证明、执业药师注册记录、岗位职责描述，并核对放行签名。常见缺陷是质量管理负责人同时承担配制操作（自己配制自己放行）、由无药学背景人员担任，或长期空缺由他人代签。抽查最近 3 批的放行签名与授权一致。",
+      "guidanceEn": "Verify the release authority is independent of preparation; the same person preparing and releasing is a structural finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "任命文件、学历与职称证明、执业药师注册证、岗位职责描述、放行签名记录、组织架构图与人员花名册"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 机构与人员（培训与健康）",
+      "requirement": "配制与质量管理人员的初始培训和持续培训有记录并含考核，内容覆盖配制规程、洁净操作、无菌技术与法规更新；直接接触制剂的人员建立健康档案并定期体检，患有可能污染药品疾病的人员已调离直接接触岗位",
+      "requirementEn": "Preparation and quality personnel have documented initial and continuing training with assessment covering master formulae, cleanroom conduct, aseptic technique and regulatory updates; personnel in direct contact with preparations have health records with periodic examinations, and those with conditions that could contaminate products are reassigned",
+      "guidance": "核查培训记录是否早于该员工独立操作，是否含考核与无菌操作专项培训。健康方面看体检频次是否符合规定、是否包含传染病与皮肤病筛查、是否有健康异常报告与调岗记录。常见缺陷是体检报告齐全但无异常报告机制，或新入职人员未体检即进入洁净区。",
+      "guidanceEn": "Check training precedes independent work and that health records include an active reporting mechanism, not just pre-employment examinations.",
+      "riskLevel": "major",
+      "evidenceHint": "培训计划与记录（含考核）、无菌操作与洁净区行为培训记录、健康档案与体检报告、健康异常报告与调岗记录、培训矩阵"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 机构与人员（卫生与更衣）",
+      "requirement": "进入配制区的人员遵守卫生与更衣规定，按洁净级别经相应更衣程序进入，不化妆、不佩戴饰物与手表，洁净服清洗与灭菌有记录，人员在洁净区内的行为符合规定",
+      "requirementEn": "Personnel entering preparation areas follow hygiene and gowning requirements, entering through the gowning procedure appropriate to the clean area grade, without cosmetics, jewellery or watches, with documented cleanroom garment laundering and sterilisation and compliant behaviour inside the clean area",
+      "guidance": "现场观察实际更衣过程而非只看文件：手部消毒、口罩与手套佩戴、洁净服是否遮挡全部毛发。核查洁净服的清洗、灭菌与发放记录，以及更衣确认记录。常见缺陷是更衣程序贴在墙上但实际步骤被简化、洁净服清洗无记录或与普通工作服混洗。",
+      "guidanceEn": "Watch the real gowning sequence and check that garment laundering and sterilisation records exist.",
+      "riskLevel": "major",
+      "evidenceHint": "卫生与更衣 SOP、更衣确认记录、洁净服清洗与灭菌记录、人员卫生检查记录、现场观察记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 房屋与设施（布局与分区）",
+      "requirement": "配制区域布局能防止交叉污染与混淆，配制区与办公、生活、门诊调剂等区域分开，人流与物流走向合理；无菌制剂与非无菌制剂、内服与外用制剂分室配制并有独立器具",
+      "requirementEn": "The layout prevents cross-contamination and mix-ups: preparation areas are separated from offices, welfare and dispensing areas, personnel and material flows are logical, and sterile versus non-sterile and oral versus external preparations are compounded in separate rooms with dedicated utensils",
+      "guidance": "现场沿实际动线走一遍，寻找交叉点，例如外用药配制人员随后进入内服制剂配制间、同一器具未经清洁即用于不同品种。索取平面图与消毒剂、清洁工具的分区使用规定。常见缺陷是图纸上有分区而实际用同一间房分时段配制、洁具混用、物料与人员共用通道。",
+      "guidanceEn": "Walk the real flow and look for shared rooms, utensils or cleaning equipment between incompatible preparations.",
+      "riskLevel": "critical",
+      "evidenceHint": "配制区平面图与人流物流图、分室配制规定、清洁工具与消毒剂分区使用记录、现场核查记录与照片"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 房屋与设施（洁净级别与气流）",
+      "requirement": "无菌制剂配制与灌装环境的洁净级别符合规定并有局部百级保护，非无菌制剂配制区有相应的清洁与防尘措施；洁净区压差、换气次数与气流方向符合要求并有记录，空气净化系统运行状态受监控",
+      "requirementEn": "Sterile preparation and filling are performed at the required clean area grade with local grade A protection, non-sterile areas have appropriate cleaning and dust control, and pressure differentials, air changes and airflow direction meet requirements with records and monitored air handling system status",
+      "guidance": "现场查看压差表读数与洁净区标识，核对压差记录是否连续、超范围时是否有处理。无菌配制的关键操作（分装、灌装）是否在局部百级保护下进行、操作是否干扰气流。常见缺陷是压差计损坏未修、压差记录长期恒定不变（补记）、超净工作台放在无级别房间内。",
+      "guidanceEn": "Check pressure differential readings and record continuity, and that critical aseptic operations have grade A protection.",
+      "riskLevel": "critical",
+      "evidenceHint": "洁净区平面图与级别标识、压差记录、空气净化系统运行与维护记录、换气次数测试报告、气流流型测试报告、过滤器更换记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 房屋与设施（环境监测）",
+      "requirement": "无菌制剂配制区按规定开展环境监测（悬浮粒子、沉降菌或浮游菌、表面与人员微生物、温湿度），监测点位与频率有依据，结果在限度内并有趋势分析，超限结果已调查并评估对已配制批次的影响",
+      "requirementEn": "Sterile preparation areas are environmentally monitored (airborne particles, settle or active air bioburden, surface and personnel monitoring, temperature and humidity) with justified locations and frequency, results within limits with trending, and excursions investigated with assessment of affected batches",
+      "guidance": "索取近 6 个月的监测数据与趋势图，核查点位是否覆盖关键操作位置（配液、灌装、人员手套与袖口）、频率是否符合规定。常见缺陷是超限结果只有复测合格而无调查与批次影响结论，或监测未覆盖人员与表面。无菌制剂无环境监测数据是严重缺陷。",
+      "guidanceEn": "Check monitoring covers critical locations and personnel, and that excursions lead to an investigation and a batch impact conclusion.",
+      "riskLevel": "critical",
+      "evidenceHint": "环境监测计划与点位图、监测原始数据与趋势分析、超限调查报告与批次影响评估、培养基与采样器材记录、监测方法验证"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 房屋与设施（维护、清洁与给排水）",
+      "requirement": "配制区内表面（地面、墙面、顶棚）平整、光滑、易清洁、无脱落物，门窗与管线穿墙处密封良好；清洁与消毒有程序并按频率执行且有记录；给排水管道防倒流，地漏有水封，排水不穿越洁净区",
+      "requirementEn": "Interior surfaces in preparation areas are smooth, cleanable and free of shedding, with sealed penetrations; cleaning and disinfection follow procedures at defined frequency with records; water and drainage lines have backflow protection, floor drains are sealed, and drainage does not cross clean areas",
+      "guidance": "现场检查墙角、地面接缝、顶棚是否有霉斑、开裂、涂层脱落；查看清洁记录是否与规定频率一致、消毒剂是否在有效期内配制。给排水方面关注水池、地漏、管道是否有异味或回流风险。常见缺陷是清洁记录提前批量填写、消毒剂无配制与效期记录。",
+      "guidanceEn": "Inspect surfaces for damage and mould, and check that cleaning records and disinfectant preparation dates are genuine.",
+      "riskLevel": "major",
+      "evidenceHint": "厂房维护与清洁 SOP、清洁与消毒记录、消毒剂配制与效期记录、给排水与地漏检查记录、厂房维修工单、现场照片"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 房屋与设施（虫鼠害控制）",
+      "requirement": "已建立虫鼠害控制措施，配制区与库房设有防虫防鼠设施（纱窗、挡鼠板、灭蝇灯、粘捕式捕虫灯）并有检查与维护记录，现场无虫鼠害活动迹象",
+      "requirementEn": "Pest control measures are in place with physical barriers (screens, door guards, insect traps) in preparation and storage areas, with inspection and maintenance records and no evidence of pest activity",
+      "guidance": "现场检查灭蝇灯、挡鼠板、纱窗是否完好并正常使用，核对检查记录与设施位置图是否一致。常见缺陷是灭蝇灯长期未清理、粘捕式捕虫灯内虫体堆积无更换记录、库房门长期敞开无防护。",
+      "guidanceEn": "Check pest control devices are intact and serviced, with records matching the device map.",
+      "riskLevel": "minor",
+      "evidenceHint": "虫鼠害控制程序与设施分布图、检查与维护记录、捕获记录与趋势分析、承包方资质与合同"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 设备（适用性、维护、清洁与清洁验证）",
+      "requirement": "配制与检验设备与所配制剂相适应，有唯一编号与状态标识（完好、待修、停用）以及使用与清洁记录，预防性维护按计划执行；共用设备的清洁有书面程序，多品种共用设备已完成清洁验证，验证基于最难清洁品种与部位并确定了残留限度与清洁后有效期",
+      "requirementEn": "Preparation and testing equipment suits the preparations concerned, with a unique number, status label (in use, awaiting repair, out of service), use and cleaning records and preventive maintenance executed to plan; cleaning follows a written procedure, and shared multi-product equipment has cleaning validation based on the worst-case product and hardest-to-clean locations with defined residue limits and hold times",
+      "guidance": "现场核对设备编号与台账、状态标识是否与实际相符，常见缺陷是故障设备无停用标识仍在使用。索取清洁验证报告，核查是否识别了最难清洁品种（黏稠、难溶、毒性大）与最难清洁部位（搅拌轴、阀门、密封圈），残留限度是否有计算依据。只做目视检查即判定清洁合格、清洁后未规定有效期也是缺陷。",
+      "guidanceEn": "Cross-check equipment status labels with the register, and verify cleaning validation covers worst-case products and locations with a justified residue limit.",
+      "riskLevel": "major",
+      "evidenceHint": "设备台账与档案、设备状态标识、使用与清洁记录、预防性维护计划与工单、清洁验证方案与报告、残留限度计算依据、清洁后有效期规定"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 设备（衡器与量具的校准）",
+      "requirement": "用于称量、测量与检验的衡器、量具、仪表按期校准并可溯源，现场有有效的校准状态标识；用于配制的衡器每次使用前进行日常校验并记录，校准不合格期间产生的数据已评估",
+      "requirementEn": "Balances, measuring devices and instruments used for weighing, measuring and testing are calibrated to traceable standards with valid status labels; balances used in preparation are checked before each use with records, and data generated while out of calibration are assessed",
+      "guidance": "现场查看天平、pH 计、温度计上的校准标识有效期，索取校准证书与溯源说明。常见缺陷是超期未校准、日常校验记录长期为同一数值（形式化），以及校准发现偏差后未评估此前配制批次的影响。称量是制剂配制最关键的环节，应重点核查。",
+      "guidanceEn": "Check calibration labels on site and that daily balance checks are genuine, with impact assessment when a calibration fails.",
+      "riskLevel": "critical",
+      "evidenceHint": "衡器与量具台账、校准计划与证书（含溯源）、校准状态标识、日常校验记录、校准偏差影响评估记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 设备（灭菌设备确认与灭菌记录）",
+      "requirement": "灭菌设备（高压蒸汽灭菌器、干热灭菌设备等）经过安装、运行与性能确认，装载方式与装载量经过验证并有明确的装载图；每次灭菌记录温度、压力、时间与装载内容，可追溯到具体批次",
+      "requirementEn": "Sterilisation equipment (autoclaves, dry heat ovens) is qualified through installation, operational and performance qualification, with validated load patterns and a defined load diagram; each sterilisation records temperature, pressure, time and load content, traceable to specific batches",
+      "guidance": "索取灭菌器确认报告与装载验证报告，核对实际灭菌装载是否与验证的装载图一致（常见缺陷是随意加塞物品、装载超量、冷空气排除不充分）。核查灭菌记录是否与配制药液、器具与洁净服的批次一一对应，以及设备自身打印曲线与验证探头数据是否一致。",
+      "guidanceEn": "Compare actual loads against the validated load pattern and confirm sterilisation records trace to specific batches.",
+      "riskLevel": "critical",
+      "evidenceHint": "灭菌设备确认报告、装载方式验证报告与装载图、灭菌操作记录与打印曲线、设备校准与维护记录、灭菌物品清单"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 设备（灭菌效果监控与放行）",
+      "requirement": "每次灭菌使用化学指示卡，并在规定频率下使用与灭菌方式匹配的生物指示剂进行效果监控，监控结果作为灭菌放行的依据之一；不合格结果已调查并追溯至相关批次，不耐热物品采用经确认的替代灭菌方法",
+      "requirementEn": "Chemical indicators are used for every load and biological indicators at the defined frequency, matched to the sterilisation method, with results forming part of the release basis; failures are investigated and traced to affected batches, and heat-labile items use validated alternative sterilisation methods",
+      "guidance": "核查生物指示剂的种类、批号、培养记录、阳性对照与结果判读，以及不合格时的处理。常见缺陷是生物指示剂无培养记录或只记录合格、灭菌物品未待结果即放行使用、生物指示剂过期仍在使用。",
+      "guidanceEn": "Check biological indicator type, incubation records and positive controls, and whether items were used before results were available.",
+      "riskLevel": "critical",
+      "evidenceHint": "灭菌效果监控 SOP、化学指示卡使用记录、生物指示剂批号与培养记录、阳性对照记录、不合格处理与批次追溯记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 物料（采购、供应商与质量标准）",
+      "requirement": "起始物料仅从具备合法资质的供应商采购，供应商的许可证与经营范围经过核查并存档；物料符合药用要求或药典标准并有检验报告或质量证明，进口物料有合法来源证明",
+      "requirementEn": "Starting materials are purchased only from legally qualified suppliers whose licences and scope are verified and filed; materials meet pharmaceutical or pharmacopoeial standards with test reports or certificates, and imported materials have lawful provenance evidence",
+      "guidance": "抽取 5 种起始物料，倒查供应商资质、采购发票、检验报告与入库记录，核对标准是否符合药典或药用要求，常见缺陷是使用化工原料或试剂级物料替代药用级。中药制剂还需核查药材来源与质量证明。",
+      "guidanceEn": "Trace five materials back to supplier qualification and certificates, and check the grade meets pharmacopoeial requirements.",
+      "riskLevel": "critical",
+      "evidenceHint": "合格供应商清单与资质文件、采购合同与发票、物料检验报告或质量证书、药典标准依据、进口物料证明、入库验收记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 物料（验收、标识与隔离）",
+      "requirement": "物料入库经查验后按状态分区存放，待验、合格、不合格物料有清晰的状态标识与物理隔离；物料标签载明名称、批号、有效期、数量与状态，账、卡、物三者一致",
+      "requirementEn": "Received materials are checked and stored by status, with clear status labelling and physical segregation of quarantine, approved and rejected materials; labels state name, batch, expiry, quantity and status, and records, labels and physical stock agree",
+      "guidance": "现场抽查 5 种物料，核对标签内容与货位卡、台账是否一致；查看待验区与不合格区是否有实体隔离。常见缺陷是物料拆零后无标签（用纸条标注）、已过效期物料与合格物料混放、账物不符未调查。",
+      "guidanceEn": "Spot-check five materials field by field against ledger and label; unlabelled aliquots and mixed expired stock are findings.",
+      "riskLevel": "major",
+      "evidenceHint": "物料验收与入库记录、状态标识与隔离设施、物料台账与货位卡、拆零分装记录与标签、库存盘点与差异调查记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 物料（储存条件、效期与效期先出）",
+      "requirement": "物料按规定条件储存（阴凉、冷藏、避光、防潮等），储存区域有温湿度监测与记录；物料实行效期先出，临近效期有预警，过期物料立即隔离并按规定处理，未用于配制",
+      "requirementEn": "Materials are stored under the required conditions (cool, cold, light-protected, moisture-protected) with monitored and recorded temperature and humidity; stock is issued on a first-expiry basis with near-expiry alerts, and expired materials are immediately segregated and disposed of without use in preparation",
+      "guidance": "核对物料标签储存条件与实际库房条件，核查温湿度记录与超限处理。测试效期管理：抽查库存中效期最近的物料是否优先发放，查看过期物料是否有隔离标识与处理记录。常见缺陷是过期物料未及时隔离而被误用，或效期台账未建立。",
+      "guidanceEn": "Check storage conditions match labels, and test that near-expiry stock is issued first and expired stock segregated.",
+      "riskLevel": "major",
+      "evidenceHint": "物料储存条件规定与清单、库房温湿度记录与超限处理、效期台账与预警记录、过期物料隔离与处理记录、发放记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 物料（特殊管理物料）/ 麻醉药品和精神药品管理条例",
+      "requirement": "麻醉药品、精神药品、医疗用毒性药品、易制毒化学品及易燃易爆等特殊物料的采购、验收、储存、领用与销毁符合专门规定，实行专库或专柜双锁、双人管理，专用账册逐笔登记并定期盘点核对",
+      "requirementEn": "Procurement, receipt, storage, issue and destruction of narcotics, psychotropics, toxic, precursor and flammable materials comply with specific requirements, using dedicated double-locked storage under two-person control, dedicated ledgers with entry-by-entry records and periodic reconciliation",
+      "guidance": "现场核查双锁是否由两人分别管理，常见缺陷是两把钥匙同一人保管。抽查专用账册最近 10 笔并现场盘点 2 个品种，核对账物一致性与差异调查；核查销毁是否有审批与见证记录。",
+      "guidanceEn": "Verify dual-key control by two persons and reconcile two controlled materials on the spot against the dedicated ledger.",
+      "riskLevel": "critical",
+      "evidenceHint": "特殊物料管理制度、双锁与出入库记录、双人验收与领用签名、专用账册、盘点记录与差异调查、销毁审批与见证记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 物料（配制用水）",
+      "requirement": "配制用水（纯化水、注射用水或饮用水）的质量符合制剂要求，制备、储存与分配系统经过确认，管道无死角与滞水，定期检测电导率与微生物等指标并有记录，超限已处理",
+      "requirementEn": "Water used in preparation (purified water, water for injection or potable water) meets the required quality; generation, storage and distribution systems are qualified with no dead legs or stagnant sections, periodic conductivity and microbial testing is recorded, and excursions are addressed",
+      "guidance": "索取用水的质量标准、检测记录与趋势数据，查看管道是否循环、取样点是否覆盖全部使用点。常见缺陷是纯化水系统无确认报告、检测频次不足或项目不全（只测电导率不测微生物）、储罐与管道长期未消毒且无记录。注射剂配制用水必须符合注射用水要求。",
+      "guidanceEn": "Check water system qualification and testing records cover microbial quality at all use points, with disinfection records.",
+      "riskLevel": "critical",
+      "evidenceHint": "用水质量标准与检验记录、水系统确认报告、管道与取样点图、定期消毒记录、微生物与电导率趋势数据、超限处理记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 配制管理（配制规程与批准）",
+      "requirement": "每个配制品种均有经批准的配制规程，内容包含处方、配制工艺、操作规程与质量标准，并经医疗机构药事管理与药物治疗学委员会审核批准；规程修订经过变更控制并有生效日期与培训记录",
+      "requirementEn": "Each prepared product has an approved master preparation formula covering the formula, process, operating instructions and specifications, reviewed and approved by the institution's pharmacy and therapeutics committee, with revisions under change control and defined effective dates and training",
+      "guidance": "抽取 3 个品种，核对配制规程的批准签名与日期、是否与药事管理与药物治疗学委员会会议记录一致。常见缺陷是配制规程无批准页或批准组织不符合规定、实际配制方法与规程不符（凭经验操作）、规程修订后未培训即执行。",
+      "guidanceEn": "Check each master formula bears committee approval and that actual practice follows the approved document.",
+      "riskLevel": "critical",
+      "evidenceHint": "配制规程及批准页、药事管理与药物治疗学委员会审核与会议记录、变更控制记录、规程发放与培训记录、规程与实际操作的比对记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 配制管理（批配制记录、批号与过程控制）",
+      "requirement": "每批配制均有批配制记录，批号唯一且可追溯；记录在配制过程中及时填写，包含物料批号与实际投料量、关键工艺参数、过程控制（pH、装量、含量、可见异物、微生物限度等）结果、清场记录与操作人、复核人签名，符合 ALCOA+ 原则",
+      "requirementEn": "Every batch has a batch preparation record with a unique traceable batch number, completed contemporaneously and covering material batches and actual quantities, critical process parameters, in-process control results (pH, fill volume, assay, visible particulates, microbial limits) and line clearance, signed by operator and reviewer in line with ALCOA+ principles",
+      "guidance": "翻阅最近 3 批的批配制记录原件，寻找涂改、铅笔填写、空白栏未处理、配制结束后统一补记（笔迹与墨水一致）、复核人签名与操作人同笔迹等数据完整性缺陷。核对记录中引用的物料批号能否在物料台账中找到，过程控制的检测时点与限度是否与规程一致，超限后是否继续配制且无处置记录。",
+      "guidanceEn": "Inspect originals for back-filling, unannotated blanks and proxy signatures, and check in-process controls match the master formula with raw data.",
+      "riskLevel": "critical",
+      "evidenceHint": "批配制记录原件、批号编制规定、物料批号追溯链、过程控制原始记录与限度、清场记录、操作与复核签名、批记录审核记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 配制管理（称量、投料与计算复核）",
+      "requirement": "称量与投料由双人独立复核并签名，实际称量值与处方量的偏差在允许范围内；稀释、浓度、剂量等关键计算由第二人独立复核并签名，复核留有计算过程记录",
+      "requirementEn": "Weighing and dispensing are independently verified by a second person with signatures, actual weights are within the permitted deviation from the formula, and critical calculations (dilution, concentration, dose) are independently rechecked by a second person with the calculation recorded",
+      "guidance": "抽查 3 批的称量记录，核对双人签名是否真实（是否存在同一人代签两人）、偏差是否在允许范围内、复核是否有计算过程。制剂配制中的计算错误与称量差错是最常见的患者伤害原因，儿科与高警示药品制剂应重点核查。",
+      "guidanceEn": "Check the two signatures are genuinely two people, deviations are within limits and verification shows the calculation itself.",
+      "riskLevel": "critical",
+      "evidenceHint": "称量记录与双人签名、处方量与实称量对照表、计算复核记录、允许偏差规定、衡器日常校验记录、差错登记"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 配制管理（无菌操作、除菌过滤与培养基灌装）",
+      "requirement": "无菌制剂采用经验证的无菌操作技术，除菌过滤的滤器孔径与材质符合要求并在使用前后进行完整性测试，过滤前后压差与过滤时间有记录；适用时按周期开展培养基灌装并记录结果与污染调查",
+      "requirementEn": "Sterile preparations use validated aseptic technique; sterilising-grade filters of appropriate pore size and material are integrity-tested before and after use with differential pressure and filtration time recorded; where applicable, media fills are performed periodically with results recorded and contamination investigated",
+      "guidance": "核查滤器完整性测试记录（使用前后均需做）、滤器批号与合格证明、过滤参数记录；无菌配制应有培养基灌装记录，覆盖实际操作的干预动作与最差条件，出现污染必须调查并评估对已配制剂的影响。常见缺陷是滤器只做使用前测试、无培养基灌装，或灌装方案与实际操作不符。",
+      "guidanceEn": "Verify filter integrity is tested before and after use, and that media fills reflect actual interventions with investigation of positives.",
+      "riskLevel": "critical",
+      "evidenceHint": "无菌操作 SOP 与验证、滤器完整性测试记录与合格证明、过滤参数记录、培养基灌装方案与结果报告、污染调查与批次影响评估"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 质量管理（检验能力、委托检验与超标调查）",
+      "requirement": "质量管理与检验职能独立于配制操作，具备与配制品种相适应的检验能力、人员与设备；无能力检验的项目委托有资质的机构并签订委托协议；对照品、标准品、培养基与试剂来源可追溯、效期受控；检验结果超标（OOS）与配制偏差均完成调查，区分实验室差错与产品问题并评估对已发放制剂的影响",
+      "requirementEn": "Quality control and testing are independent of preparation, with capability, personnel and equipment suited to the products prepared; tests that cannot be performed in-house are outsourced to qualified laboratories under agreement; reference standards, culture media and reagents are traceable with controlled expiry; out-of-specification results and preparation deviations are investigated, distinguishing laboratory error from product failure and assessing impact on released preparations",
+      "guidance": "核查检验人员是否同时承担配制操作、检验设备是否满足项目需求、委托检验机构资质与协议、对照品来源证明与培养基适用性检查记录。抽查 3 份 OOS 或偏差记录：是否区分阶段一与阶段二调查、复测是否有书面方案与理由（复测合格即放行是严重缺陷）、影响评估是否覆盖已发放到临床的制剂、措施是否有效验证。",
+      "guidanceEn": "Verify quality control independence and outsourced laboratory qualification; sample three out-of-specification or deviation records for retest justification, clinical impact and action effectiveness.",
+      "riskLevel": "major",
+      "evidenceHint": "组织架构与职责描述、检验人员资质、检验设备清单与校准记录、委托检验协议与受托方资质、对照品与培养基管理记录、OOS 与偏差调查记录、措施有效性确认"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 质量管理（稳定性、放行与留样）",
+      "requirement": "每个制剂品种的有效期与储存条件有稳定性考察数据支持并按计划执行，有效期延长有数据依据并经过批准；每批制剂由授权的质量管理负责人审核批配制记录、检验结果与过程控制数据后签名放行，成品按规定留样且留样数量、储存条件与保存期限符合要求",
+      "requirementEn": "The shelf life and storage conditions of each preparation are supported by stability data generated as planned, with extensions justified by data and formally approved; each batch is released by the authorised quality manager after review of the batch record, test results and in-process data with signature and date, and retention samples are kept in the required quantity and storage conditions for the required period",
+      "guidance": "索取稳定性考察方案与数据，核对标示有效期是否在数据覆盖范围内。常见缺陷是有效期凭空设定（如一律 6 个月）而无数据、考察时间点漏检后不按偏差处理，或标示有效期超出数据支持的最长时间。放行方面核对放行日期是否晚于配制与检验完成日期、放行人是否为授权人员；留样看数量是否满足要求、储存条件是否与标示一致、台账与批号是否对应。",
+      "guidanceEn": "Check the labelled shelf life is covered by actual stability data, and that release signatures, dates and retention samples are consistent.",
+      "riskLevel": "major",
+      "evidenceHint": "稳定性考察方案与报告、稳定性数据与趋势、稳定性箱温湿度记录、有效期设定依据与批准记录、放行审核记录与授权人名单、留样台账与留样室温湿度记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 包装与标签",
+      "requirement": "制剂标签内容符合规定，至少包含制剂名称、规格、批号、配制日期、有效期、用法用量、贮存条件与医疗机构名称，并有别于市场销售药品的标识；标签的领用、使用与销毁数量平衡，包装完整性与密封性经检查并记录",
+      "requirementEn": "Preparation labels state at least the name, strength, batch number, preparation date, expiry, dosage and administration, storage conditions and the institution's name, and are distinguishable from marketed products; label issue, use and destruction reconcile, and package integrity and seal are checked and recorded",
+      "guidance": "现场取 3 个品种的实际标签核对上述要素，特别是批号、配制日期与有效期是否手写且无复核（常见缺陷）。核查标签领用与销毁记录的数量平衡，以及密封性检查（注射剂可见异物与密封性、输液袋有无渗漏）记录。标签内容缺失或与市售药品难以区分是严重缺陷。",
+      "guidanceEn": "Check actual labels carry all required elements and are distinguishable from commercial products; reconcile label issuance and check seal integrity testing.",
+      "riskLevel": "critical",
+      "evidenceHint": "标签样张与实际标签、标签领用与销毁记录、包装材料质量标准与检验记录、密封性与可见异物检查记录、包装操作规程"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 使用管理 /《医疗机构处方审核规范》(2018)",
+      "requirement": "处方经药师审核后方可调配，审核内容包括处方合法性、与诊断的相符性、剂量与用法、配伍禁忌、重复用药与特殊人群（儿童、孕妇、老年人、肝肾功能不全）用药；调配与发药由双人核对，调剂差错已记录并处理",
+      "requirementEn": "Prescriptions are reviewed by a pharmacist before dispensing, covering legality, consistency with the diagnosis, dose and administration, incompatibilities, therapeutic duplication and special populations (children, pregnancy, the elderly, hepatic or renal impairment); dispensing and issue are double-checked and errors recorded and handled",
+      "guidance": "核查处方审核记录是否留有审核痕迹与干预记录（不合理处方的退回与沟通记录），抽查 10 张处方核对双人核对签名。常见缺陷是审核栏盖章但无实际审核（事后统一盖章）、儿童剂量计算无复核、调剂差错无登记与分析。",
+      "guidanceEn": "Check prescription review leaves an auditable trace with interventions, and that double-checking is real, especially for paediatric doses.",
+      "riskLevel": "critical",
+      "evidenceHint": "处方审核制度与审核记录、不合理处方干预记录、调配与发药双人核对签名、调剂差错登记与分析、处方点评记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 使用管理（用药指导）",
+      "requirement": "向患者或使用科室提供用药指导，内容包括用法用量、贮存条件、使用注意事项与可能的不良反应，指导有可查的记录或书面材料，注射剂、外用制剂与需冷藏制剂等特殊剂型有专门的使用说明",
+      "requirementEn": "Patients or using departments receive guidance covering dosage and administration, storage, precautions and possible adverse reactions, supported by records or written materials, with specific instructions for special dosage forms such as injectables, external preparations and cold-stored products",
+      "guidance": "索取用药指导材料与发放记录，核查是否覆盖贮存条件与注意事项（冷藏制剂在患者家中的储存提示、外用药与内服药的区分提示）。常见缺陷是只有口头交代而无记录、指导材料内容与最新制剂说明书不一致，以及使用科室未收到制剂变更的通知。",
+      "guidanceEn": "Check guidance materials and records cover storage and precautions, and that using departments are notified of changes.",
+      "riskLevel": "major",
+      "evidenceHint": "用药指导制度、指导材料与发放记录、患者用药教育记录、使用科室通知与培训记录、制剂说明书或使用说明"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 使用管理（不良反应与用药错误监测）/ 药品不良反应报告和监测管理办法",
+      "requirement": "已建立制剂不良反应与用药错误的监测、报告与处置机制，医务人员发现可疑不良反应按规定报告，报告与药物警戒或药事管理组织衔接，对同批号聚集性事件开展调查并采取封存、停用等措施",
+      "requirementEn": "The institution monitors, reports and manages adverse reactions and medication errors for its preparations; staff report suspected reactions as required, reports interface with the pharmacovigilance or pharmacy committee, and clusters of events in the same batch trigger investigation, quarantine and suspension",
+      "guidance": "核查不良反应报告记录与上报途径，确认使用科室知道如何报告以及报给谁。常见缺陷是无院内报告渠道、报告后无评估与反馈，以及发生聚集性不良事件（同批号多例）时未启动批次调查与封存。检查药物警戒或药事管理组织是否定期审阅制剂安全性数据。",
+      "guidanceEn": "Check a working reporting route exists and that clustered events trigger batch investigation and quarantine.",
+      "riskLevel": "major",
+      "evidenceHint": "不良反应监测与报告制度、报告记录与上报凭证、用药错误登记、聚集性事件调查记录、定期安全性审阅会议记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 文件与记录",
+      "requirement": "配制、检验、放行与使用各环节均有现行有效的 SOP，文件受控并有修订与生效记录；批配制记录、检验记录与使用记录按规定期限保存并可检索，能实现从物料批号到患者或使用科室的正向与反向追溯",
+      "requirementEn": "Current SOPs cover preparation, testing, release and use, with controlled revision and effective dates; batch, test and use records are retained for the required period and are retrievable, enabling traceability from material batch to patient or using department and back",
+      "guidance": "做一次追溯演练：指定一个制剂批号，追到所用物料的批号与供应商；再反向指定一个物料批号，追出用于哪些制剂批次并发放到哪些科室或患者。常见缺陷是使用登记不完整（无患者或科室信息）、记录按年度装箱无索引、旧记录中物料批号缺失导致追溯断链。",
+      "guidanceEn": "Rehearse traceability from a batch to material batches and back; incomplete dispensing records break the chain to the patient.",
+      "riskLevel": "major",
+      "evidenceHint": "SOP 清单与受控文件记录、记录保存期限规定与归档索引、批配制与使用记录、追溯演练报告、文件修订与培训记录"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 委托配制",
+      "requirement": "委托配制或委托检验的，受托方具备相应资质（《医疗机构制剂许可证》或药品生产许可证及 GMP 符合性），签订委托合同与质量协议并明确双方质量责任，委托方对受托方进行现场审计或定期评估，委托配制按规定备案",
+      "requirementEn": "Where preparation or testing is outsourced, the contractor holds the required licence (institutional preparation licence or manufacturing licence with GMP compliance), contracts and quality agreements define both parties' quality responsibilities, the contract giver audits or periodically evaluates the contractor, and contract preparation is filed as required",
+      "guidance": "核查委托合同、受托方资质文件、审计报告与备案文件。常见缺陷是委托无备案、受托方资质超出其许可范围、质量协议未约定变更通知与偏差报告义务、委托方从未现场审计。委托配制的批次记录与放行责任划分应在协议中明确。",
+      "guidanceEn": "Check contractor licences cover the work, agreements define deviation and change notification, and audits actually took place.",
+      "riskLevel": "major",
+      "evidenceHint": "委托配制或检验合同与质量协议、受托方许可证与 GMP 证明、现场审计报告、委托备案文件、受托方批次记录与放行文件"
+    },
+    {
+      "clauseRef": "NMPA 医疗机构制剂配制质量管理规范 · 自查",
+      "requirement": "已建立并执行自查程序，覆盖人员、房屋设施、设备、物料、配制管理、质量管理、包装标签、使用指导、文件记录与委托配制全部环节，按计划周期执行并形成报告，缺陷有整改责任人与时限并经有效性确认",
+      "requirementEn": "A self-inspection programme is established and executed, covering personnel, premises, equipment, materials, preparation management, quality management, labelling, use guidance, documentation and contract preparation, to a defined schedule with reports and remediation assigned, tracked and effectiveness-verified",
+      "guidance": "核查年度自查计划与执行记录的对应关系、自查范围是否涵盖全部环节（常见缺陷是只查配制现场不查使用与委托环节）、自查人员是否经过培训且不检查自己的工作。重点看缺陷闭环：整改是否验证有效，而非仅填写已整改。",
+      "guidanceEn": "Check the scope covers all elements including use and contract preparation, and that findings are closed with verified effectiveness.",
+      "riskLevel": "major",
+      "evidenceHint": "自查程序、年度自查计划与执行记录、自查报告与检查表、缺陷整改跟踪与有效性确认、自查员培训记录"
+    }
+  ]
+}

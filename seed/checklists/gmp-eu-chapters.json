@@ -1,0 +1,393 @@
+{
+  "code": "GMP-EU-SI",
+  "title": "EU GMP 全章节自查表（人药）",
+  "titleEn": "EU GMP Guide Self-Inspection Checklist (Medicinal Products for Human Use)",
+  "scope": "self_inspection",
+  "category": "manufacturing",
+  "gxpAreas": ["GMP"],
+  "regulation": "EudraLex Volume 4 - EU Guidelines for Good Manufacturing Practice for Medicinal Products for Human and Veterinary Use, Chapters 1-9 and Annex 1",
+  "authority": "European Commission / EMA",
+  "version": "Chapters as consolidated 2022-2024; Annex 1 revision in force since 2023-08-25",
+  "description": "覆盖 EU GMP 第一至九章及无菌附录的现场自查表，用于年度自检或飞检前准备。每一项均为可判定的具体断言，判定为「不符合」时必须填写客观证据。",
+  "descriptionEn": "A shop-floor self-inspection checklist covering EU GMP Chapters 1-9 plus the sterile Annex. Every item is a verifiable assertion; an adverse assessment requires objective evidence.",
+  "items": [
+    {
+      "clauseRef": "Chapter 1.1-1.2",
+      "requirement": "质量保证体系已文件化，且明确规定各岗位职责，实际执行与文件规定一致",
+      "requirementEn": "A documented Pharmaceutical Quality System exists with defined responsibilities, and practice matches the documented system",
+      "guidance": "检查时不要只看文件是否存在，要抽查 2-3 个具体流程，核实实际操作与 SOP 规定是否一致。最常见的缺陷是「文件写了但没做」。",
+      "guidanceEn": "Look for practice-vs-documentation gaps, not just document existence.",
+      "riskLevel": "critical",
+      "evidenceHint": "质量手册、职责矩阵、组织架构图、人员岗位说明书签署版"
+    },
+    {
+      "clauseRef": "Chapter 1.4",
+      "requirement": "质量体系覆盖全部 GMP 要素：产品放行、偏差处理、变更控制、投诉、召回、供应商管理、自查、培训、验证、年度质量回顾",
+      "requirementEn": "The quality system covers all GMP elements including release, deviations, change control, complaints, recall, suppliers, self-inspection, training, qualification and PQR",
+      "guidance": "逐项核对是否都有文件化的程序和实际记录。缺少任一要素即为体系性缺陷。",
+      "guidanceEn": "Verify each element has both a procedure and real records.",
+      "riskLevel": "major",
+      "evidenceHint": "质量体系文件清单、程序文件目录、年度质量回顾报告"
+    },
+    {
+      "clauseRef": "Chapter 1.4(xv)",
+      "requirement": "已按计划完成年度产品质量回顾（PQR/APR），并对回顾中发现的趋势采取了措施",
+      "requirementEn": "Annual Product Quality Review is performed per plan and identified trends have triggered action",
+      "guidance": "检查 PQR 是否覆盖所有上市产品、是否包含所有必查项（原料、包材、中间品、成品、不合格品、偏差、变更、投诉、召回、退货、稳定性、供应商）。常见缺陷是 PQR 只是数据罗列而无趋势评价和结论。",
+      "guidanceEn": "Check PQR covers all products and all required inputs, and contains conclusions, not just data.",
+      "riskLevel": "major",
+      "evidenceHint": "上年度 PQR 报告、PQR 年度计划、趋势分析图表、措施跟踪记录"
+    },
+    {
+      "clauseRef": "Chapter 2.1-2.5",
+      "requirement": "关键人员（生产负责人、质量负责人、质量受权人）具有法规要求的资质与经验，职责已文件化且互不兼任冲突",
+      "requirementEn": "Key personnel meet qualification requirements, their duties are documented and do not conflict",
+      "guidance": "质量负责人不得兼任生产负责人。核查简历、学历证明、工作经历与任命文件。",
+      "guidanceEn": "The head of QC/QA must be independent of production. Verify CVs and appointment letters.",
+      "riskLevel": "critical",
+      "evidenceHint": "人员简历、学历/职称证明、任命文件、组织架构图、职责描述"
+    },
+    {
+      "clauseRef": "Chapter 2.10-2.14",
+      "requirement": "所有影响产品质量的人员均接受了与其职责相关的初始培训和持续培训，培训记录完整且培训有效性经过评估",
+      "requirementEn": "Personnel affecting product quality receive initial and continuing training relevant to their duties, with records and effectiveness assessment",
+      "guidance": "重点核查：培训是否在员工独立操作之前完成；培训是否有考核而非仅签到；培训记录是否与实际排班/操作记录对应。常见缺陷是「培训记录显示已培训，但实际由未培训人员操作」。",
+      "guidanceEn": "Verify training precedes independent operation and effectiveness is assessed, not just attendance recorded.",
+      "riskLevel": "critical",
+      "evidenceHint": "培训矩阵、培训记录（含考核）、培训计划、排班记录、操作资格授权表"
+    },
+    {
+      "clauseRef": "Chapter 2.14",
+      "requirement": "人员卫生与着装要求已文件化，进入生产区人员均遵守，且与所生产产品的洁净级别相适应",
+      "requirementEn": "Personnel hygiene and clothing requirements are documented and followed, appropriate to the clean area grade",
+      "guidance": "现场观察实际操作，而非仅查文件。注意更衣流程、首饰、化妆、健康申报。",
+      "guidanceEn": "Observe actual practice during the walk-through.",
+      "riskLevel": "major",
+      "evidenceHint": "更衣 SOP、人员健康档案、更衣验证记录、现场观察记录"
+    },
+    {
+      "clauseRef": "Chapter 3.1-3.3",
+      "requirement": "厂房设计、布局与维护能防止污染、交叉污染和混淆，人流物流走向合理，不同产品/批次之间有效隔离",
+      "requirementEn": "Premises are designed, laid out and maintained to prevent contamination, cross-contamination and mix-ups, with logical flow and effective segregation",
+      "guidance": "沿实际物流动线走一遍，检查是否有交叉点。关注称量区、包装区、待验区的物理隔离与标识。",
+      "guidanceEn": "Walk the material flow and look for crossing points and segregation gaps.",
+      "riskLevel": "critical",
+      "evidenceHint": "厂房平面图、人流物流图、区域标识、压差记录、清洁记录"
+    },
+    {
+      "clauseRef": "Chapter 3.2 / Annex 1",
+      "requirement": "洁净区级别符合产品要求，悬浮粒子、微生物、压差、温湿度监测数据在限度内且趋势受控",
+      "requirementEn": "Clean area classification meets product requirements; particle, microbiological, pressure differential and environmental monitoring data are within limits and trends are controlled",
+      "guidance": "核查环境监测是否有超限结果、超限后的调查与处置。注意监测点位是否覆盖关键操作位置。",
+      "guidanceEn": "Check excursion handling and whether monitoring locations cover critical operations.",
+      "riskLevel": "critical",
+      "evidenceHint": "环境监测计划、监测数据趋势图、超标调查记录、HVAC 验证报告、压差记录"
+    },
+    {
+      "clauseRef": "Chapter 3.4",
+      "requirement": "已建立并执行虫害控制程序，有定期检查记录，且未发现虫害迹象",
+      "requirementEn": "A pest control programme is established and executed with periodic inspection records, and no pest activity is evident",
+      "guidance": "查看虫鼠控制平面图、诱饵站检查记录、趋势分析。注意记录是否有人「提前填好」。",
+      "guidanceEn": "Review pest control map, bait station records and trend analysis.",
+      "riskLevel": "minor",
+      "evidenceHint": "虫害控制程序、诱饵站分布图、检查记录、承包方资质与合同"
+    },
+    {
+      "clauseRef": "Chapter 3.6",
+      "requirement": "进入生产区和 QC 区的人员均经过授权，授权记录与人员培训、健康状态一致",
+      "requirementEn": "Only authorised personnel enter production and QC areas, and authorisation records align with training and health status",
+      "guidance": "抽查门禁记录与授权名单，核查是否存在未授权进入。",
+      "guidanceEn": "Cross-check access control logs against the authorisation list.",
+      "riskLevel": "major",
+      "evidenceHint": "人员进出授权表、门禁记录、培训记录、健康档案"
+    },
+    {
+      "clauseRef": "Chapter 4.1-4.3",
+      "requirement": "文件体系完整，包括质量标准、工艺规程、批生产记录、批检验记录、SOP；文件内容清晰、准确、可追溯",
+      "requirementEn": "Documentation is complete including specifications, manufacturing formulae, batch records, test records and SOPs; content is clear, accurate and traceable",
+      "guidance": "随机抽取一份批记录，核实其能否完整重现该批产品的生产与检验过程。",
+      "guidanceEn": "Pick one batch record and verify the batch can be fully reconstructed from it.",
+      "riskLevel": "critical",
+      "evidenceHint": "受控文件清单、批生产记录、批检验记录、质量标准、工艺规程"
+    },
+    {
+      "clauseRef": "Chapter 4.4-4.8",
+      "requirement": "所有文件在批准、分发、修订、撤销各环节均受控，能追溯到发放对象，现场无未受控或作废版本文件",
+      "requirementEn": "Documents are controlled through approval, distribution, revision and withdrawal, with traceability, and no uncontrolled or superseded copies are in use",
+      "guidance": "现场抽查 5 处操作岗位使用的文件版本号，与受控文件清单核对。这是检查员最常用的手法之一。",
+      "guidanceEn": "Spot-check the version numbers of documents actually in use at 5 locations against the master list.",
+      "riskLevel": "critical",
+      "evidenceHint": "文件分发记录、回收记录、受控文件清单、现场文件版本核对记录"
+    },
+    {
+      "clauseRef": "Chapter 4.9-4.14",
+      "requirement": "记录的填写与修改符合规范：使用不易擦除的介质、及时填写、修改时保留原信息并签名注明日期与理由",
+      "requirementEn": "Records are completed and corrected per requirements: indelible media, contemporaneous entry, corrections preserve the original entry with signature, date and reason",
+      "guidance": "翻阅批记录和检验记录，重点找：涂改痕迹、铅笔填写、空白格未处理、补记（无当时签名）、同一人笔迹代签。",
+      "guidanceEn": "Look for corrections without signature/date/reason, pencil entries, blank fields and back-dated entries.",
+      "riskLevel": "critical",
+      "evidenceHint": "批记录原始件、修改签注示例、记录填写规范培训记录"
+    },
+    {
+      "clauseRef": "Chapter 4.16",
+      "requirement": "作废文件与旧版本作为历史记录保留，且已从使用场所撤除",
+      "requirementEn": "Superseded documents are retained as historical records and removed from use areas",
+      "guidance": "核查旧版文件的处置记录，确认在岗位上无法找到。",
+      "guidanceEn": "Confirm superseded copies cannot be found at the point of use.",
+      "riskLevel": "major",
+      "evidenceHint": "作废文件归档记录、现场核查记录"
+    },
+    {
+      "clauseRef": "Chapter 4.30-4.33",
+      "requirement": "批生产记录在每批生产完成后由指定人员审核并签名，审核时机在生产结束后、放行之前",
+      "requirementEn": "Batch records are reviewed and signed by a designated person after completion and before release",
+      "guidance": "核查审核日期是否晚于生产结束日期、早于放行日期。倒签日期是严重缺陷。",
+      "guidanceEn": "Verify review date falls after production end and before release.",
+      "riskLevel": "critical",
+      "evidenceHint": "批记录审核签名页、放行记录、审核人与放行日期对照表"
+    },
+    {
+      "clauseRef": "Chapter 5.1-5.4",
+      "requirement": "所有物料和产品的采购、验收、取样、检验、储存、发放、使用均有书面程序并留记录，状态标识清晰",
+      "requirementEn": "Purchasing, receipt, sampling, testing, storage, release and use of all materials and products follow written procedures with records and clear status labelling",
+      "guidance": "现场核查物料状态标识（待验/合格/不合格）与实际物理隔离是否一致。",
+      "guidanceEn": "Verify status labels match physical segregation on the shop floor.",
+      "riskLevel": "critical",
+      "evidenceHint": "物料管理 SOP、入库验收记录、检验报告、物料台账、现场标识照片"
+    },
+    {
+      "clauseRef": "Chapter 5.27-5.39",
+      "requirement": "起始物料和包装材料的供应商经过资质评估与批准，并有基于风险的定期再评估；关键供应商已现场审计",
+      "requirementEn": "Suppliers of starting and packaging materials are qualified and re-evaluated on a risk basis, with on-site audits for critical suppliers",
+      "guidance": "核查供应商审计计划与实际执行情况。常见缺陷是「批准的供应商清单中有供应商无任何审计或评估记录」。",
+      "guidanceEn": "Check the approved supplier list against actual audit records.",
+      "riskLevel": "critical",
+      "evidenceHint": "合格供应商清单、供应商审计报告、质量协议、资质证明文件、进货检验记录"
+    },
+    {
+      "clauseRef": "Chapter 5.40-5.49",
+      "requirement": "生产工艺按批准的工艺规程执行，关键工艺参数在验证范围内，实际参数与批记录记载一致",
+      "requirementEn": "Production follows the approved master formula; critical process parameters are within validated ranges and match batch record entries",
+      "guidance": "对照工艺规程与批记录逐项核对参数。注意记录是否存在「抄写式」填写（参数完全一致无波动）。",
+      "guidanceEn": "Compare process parameters in batch records to the master formula; identical repeated values warrant scrutiny.",
+      "riskLevel": "critical",
+      "evidenceHint": "工艺规程、批生产记录、工艺验证报告、设备参数打印件/电子数据"
+    },
+    {
+      "clauseRef": "Chapter 5.52-5.59",
+      "requirement": "包装操作受控，包装材料使用数量经过平衡计算，差异已调查并记录",
+      "requirementEn": "Packaging operations are controlled; packaging material reconciliation is performed and discrepancies investigated",
+      "guidance": "核查已印字包装材料的发放、使用、销毁数量平衡。差异未调查是常见缺陷。",
+      "guidanceEn": "Check reconciliation of printed packaging materials and investigation of discrepancies.",
+      "riskLevel": "major",
+      "evidenceHint": "包装批记录、印字包材平衡计算表、销毁记录、差异调查报告"
+    },
+    {
+      "clauseRef": "Chapter 6.1-6.3",
+      "requirement": "QC 独立于生产部门，具备足够的资源、人员与设备履行全部检验职责",
+      "requirementEn": "QC is independent of production and has adequate resources, personnel and equipment for all testing",
+      "guidance": "核查 QC 组织架构上的独立性，以及人员数量与检验工作量是否匹配。",
+      "guidanceEn": "Verify organisational independence and that staffing matches testing workload.",
+      "riskLevel": "critical",
+      "evidenceHint": "组织架构图、QC 人员名单与资质、检验工作量统计、实验室设备清单"
+    },
+    {
+      "clauseRef": "Chapter 6.6",
+      "requirement": "取样由经授权人员按规定程序执行，取样计划能代表整批",
+      "requirementEn": "Sampling is performed by authorised personnel per approved procedures and the sampling plan is representative of the batch",
+      "guidance": "核查取样人员的授权文件，以及取样记录与取样计划的对应关系。",
+      "guidanceEn": "Verify sampler authorisation and correspondence between sampling records and plan.",
+      "riskLevel": "major",
+      "evidenceHint": "取样 SOP、取样授权名单、取样记录、取样计划"
+    },
+    {
+      "clauseRef": "Chapter 6.15-6.18",
+      "requirement": "分析检验方法经过验证，验证内容与实际使用的样品类型、浓度范围相适应",
+      "requirementEn": "Analytical methods are validated and the validation covers the actual sample types and concentration ranges in use",
+      "guidance": "核查方法验证报告与实际检验参数（如标准曲线范围、样品浓度）是否匹配。",
+      "guidanceEn": "Confirm validation range covers actual routine sample concentrations.",
+      "riskLevel": "major",
+      "evidenceHint": "方法验证报告、方法转移报告、检验标准操作规程、实际检验记录"
+    },
+    {
+      "clauseRef": "Chapter 6.17",
+      "requirement": "检验用仪器设备按计划校准，校准状态标识清晰，校准证书可追溯至国家/国际标准",
+      "requirementEn": "Analytical equipment is calibrated per plan with clear status labelling and certificates traceable to national/international standards",
+      "guidance": "现场核查仪器上是否贴有有效期内的校准标识。使用超期未校准仪器产生的数据不可靠，属严重缺陷。",
+      "guidanceEn": "Check for valid calibration labels on instruments; data from overdue instruments is unreliable.",
+      "riskLevel": "critical",
+      "evidenceHint": "仪器校准计划、校准证书、仪器使用记录、现场校准标识"
+    },
+    {
+      "clauseRef": "Chapter 6.32-6.36",
+      "requirement": "对照品、标准品、试剂、培养基的管理受控：来源可追溯、效期管理、储存条件符合要求、标定记录完整",
+      "requirementEn": "Reference standards, reagents and culture media are controlled: traceable source, expiry management, correct storage and complete standardisation records",
+      "guidance": "抽查对照品的来源证明与效期，核查工作对照品的标定记录与储存条件。",
+      "guidanceEn": "Spot-check reference standard provenance, expiry and working standard standardisation records.",
+      "riskLevel": "major",
+      "evidenceHint": "对照品台账、来源证明（COA）、标定记录、储存温度记录、效期管理清单"
+    },
+    {
+      "clauseRef": "Chapter 6.37-6.41",
+      "requirement": "稳定性样品按方案留样与检验，试验条件符合 ICH 要求，趋势异常已调查",
+      "requirementEn": "Stability samples are stored and tested per protocol under ICH conditions, with investigation of adverse trends",
+      "guidance": "核查稳定性方案的检验时间点是否按时执行。漏检时间点后不能补做，只能作为偏差处理。",
+      "guidanceEn": "Verify stability time points are tested on schedule; missed points must be handled as deviations.",
+      "riskLevel": "major",
+      "evidenceHint": "稳定性方案、稳定性检验记录、稳定性箱温湿度记录、趋势分析报告"
+    },
+    {
+      "clauseRef": "Chapter 6.42-6.48",
+      "requirement": "已建立超期结果（OOS/OOT）处理程序，所有 OOS 均按程序完成调查并作出批次处置",
+      "requirementEn": "An OOS/OOT procedure exists and all OOS results are investigated with a documented batch disposition",
+      "guidance": "抽查 3 份 OOS 记录，核查是否区分阶段一/阶段二、是否记录了实验室差错的具体证据、是否存在「复测合格即放行」的情况。这是检查中最常见严重缺陷之一。",
+      "guidanceEn": "Sample 3 OOS records; look for phase I/II separation and any retest-until-pass behaviour.",
+      "riskLevel": "critical",
+      "evidenceHint": "OOS 处理程序、OOS 调查记录、原始数据（含失败结果）、复测方案、批次处置记录"
+    },
+    {
+      "clauseRef": "Chapter 7.1-7.3",
+      "requirement": "委托生产与委托检验活动有书面合同，受托方经过资质评估，委托方保留最终质量责任",
+      "requirementEn": "Outsourced activities are covered by written contracts, contractors are qualified, and the contract giver retains final quality responsibility",
+      "guidance": "核查质量协议是否明确了双方职责、变更通知义务、审计权、记录保存。",
+      "guidanceEn": "Verify the technical agreement defines responsibilities, change notification, audit rights and record retention.",
+      "riskLevel": "major",
+      "evidenceHint": "委托生产/检验合同、质量协议、受托方资质证明、受托方审计报告"
+    },
+    {
+      "clauseRef": "Chapter 8.1-8.3",
+      "requirement": "所有投诉均已记录、调查并采取适当措施，投诉记录包含产品名称、批号、投诉内容、调查与回复",
+      "requirementEn": "All complaints are recorded, investigated and acted upon, with records covering product, batch, complaint content, investigation and reply",
+      "guidance": "抽查投诉记录，核查是否评估了对其他批次的影响、是否回复投诉人。",
+      "guidanceEn": "Check whether other batches were assessed and the complainant was answered.",
+      "riskLevel": "major",
+      "evidenceHint": "投诉处理程序、投诉台账、投诉调查报告、回复函件、批次影响评估"
+    },
+    {
+      "clauseRef": "Chapter 8.4-8.8",
+      "requirement": "已建立召回程序，具备在指定时限内召回任何批次的能力，并定期进行召回模拟演练",
+      "requirementEn": "A recall procedure exists, the site can recall any batch within the required timeframe, and mock recalls are performed periodically",
+      "guidance": "核查是否做过召回模拟演练及演练记录。检查员常要求现场演示能否在 24 小时内联系到全部经销商。",
+      "guidanceEn": "Check for mock recall records; inspectors may ask for a live demonstration of distributor traceability.",
+      "riskLevel": "critical",
+      "evidenceHint": "召回程序、召回模拟演练报告、经销商联系清单、发货流向记录"
+    },
+    {
+      "clauseRef": "Chapter 8.9-8.14",
+      "requirement": "退货药品按程序处理，退货品的处置决定有质量部门参与并记录理由，退货品重新销售的条件明确且受限",
+      "requirementEn": "Returned goods are handled per procedure, disposition involves QA with documented justification, and conditions for returning goods to saleable stock are defined and restricted",
+      "guidance": "核查退货记录与处置决定。注意退货品是否在不满足条件的情况下重新进入销售。",
+      "guidanceEn": "Verify returned goods only re-enter saleable stock under defined, met conditions.",
+      "riskLevel": "major",
+      "evidenceHint": "退货处理程序、退货记录、处置决定记录、重新销售审批记录"
+    },
+    {
+      "clauseRef": "Chapter 9.1-9.3",
+      "requirement": "已建立并执行自检程序，自检覆盖质量体系全部要素，按计划周期执行，自检结果形成报告并采取纠正措施",
+      "requirementEn": "A self-inspection programme exists, covers all elements of the quality system, runs to a defined schedule, and results in reports and corrective actions",
+      "guidance": "核查自检年度计划与实际执行是否一致；自检报告中的缺陷是否有跟踪关闭记录。自检「走过场」是检查员很容易识别的缺陷。",
+      "guidanceEn": "Check the annual self-inspection plan against actual execution and closure of findings.",
+      "riskLevel": "major",
+      "evidenceHint": "自检程序、年度自检计划、自检报告、缺陷整改跟踪表"
+    },
+    {
+      "clauseRef": "Chapter 9.4-9.10",
+      "requirement": "自检人员经过培训且独立于被检查区域，自检结果向管理层报告，并纳入管理评审",
+      "requirementEn": "Self-inspectors are trained and independent of the audited area; results are reported to management and feed management review",
+      "guidance": "核查自检人员名单与被检查区域的对应关系，确认无自己检查自己的情况。",
+      "guidanceEn": "Verify no self-inspection of one's own area.",
+      "riskLevel": "major",
+      "evidenceHint": "自检员名单与培训记录、自检分组安排、管理评审会议记录"
+    },
+    {
+      "clauseRef": "Annex 1 §2-§4",
+      "requirement": "无菌工艺的污染控制策略（CCS）已建立，涵盖厂房、设备、人员、公用工程、物料、工艺与环境监测，并定期评估有效性",
+      "requirementEn": "A Contamination Control Strategy for sterile manufacture exists covering premises, equipment, personnel, utilities, materials, process and EM, and is periodically assessed",
+      "guidance": "2023 年生效的无菌附录将 CCS 作为核心要求。核查 CCS 文件是否为真正整合的策略，而非各要素文件的简单汇总。",
+      "guidanceEn": "Verify CCS is a genuinely integrated strategy rather than a collection of separate documents.",
+      "riskLevel": "critical",
+      "evidenceHint": "污染控制策略文件、CCS 有效性评估报告、各要素支撑文件"
+    },
+    {
+      "clauseRef": "Annex 1 §7",
+      "requirement": "无菌操作人员经过更衣资格确认和持续资格维持（至少每 12 个月一次），违规动作已调查",
+      "requirementEn": "Personnel performing aseptic operations are qualified by gowning validation and requalified at least every 12 months, with investigation of interventions",
+      "guidance": "核查更衣验证记录（含微生物监测结果）与年度再确认记录。无菌工艺模拟（培养基灌装）的周期为每半年一次。",
+      "guidanceEn": "Verify gowning qualification records including microbial monitoring, and semi-annual media fill.",
+      "riskLevel": "critical",
+      "evidenceHint": "更衣验证记录、人员微生物监测结果、培养基灌装方案与结果报告、更衣再确认记录"
+    },
+    {
+      "clauseRef": "Annex 1 §9",
+      "requirement": "培养基灌装（无菌工艺模拟）按规定的频率和条件执行，结果无污染，且模拟了实际生产中的最差条件与干预操作",
+      "requirementEn": "Media fills are performed at the defined frequency under worst-case conditions including actual interventions, with no contaminated units",
+      "guidance": "核查培养基灌装是否覆盖了所有班次、所有干预类型、最差条件。常见缺陷是模拟条件与实际操作不符。",
+      "guidanceEn": "Verify media fills cover all shifts, interventions and worst cases.",
+      "riskLevel": "critical",
+      "evidenceHint": "培养基灌装方案、结果报告、干预操作清单、最差条件评估、参与人员名单"
+    },
+    {
+      "clauseRef": "Annex 1 §10",
+      "requirement": "环境监测程序覆盖所有洁净级别，包括非活性粒子、活性粒子、表面、人员，超限结果已调查并评估对产品的影响",
+      "requirementEn": "Environmental monitoring covers all clean grades including non-viable, viable, surface and personnel monitoring, with excursions investigated and batch impact assessed",
+      "guidance": "重点核查超限调查是否评估了对已生产批次的影响，以及是否只做调查而无影响结论。",
+      "guidanceEn": "Verify excursions include an explicit batch impact conclusion.",
+      "riskLevel": "critical",
+      "evidenceHint": "环境监测 SOP、监测计划、监测数据、超限调查报告、批次影响评估记录"
+    },
+    {
+      "clauseRef": "Annex 1 §11",
+      "requirement": "无菌工艺关键干预操作已识别、分级并记录，A 级区干预操作受限且有实时监控",
+      "requirementEn": "Critical interventions in aseptic processing are identified, graded and recorded, with restricted interventions and real-time monitoring in grade A",
+      "guidance": "核查干预操作清单与实际批记录中记录的干预是否一致，以及每批干预次数是否有趋势监控。",
+      "guidanceEn": "Compare the intervention list with interventions recorded in batch records, and check trend monitoring.",
+      "riskLevel": "major",
+      "evidenceHint": "干预操作清单与分级、批记录干预记录、干预趋势分析"
+    },
+    {
+      "clauseRef": "Chapter 1.4(xiv) / 6.42",
+      "requirement": "所有偏差均已记录、调查、评估影响并采取纠正预防措施，CAPA 有效性经过确认",
+      "requirementEn": "All deviations are recorded, investigated, impact-assessed with CAPA, and CAPA effectiveness is verified",
+      "guidance": "抽查 3 份偏差记录，核查：根本原因是否查到系统性原因（而非「人员疏忽」）、影响评估是否覆盖其他批次、CAPA 是否有效验证。",
+      "guidanceEn": "Sample 3 deviations; check root cause depth, impact on other batches and CAPA effectiveness.",
+      "riskLevel": "critical",
+      "evidenceHint": "偏差处理程序、偏差台账、偏差调查报告、CAPA 有效性确认记录"
+    },
+    {
+      "clauseRef": "Chapter 1.4(xiii)",
+      "requirement": "所有变更均经过变更控制程序评估与批准，变更实施前的验证与文件更新已完成，变更后有效性经过确认",
+      "requirementEn": "All changes are assessed and approved under change control, with validation and documentation updated before implementation and effectiveness confirmed after",
+      "guidance": "核查变更台账与实际执行日期，重点识别「先实施后补变更」的情况（通过对比变更批准日期与实施日期）。",
+      "guidanceEn": "Compare change approval dates with implementation dates to detect retrospective change control.",
+      "riskLevel": "critical",
+      "evidenceHint": "变更控制程序、变更台账、变更评估记录、批准签名与日期、实施证据"
+    },
+    {
+      "clauseRef": "Chapter 3.5 / Annex 15",
+      "requirement": "设备与公用系统经过确认（DQ/IQ/OQ/PQ），确认状态与设备实际使用状态一致",
+      "requirementEn": "Equipment and utilities are qualified (DQ/IQ/OQ/PQ) and the qualification status matches actual use",
+      "guidance": "抽查设备台账中的确认状态，与设备现场标识及使用记录核对。",
+      "guidanceEn": "Cross-check qualification status in the asset register against physical labels and use records.",
+      "riskLevel": "critical",
+      "evidenceHint": "设备台账、确认方案与报告、设备状态标识、使用日志"
+    },
+    {
+      "clauseRef": "Chapter 3.4 / Annex 15",
+      "requirement": "设备有预防性维护计划并按计划执行，维护活动有记录，维护后对产品质量的影响已评估",
+      "requirementEn": "Equipment has a preventive maintenance programme executed per plan with records and post-maintenance impact assessment",
+      "guidance": "核查维护记录是否按时完成、延期维护是否经过评估与批准。",
+      "guidanceEn": "Check for overdue maintenance and whether deferrals were assessed and approved.",
+      "riskLevel": "major",
+      "evidenceHint": "预防性维护计划、维护工单记录、延期维护审批记录"
+    },
+    {
+      "clauseRef": "Chapter 5.20 / Annex 15",
+      "requirement": "清洁验证已完成，残留限度基于毒理学或药理活性数据确定，最差条件产品已识别",
+      "requirementEn": "Cleaning validation is complete with residue limits based on toxicological or pharmacological data, and worst-case products identified",
+      "guidance": "核查残留限度的计算依据（如基于日治疗剂量的千分之一、10 ppm 标准），以及是否覆盖了最难清洁的产品与位置。",
+      "guidanceEn": "Verify residue limit derivation and worst-case coverage.",
+      "riskLevel": "critical",
+      "evidenceHint": "清洁验证方案与报告、残留限度计算依据、最差条件评估、清洁记录"
+    }
+  ]
+}

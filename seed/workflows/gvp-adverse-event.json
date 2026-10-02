@@ -1,0 +1,142 @@
+{
+  "code": "GVP-AE",
+  "recordPrefix": "AE",
+  "name": "不良事件 / 药物警戒事件",
+  "nameEn": "Adverse Event / Pharmacovigilance Case",
+  "category": "safety_event",
+  "gxpAreas": ["GVP", "GCP"],
+  "regulationRefs": [
+    "EU GVP Module VI - management and reporting of adverse reactions to medicinal products",
+    "ICH E2A - clinical safety data management; ICH E2B(R3) - electronic transmission of ICSRs",
+    "ICH E2D - post-approval safety data management",
+    "21 CFR 312.32 - IND safety reports; 21 CFR 314.80 - postmarketing adverse experience reporting",
+    "NMPA 药物警戒质量管理规范 (2021) 及个例报告要求"
+  ],
+  "description": "接收、评估、随访并报告个例安全性报告（ICSR），作出因果关系判断并及时限报告监管机构。",
+  "descriptionEn": "Receives, assesses, follows up and reports individual case safety reports, makes causality assessments and submits within regulatory timelines.",
+  "slaDays": 15,
+  "requiresRootCause": false,
+  "requiresEffectivenessCheck": false,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "intake", "triaged", "data_entry", "medical_review", "submitted", "follow_up", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "报告标题", "labelEn": "Case title", "type": "text", "required": true, "help": "格式建议：产品 + 事件名称 + 严重性（不含受试者身份信息）" },
+    { "key": "summary", "label": "事件简述", "labelEn": "Case narrative summary", "type": "textarea", "required": true },
+    { "key": "product", "label": "怀疑药品", "labelEn": "Suspect product", "type": "text", "required": true },
+    { "key": "batchNumber", "label": "批号", "labelEn": "Batch number", "type": "text", "required": false },
+    { "key": "occurredAt", "label": "事件发生日期", "labelEn": "Date of onset", "type": "date", "required": true },
+    { "key": "criticality", "label": "严重性分级", "labelEn": "Seriousness", "type": "select", "required": true, "options": ["minor", "major", "critical"], "help": "导致死亡、危及生命、住院、致残、先天异常或重要医学事件为严重" },
+    { "key": "department", "label": "报告来源", "labelEn": "Report source", "type": "select", "required": true, "options": ["自发报告", "临床试验", "文献", "监管机构", "患者支持项目", "投诉"] }
+  ],
+
+  "steps": [
+    {
+      "code": "intake",
+      "name": "接收与登记",
+      "nameEn": "Intake and registration",
+      "role": ["pharmacovigilance", "clinical_monitor", "qa_specialist"],
+      "type": "task",
+      "onComplete": "intake",
+      "form": [
+        { "key": "receivedDate", "label": "接收日期", "type": "date", "required": true, "help": "时钟起始日（Day 0）为首次收到任一四要素信息的日期" },
+        { "key": "reportSource", "label": "报告来源", "type": "text", "required": true },
+        { "key": "patientAge", "label": "患者年龄组", "type": "text", "required": false, "help": "仅记录年龄组或年龄段，不记录可识别身份的信息" },
+        { "key": "patientSex", "label": "性别", "type": "select", "required": false, "options": ["male", "female", "unknown"] },
+        { "key": "fourElementsPresent", "label": "四要素是否齐全", "type": "select", "required": true, "options": ["yes", "no"], "help": "可识别的患者、可识别的报告者、可疑药品、不良事件" },
+        { "key": "validCase", "label": "是否构成有效个例报告", "type": "select", "required": true, "options": ["valid", "invalid", "pending_follow_up"] }
+      ],
+      "guidance": "四要素齐全是有效个例报告的最低要求。缺失信息应通过随访获取，但不得延误报告时限。"
+    },
+    {
+      "code": "triage",
+      "name": "分类与时限判定",
+      "nameEn": "Triage and timeline determination",
+      "role": ["pharmacovigilance"],
+      "type": "task",
+      "onComplete": "triaged",
+      "requiresFields": ["seriousness", "expectedness", "reportingDeadline"],
+      "form": [
+        { "key": "seriousness", "label": "严重性判定", "type": "select", "required": true, "options": ["serious", "non_serious"] },
+        { "key": "seriousnessCriteria", "label": "严重性标准", "type": "textarea", "required": false, "help": "死亡 / 危及生命 / 住院或延长住院 / 持续或显著残疾 / 先天异常 / 重要医学事件" },
+        { "key": "expectedness", "label": "预期性", "type": "select", "required": true, "options": ["expected", "unexpected", "not_applicable"], "help": "对照最新版说明书或研究者手册判断" },
+        { "key": "relatedness", "label": "与药品的关联性", "type": "select", "required": true, "options": ["certain", "probable", "possible", "unlikely", "conditional", "unassessable"] },
+        { "key": "reportingDeadline", "label": "报告时限", "type": "select", "required": true, "options": ["15_day", "7_day", "immediate_24h", "periodic", "none"] },
+        { "key": "expeditedRequired", "label": "是否需要快速报告", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "safetyIssue", "label": "是否为新识别的安全性问题", "type": "select", "required": false, "options": ["yes", "no"] }
+      ],
+      "guidance": "严重且非预期的不良反应需在 15 日内报告；死亡或危及生命的 7 日内报告。日期计算以首次获知日为起点。"
+    },
+    {
+      "code": "medical_review",
+      "name": "医学审核",
+      "nameEn": "Medical review",
+      "role": ["pharmacovigilance", "clinical_pi"],
+      "type": "signature",
+      "signatureMeaning": "reviewed",
+      "onComplete": "medical_review",
+      "form": [
+        { "key": "narrative", "label": "病例叙述", "type": "textarea", "required": true, "help": "按时间顺序客观描述，包含用药、事件、处理与转归" },
+        { "key": "medicalAssessment", "label": "医学评价", "type": "textarea", "required": true },
+        { "key": "causalityConclusion", "label": "因果关系结论", "type": "select", "required": true, "options": ["related", "not_related", "possibly_related", "unassessable"] },
+        { "key": "listednessReview", "label": "预期性复核结论", "type": "textarea", "required": true },
+        { "key": "actionTaken", "label": "对患者采取的措施", "type": "textarea", "required": false, "help": "停药、减量、对症治疗、住院" },
+        { "key": "outcome", "label": "转归", "type": "select", "required": true, "options": ["recovered", "recovering", "not_recovered", "recovered_with_sequelae", "fatal", "unknown"] }
+      ],
+      "guidance": "医学审核必须由具备资质的人员完成。因果关系判断应记录判断依据，而非仅给出结论。"
+    },
+    {
+      "code": "submission",
+      "name": "提交监管机构",
+      "nameEn": "Regulatory submission",
+      "role": ["pharmacovigilance", "ra_officer"],
+      "type": "task",
+      "onComplete": "submitted",
+      "form": [
+        { "key": "submittedTo", "label": "提交对象", "type": "textarea", "required": true },
+        { "key": "submissionDate", "label": "提交日期", "type": "date", "required": true },
+        { "key": "submissionFormat", "label": "提交格式", "type": "select", "required": true, "options": ["E2B(R3)", "CIOMS", "national_form", "medwatch", "not_required"] },
+        { "key": "acknowledgement", "label": "回执编号", "type": "text", "required": false },
+        { "key": "withinTimeline", "label": "是否在时限内提交", "type": "select", "required": true, "options": ["yes", "no"], "help": "若超时，必须记录超时原因，检查中这是重点关注项" },
+        { "key": "overdueReason", "label": "超时原因", "type": "textarea", "required": false }
+      ],
+      "guidance": "报告时限以首次获知日计算，而非病例完成日。超时提交属于严重缺陷，必须记录原因并制定纠正措施。"
+    },
+    {
+      "code": "follow_up",
+      "name": "随访",
+      "nameEn": "Follow-up",
+      "role": ["pharmacovigilance", "clinical_monitor"],
+      "type": "task",
+      "onComplete": "follow_up",
+      "optional": true,
+      "form": [
+        { "key": "followUpAttempts", "label": "随访尝试次数及方式", "type": "textarea", "required": true },
+        { "key": "newInformation", "label": "新获得的信息", "type": "textarea", "required": false },
+        { "key": "followUpReportRequired", "label": "是否需要提交随访报告", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "caseClosurePossible", "label": "是否可以结案", "type": "select", "required": true, "options": ["yes", "no"] }
+      ],
+      "guidance": "随访获得的重大新信息可能改变严重性或预期性判定，需要重新评估报告时限。"
+    },
+    {
+      "code": "closure",
+      "name": "结案与信号评估",
+      "nameEn": "Closure and signal assessment",
+      "role": ["pharmacovigilance", "qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "form": [
+        { "key": "caseConclusion", "label": "结案结论", "type": "textarea", "required": true },
+        { "key": "signalAssessment", "label": "信号评估结论", "type": "select", "required": true, "options": ["no_signal", "potential_signal", "confirmed_signal", "not_applicable"] },
+        { "key": "actionRequired", "label": "需采取的行动", "type": "textarea", "required": false, "help": "如：更新说明书、致医务人员函、风险最小化措施、PSUR 中评价" },
+        { "key": "psurInclude", "label": "是否纳入定期安全性更新报告", "type": "select", "required": true, "options": ["yes", "no"] }
+      ],
+      "guidance": "个例报告结案不等于安全性问题结案。信号需要纳入持续的安全性监测与定期报告。"
+    }
+  ]
+}

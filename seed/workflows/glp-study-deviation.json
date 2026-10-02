@@ -1,0 +1,122 @@
+{
+  "code": "GLP-FINDING",
+  "recordPrefix": "GLPF",
+  "name": "GLP 研究偏离 / QA 发现",
+  "nameEn": "GLP Study Deviation / QA Finding",
+  "category": "study_event",
+  "gxpAreas": ["GLP"],
+  "regulationRefs": [
+    "OECD Principles of GLP ENV/MC/CHEM(98)17 §2.2.2 - QA unit responsibilities",
+    "21 CFR 58.35 - quality assurance unit; 58.33 - study director responsibilities",
+    "21 CFR 58.81 - standard operating procedures; 58.120 - study protocol",
+    "21 CFR 58.185 - reporting of study results; 58.195 - retention of records",
+    "OECD GLP Consensus Document No. 4 - QA and GLP"
+  ],
+  "description": "记录 GLP 研究过程中偏离试验方案或标准操作规程的情况，以及 QA 部门在稽查中发现的问题。",
+  "descriptionEn": "Records departures from the study plan or SOPs during a GLP study, and findings raised by the QA unit during phase audits.",
+  "slaDays": 21,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": false,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "recorded", "qa_notified", "assessed", "resolved", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "发现标题", "labelEn": "Finding title", "type": "text", "required": true },
+    { "key": "summary", "label": "发现描述", "labelEn": "Description", "type": "textarea", "required": true },
+    { "key": "studyCode", "label": "研究编号", "labelEn": "Study number", "type": "text", "required": true },
+    { "key": "protocolNumber", "label": "试验方案编号及版本", "labelEn": "Study plan number and version", "type": "text", "required": false },
+    { "key": "occurredAt", "label": "发生日期", "labelEn": "Date of occurrence", "type": "date", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] },
+    { "key": "department", "label": "发生部门", "labelEn": "Department", "type": "select", "required": false, "options": ["分析实验室", "动物房", "病理室", "临床检验", "供试品管理", "档案室", "QA"] }
+  ],
+
+  "steps": [
+    {
+      "code": "record",
+      "name": "记录偏离",
+      "nameEn": "Record the deviation",
+      "role": ["lab_technician", "lab_manager", "qa_auditor", "qa_specialist"],
+      "type": "task",
+      "onComplete": "recorded",
+      "form": [
+        { "key": "whatHappened", "label": "事实描述（客观、可核查）", "type": "textarea", "required": true },
+        { "key": "requirementDeparted", "label": "所偏离的要求", "type": "textarea", "required": true, "help": "引用试验方案条款号或 SOP 编号及版本" },
+        { "key": "witnessedBy", "label": "见证人", "type": "text", "required": false },
+        { "key": "rawDataRef", "label": "原始数据引用", "type": "text", "required": false, "help": "原始数据记录本页码、仪器打印件编号" },
+        { "key": "immediateCorrection", "label": "即时纠正", "type": "textarea", "required": false }
+      ],
+      "guidance": "GLP 要求原始数据必须可追溯到具体操作者、时间与条件。偏离记录本身就是原始数据的一部分。"
+    },
+    {
+      "code": "qa_notification",
+      "name": "通知 QA 部门",
+      "nameEn": "Notify the QA unit",
+      "role": ["qa_auditor", "qa_specialist", "qa_manager"],
+      "type": "task",
+      "onComplete": "qa_notified",
+      "form": [
+        { "key": "qaNotifiedAt", "label": "通知时间", "type": "text", "required": true },
+        { "key": "studyDirectorInformed", "label": "是否已通知专题负责人", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "qaComment", "label": "QA 意见", "type": "textarea", "required": false }
+      ],
+      "guidance": "21 CFR 58.35 要求 QA 部门独立于研究实施，直接向管理层报告。"
+    },
+    {
+      "code": "impact_assessment",
+      "name": "对研究完整性的影响评估",
+      "nameEn": "Assessment of impact on study integrity",
+      "role": ["lab_manager", "qa_specialist"],
+      "type": "signature",
+      "signatureMeaning": "reviewed",
+      "onComplete": "assessed",
+      "requiresFields": ["studyImpact", "dataValidity"],
+      "persistFields": { "root_cause": "rootCause", "impact_assessment": "studyImpact" },
+      "form": [
+        { "key": "studyImpact", "label": "对研究的影响", "type": "textarea", "required": true, "help": "是否影响研究目的、终点指标、数据完整性、动物福利" },
+        { "key": "dataValidity", "label": "受影响数据的有效性", "type": "select", "required": true, "options": ["valid_data_retained", "valid_with_qualification", "data_excluded", "study_repeated"] },
+        { "key": "affectedAnimals", "label": "受影响动物 / 样本编号", "type": "text", "required": false },
+        { "key": "affectedParameters", "label": "受影响参数", "type": "text", "required": false },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "reportingRequired", "label": "是否需在最终报告中说明", "type": "select", "required": true, "options": ["yes", "no"] }
+      ],
+      "guidance": "GLP 要求最终报告中必须说明偏离试验方案的情况及其对研究结果的影响（21 CFR 58.185(a)(11)）。"
+    },
+    {
+      "code": "resolution",
+      "name": "纠正与预防措施",
+      "nameEn": "Corrective and preventive action",
+      "role": ["lab_manager", "qa_specialist", "trainer"],
+      "type": "task",
+      "onComplete": "resolved",
+      "form": [
+        { "key": "correction", "label": "纠正措施", "type": "textarea", "required": true },
+        { "key": "prevention", "label": "预防措施", "type": "textarea", "required": true },
+        { "key": "sopRevised", "label": "是否修订 SOP", "type": "select", "required": true, "options": ["no", "yes"] },
+        { "key": "sopRef", "label": "SOP 编号及新版本", "type": "text", "required": false },
+        { "key": "trainingDone", "label": "相关人员培训", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "effectivenessMethod", "label": "后续确认方式", "type": "textarea", "required": false, "help": "如：下阶段稽查重点、后续研究观察" }
+      ],
+      "guidance": "GLP 体系中，SOP 修订后必须对相关人员进行培训并留存记录。"
+    },
+    {
+      "code": "close",
+      "name": "QA 关闭",
+      "nameEn": "QA closure",
+      "role": ["qa_manager", "qa_auditor"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "qaConclusion", "label": "QA 结论", "type": "textarea", "required": true },
+        { "key": "reportedToManagement", "label": "是否已向管理层报告", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "studyDirectorAgreement", "label": "专题负责人是否认同结论", "type": "select", "required": true, "options": ["yes", "no", "not_consulted"] }
+      ],
+      "guidance": "若与专题负责人意见不一致，必须记录分歧内容及最终裁定依据。"
+    }
+  ]
+}

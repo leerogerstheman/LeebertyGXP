@@ -1,0 +1,339 @@
+{
+  "code": "GVP-PV",
+  "title": "药物警戒体系自查表（EU GVP / ICH E2 系列）",
+  "titleEn": "Pharmacovigilance System Self-Inspection Checklist (EU GVP / ICH E2)",
+  "scope": "self_inspection",
+  "category": "pharmacovigilance",
+  "gxpAreas": ["GVP"],
+  "regulation": "EU GVP Modules I-XVI; ICH E2A/E2B(R3)/E2C(R2)/E2D/E2E; 21 CFR 312.32 and 314.80; NMPA 药物警戒质量管理规范",
+  "authority": "EMA / ICH / FDA / NMPA",
+  "version": "EU GVP Modules I-XVI（Module VI Rev 2, 2017；Module IX, 2017；Module XVI, 2018）; ICH E2B(R3) / E2C(R2) / E2D / E2E; 21 CFR 312.32 与 314.80; NMPA 药物警戒质量管理规范（2021 年施行）",
+  "description": "用于药品上市许可持有人、临床试验申办者及受托药物警戒服务商的自查表，覆盖药物警戒体系与主文件、QPPV、个例安全性报告的接收与时限、信号管理、定期安全性更新报告、风险最小化措施、委托活动与体系质量。每一项均为可判定的具体断言，其中报告时限的时钟起点（首次获知日）及其来源记录按最高优先级核查。",
+  "descriptionEn": "Self-inspection checklist for marketing authorisation holders, sponsors and outsourced pharmacovigilance providers, covering the PV system and master file, the QPPV, ICSR intake and reporting timelines, signal management, periodic safety update reports, risk minimisation measures, outsourcing and system quality. The documentation of the clock start (day of first knowledge) receives particular depth.",
+  "items": [
+    {
+      "clauseRef": "Module I（药物警戒体系与职责）",
+      "requirement": "已建立文件化的药物警戒体系，组织架构、岗位职责与资源配置覆盖全部持有或代理的上市药品，并设立药品安全委员会对重大安全性问题作出决策且留有会议记录",
+      "requirementEn": "A documented pharmacovigilance system covers all marketed products held or represented, with defined structure, responsibilities and resources, and a drug safety committee decides on major safety issues with recorded outcomes",
+      "guidance": "先索取产品清单与药物警戒体系文件，逐个产品核对是否纳入体系。引进品种、受托生产品种、已停产但仍在效期内的品种最易被漏掉。再索取药品安全委员会近两年的会议记录，确认对重大安全性问题（如致死信号、说明书修订、召回）确有决策过程，而不是只在文件里存在。常见缺陷是体系文件为模板，与实际岗位、人员和产品组合对不上。",
+      "guidanceEn": "Pull the product list and the PV system description and check every product is in scope, then test that the drug safety committee actually decided recent safety issues.",
+      "riskLevel": "major",
+      "evidenceHint": "药物警戒体系文件、产品清单、组织架构图与职责描述、药品安全委员会章程与会议记录、人员与资源配置说明"
+    },
+    {
+      "clauseRef": "Module II（药物警戒体系主文件 · 内容、附录与更新）",
+      "requirement": "药物警戒体系主文件（PSMF）内容完整，包含 QPPV 信息与简历、组织架构与职责、人员数量、SOP 清单、数据库与委托活动等规定内容，附录清单与实际一致，并在体系发生变更后及时更新，现行版本与现场实际运行的体系一致，旧版本作为历史记录保留",
+      "requirementEn": "The pharmacovigilance system master file is complete, containing the QPPV details and CV, organisational structure and responsibilities, staffing, SOP index, database and outsourced activities, with annexes matching reality; it is updated promptly after changes to the QPPV, structure, SOPs, database or outsourced activities, the current version matches the system in operation, and superseded versions are retained",
+      "guidance": "先逐条对照 GVP Module II 的内容清单核查 PSMF 是否齐全，再把附录（SOP 清单、数据库、委托方清单）与现行清单并排比对，常见缺陷是附录中的 SOP 编号已作废或数据库名称与实际系统不符。随后取修订记录，与同期的人事任命、SOP 修订、系统更换记录对照：典型缺陷是 PSMF 上次更新在两三年前，而这期间已更换 QPPV 或数据库，或文件中声明的人员数量、常驻地点与实际不符。",
+      "guidanceEn": "Check the PSMF against the Module II content list and compare its annexes with the live lists, then compare the revision log with HR appointments, SOP revisions and system changes over the same period.",
+      "riskLevel": "major",
+      "evidenceHint": "PSMF 全文及附录（SOP 清单、数据库与系统清单、委托方清单）、修订历史与版本记录、任命文件、SOP 修订记录、系统更换记录、与实际体系的比对记录"
+    },
+    {
+      "clauseRef": "Module I（QPPV 与后备人员的任命与资质）",
+      "requirement": "已书面任命药物警戒负责人（QPPV）及后备人员，其学历、经验与培训记录符合要求，书面职责明确并包含对体系、报告时限与信号管理的监督权以及获取全部安全性数据的权限",
+      "requirementEn": "A QPPV and deputy are appointed in writing with documented qualifications, experience and training, and written responsibilities including oversight of the system, reporting timelines and signals, and access to all safety data",
+      "guidance": "核查任命文件、简历、学历与专业背景、药物警戒培训记录，以及职责描述是否包含对 PSMF、时限合规与信号管理的责任。常见缺陷是职责描述只写「负责药物警戒工作」这类空泛表述，无法据此判断 QPPV 是否真正掌握体系；另一种是 QPPV 名义在岗而实际由他人操作，且无书面委托。",
+      "guidanceEn": "Verify appointment letters, CVs, training, and that the written duties give the QPPV real oversight and data access.",
+      "riskLevel": "critical",
+      "evidenceHint": "QPPV 与后备任命文件、简历与学历证明、培训记录、岗位职责描述、备案的 QPPV 信息、书面委托或授权文件"
+    },
+    {
+      "clauseRef": "Module I（QPPV 的可用性与 24 小时联系）",
+      "requirement": "已建立并公布 QPPV 的 24 小时联系方式，非工作时间可实际联系到 QPPV 或后备人员，休假、出差与离职期间的履职安排有书面记录",
+      "requirementEn": "A 24-hour contact route to the QPPV is established and published, the QPPV or deputy can actually be reached out of hours, and cover during leave, travel and vacancies is documented",
+      "guidance": "现场做一次拨测：用说明书或官网上公布的安全性报告电话，在工作时间外实际拨打，记录接听人与响应时间。常见缺陷是公布的号码实为总机、无人接听，或接听人不知道谁是 QPPV。QPPV 长期空缺、由未任命人员代行属严重缺陷。",
+      "guidanceEn": "Actually test the published out-of-hours number and check the duty roster; a number that rings out or reaches someone who cannot identify the QPPV is a finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "QPPV 联系方式公示材料（说明书、官网、门户）、值班表、拨测记录（时间、接听人、响应）、后备人员授权文件、休假与代理记录"
+    },
+    {
+      "clauseRef": "Module VI（个例安全性报告的接收渠道）",
+      "requirement": "接收渠道覆盖自发报告、文献、监管机构、合作方、数字化渠道与内部部门（销售、市场、医学、注册、质量、客服）等全部来源，且对患者与医务人员公开可及",
+      "requirementEn": "Intake channels cover all sources — spontaneous reports, literature, competent authorities, partners, digital channels and internal functions such as sales, marketing, medical, regulatory, quality and customer service — and are publicly accessible to patients and healthcare professionals",
+      "guidance": "索取接收渠道清单，逐一核对说明书、包装、官网、微信公众号等公开载体上是否载明报告方式。易漏的来源是销售人员与医药代表的电话与微信、患者援助项目、市场调研与社交媒体。渠道清单应标明每个来源的责任人与转交时限。",
+      "guidanceEn": "List every intake route and confirm each is published where patients and healthcare professionals will look; sales-force and social media routes are the usual gaps.",
+      "riskLevel": "major",
+      "evidenceHint": "ICSR 接收渠道清单与责任人、说明书与官网截图、公开报告方式记录、各来源的报告登记记录、转交时限规定"
+    },
+    {
+      "clauseRef": "Module VI（接收渠道的有效性验证）",
+      "requirement": "每个对外报告渠道均经过实际测试并留有记录（拨测、匿名邮件或在线表单提交），测试报告能进入药物警戒体系并得到登记与回复",
+      "requirementEn": "Every external reporting channel is actually tested with records (call test, anonymous e-mail or web form submission), and test reports enter the pharmacovigilance system, are logged and acknowledged",
+      "guidance": "让企业现场演示：通过公开渠道提交一份测试报告，随后在数据库中调出这条记录，核对登记日期与首次获知日是否一致。典型缺陷是渠道测试只做了「电话能打通」，未验证报告是否真的进入体系；也有在线表单提交后无人查收，报告停留在公共邮箱。",
+      "guidanceEn": "Ask for a live test submission, then trace it into the safety database; test reports that never arrive are the classic failure.",
+      "riskLevel": "critical",
+      "evidenceHint": "渠道可用性测试记录与结果、测试报告在数据库中的登记记录、公共邮箱查收记录与责任人、渠道失效时的整改记录"
+    },
+    {
+      "clauseRef": "Module VI（四要素判定与无效报告的判定记录）",
+      "requirement": "每份接收到的报告均记录四要素（可识别的患者、可识别的报告者、可疑药品、不良事件）的判定结论，判定为无效或信息不足的报告保留判定理由、判定人与随访尝试记录",
+      "requirementEn": "Every received report has a documented assessment of the four minimum criteria (identifiable patient, identifiable reporter, suspect product, adverse event); reports judged invalid or incomplete retain the rationale, the assessor and follow-up attempts",
+      "guidance": "从接收登记台账中抽取被判定为无效或信息不足的报告，核查是否有书面判定理由与随访记录。常见缺陷是判定无记录、口头决定即丢弃，或缺少要素后未尝试随访即关闭。重点关注仅有药品名而无可识别患者的报告是否也做了判定留痕。",
+      "guidanceEn": "Sample reports closed as invalid or incomplete and check for a documented rationale, a named assessor and follow-up attempts.",
+      "riskLevel": "major",
+      "evidenceHint": "接收登记台账、四要素判定记录、无效报告判定理由与判定人、随访记录、关闭报告的审核签署"
+    },
+    {
+      "clauseRef": "Module VI（首次获知日 · 时钟起算点及其来源）",
+      "requirement": "每份个例安全性报告均记录首次获知日期（Day 0）及其来源（何人、何时、通过何种渠道首次获知），Day 0 不晚于任何已知的最早获知时间点，且不迟于数据库录入日",
+      "requirementEn": "Every ICSR records the date of first knowledge (Day 0) and its source — who learned of the case, when and through which channel — with Day 0 no later than any known earliest awareness date and never after the entry date",
+      "guidance": "这是药物警戒检查中最高频的严重缺陷。逐份抽取快速报告，核对 Day 0 能否追溯到原始邮件、通话记录、销售拜访记录或文献接收日期。典型问题：把病例录入日、病例完成日或医学审核日当作 Day 0；Day 0 晚于原始邮件日期；市场或销售人员数周后才转发，而体系按转发日计算时限。发现一例不一致的，应扩大核查同期的其他报告。",
+      "guidanceEn": "Highest-frequency critical finding: trace Day 0 for each expedited case back to the original e-mail, call log or literature alert; dates recorded as entry or completion date are findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "个例报告的首次获知日期与来源记录、原始邮件或通话记录、接收登记台账与日期戳、Day 0 与录入日对照表、相关 SOP 与培训记录"
+    },
+    {
+      "clauseRef": "Module VI（首次获知的定义与第一获知人的报告义务）",
+      "requirement": "对首次获知有书面定义与判定规则，并对任何可能最先获知安全性信息的岗位（销售、市场、医学、注册、客服、委托方、经销商）完成培训，培训内容包含获知后向药物警戒部门转交的时限要求",
+      "requirementEn": "First knowledge is defined in writing with decision rules, and anyone who may first receive safety information (sales, marketing, medical, regulatory, customer service, contractors, distributors) is trained on the requirement to forward it to pharmacovigilance within a defined time",
+      "guidance": "抽取销售代表、区域经理、客服与经销商的培训记录，并现场提问两三名一线人员：如果今天从医生那里听说一例严重不良反应，多长时间内要报给谁。答不出或答「月底汇总」是严重缺陷。检查是否把首次获知的判定规则（以任一员工或合作方获知的最早时点为准）写进 SOP 并纳入考核。",
+      "guidanceEn": "Interview frontline staff on how fast a serious reaction must reach pharmacovigilance; vague or batched answers show the clock rule is not embedded.",
+      "riskLevel": "critical",
+      "evidenceHint": "首次获知判定规则（SOP 条文）、一线人员培训记录与考核、现场访谈记录、转交时限规定、合作方与经销商的通知义务条款"
+    },
+    {
+      "clauseRef": "Module VI（报告时限 · 15 日 / 7 日与立即报告）",
+      "requirement": "严重且非预期的不良反应在 15 日内、死亡或危及生命的在 7 日内（适用时立即）报告监管机构，全部快速报告的首次获知日至提交日天数可被独立复算且与提交记录一致",
+      "requirementEn": "Serious unexpected adverse reactions are reported within 15 days and fatal or life-threatening cases within 7 days (immediately where applicable); day counts from first knowledge to submission can be independently recalculated and match the submission records",
+      "guidance": "不要只看体系内的时限统计表，自己从原始记录复算至少 10 份报告的 Day 0 至提交日天数，并要求提供网关回执上的时间戳。常见操纵手法是修改数据库中的接收日期以显示合规，因此必须与数据库之外的原始证据交叉核对。发现一例超时，应扩大抽样并评估是否为体系性问题。",
+      "guidanceEn": "Recalculate day counts yourself for at least ten cases using evidence outside the database and match them to gateway submission timestamps.",
+      "riskLevel": "critical",
+      "evidenceHint": "快速报告清单与提交回执（含时间戳）、时限计算表、Day 0 原始证据、独立复算工作表、数据库提交日志导出"
+    },
+    {
+      "clauseRef": "Module VI / 21 CFR 314.80（严重性判定标准）",
+      "requirement": "严重性判定按法规列明的标准（死亡、危及生命、住院或住院延长、持续或显著残疾、先天异常或出生缺陷、其他重要医学事件）逐条判定，判定依据与判定人记录在案，未出现以非严重结论规避快速报告的情形",
+      "requirementEn": "Seriousness is assessed against the regulatory criteria (death, life-threatening, hospitalisation or prolongation, persistent or significant disability, congenital anomaly, other medically important condition) with the basis and assessor recorded, without downgrading cases to avoid expedited reporting",
+      "guidance": "抽取被判定为非严重但叙述中出现住院、抢救、致残等字样的报告，核对判定依据。常见缺陷是严重性字段只有结论没有依据，或「其他重要医学事件」一项被系统性忽略。对判定为非严重的病例，核查是否有医学人员审核签署。",
+      "guidanceEn": "Sample cases classified non-serious whose narratives mention hospitalisation or intervention, and check the documented rationale and medical review.",
+      "riskLevel": "critical",
+      "evidenceHint": "严重性判定记录与依据、严重性判定标准 SOP、医学审核签署、严重与非严重判定的一致性核查表、被降级判定的病例复核记录"
+    },
+    {
+      "clauseRef": "Module VI（预期性判定与当时有效的参考安全信息）",
+      "requirement": "预期性判定使用该病例报告时点有效的参考安全信息版本，判定所依据的段落或条目可追溯，未使用尚未生效或已作废的版本",
+      "requirementEn": "Expectedness is assessed against the version of the reference safety information in force at the time of the case, the section relied upon is traceable, and versions not yet effective or already superseded are not used",
+      "guidance": "取两三份跨参考安全信息版本切换时点的快速报告，核对判定所引用的版本生效日期与该病例首次获知日的关系。典型缺陷是统一用当前最新版本判定历史病例，把本应报告的「非预期」判为「预期」而漏报快速报告。要求企业出示版本变更日志。",
+      "guidanceEn": "Pick cases spanning a reference safety information change and confirm the version in force at the time was used, with the cited section traceable.",
+      "riskLevel": "critical",
+      "evidenceHint": "参考安全信息现行版本与历史版本、版本生效日期记录、预期性判定引用记录、版本变更日志、判定工作表"
+    },
+    {
+      "clauseRef": "Module VI / ICH E2D（因果关系评估）",
+      "requirement": "因果关系评估采用书面确定的方法（如 WHO-UMC 量表或公司自定义标准），记录了支持与不支持因果关系的具体信息及评估理由，评估人明确，而非仅勾选相关性等级",
+      "requirementEn": "Causality is assessed using a defined documented method (for example the WHO-UMC scale or a company standard), with supporting and opposing information and the reasoning recorded and the assessor identified, not merely a ticked causality term",
+      "guidance": "抽查几份复杂病例（多药并用、有基础疾病），看因果关系判定是否说明了理由。常见缺陷是同一批报告的相关性全部勾选同一等级、无评估人、未说明去激发或再激发信息。对判定为无关的报告，核查是否评估了既往同类反应史与时间关系。",
+      "guidanceEn": "Check that complex multi-drug cases state the reasoning and the assessor, and that unrelated conclusions address dechallenge and rechallenge.",
+      "riskLevel": "major",
+      "evidenceHint": "因果关系评估方法与量表、个例报告的因果关系判定记录与理由、评估人签署、方法培训记录、判定一致性抽查记录"
+    },
+    {
+      "clauseRef": "Module VI（随访与信息补充）",
+      "requirement": "对信息不完整的重要报告按程序开展随访，每次随访尝试有记录（时间、渠道、对象、结果），新获得的信息回填数据库并重新评估严重性、预期性与报告时限，无法随访的记录了原因",
+      "requirementEn": "Incomplete important cases are followed up per procedure with each attempt recorded (date, channel, contact, outcome); new information is entered into the database and re-assessed for seriousness, expectedness and reporting timelines, with reasons recorded where follow-up failed",
+      "guidance": "抽取近期严重报告，核对随访记录是否至少有两次、通过不同渠道、注明日期与对象。典型缺陷是只做一次电话无果即关闭，或随访获得的信息（如住院病程、检验结果）未更新到数据库，导致本应快速报告而未报。",
+      "guidanceEn": "Check for at least two documented attempts per serious case and whether incoming information was re-assessed for seriousness and reporting.",
+      "riskLevel": "major",
+      "evidenceHint": "随访 SOP、随访记录（时间、渠道、对象、结果）、随访信函与通话记录、数据库更新痕迹、严重性与预期性重新评估记录"
+    },
+    {
+      "clauseRef": "Module VI（重复报告的识别与合并）",
+      "requirement": "已建立查重规则（患者、报告者、可疑药品、事件与发生日期的组合判定），同一病例的多来源报告已合并或明确关联，合并保留全部来源信息与版本历史",
+      "requirementEn": "Duplicate detection rules exist (a combination of patient, reporter, suspect product, event and onset date), multiple reports of the same case are merged or explicitly linked, and merging preserves all source information and version history",
+      "guidance": "抽取有多个来源的病例（医生报一次、患者报一次、经销商报一次），核查是否合并为一份并保留来源标识。常见缺陷是数据库无查重功能或规则形同虚设，同一病例以多个编号存在，导致信号检测中的病例数虚高。要求现场演示一次查重操作。",
+      "guidanceEn": "Ask for a live duplicate search on a known multi-source case and verify the merge history retains all sources.",
+      "riskLevel": "major",
+      "evidenceHint": "查重规则与系统配置说明、查重操作演示记录、合并前后的报告版本、来源关联记录、重复报告统计与核查记录"
+    },
+    {
+      "clauseRef": "Module VI（数据录入质量与质量控制）",
+      "requirement": "数据库中的关键字段与原始报告一致，录入后有第二人质量控制或医学审核，编码使用规定版本（如 MedDRA）且版本号记录在案",
+      "requirementEn": "Key database fields match the source documents, a second-person quality control or medical review follows entry, and coding uses the required dictionary version (for example MedDRA) with the version recorded",
+      "guidance": "取 5 份报告的源文件（原始邮件、病例报告表、通话记录）与数据库导出记录逐字段比对：日期、药品名称与剂量、事件描述、转归。常见缺陷是核对记录只有签名没有核对内容，编码版本未记录，或字典版本升级后未做重编码影响评估。",
+      "guidanceEn": "Compare five source documents field by field with the database, and check that coding dictionary versions are recorded.",
+      "riskLevel": "major",
+      "evidenceHint": "源文件与数据库导出记录的比对记录、QC 核对表与签署、医学审核记录、编码字典版本记录、录入质量抽查报告"
+    },
+    {
+      "clauseRef": "Module VI / ICH E2B(R3)（电子提交与网关拒收处理）",
+      "requirement": "快速报告以规定的电子格式（E2B(R3)）通过网关提交且回执存档，被网关拒收或校验失败的报告有跟踪台账并记录原因、整改与最终成功提交的证据，不存在视为已提交而实际未送达的病例",
+      "requirementEn": "Expedited reports are submitted electronically in E2B(R3) via the gateway with acknowledgements retained; rejections or validation failures are tracked with cause, correction and evidence of successful resubmission, and no case is assumed submitted without delivery confirmation",
+      "guidance": "索取网关回执清单与全部错误或拒收日志，逐条核对是否已解决。典型严重缺陷是网关拒收后无人处理，报告超时数月仍显示为已报告；或人工在系统里标记为已提交而无回执。检查是否有人定期对账回执与内部提交清单的差异。",
+      "guidanceEn": "Reconcile every gateway rejection against corrections and receipts; internal submitted flags without a receipt are a critical finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "E2B(R3) 提交记录与回执、网关错误与拒收日志、拒收处理台账与重提交证据、提交清单与回执的对账记录、格式校验报告"
+    },
+    {
+      "clauseRef": "Module VI（超时的原因、纠正预防措施与趋势分析）",
+      "requirement": "所有超时报告均记录了超时原因、影响评估与纠正预防措施，超时按季度或规定频率进行趋势分析；反复将系统性超时归因于个别人员疏忽并据此关闭，本身即构成缺陷",
+      "requirementEn": "All late reports have a documented cause, impact assessment and corrective action, and overdue trends are analysed periodically; repeatedly attributing systemic lateness to individual carelessness and closing on that basis is itself a finding",
+      "guidance": "取超时台账，统计最近 12 个月超时数量、原因分类与措施类型。如果每次原因都是人员疏忽或工作繁忙，且没有任何流程、资源或系统层面的整改，应判定为缺陷，说明根因调查未到位。同时核查措施是否有效（此后 6 个月超时是否下降），以及超时报告是否补报并沟通了监管机构。",
+      "guidanceEn": "Classify overdue causes and actions over 12 months; a repeated human-error cause with no systemic action signals a root-cause failure.",
+      "riskLevel": "critical",
+      "evidenceHint": "超时报告台账与原因分析、纠正预防措施记录与有效性确认、超时趋势分析报告、时限合规率统计、补报记录与监管沟通记录"
+    },
+    {
+      "clauseRef": "Module IX（信号检测的方法、频率与验证）",
+      "requirement": "信号检测的方法与频率有书面依据并与产品风险相称，数据来源覆盖病例报告、文献与监管机构信息，候选信号经过验证并记录验证结论与依据，按风险排序并明确责任人、评估时限与监督层级",
+      "requirementEn": "The signal detection method and frequency are documented and proportionate to product risk, drawing on case reports, literature and regulatory information; potential signals are validated with a recorded conclusion and basis, prioritised by risk, and assigned an owner, assessment deadline and oversight level",
+      "guidance": "核查 SOP 中规定的检测频率（如每月或每季度）与实际检测记录是否一致，检测报告应有数据截止日与参与人。常见缺陷是 SOP 写每月而实际每季做一次，或只依赖监管机构反馈而无主动检测证据。对台账中「待评估」条目，统计数量与停留时长，长期挂起未处理会被质疑；优先级全部填「中」说明未真正排序。",
+      "guidanceEn": "Compare the SOP frequency with dated detection records, test that prioritisation is genuinely differentiated, and check the age of open signals.",
+      "riskLevel": "major",
+      "evidenceHint": "信号检测 SOP（方法与频率）、历次检测记录与报告（含数据截止日与参与人）、数据来源清单、统计方法说明与工具验证、信号台账与优先级判定依据、超期信号的升级记录"
+    },
+    {
+      "clauseRef": "Module IX（信号评估结论、措施与关闭）",
+      "requirement": "每个信号均形成书面评估结论（需采取措施或无需采取措施及其理由），需采取措施的已启动相应行动（更新参考安全信息、风险最小化措施、进一步研究、安全性沟通），行动有跟踪且信号关闭有记录",
+      "requirementEn": "Every signal reaches a documented conclusion (action needed or not, with justification); where action is needed the measure is initiated (reference safety information update, risk minimisation, further study, safety communication) and tracked, and closure is recorded",
+      "guidance": "从台账中挑两个已关闭的信号，追查其结论文件与实际行动证据（说明书修订稿、致医务人员函、风险管理计划更新）。典型缺陷是有结论但无行动，或行动停留在「已通知相关部门」。对判定为无需采取措施的信号，核查是否有评估理由，而非默认关闭。",
+      "guidanceEn": "Trace two closed signals to their conclusion documents and the actual measure taken; conclusions without evidence of action are findings.",
+      "riskLevel": "major",
+      "evidenceHint": "信号评估报告与结论、措施启动证据（说明书修订、致医务人员函、沟通函）、措施跟踪记录、信号关闭审批记录、评估会议纪要"
+    },
+    {
+      "clauseRef": "Module VII（定期安全性更新报告 · 数据锁定点与提交周期）",
+      "requirement": "PSUR/PBRER 按规定的周期与数据锁定点（DLP）编制并提交，数据锁定点与报告期的对应关系正确，提交在法定期限内完成并有回执",
+      "requirementEn": "PSURs/PBRERs are prepared and submitted at the required interval using the correct data lock point, the data lock point correctly corresponds to the reporting period, and submissions meet the legal deadline with acknowledgements retained",
+      "guidance": "建立产品、数据锁定点、提交截止日、实际提交日与回执的对照表，逐个核对数据锁定点是否落在正确的周期区间（按 EURD 清单或规定的 6 个月、1 年周期）。常见缺陷是数据锁定点取在周期结束后而非规定日、周期长度错误，以及提交日期临近或超出截止日而未见任何补救记录。",
+      "guidanceEn": "Build a data lock point, deadline and submission table per product and verify period alignment and on-time submission with receipts.",
+      "riskLevel": "critical",
+      "evidenceHint": "PSUR 周期表与 EURD 清单、各期报告的数据锁定点记录、提交回执与日期、提交计划、监管机构接收确认"
+    },
+    {
+      "clauseRef": "Module VII / ICH E2C(R2)（报告内容、获益-风险评价与监管反馈）",
+      "requirement": "PSUR/PBRER 内容符合规定结构（暴露量、个例报告汇总、信号与评价、获益-风险评价与结论），包含累积暴露数据与明确的获益-风险结论，对监管机构提出的问题有书面回复并跟踪承诺事项的落实",
+      "requirementEn": "The PSUR/PBRER follows the required structure (exposure, case summaries, signals and evaluation, benefit-risk evaluation and conclusion), includes cumulative exposure and an explicit benefit-risk conclusion, with written responses to authority questions and tracking of commitments",
+      "guidance": "翻看最近一期报告，检查获益-风险部分是否只是复述安全性数据而无获益侧评价与明确结论，暴露量数据来源是否可靠。再取监管机构上一次的评估意见或问询函，核查是否逐条回复、承诺的补充分析或说明书修订是否落实并有证据。",
+      "guidanceEn": "Check the benefit-risk section reaches an explicit conclusion, then trace authority questions to written responses and completed commitments.",
+      "riskLevel": "major",
+      "evidenceHint": "PSUR/PBRER 全文、暴露量与数据来源说明、监管机构评估意见与问询、回复文件、承诺事项跟踪表与完成证据"
+    },
+    {
+      "clauseRef": "Module V（风险管理计划）",
+      "requirement": "已建立并维护风险管理计划（RMP），包含安全性规格、药物警戒计划与风险最小化措施，随新的安全性信息及时更新，版本与提交记录可追溯",
+      "requirementEn": "A risk management plan is established and maintained with the safety specification, pharmacovigilance plan and risk minimisation measures, updated as new safety information emerges, with version and submission records traceable",
+      "guidance": "核对风险管理计划版本与最近一次安全性变更（新信号、说明书修订、新增适应症）的时间关系。常见缺陷是提交后从未更新，而同期已出现新信号；或计划中列出的药物警戒活动（主动监测、上市后安全性研究）在实际中未启动。抽查承诺的研究是否按计划推进。",
+      "guidanceEn": "Check the plan reflects recent safety changes and that committed pharmacovigilance activities actually started as planned.",
+      "riskLevel": "major",
+      "evidenceHint": "风险管理计划全文与版本历史、提交记录、安全性规格更新记录、药物警戒计划中的研究进度、计划更新触发规定"
+    },
+    {
+      "clauseRef": "Module XVI（风险最小化措施的实施与有效性评价）",
+      "requirement": "风险管理计划中承诺的常规与额外风险最小化措施已逐条实际实施并有证据（材料制作与分发、受控分销、医护人员培训、致医务人员函），措施有效性经过指标化评估，评估结果用于调整措施",
+      "requirementEn": "Routine and additional risk minimisation measures committed in the risk management plan are each implemented with evidence (material production and distribution, controlled access, healthcare professional training, direct healthcare professional communication), effectiveness is evaluated against indicators, and results feed back into the measures",
+      "guidance": "取措施清单，逐条索要实施证据。最常见缺陷是教育材料已印制但分发范围极小、无签收记录，或受控分销未覆盖全部销售渠道。有效性评估要看是否有过程指标与结果指标（知晓率调查、处方行为数据），仅有已分发若干份不足以证明有效。",
+      "guidanceEn": "Match each committed measure to distribution and reach evidence, and check that effectiveness indicators measure outcomes, not just activity counts.",
+      "riskLevel": "major",
+      "evidenceHint": "风险管理计划措施清单、材料定稿与印制记录、分发与签收记录、培训记录、致医务人员函发放记录、有效性评估报告与指标数据"
+    },
+    {
+      "clauseRef": "Module VI / ICH E2D（文献检索与评估）",
+      "requirement": "文献检索的频率与范围有书面依据，按计划对规定数据库执行检索，检索式与执行记录完整，每一条命中结果均有评估记录，包括判定无需报告的结论",
+      "requirementEn": "Literature screening follows a documented and justified frequency and scope, searches of the required databases are executed per plan with search strings and execution records, and every hit is assessed with a documented conclusion, including decisions not to report",
+      "guidance": "索取检索记录（数据库、检索式、日期、命中数）与评估记录。常见缺陷是检索频率低于 SOP 规定、只做英文数据库而忽略本地语言文献，以及命中结果只有「已阅」而无逐条评估结论。对判定无需报告的文献，核查是否有评估理由。",
+      "guidanceEn": "Verify search execution records match the planned frequency and databases, and that each hit carries an assessed conclusion.",
+      "riskLevel": "major",
+      "evidenceHint": "文献检索 SOP（频率、数据库、检索式）、检索执行记录与截图、命中结果清单、逐条评估记录与结论、检索覆盖范围的风险评估"
+    },
+    {
+      "clauseRef": "Module VI（特殊情形与特殊人群）",
+      "requirement": "妊娠与哺乳期暴露、过量、用药错误、超说明书使用、职业暴露、缺乏疗效、滥用与误用、疑似假劣药等特殊情形均纳入报告与随访范围，即使暂无不良结局也登记并随访至结局",
+      "requirementEn": "Special situations — pregnancy and lactation exposure, overdose, medication error, off-label use, occupational exposure, lack of efficacy, abuse and misuse, suspected falsified medicines — are captured and followed up, registered and followed to outcome even where no adverse outcome has yet been reported",
+      "guidance": "抽取妊娠暴露报告，核查是否登记并在分娩后做了结局随访，很多体系登记后即关闭而无结局信息。用药错误与缺乏疗效常被误判为非不良反应而不录入，应核对这两类是否有专门台账。疑似假劣药应按质量与药物警戒双线处理并留有移交记录。",
+      "guidanceEn": "Check pregnancy cases are followed to outcome and that medication errors and lack of efficacy are not excluded as not being adverse reactions.",
+      "riskLevel": "major",
+      "evidenceHint": "特殊情形处理 SOP、妊娠暴露台账与结局随访记录、用药错误记录、缺乏疗效报告记录、职业暴露与滥用记录、假劣药移交记录"
+    },
+    {
+      "clauseRef": "Module VI（合作方安全性数据交换协议）",
+      "requirement": "与全部合作方（许可方、被许可方、经销商、代理商、合同研究组织、受托生产企业、患者援助项目方）签订了安全性数据交换协议，协议明确交换的病例范围、时限与责任人，实际交换表现有统计与处理记录",
+      "requirementEn": "Safety data exchange agreements are in place with all partners (licensors, licensees, distributors, agents, contract research organisations, contract manufacturers, patient support programmes), defining case scope, timelines and responsible contacts, with actual exchange performance measured and deficiencies addressed",
+      "guidance": "先索取合作方清单，再核对每家的协议是否存在、是否覆盖当前业务、协议约定的时限是否可执行。常见缺陷是清单里有合作方但无协议，或协议已签但从未按约定交换过病例。要求提供近 12 个月的收发病例对账记录，找出迟交与漏交。",
+      "guidanceEn": "Cross-check the partner list against signed agreements and reconcile exchanged cases over the last 12 months.",
+      "riskLevel": "major",
+      "evidenceHint": "合作方清单、安全性数据交换协议、时限条款、病例交换记录与对账表、迟交漏交统计与处理记录、协议定期评审记录"
+    },
+    {
+      "clauseRef": "Module V（参考安全信息的现行性与更新流程）",
+      "requirement": "参考安全信息（公司核心数据表、说明书、研究者手册）保持最新，更新流程规定了触发条件、责任人与生效时点，旧版本作为历史记录归档并可检索",
+      "requirementEn": "Reference safety information (company core data sheet, product information, investigator brochure) is kept current, the update process defines triggers, responsibilities and effective dates, and superseded versions are archived and retrievable",
+      "guidance": "索取版本清单与生效日期，与最近一次安全性变更（监管机构批准的说明书修订）对照，确认已同步更新。典型缺陷是当地说明书已更新而用于预期性判定的公司核心数据表半年未动，导致判定基准不一致；或旧版本未归档，无法回溯历史判定。",
+      "guidanceEn": "Compare the version list and effective dates with recent safety-driven label changes and confirm old versions are retrievable.",
+      "riskLevel": "major",
+      "evidenceHint": "参考安全信息现行版本与生效日期、历史版本归档、更新流程 SOP 与触发条件、说明书修订批准文件、版本变更日志"
+    },
+    {
+      "clauseRef": "Module I（标准操作规程体系）",
+      "requirement": "药物警戒 SOP 覆盖接收、录入、评估、时限、提交、信号、定期报告、风险最小化、委托管理、培训、记录保存与系统管理等全部关键流程，现行版本在岗位可获取，修订有生效日期与培训记录，现场无作废版本",
+      "requirementEn": "Pharmacovigilance SOPs cover all key processes — intake, entry, assessment, timelines, submission, signals, periodic reporting, risk minimisation, outsourcing, training, retention and system management — current versions are accessible at the workplace, and revisions carry effective dates and training with no superseded copies in use",
+      "guidance": "列一份关键流程与 SOP 的对照表，检查是否有流程无 SOP，常见缺口是信号管理、委托方监督与系统变更控制。再抽查 3 个岗位实际使用的 SOP 版本号与受控清单是否一致。SOP 描述与实际操作不符（如规定双人核对而实际单人操作）是更严重的缺陷。",
+      "guidanceEn": "Map key processes to SOPs to find gaps, then spot-check the version numbers in use against the master list.",
+      "riskLevel": "major",
+      "evidenceHint": "SOP 清单与现行版本、流程与 SOP 对照表、生效与修订记录、SOP 培训记录、现场版本核查记录"
+    },
+    {
+      "clauseRef": "Module I（人员培训与能力）",
+      "requirement": "全部承担药物警戒职责的人员（含后备 QPPV、兼职人员与委托方人员）按职责接受了初始与持续培训，培训有考核与能力确认记录，法规更新后的再培训已完成",
+      "requirementEn": "All personnel with pharmacovigilance responsibilities — including the deputy QPPV, part-time staff and contractor personnel — receive initial and continuing training proportionate to their duties, with assessment and competency confirmation, and retraining after regulatory updates is complete",
+      "guidance": "核对培训矩阵与实际岗位清单，重点找转岗人员、长期休假返岗人员与新入职人员是否在独立工作前完成培训。常见缺陷是培训记录只有签到无考核，或内容与岗位不符（信号管理人员只受过个例处理培训）。委托方人员的培训责任应在质量协议中明确并能出示记录。",
+      "guidanceEn": "Check training precedes independent work, includes assessment and covers contractor staff as required by the quality agreement.",
+      "riskLevel": "major",
+      "evidenceHint": "培训矩阵、培训计划与记录（含考核结果）、岗位职责描述、能力确认记录、法规更新培训记录、委托方人员培训记录"
+    },
+    {
+      "clauseRef": "Module I（记录保存与可检索性）",
+      "requirement": "药物警戒记录按法规规定的期限保存，以可读、可检索的形式留存，并能在监管机构要求时及时提供完整病例文件（含原始报告、评估、提交回执与往来沟通）",
+      "requirementEn": "Pharmacovigilance records are retained for the period required by law in a readable and retrievable form, and a complete case file — original report, assessment, submission receipt and correspondence — can be produced promptly on regulatory request",
+      "guidance": "做一次调阅演练：随机指定一份 5 年以上的报告，计时要求调出完整文件包。常见缺陷是旧系统退役后历史数据只有不可检索的扫描件、原始邮件随离职人员邮箱被删除、境外数据库的检索权限受限。保存期限应按最严的适用法规确定并在 SOP 中写明依据。",
+      "guidanceEn": "Time a retrieval rehearsal for an older case and check that retired systems still allow readable, searchable access.",
+      "riskLevel": "major",
+      "evidenceHint": "记录保存期限规定与法规依据、归档与检索说明、调阅演练记录、历史系统数据迁移与可读性验证、离职人员数据移交记录"
+    },
+    {
+      "clauseRef": "Module I（计算机化系统验证、稽查轨迹与权限）",
+      "requirement": "药物警戒数据库与相关系统经过验证并处于变更控制之下，稽查轨迹已启用且可查阅（含修改前后值与操作人），账号唯一、权限最小化并定期回顾稽查轨迹，备份与恢复经过测试，系统时间同步",
+      "requirementEn": "The pharmacovigilance database and related systems are validated and under change control; the audit trail is enabled and reviewable with before and after values and the user identity, accounts are unique with least-privilege access, the audit trail is periodically reviewed, backup and restore are tested, and system time is synchronised",
+      "guidance": "现场要求演示：修改一个关键字段（如严重性），随即查看稽查轨迹是否记录了旧值、新值、操作人与理由。再查是否存在共享账号、离职人员账号未停用、管理员权限过宽。常见严重缺陷是稽查轨迹未启用、可被管理员关闭，或从未有人回顾。备份要实际做过恢复测试，仅有备份日志不足。",
+      "guidanceEn": "Demonstrate a field change and its audit trail entry; shared accounts, disabled audit trails and never-reviewed trails are critical data-integrity findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "系统验证文件与变更记录、稽查轨迹启用配置与回顾记录、账号权限清单与离职停用记录、备份与恢复测试报告、时间同步设置与日志"
+    },
+    {
+      "clauseRef": "Module I（药物警戒关键绩效指标）",
+      "requirement": "已建立药物警戒关键绩效指标（时限合规率、超时报告数、四要素完整率、信号关闭时长、定期报告按期提交率、数据质量差错率等）并设定目标值，定期监控，未达标有原因分析与改进措施",
+      "requirementEn": "Pharmacovigilance key performance indicators (timeliness compliance, number of late reports, completeness of the four minimum criteria, signal closure time, on-time periodic reporting, data quality error rate) are defined with targets, monitored periodically, and misses are analysed with improvement actions",
+      "guidance": "查看指标的月度或季度监控报告，确认有目标值、实际值、趋势与差异分析。常见缺陷是只有数据表格没有分析，或指标口径宽松（把超时但已沟通的报告计入合规），从而掩盖真实时限表现。建议把指标与原始台账抽查结果对照。",
+      "guidanceEn": "Check indicators have targets, trends and analysis, and that definitions do not flatter actual performance.",
+      "riskLevel": "minor",
+      "evidenceHint": "关键绩效指标定义与目标值、定期监控报告与趋势图、未达标原因分析与措施、指标口径说明、与原始台账的一致性核对记录"
+    },
+    {
+      "clauseRef": "Module I（委托药物警戒活动的管理）",
+      "requirement": "委托外部开展的药物警戒活动（个例处理、文献检索、信号支持、系统托管、医学审核）有书面合同与质量协议，明确时限责任、稽查权、记录保存、人员变更通知与数据保护，受托方经过能力评估或审计，委托方保留体系整体责任",
+      "requirementEn": "Outsourced pharmacovigilance activities (case processing, literature screening, signal support, system hosting, medical review) are covered by contracts and quality agreements defining timeline responsibility, audit rights, record retention, personnel change notification and data protection; contractors are assessed or audited and the marketing authorisation holder retains overall responsibility",
+      "guidance": "核查质量协议是否写明时限责任（受托方迟交时的责任与通知义务）、稽查权与记录保存期限。常见缺陷是受托方人员更替频繁而无通知机制、委托方从未做过审计或绩效评估、双方系统之间的数据交换未经验证。抽取一例受托方处理的报告，核对时限由谁监控、超时由谁负责。",
+      "guidanceEn": "Verify agreements define timeline accountability and audit rights, and that contractor performance is actually assessed.",
+      "riskLevel": "major",
+      "evidenceHint": "委托合同与质量协议、受托方能力评估或审计报告、受托方人员清单与培训记录、绩效评估记录、数据交换与系统接口验证记录"
+    },
+    {
+      "clauseRef": "Module I / Module IV（药物警戒自查与稽查）",
+      "requirement": "药物警戒体系纳入自查与稽查计划并按期执行，范围覆盖个例处理、信号管理、定期报告、风险最小化措施、委托活动、系统与记录管理，发现的缺陷有整改责任人与时限并验证有效性",
+      "requirementEn": "The pharmacovigilance system is covered by a self-inspection and audit programme executed to schedule, covering case processing, signal management, periodic reporting, risk minimisation, outsourced activities, systems and records, with findings assigned, tracked to closure and effectiveness verified",
+      "guidance": "核查自查计划与执行记录的对应关系、自查范围是否覆盖全部关键流程（仅查个例处理是常见缺陷）、自查人员是否独立于被查活动。重点看整改闭环：很多自查报告只列问题而无整改验证；连续两次发现同一问题的，说明整改无效。",
+      "guidanceEn": "Check coverage of all key processes, the independence of the inspectors, and closure with effectiveness verification.",
+      "riskLevel": "major",
+      "evidenceHint": "年度自查与稽查计划、自查方案与检查表、自查报告、缺陷整改跟踪表与有效性确认、自查员资质与独立性说明"
+    },
+    {
+      "clauseRef": "Module I（药物警戒与质量职能的衔接）",
+      "requirement": "药物警戒与质量部门之间的接口已文件化并实际运行：投诉中的疑似不良反应、召回与质量缺陷中的安全性信息、检验超标结果的安全性含义均在规定时限内互通并留有记录",
+      "requirementEn": "The interface between pharmacovigilance and the quality function is documented and operating: suspected adverse reactions in complaints, safety information in recalls and quality defects, and the safety implications of out-of-specification results are exchanged within defined timelines with records",
+      "guidance": "抽取近期投诉台账，找出含不良反应描述或医学问询的条目，核查是否全部转入药物警戒体系并登记为个例安全性报告。反向也要查：药物警戒识别出的质量问题（某批号多例同类反应）是否转给质量部门做批次调查。最典型的缺陷是两条线各自完整，但中间没有接口记录。",
+      "guidanceEn": "Trace complaint entries with medical content into the pharmacovigilance system, and pharmacovigilance-identified quality issues back into quality batch investigations.",
+      "riskLevel": "critical",
+      "evidenceHint": "部门接口程序与时限规定、投诉转药物警戒记录、召回中的安全性评估、检验超标的安全性含义评估记录、联合评审会议记录"
+    }
+  ]
+}

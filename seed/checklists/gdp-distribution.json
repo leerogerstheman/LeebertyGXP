@@ -1,0 +1,330 @@
+{
+  "code": "GDP-GUIDE",
+  "title": "药品经营与流通质量管理规范自查表（EU GDP / WHO / GSP）",
+  "titleEn": "Good Distribution Practice Self-Inspection Checklist (EU GDP / WHO / GSP)",
+  "scope": "self_inspection",
+  "category": "distribution",
+  "gxpAreas": ["GDP"],
+  "regulation": "EU Guidelines on Good Distribution Practice of Medicinal Products for Human Use 2013/C 343/01 (Chapters 1-9); WHO TRS 957 Annex 5; NMPA 药品经营质量管理规范（GSP）; 21 CFR Part 205",
+  "authority": "European Commission / WHO / NMPA",
+  "version": "EU GDP 2013/C 343/01（2013-11-08 施行，第 1-9 章）; WHO TRS 957 Annex 5; NMPA 药品经营质量管理规范（2016 年修订）",
+  "description": "用于批发企业、经销商、仓储与运输服务商自查药品流通环节的质量管理，覆盖质量体系与人员、厂房与温控、温度分布验证、计算机化系统、供应商与客户资质、收货储存、退货召回、假劣药、运输与冷链、文件追溯与委托活动。每一项均为可判定的具体断言，冷链与温度数据的完整性是核查重点。",
+  "descriptionEn": "Self-inspection checklist for wholesalers, distributors, warehouses and transport providers, covering the quality system and personnel, premises and temperature control, temperature mapping, computerised systems, supplier and customer qualification, receipt and storage, returns and recalls, falsified medicines, transport and cold chain, documentation and outsourced activities. Cold chain and temperature data integrity are examined in particular depth.",
+  "items": [
+    {
+      "clauseRef": "EU GDP §1（范围 · 质量体系覆盖全部流通活动）",
+      "requirement": "已建立文件化的质量管理体系，覆盖企业实际从事的全部流通活动（采购、收货、储存、拣配、运输、退货、召回、销毁与委托活动），并有明确的岗位职责与授权",
+      "requirementEn": "A documented quality system covers all distribution activities actually performed (purchasing, receipt, storage, picking, transport, returns, recall, destruction and outsourced activities) with defined responsibilities and authorisations",
+      "guidance": "先索取营业执照、药品经营许可证与仓库地址清单，再与质量体系文件、组织架构和实际业务单据对照。常见缺陷是体系文件照搬模板，未涵盖实际发生的活动，例如企业实际在做第三方仓储或代发货，但体系文件里没有这项。",
+      "guidanceEn": "Compare the licensed scope and actual operations with the quality system documents; template systems that omit real activities are a common finding.",
+      "riskLevel": "major",
+      "evidenceHint": "营业执照与药品经营许可证、质量手册与文件清单、组织架构图、岗位职责与授权文件、业务活动清单"
+    },
+    {
+      "clauseRef": "EU GDP §2（人员 · 负责人的任命、资质与书面职责）",
+      "requirement": "已任命负责药品流通质量管理的人员（质量负责人或负责药师），其资质与经验符合要求且有书面职责，实际在岗履职，未长期空缺或由无资质人员代行",
+      "requirementEn": "A responsible person for GDP is appointed with the required qualifications and experience and written duties, is actually in post, and is not left vacant or covered by an unqualified stand-in",
+      "guidance": "核查任命文件、执业药师资格证书与注册记录、学历与工作经历证明、岗位职责描述，并核对在岗记录（考勤、审批签名）。常见缺陷是负责人同时在多家企业任职、只挂名不审批，或离职后长期由他人代签。抽查最近 3 个月由负责人签署的文件。",
+      "guidanceEn": "Verify the licence, appointment letter, written duties and evidence the person actually signed off decisions in the last three months.",
+      "riskLevel": "critical",
+      "evidenceHint": "任命文件、执业药师资格与注册证明、学历与经历证明、岗位职责描述、考勤与审批签名记录、离职与交接记录"
+    },
+    {
+      "clauseRef": "EU GDP §2（人员 · 培训）",
+      "requirement": "所有影响药品质量的人员在入职时及持续接受与其职责相称的培训，培训含考核且记录完整，仓储人员、驾驶员与外包装卸人员等一线岗位未被遗漏",
+      "requirementEn": "All personnel affecting product quality receive training at induction and on a continuing basis proportionate to their duties, with assessment and complete records, including warehouse staff, drivers and outsourced handling personnel",
+      "guidance": "核查培训记录日期是否早于该员工独立操作日期（与排班、考勤对照），以及是否有考核而非仅签到。驾驶员、临时工与外包装卸人员是最容易漏训的群体；冷链作业人员应有专门的温控与温度偏离处理培训。",
+      "guidanceEn": "Check training dates precede independent work and that drivers, temporary and outsourced staff are included with cold chain specific content.",
+      "riskLevel": "major",
+      "evidenceHint": "培训矩阵与年度计划、入职培训记录（含考核）、驾驶员与仓管人员培训记录、外包人员培训记录、培训有效性评估"
+    },
+    {
+      "clauseRef": "EU GDP §2（人员 · 卫生与健康）",
+      "requirement": "人员卫生与着装要求已文件化并在现场得到遵守，且建立了员工健康状况异常（如传染病、开放性伤口）的报告与临时调岗机制，记录可查",
+      "requirementEn": "Personnel hygiene and clothing requirements are documented and observed on site, and a mechanism exists for reporting health conditions (for example infectious disease or open wounds) with temporary reassignment, supported by records",
+      "guidance": "现场观察：储存区是否有人饮食吸烟、是否穿戴工作服、直接接触药品人员的手部与着装情况。再索取健康异常报告记录与调岗记录；只有入职体检报告而没有异常报告机制是常见缺陷。",
+      "guidanceEn": "Observe the floor, then check for a health-reporting and reassignment mechanism rather than pre-employment medicals alone.",
+      "riskLevel": "minor",
+      "evidenceHint": "卫生管理 SOP、更衣与着装规定、健康档案与体检记录、健康异常报告与调岗记录、现场观察记录"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 设计与维护）",
+      "requirement": "厂房与设施经过适当设计、维护与清洁，能防止药品混淆、污染与交叉污染；储存区域具备足够的空间、照明与安全防护，清洁有程序并按频率执行且有记录",
+      "requirementEn": "Premises are designed, maintained and cleaned to prevent mix-ups, contamination and cross-contamination, with adequate space, lighting and security, and documented cleaning at the defined frequency",
+      "guidance": "沿实际物流动线走一遍：收货、待验、上架、拣配、复核、发运。关注清洁状况（地面、货架积尘）、照明是否充足、有无无关物品堆放、清洁记录是否与实际频次一致。清洁记录提前批量填写是常见问题。",
+      "guidanceEn": "Walk the material flow and check cleaning records match the actual frequency rather than being pre-filled.",
+      "riskLevel": "major",
+      "evidenceHint": "仓库平面图与人流物流图、清洁 SOP 与清洁记录、照明与安全设施检查记录、现场照片与巡查记录"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 状态标识与物理隔离）",
+      "requirement": "待验、合格、不合格、退货、召回与隔离药品在现场有物理隔离与清晰标识，隔离设施（围栏、上锁区域、独立货位）真实存在，而非仅体现在平面图上",
+      "requirementEn": "Quarantine, approved, rejected, returned, recalled and segregated products are physically separated and clearly labelled on the floor, with real segregation facilities (fences, locked areas, dedicated locations) and not merely shown on a drawing",
+      "guidance": "直接到现场找待验区、不合格品区与退货区，看是否有实体隔离（锁、围栏、独立房间）与醒目标识，并与库存状态报表核对。常见缺陷是不合格品区只是一个货架标签、实物与合格品混放，退货品与可销售品同区存放。发现混放即判定不符合。",
+      "guidanceEn": "Find the physical quarantine, rejected and returns areas on site; labelled shelves without real separation or mixed storage is a finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "区域标识与隔离设施照片、库存状态报表、退货与不合格品台账、隔离区出入与上锁管理记录、现场核查记录"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 温湿度控制与监测布点）",
+      "requirement": "储存区域按药品要求进行温湿度控制，监测点位的设置经过评估并有书面依据，覆盖最差条件位置（近门、近窗、出风口附近、货架顶层与底层、死角）",
+      "requirementEn": "Storage areas are temperature and humidity controlled as required, and monitoring locations are justified by a documented assessment covering worst-case positions (near doors, windows, air outlets, top and bottom of racking, dead corners)",
+      "guidance": "索取监测点位图与布点依据说明，与实际探头位置逐一核对。最常见的缺陷是探头只装在房间中央或门口走道，而货物实际存放在靠外墙的货架顶层；也有探头被货物遮挡或位置变更后未更新图纸。将布点依据与温度分布验证报告对照，看两者是否一致。",
+      "guidanceEn": "Compare the sensor map and its justification with the actual positions and with the mapping report's worst-case locations.",
+      "riskLevel": "critical",
+      "evidenceHint": "温湿度监测点位图与布点评估依据、监测设备清单与位置照片、温湿度记录与趋势图、报警设置与响应记录"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 温度分布验证与最差条件）",
+      "requirement": "储存区域已完成温度分布验证，覆盖夏季与冬季（最热与最冷）条件、空载与满载状态、开门与断电情形，确定了最差条件位置，验证结论已实际用于调整日常监测布点与报警限值",
+      "requirementEn": "Storage areas have completed temperature mapping covering summer and winter (hottest and coldest) conditions, empty and loaded states, door openings and power failure, establishing worst-case locations, with results actually used to set routine monitoring positions and alarm limits",
+      "guidance": "核查验证方案是否包含季节最差条件与满载状态、探头数量与布点依据、持续时间是否覆盖足够长的稳定周期。关键看结论落地：验证报告标出的最差点与当前探头位置是否对应，验证后未据以调整布点是高频缺陷。也要核对再验证周期与触发条件（如库房改造、货架变更）。",
+      "guidanceEn": "Check the mapping covered seasonal worst cases and load states, and that worst-case locations now carry routine sensors with justified alarm limits.",
+      "riskLevel": "critical",
+      "evidenceHint": "温度分布验证方案与报告、探头布点图、最差条件位置结论、日常监测点位与验证结论的对应说明、再验证周期与触发条件"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 温度报警与响应）",
+      "requirement": "温度监测系统设置了有依据的报警限值与分级报警，报警有人 24 小时响应，每条报警记录含发生时间、响应时间、处理措施与产品影响评估，未出现报警被静音、屏蔽或长期无人处理的情形",
+      "requirementEn": "The monitoring system has justified alarm limits and escalation, alarms are answered around the clock, and each alarm record shows occurrence, response time, action taken and product impact assessment, with no muted, disabled or unactioned alarms",
+      "guidance": "导出最近 3 个月的报警清单，检查每条是否有响应时间与处理结论；核对系统设置中是否存在被静音或延时的报警点。常见缺陷是夜间与节假日报警无人响应、报警被设置为自动清除，或报警后仅记录「已恢复正常」而无产品影响评估。现场测试一次报警是否真能送达值班人。",
+      "guidanceEn": "Export three months of alarms and check response times and impact conclusions; test that an alarm actually reaches the duty person out of hours.",
+      "riskLevel": "critical",
+      "evidenceHint": "报警清单与响应记录、报警限值设置依据、值班表与联系方式、报警测试记录、报警处理与影响评估记录、系统报警配置截图"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 收货发运区与装卸滞留）",
+      "requirement": "收货与发运区域能保护药品免受天气影响（遮蔽、封闭月台或缓冲区），装卸区温度条件受控，并规定了货物在装卸区的滞留时间上限且实际得到执行",
+      "requirementEn": "Receipt and dispatch areas protect products from the weather (shelter, enclosed dock or buffer), loading areas are temperature-controlled, and a maximum dwell time in the loading area is defined and actually respected",
+      "guidance": "现场看月台是否有遮蔽与缓冲间，夏季高温与冬季低温时货物在月台停留多久。索取滞留时间规定，并抽查发货记录中的出库时间与装车时间差。常见缺陷是规定写了 30 分钟而实际等待数小时，冷链药品在月台暴晒或受冻。",
+      "guidanceEn": "Check dock sheltering and compare recorded picking and loading times against the defined dwell limit.",
+      "riskLevel": "major",
+      "evidenceHint": "月台与缓冲区设施照片、装卸区温度记录、滞留时间规定与执行记录、出库与装车时间对照表、现场观察记录"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 虫害控制）",
+      "requirement": "已建立虫害控制程序，诱饵站有编号并与分布图一致，检查按频率执行且有记录，记录非提前批量填写，库房内无虫害活动迹象",
+      "requirementEn": "A pest control programme exists with numbered bait stations matching a location map, inspections performed at the defined frequency with genuine records, and no evidence of pest activity in the warehouse",
+      "guidance": "拿分布图逐个点位抽查 5 个诱饵站是否在位、编号是否一致、有无鼠迹；翻检查记录看签名与日期笔迹是否明显为同一天批量补填，这是检查员常用手法。虫控外包的，索取承包方资质与检查报告。",
+      "guidanceEn": "Spot-check bait stations against the map and look for batch-filled records; check contractor qualifications where outsourced.",
+      "riskLevel": "minor",
+      "evidenceHint": "虫害控制程序与合同、诱饵站分布图与编号、检查记录、虫害趋势分析与处理记录、承包方资质"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 校准与预防性维护）",
+      "requirement": "已建立并执行设备校准与预防性维护计划，用于温湿度控制、监测与运输的仪器仪表均在有效校准期内并有校准状态标识，校准可溯源至国家或国际标准，已知偏差值已在系统中修正",
+      "requirementEn": "An equipment calibration and preventive maintenance programme is established and executed; temperature control, monitoring and transport devices are within calibration with traceable status, calibration is traceable to national or international standards, and known deviations are applied in the system",
+      "guidance": "现场查看冷库、空调、温湿度计与记录仪上的校准标签有效期，与校准计划台账核对。常见缺陷是超期未校准仍在使用、校准证书无法溯源、以及校准发现的探头偏差未在日常监测数据中修正。预防性维护延期未评估也是缺陷。",
+      "guidanceEn": "Check calibration labels on site against the plan and whether known sensor offsets are applied; overdue devices invalidate their data.",
+      "riskLevel": "critical",
+      "evidenceHint": "设备台账、校准计划与证书（含溯源）、校准状态标识、偏差修正值使用记录、预防性维护计划与工单、延期维护评估记录"
+    },
+    {
+      "clauseRef": "EU GDP §3（厂房与设备 · 计算机化系统与数据完整性）",
+      "requirement": "用于仓储管理与温度监测的计算机化系统经过验证，稽查轨迹已启用且可查阅，账号唯一并遵循最小权限，数据定期备份且恢复经过测试，系统时间同步，温度数据无法在无痕迹的情况下被修改或删除",
+      "requirementEn": "Warehouse management and temperature monitoring systems are validated, audit trails are enabled and reviewable, accounts are unique with least privilege, data are backed up with tested restore, system time is synchronised, and temperature data cannot be altered or deleted without a trace",
+      "guidance": "现场要求演示：修改一条温度记录或库存状态，随即查看稽查轨迹是否记录了旧值、新值与操作人。检查是否存在共享账号、管理员权限过宽、稽查轨迹可被关闭或从未有人回顾。常见严重缺陷是温度数据可被直接编辑且无痕迹，或监控软件由供应商远程管理而企业无独立账号。",
+      "guidanceEn": "Demonstrate a data change and its audit trail entry; editable temperature data without a trace or disabled audit trails are critical findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "系统验证文件与变更记录、稽查轨迹配置与回顾记录、账号权限清单、备份与恢复测试报告、时间同步设置、供应商远程访问管理记录"
+    },
+    {
+      "clauseRef": "EU GDP §5（操作 · 供应商资质确认）",
+      "requirement": "药品仅从具备合法资质的生产企业或经营企业采购，供应商的许可证、营业执照与经营范围经过核查且覆盖实际采购品种，签订了质量协议，并按风险定期再评估或审计",
+      "requirementEn": "Products are purchased only from licensed manufacturers or wholesalers whose licences and business scope cover the products actually bought; quality agreements are in place and suppliers are re-evaluated or audited on a risk basis",
+      "guidance": "抽取 5 家供应商，核对许可证与营业执照的有效期与经营范围，并与实际采购品种比对，特殊管理药品、冷链药品与进口药品常出现超范围采购。常见缺陷是资质文件过期未更新、只在首次合作时查过一次、以及无质量协议。高风险供应商应有现场审计或问卷评估记录。",
+      "guidanceEn": "Cross-check licences and scope against actual purchases, including cold chain and controlled products, and verify periodic re-evaluation.",
+      "riskLevel": "critical",
+      "evidenceHint": "合格供应商清单与档案、许可证与营业执照、质量协议、供应商评估与审计报告、采购记录、资质有效期跟踪表"
+    },
+    {
+      "clauseRef": "EU GDP §5（操作 · 客户资质确认）",
+      "requirement": "所有客户在供货前经过资质确认，具备合法的采购与使用资格，资质按规定周期复核并随变更更新，系统能阻止向资质过期或不合格客户发货",
+      "requirementEn": "All customers are qualified before supply as legally entitled to purchase, qualifications are re-verified periodically and updated on change, and the system prevents dispatch to unqualified or expired customers",
+      "guidance": "抽取 5 笔销售记录，倒查客户资质档案在发货日是否有效，这是最直接的测试。常见缺陷是客户资质过期后系统未锁定仍继续发货、医疗机构与零售终端的资质类型核对错误，以及下游客户转售给无资质单位。",
+      "guidanceEn": "Take five sales records and check the customer qualification was valid on the dispatch date; expired licences with continued supply is a critical finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "客户资质档案与许可证、资质复核记录与周期、销售记录与发货日资质状态对照、系统锁定规则设置、客户变更记录"
+    },
+    {
+      "clauseRef": "EU GDP §5（操作 · 收货检查）",
+      "requirement": "收货按书面程序执行检查，核对品名、规格、批号、数量、包装完整性与随货同行单据；冷链药品在收货时审核运输温度记录并保存记录仪数据，不符合要求的拒收或按偏差处理",
+      "requirementEn": "Receipt follows a written procedure verifying name, strength, batch, quantity, package integrity and accompanying documents; for cold chain products the transport temperature record is reviewed and logger data retained, with rejection or deviation handling where requirements are not met",
+      "guidance": "抽取 5 批冷链药品的收货记录，核查是否附有温度记录审核签署与记录仪数据原件，温度是否在范围内，超范围是否启动偏差并与供应商沟通。常见缺陷是收货单上有温度合格勾选但无数据支撑、记录仪数据未下载保存，以及发现偏离后仍照常入库。",
+      "guidanceEn": "Check cold chain receipts include the actual logger data and a documented review; a ticked box without data is a finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "收货 SOP 与检查记录、随货同行单据、运输温度记录仪数据与审核签署、拒收与偏差处理记录、收货人员培训记录"
+    },
+    {
+      "clauseRef": "EU GDP §5（操作 · 储存条件与标签一致性）",
+      "requirement": "药品的储存条件与标签、说明书及注册批准的要求一致，需冷藏、避光、防潮或特殊储存的药品实际存放条件符合要求，储存区域未存放与药品无关或可能造成污染的物品",
+      "requirementEn": "Products are stored under the conditions stated on the label, leaflet and registration, including cold, light-protected, moisture-protected or otherwise special storage, and storage areas contain no unrelated items that could cause contamination",
+      "guidance": "随机从货架取 10 个品种，核对标签储存条件与所在区域条件是否匹配，最常见的缺陷是标示 2-8 摄氏度冷藏的品种放在阴凉库，或标称不超过 25 摄氏度的品种在夏季无空调区域存放。同时检查库内是否有食品、私人物品或清洁工具混放。",
+      "guidanceEn": "Sample ten products from the shelves and match their labelled storage conditions to the area they are in; mixed storage of unrelated goods is a finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "药品储存条件清单、货位与温区对照表、标签与说明书复印件、库区巡查记录、温湿度记录、现场核查照片"
+    },
+    {
+      "clauseRef": "EU GDP §5（操作 · 效期先出与近效期管理）",
+      "requirement": "库存按效期先出（FEFO）原则拣配，系统中存在效期控制规则，近效期与过期药品被及时标识、隔离并停止销售，实际操作与系统规则一致",
+      "requirementEn": "Stock is picked on a first-expiry-first-out basis with system controls, and near-expiry and expired products are promptly flagged, segregated and blocked from sale, with practice matching the system rules",
+      "guidance": "做一次实际测试：请仓库人员按系统指令拣配某品种，看是否优先取出最近效期的批号；再随机查看货架，寻找效期最近却压在后面的批号。索取近效期台账与过期品处置记录。常见缺陷是制度要求效期先出而系统无控制、员工凭习惯取货，以及近效期药品未通知客户而最终报废。",
+      "guidanceEn": "Ask for a live pick and check whether the nearest expiry is chosen; look for near-expiry stock buried behind later batches.",
+      "riskLevel": "major",
+      "evidenceHint": "效期先出管理规定、系统效期控制规则设置、拣配记录与批号选择、近效期台账与通知记录、过期药品隔离与销毁记录"
+    },
+    {
+      "clauseRef": "EU GDP §5（操作 · 销毁的授权与证明）",
+      "requirement": "需销毁的药品经质量部门授权后交有资质的单位销毁，销毁数量与台账一致，取得第三方销毁证明或证书，销毁过程可追溯且不存在药品重新流入市场的可能",
+      "requirementEn": "Products for destruction are authorised by quality assurance and destroyed by a qualified party, quantities reconcile with records, third-party destruction certificates are obtained, and the process is traceable with no possibility of re-entry to the market",
+      "guidance": "抽取 3 次销毁记录，核对申请、质量部门授权、出库数量、销毁证明上的品种批号与数量是否一致。常见缺陷是只有内部销毁台账而无第三方证明、销毁证明上的数量与出库不符，或销毁单位资质未核实。退回或召回产品的销毁应有额外见证与影像记录。",
+      "guidanceEn": "Reconcile three destruction events from authorisation to third-party certificate; internal records alone do not evidence destruction.",
+      "riskLevel": "major",
+      "evidenceHint": "销毁 SOP 与授权记录、销毁台账、第三方销毁证明或证书、销毁单位资质文件、销毁数量核对表、环保合规文件"
+    },
+    {
+      "clauseRef": "EU GDP §5（操作 · 特殊管理药品）",
+      "requirement": "麻醉药品、精神药品、医疗用毒性药品、放射性药品等特殊管理药品实行专库或专柜双锁管理，双人验收与发放，专用账册逐笔登记，并按规定周期盘点与账物核对，差异已调查",
+      "requirementEn": "Narcotics, psychotropics, toxic and radiopharmaceutical products are stored in dedicated locked facilities under dual control, received and issued by two persons, recorded in dedicated ledgers entry by entry, and periodically reconciled with discrepancies investigated",
+      "guidance": "现场核查专库双锁是否是真正的两把锁由两人分别管理，常见缺陷是两把钥匙由一人保管、第二把锁常年不锁。抽查账册最近 10 笔收发记录并现场盘点 2 个品种，核对账、卡、物三者一致。差异无调查是严重缺陷。",
+      "guidanceEn": "Check dual locks are genuinely under two-person control and reconcile two products on the spot against the dedicated ledger.",
+      "riskLevel": "critical",
+      "evidenceHint": "特殊药品管理制度、双锁与门禁记录、双人验收与发放签名、专用账册、盘点记录与差异调查、监管备案与报告文件"
+    },
+    {
+      "clauseRef": "EU GDP §6（投诉、退货、假劣药与召回 · 召回）",
+      "requirement": "已建立召回程序并明确分级与时限，能在规定时限内通知到某批次全部下游客户并回收产品；定期开展召回模拟演练，演练有计时、覆盖范围统计与不足之处的整改",
+      "requirementEn": "A recall procedure exists with defined classification and timelines, enabling notification of all downstream customers of a batch and recovery of product within the required time; mock recalls are performed periodically with timing, coverage statistics and corrective actions",
+      "guidance": "现场做一次演练：随机指定一个批号，要求在规定时间内（通常 24 小时）提供全部客户清单、有效联系方式、发货数量与已回收数量。常见缺陷是客户联系方式过期失效、只算一级客户而遗漏二级流向、演练只做桌面推演无计时与覆盖率统计。演练结束应有缺口分析与整改。",
+      "guidanceEn": "Rehearse a batch recall live: a complete customer list with working contacts and reconciled quantities within 24 hours is the expectation.",
+      "riskLevel": "critical",
+      "evidenceHint": "召回程序与分级标准、召回模拟演练报告（含计时与覆盖率）、客户清单与联系方式确认记录、发货流向与批号追溯记录、演练整改跟踪"
+    },
+    {
+      "clauseRef": "EU GDP §6（投诉、退货、假劣药与召回 · 退货处置）",
+      "requirement": "退货药品按程序处理，重新进入可销售库存的条件明确且有限（原包装完好、经质量评估、有证据表明储存与运输条件未受影响），处置决定由质量部门作出并记录理由",
+      "requirementEn": "Returned products are handled per procedure and only re-enter saleable stock under defined and restricted conditions (intact original packaging, quality assessment, evidence that storage and transport conditions were maintained), with the disposition decided by the quality function and justified in writing",
+      "guidance": "这是药品流通检查的重点。抽取 5 笔退货，核查是否有质量部门的处置签署、是否评估了运输与储存条件（冷链退货无温度记录的一律不得回库），以及是否核对了退货来源的合法性。默认把退货放回货架是严重缺陷。",
+      "guidanceEn": "Check every return disposition for quality sign-off and a documented condition assessment; cold chain returns without temperature data must not return to saleable stock.",
+      "riskLevel": "critical",
+      "evidenceHint": "退货处理程序、退货台账与处置记录、质量部门评估与签署、储存运输条件评估依据（含温度记录）、重新入库审批、退货销毁记录"
+    },
+    {
+      "clauseRef": "EU GDP §6（投诉、退货、假劣药与召回 · 疑似假劣药）",
+      "requirement": "已建立识别与处理疑似假劣药（伪造药品）的程序，发现疑似产品时立即隔离、停止销售并按规定报告监管机构与相关客户，报告途径与联系人明确且经过测试",
+      "requirementEn": "A procedure exists for identifying and handling suspected falsified medicines, with immediate segregation and cessation of sale, and notification to the competent authority and affected customers; the reporting route and contacts are defined and tested",
+      "guidance": "核查程序是否写明向哪个部门、以何种方式、在什么时限内报告，以及是否通知上游供应商与下游客户。常见缺陷是程序只有原则性描述、无具体联系人与报告表单、员工不知道如何识别（批号异常、包装印刷差异、来源不明的低价货）。抽查一线收货与销售人员是否知道发现疑似假劣药后的第一步动作。",
+      "guidanceEn": "Check the route names a concrete authority contact and form, and that receiving and sales staff know the first action to take.",
+      "riskLevel": "critical",
+      "evidenceHint": "假劣药处理程序、报告流程与联系人清单、隔离与停止销售记录、历史报告记录、识别要点培训记录、与监管机构的沟通记录"
+    },
+    {
+      "clauseRef": "EU GDP §9（运输 · 路线风险评估）",
+      "requirement": "运输方式与路线已进行书面风险评估，评估考虑了季节温度变化、运输距离与时间、转运与中转次数、承运环节的交接点以及目的地气候条件，并据此确定包装与温控方式",
+      "requirementEn": "Transport modes and routes have a documented risk assessment considering seasonal temperature variation, distance and duration, number of transfers and handover points, and destination climate, which determines the packaging and temperature control used",
+      "guidance": "索取路线风险评估文件，核查是否按具体路线而非笼统按国内运输评估，是否包含夏季高温与冬季严寒两种情形以及中转次数。常见缺陷是评估文件只有一页定性描述、无温度数据支持、评估后未与实际的包装选择挂钩。",
+      "guidanceEn": "Check the assessment is route-specific with seasonal and transfer considerations, and that its conclusions match the packaging actually used.",
+      "riskLevel": "major",
+      "evidenceHint": "运输路线风险评估报告、路线与时限清单、季节温度数据依据、包装与温控方式选择依据、评估周期与更新记录"
+    },
+    {
+      "clauseRef": "EU GDP §9（运输 · 承运商资质与合同质量条款）",
+      "requirement": "承运商与第三方物流服务商经过资质评估并签订含质量条款的合同，合同明确温度要求、偏离通知义务、稽查权、记录保存、转委托限制与责任划分，企业对受托方实际执行情况有监督",
+      "requirementEn": "Carriers and third-party logistics providers are qualified and contracted with quality clauses covering temperature requirements, deviation notification, audit rights, record retention, limits on subcontracting and responsibility, with the contractor's actual performance monitored",
+      "guidance": "核查合同是否只是普通货运协议而无质量条款。抽取一次运输偏离，核查承运商是否按约定通知、企业是否启动了调查。常见缺陷是承运商擅自转委托给个体车辆、合同无稽查权，以及企业从未对承运商做过评估或现场检查。",
+      "guidanceEn": "Check contracts contain quality clauses and that a real deviation triggered the agreed notification and investigation.",
+      "riskLevel": "major",
+      "evidenceHint": "承运商资质与档案、运输合同与质量协议、承运商评估或审计记录、转委托管理记录、偏离通知与处理记录、绩效考核记录"
+    },
+    {
+      "clauseRef": "EU GDP §9（运输 · 冷链包装与冷媒配置验证）",
+      "requirement": "冷链药品所用的保温箱与冷藏车及其冷媒配置经过夏季与冬季最差条件的验证（含最长运输时间与极端环境温度），实际发运使用的箱型、冷媒数量与摆放方式与验证配置完全一致",
+      "requirementEn": "Cold chain shippers and vehicles with their coolant configuration are qualified for summer and winter worst cases (including maximum transit time and extreme ambient temperatures), and what is actually dispatched matches the validated configuration exactly",
+      "guidance": "对照验证报告的配置表（箱型、冷媒种类与数量、摆放位置、装载量、预冷要求）与实际发货记录和现场装箱操作。最常见缺陷是验证用 4 块冷媒而实际只放 2 块，或验证的是满载而实际发半箱。验证报告还应给出不同环境温度下的有效时长，并在发货单上体现。",
+      "guidanceEn": "Compare the validated shipper configuration table with what is packed on the dock; fewer coolants or a different load than validated voids the qualification.",
+      "riskLevel": "critical",
+      "evidenceHint": "保温箱与冷藏车验证报告（含季节最差条件、装载量与有效时长）、冷媒配置作业指导书、装箱记录与现场照片、验证有效期与再验证记录、发货单上的配置要求"
+    },
+    {
+      "clauseRef": "EU GDP §9（运输 · 在途温度监测与交付审核）",
+      "requirement": "冷链运输全程有温度监测，记录仪在使用前经过校准并在有效期内，交付时由收货方审核温度数据并签署，数据与记录归档可追溯",
+      "requirementEn": "Cold chain shipments are temperature-monitored throughout, loggers are calibrated and in date before use, the data are reviewed and signed on delivery, and records are archived and traceable",
+      "guidance": "抽取 5 次冷链发运，核查是否有记录仪数据、是否在交付时被审核并签名、记录仪校准证书是否覆盖使用日期。常见缺陷是记录仪未随货、交付时无人看数据直接签收，以及校准证书过期。记录仪的启动时间应早于装箱、结束时间应晚于交付。",
+      "guidanceEn": "Verify logger data exists for each shipment and was reviewed and signed at delivery, with calibration valid on the use date.",
+      "riskLevel": "critical",
+      "evidenceHint": "在途温度记录仪数据与校准证书、装箱与交付时间记录、交付审核签署记录、记录仪发放与回收台账、异常数据清单"
+    },
+    {
+      "clauseRef": "EU GDP §9（运输 · 温度偏离调查与产品影响评估）",
+      "requirement": "冷链温度偏离按偏差程序调查，包含原因分析、产品影响评估（引用稳定性数据、验证数据或生产企业评估结论，而非仅以暴露时长推断）与处置决定，并采取纠正预防措施，偏离有趋势分析",
+      "requirementEn": "Cold chain excursions are investigated as deviations with root cause analysis, a product impact assessment citing stability data, qualification data or manufacturer evaluation rather than duration-based assumptions, a disposition decision, corrective action and trend analysis",
+      "guidance": "抽取 3 份偏离调查，核查影响评估的依据来源：是否有稳定性数据、生产企业书面评估或验证的耐受时间支持。仅写「偏离时间短，判断无影响」而无任何数据支撑的结论在检查中不可辩护。同时看是否每次都归因于司机失误而无系统性措施，以及是否通知了客户与供应商。",
+      "guidanceEn": "Check each excursion has data-based impact justification; conclusions resting only on short duration are findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "温度偏离调查报告、根本原因分析、稳定性数据或生产企业评估函、处置决定与通知记录、纠正预防措施与有效性确认、偏离趋势分析"
+    },
+    {
+      "clauseRef": "EU GDP §4（文件 · 批号追溯与记录保存）",
+      "requirement": "所有流通活动有书面程序与记录，能够按批号双向追溯（从供应商追溯到全部下游客户，从任一客户追溯到上游来源），并定期开展追溯演练验证实际能力",
+      "requirementEn": "All distribution activities follow written procedures with records enabling batch-level traceability in both directions (from supplier to all downstream customers and from any customer back to source), validated by periodic traceability rehearsals",
+      "guidance": "现场演练：随机指定一个批号，计时要求同时列出上游供应商、收货数量、全部下游客户、发货数量与库存余量，并做到数量平衡。常见缺陷是只能查到一级客户、拆零与拼箱后批号记录丢失，以及追溯耗时数天。追溯演练应定期做并有记录。",
+      "guidanceEn": "Rehearse traceability on a random batch in both directions with quantity reconciliation; loss of batch identity on repacking is a common gap.",
+      "riskLevel": "critical",
+      "evidenceHint": "流通活动 SOP 清单、购销与库存记录、批号追溯演练报告（含耗时与数量平衡）、拆零与拼箱操作记录、记录保存期限规定"
+    },
+    {
+      "clauseRef": "EU GDP §4（文件 · 记录填写与数据完整性）",
+      "requirement": "记录使用不易擦除的介质、及时填写，更正时保留原信息、单线划改并签名注明日期与理由，无涂改、铅笔填写、代签、空白栏未处理或事后批量补记的情形",
+      "requirementEn": "Records use indelible media and are completed contemporaneously; corrections preserve the original entry with a single-line strike-through, signature, date and reason, with no erasures, pencil entries, proxy signatures, unexplained blank fields or back-filled entries",
+      "guidance": "翻阅收货、温控、退货与销毁记录原件，重点找涂改液或重描痕迹、同一天内不同时间的记录笔迹与墨水完全一致（批量补记）、空白格未划斜线、同一人为多岗位代签。这些是检查员最容易发现的数据完整性缺陷。",
+      "guidanceEn": "Inspect original records for erasures, back-filled batches and proxy signatures; blank fields left unannotated are findings too.",
+      "riskLevel": "critical",
+      "evidenceHint": "记录原件（收货、温控、退货、销毁）、记录填写规范、更正签注示例、数据完整性培训记录、记录复核记录"
+    },
+    {
+      "clauseRef": "EU GDP §4（文件 · 保存期限、核证副本与调阅）",
+      "requirement": "记录按法规规定的期限保存（至少至药品有效期后一年，特殊管理药品按更长期限执行），以可读形式保存在授权场所并可随时调阅，需向监管机构或合作方提供时以核证副本形式出具并登记",
+      "requirementEn": "Records are retained for the legally required period (at least one year after expiry, longer for controlled products), kept readable and retrievable at an authorised location, and provided to authorities or partners as certified copies with a register",
+      "guidance": "核查记录保存期限规定是否符合最严的适用要求，并做一次调阅测试：随机要求调出一份 3 年前的收货记录与温度数据。常见缺陷是电子数据只保存在已停用的旧系统或本地电脑中、纸质记录堆放在无防护的库房，以及对外提供复印件时无核证副本的签发与登记。",
+      "guidanceEn": "Ask for an older record to be retrieved during the visit and check that certified copy issuance is controlled and logged.",
+      "riskLevel": "major",
+      "evidenceHint": "记录保存期限规定与法规依据、归档清单与存放条件、调阅测试记录、核证副本签发与登记记录、电子数据迁移与可读性验证"
+    },
+    {
+      "clauseRef": "EU GDP §6（投诉、退货、假劣药与召回 · 投诉处理）",
+      "requirement": "所有投诉均已记录、调查并采取适当措施，投诉中涉及疑似不良反应的已按规定时限转交药物警戒部门，并评估了对同批次库存与其他批次的影响",
+      "requirementEn": "All complaints are recorded, investigated and acted upon; those involving suspected adverse reactions are forwarded to pharmacovigilance within the defined time, and the impact on remaining stock of the batch and on other batches is assessed",
+      "guidance": "抽取 5 份投诉记录，核查是否有调查结论、是否回复投诉人、是否评估批次影响。最容易漏的是含医学内容的投诉未转药物警戒，一旦投诉涉及不良反应，转交时限从获知时点起算，与个例报告时限直接相关。反向也要查：召回或质量缺陷的信息是否通知了药物警戒。",
+      "guidanceEn": "Check complaints with medical content are transferred to pharmacovigilance and that batch impact is assessed in both directions.",
+      "riskLevel": "major",
+      "evidenceHint": "投诉处理程序、投诉台账与调查记录、回复记录、转交药物警戒的记录与时限、批次影响评估、投诉趋势分析"
+    },
+    {
+      "clauseRef": "EU GDP §7（委托活动）",
+      "requirement": "委托的仓储、运输、销毁、清关等活动有书面合同与质量协议，受托方经过资质评估与批准，合同中明确双方职责、变更通知、稽查权与记录保存，委托方对受托方有定期监督或审计",
+      "requirementEn": "Outsourced storage, transport, destruction and customs activities are covered by written contracts and quality agreements with assessed and approved contractors, defining responsibilities, change notification, audit rights and record retention, with periodic oversight or audits by the contract giver",
+      "guidance": "先列出全部委托活动，再逐项核对合同与评估记录。常见缺陷是有合同无质量协议、受托方评估表填写于合作之后、委托方从未行使稽查权。第三方仓库的场景还要核查其设施是否经过同样的温控验证与监测。",
+      "guidanceEn": "List every outsourced activity and match it to a contract, a qualification record and evidence of oversight.",
+      "riskLevel": "major",
+      "evidenceHint": "委托活动清单、委托合同与质量协议、受托方资质与评估记录、受托方审计报告、变更通知记录、受托方绩效与偏差沟通记录"
+    },
+    {
+      "clauseRef": "EU GDP §3 / §9（业务连续性安排）",
+      "requirement": "已建立业务连续性计划，覆盖断电、制冷设备故障、系统中断、自然灾害、疫情与承运商中断等情形，明确具体的备用冷藏能力或应急转运安排、决策人与联络方式，并经过演练",
+      "requirementEn": "A business continuity plan covers power failure, refrigeration breakdown, system outage, natural disaster, pandemic and carrier failure, naming concrete backup refrigeration capacity or emergency transfer arrangements, decision-makers and contacts, and has been rehearsed",
+      "guidance": "核查计划中是否写明具体的备用冷库地址、可用容积、应急转运承运商与协议、启动决策人。仅写「联系备用仓库」而无名称与容量的计划在断电时无法执行。索取演练记录，看是否至少演练过断电场景，演练后是否有改进。",
+      "guidanceEn": "Check the plan names specific backup capacity and decision-makers and that at least one disruption scenario has been rehearsed.",
+      "riskLevel": "major",
+      "evidenceHint": "业务连续性计划、备用冷藏设施清单或应急协议、应急联系人清单、演练方案与记录、演练后改进措施、发电机维护与测试记录"
+    },
+    {
+      "clauseRef": "EU GDP §8（自查）",
+      "requirement": "已建立并执行自查程序，自查覆盖全部流通活动与质量体系要素（含运输、冷链、退货、召回、委托活动与数据完整性），按计划周期执行并形成报告，缺陷有整改责任人与时限且经有效性确认",
+      "requirementEn": "A self-inspection programme is established and executed, covering all distribution activities and quality system elements including transport, cold chain, returns, recalls, outsourced activities and data integrity, to a defined schedule with reports, assigned remediation and effectiveness verification",
+      "guidance": "核查年度自查计划与实际执行的一致性，以及自查范围是否包含运输与冷链，很多企业的自查只做库房现场。重点看缺陷闭环：连续两次自查发现同一问题说明整改无效。自查员应经过培训且不检查自己的区域。",
+      "guidanceEn": "Verify the scope includes transport and cold chain and that findings are closed with effectiveness checks rather than repeated.",
+      "riskLevel": "major",
+      "evidenceHint": "自查程序、年度自查计划与执行记录、自查报告与检查表、缺陷整改跟踪与有效性确认、自查员培训与独立性说明"
+    }
+  ]
+}

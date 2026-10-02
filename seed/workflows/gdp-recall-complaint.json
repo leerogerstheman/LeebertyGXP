@@ -1,0 +1,154 @@
+{
+  "code": "GDP-RECALL",
+  "recordPrefix": "RC",
+  "name": "召回 / 退货 / 质量投诉",
+  "nameEn": "Recall, Return and Quality Complaint",
+  "category": "external",
+  "gxpAreas": ["GDP", "GMP", "GVP"],
+  "regulationRefs": [
+    "EU GMP Chapter 8 - complaints, quality defects and product recalls",
+    "EU GDP Guidelines 2013/C 343/01 §6（投诉、退货、假劣药与召回）",
+    "EU GDP Guidelines 2013/C 343/01 §8（自查 · 召回程序的定期演练与有效性检查）",
+    "21 CFR 211.198 - complaint files; 21 CFR 7 - recall procedures",
+    "WHO TRS 957 Annex 5 §6 - complaints, returns, recalls, counterfeit products",
+    "NMPA 药品召回管理办法; 药品经营质量管理规范 (GSP)"
+  ],
+  "description": "处理产品质量投诉、退货药品与产品召回，评估质量缺陷、确定召回分级、执行并评估召回有效性。",
+  "descriptionEn": "Handles product quality complaints, returned goods and recalls: evaluates the defect, assigns recall classification, executes and assesses recall effectiveness.",
+  "slaDays": 30,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "logged", "investigating", "classified", "recall_initiated", "executing", "effectiveness_check", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "标题", "labelEn": "Title", "type": "text", "required": true },
+    { "key": "summary", "label": "投诉 / 缺陷描述", "labelEn": "Complaint or defect description", "type": "textarea", "required": true },
+    { "key": "product", "label": "产品名称与规格", "labelEn": "Product and strength", "type": "text", "required": true },
+    { "key": "batchNumber", "label": "批号", "labelEn": "Batch number", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "投诉 / 发现日期", "labelEn": "Date of complaint or detection", "type": "date", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"], "help": "critical 表示可能危害患者健康，需立即评估召回" },
+    { "key": "site", "label": "涉及场所 / 经销商", "labelEn": "Site or distributor", "type": "text", "required": false }
+  ],
+
+  "steps": [
+    {
+      "code": "log",
+      "name": "登记与初步分类",
+      "nameEn": "Logging and initial classification",
+      "role": ["qa_specialist", "warehouse_keeper", "pharmacovigilance"],
+      "type": "task",
+      "onComplete": "logged",
+      "form": [
+        { "key": "complaintSource", "label": "投诉来源", "type": "select", "required": true, "options": ["patient", "healthcare_professional", "distributor", "regulatory_authority", "internal", "literature"] },
+        { "key": "complaintCategory", "label": "投诉类别", "type": "select", "required": true, "options": ["product_quality", "packaging_defect", "labelling_error", "contamination", "efficacy", "adverse_reaction", "counterfeit", "storage_transport", "other"] },
+        { "key": "quantityAffected", "label": "涉及数量", "type": "text", "required": false },
+        { "key": "sampleAvailable", "label": "是否有留样 / 退回样品", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "patientImpact", "label": "是否涉及患者健康影响", "type": "select", "required": true, "options": ["yes", "no", "unknown"], "help": "选 yes 需立即按药物警戒流程处理" },
+        { "key": "acknowledgedToComplainant", "label": "是否已回复投诉人", "type": "select", "required": false, "options": ["yes", "no"] }
+      ],
+      "guidance": "所有投诉都必须记录并调查，包括口头投诉和经销售人员转达的投诉。"
+    },
+    {
+      "code": "investigation",
+      "name": "调查与根本原因",
+      "nameEn": "Investigation and root cause",
+      "role": ["qa_specialist", "qc_manager", "production_manager", "warehouse_keeper"],
+      "type": "task",
+      "onComplete": "investigating",
+      "requiresFields": ["rootCause", "otherBatchesAffected", "marketActionRequired"],
+      "persistFields": { "root_cause": "rootCause", "impact_assessment": "impactAssessment" },
+      "form": [
+        { "key": "retainedSampleResult", "label": "留样检验结果", "type": "textarea", "required": false },
+        { "key": "returnedSampleResult", "label": "退回样品检验结果", "type": "textarea", "required": false },
+        { "key": "batchRecordReview", "label": "批记录复核情况", "type": "textarea", "required": true },
+        { "key": "distributionReview", "label": "流向调查", "type": "textarea", "required": true, "help": "该批次的发货数量、去向、剩余库存" },
+        { "key": "otherBatchesAffected", "label": "是否影响其他批次", "type": "select", "required": true, "options": ["no", "yes", "under_evaluation"] },
+        { "key": "affectedBatchList", "label": "受影响批次清单", "type": "textarea", "required": false },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "impactAssessment", "label": "健康危害评估", "type": "textarea", "required": true, "help": "对患者的潜在健康风险，需与医学部门共同评估" },
+        { "key": "marketActionRequired", "label": "是否需要市场行动", "type": "select", "required": true, "options": ["none", "recall", "market_withdrawal", "stock_recovery", "field_correction"] }
+      ],
+      "guidance": "调查必须同时评估是否影响其他批次以及是否需要召回。仅处理单个投诉而不评估批次范围是常见缺陷。"
+    },
+    {
+      "code": "classify",
+      "name": "召回分级与决定",
+      "nameEn": "Recall classification and decision",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "approved",
+      "onComplete": "classified",
+      "form": [
+        { "key": "recallClass", "label": "召回级别", "type": "select", "required": true, "options": ["class_I", "class_II", "class_III", "not_applicable"], "help": "I 级：可能引起严重健康危害或死亡；II 级：暂时或可逆的健康危害；III 级：不太可能引起健康危害" },
+        { "key": "recallDepth", "label": "召回深度", "type": "select", "required": true, "options": ["patient_level", "pharmacy_level", "wholesaler_level", "not_applicable"] },
+        { "key": "recallScope", "label": "召回范围", "type": "textarea", "required": true, "help": "批次、数量、地区、经销商清单" },
+        { "key": "regulatoryNotification", "label": "监管机构通报", "type": "select", "required": true, "options": ["required_immediate", "required_routine", "not_required"] },
+        { "key": "decisionJustification", "label": "决定理由", "type": "textarea", "required": true },
+        { "key": "communicationPlan", "label": "沟通方案", "type": "textarea", "required": false }
+      ],
+      "guidance": "召回决定应基于健康危害评估。如不确定，宁可按更高级别处理并及时上报监管机构。"
+    },
+    {
+      "code": "execute",
+      "name": "执行召回",
+      "nameEn": "Recall execution",
+      "role": ["qa_specialist", "warehouse_keeper", "qa_manager"],
+      "type": "task",
+      "onComplete": "executing",
+      "requiresFields": ["notifiedParties", "quantityRecovered"],
+      "form": [
+        { "key": "notifiedParties", "label": "已通知单位及数量", "type": "textarea", "required": true },
+        { "key": "notificationMethod", "label": "通知方式", "type": "textarea", "required": true, "help": "电话、邮件、书面函件、召回公告" },
+        { "key": "quantityDistributed", "label": "已发货数量", "type": "text", "required": true },
+        { "key": "quantityRecovered", "label": "已回收数量", "type": "text", "required": true },
+        { "key": "recoveryPercent", "label": "回收率", "type": "text", "required": false },
+        { "key": "quarantineLocation", "label": "回收品隔离位置", "type": "text", "required": false },
+        { "key": "disposition", "label": "回收品处置", "type": "select", "required": false, "options": ["pending", "destroyed", "returned_to_manufacturer", "reworked", "rejected"] },
+        { "key": "regulatoryAcknowledged", "label": "监管机构是否确认", "type": "select", "required": false, "options": ["yes", "no", "pending"] }
+      ],
+      "guidance": "召回期间必须每日跟踪回收进度。回收率明显偏低时必须评估原因并加强通知。"
+    },
+    {
+      "code": "effectiveness",
+      "name": "召回有效性检查",
+      "nameEn": "Recall effectiveness check",
+      "role": ["qa_specialist", "qa_manager"],
+      "type": "task",
+      "onComplete": "effectiveness_check",
+      "requiresFields": ["effectivenessResult"],
+      "persistFields": { "effectiveness_check": "method", "effectiveness_result": "effectivenessResult" },
+      "form": [
+        { "key": "method", "label": "有效性检查方法", "type": "textarea", "required": true, "help": "如：回访抽样经销商确认已收到通知、核查终端库存" },
+        { "key": "sampleChecked", "label": "抽查数量", "type": "text", "required": true },
+        { "key": "responseRate", "label": "回复率", "type": "text", "required": true },
+        { "key": "effectivenessResult", "label": "有效性结论", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] },
+        { "key": "escalationNeeded", "label": "是否需要升级措施", "type": "select", "required": true, "options": ["no", "yes_wider_notification", "yes_regulatory_escalation"] }
+      ],
+      "guidance": "监管机构会要求提供召回有效性检查的证据。仅声称「已通知」而无回复记录，通常被判定为无效召回。"
+    },
+    {
+      "code": "closure",
+      "name": "关闭与报告",
+      "nameEn": "Closure and final report",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "finalReportRef", "label": "召回总结报告编号", "type": "text", "required": true },
+        { "key": "recallConclusion", "label": "召回结论", "type": "textarea", "required": true },
+        { "key": "capaLinks", "label": "关联 CAPA / 变更控制编号", "type": "textarea", "required": false },
+        { "key": "regulatoryFinalReport", "label": "是否已提交监管机构总结报告", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "complaintReplySent", "label": "是否已回复投诉人", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "trendMonitoring", "label": "趋势监控安排", "type": "textarea", "required": false }
+      ],
+      "guidance": "召回关闭后仍需评估同类问题是否在其他产品线上存在，并纳入年度质量回顾。"
+    }
+  ]
+}

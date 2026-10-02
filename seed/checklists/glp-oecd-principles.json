@@ -1,0 +1,375 @@
+{
+  "code": "GLP-OECD",
+  "title": "GLP 非临床研究质量管理规范自查表（OECD 原则 / 21 CFR Part 58）",
+  "titleEn": "GLP Self-Inspection Checklist (OECD Principles / 21 CFR Part 58)",
+  "scope": "self_inspection",
+  "category": "nonclinical",
+  "gxpAreas": ["GLP"],
+  "regulation": "OECD Principles of Good Laboratory Practice ENV/MC/CHEM(98)17; 21 CFR Part 58; OECD GLP Consensus Documents; NMPA 药物非临床研究质量管理规范",
+  "authority": "OECD / FDA / NMPA",
+  "version": "OECD Principles as revised 1997 (ENV/MC/CHEM(98)17); 21 CFR Part 58 as amended; OECD Consensus Documents No. 11, No. 13 (2002), No. 15 (2007), No. 17 (2016), No. 22 (2021)",
+  "description": "覆盖 GLP 安全性试验全过程的机构自查表，适用于毒理、病理、临床检验与分析测试等非临床研究机构的年度自检和监管检查前准备。检查内容包括试验机构组织与人员、质量保证部门项目、设施、仪器与材料、试验系统、受试物与对照物、标准操作程序、研究实施与数据采集、结果报告与归档、多场所研究与数据完整性。每一项均为可判定的具体断言，判定为「不符合」时必须填写客观证据。",
+  "descriptionEn": "A facility-wide self-inspection checklist for GLP non-clinical safety studies, covering organisation and personnel, the quality assurance programme, facilities, apparatus and materials, test systems, test and reference items, SOPs, conduct of the study, reporting and archiving, multi-site studies and data integrity. Every item is a verifiable assertion; an adverse assessment requires objective evidence.",
+  "items": [
+    {
+      "clauseRef": "OECD §1.1 / 21 CFR 58.31",
+      "requirement": "试验机构管理层已书面指定履行 GLP 管理职责的责任人，并确保按 GLP 原则组织和管理试验机构，配备足够数量且合格的人员、设施、仪器和材料",
+      "requirementEn": "Test facility management is identified in a written statement and ensures that the facility is organised and operated in compliance with the GLP Principles, with sufficient qualified personnel, facilities, equipment and materials available",
+      "guidance": "索取管理层职责声明、组织架构图和任命文件，核对声明中的管理责任人是否为实际签署研究计划、SOP 和最终报告的人。常见缺陷是管理层职责只写在质量手册里，实际无人对 GLP 符合性负总责，多场所研究中的试验场所管理责任也未界定。",
+      "guidanceEn": "Pull the management responsibility statement, organisation chart and appointment letters, then check whether the named manager is the person actually signing study plans, SOPs and final reports.",
+      "riskLevel": "major",
+      "evidenceHint": "管理层职责声明、组织架构图、岗位任命文件、研究计划/SOP/最终报告批准签名记录、多场所研究职责界定文件"
+    },
+    {
+      "clauseRef": "OECD §1.2 / 21 CFR 58.33",
+      "requirement": "每项研究在开始前已由管理层书面任命具备相应学历、培训和经验的专题负责人，专题负责人是该项研究唯一的控制点，其更换按既定程序进行并留有记录",
+      "requirementEn": "Before each study is initiated, management designates in writing a Study Director with appropriate education, training and experience; the Study Director is the single point of study control and any replacement follows an established, documented procedure",
+      "guidance": "抽查 3 项研究（含 1 项在研）的专题负责人任命文件，核对任命日期是否早于专题负责人签署研究计划的日期。最常见的缺陷是一名专题负责人同时挂名十余项研究而实际由他人执行，或专题负责人离职后未按程序更换并通知申办者。",
+      "guidanceEn": "Sample three studies; confirm the designation date precedes the study plan signature date and that replacements follow a documented procedure.",
+      "riskLevel": "critical",
+      "evidenceHint": "专题负责人任命文件、专题负责人简历与学历培训证明、研究计划签署页与日期、专题负责人变更与交接记录、申办者通知记录"
+    },
+    {
+      "clauseRef": "21 CFR 58.33(a)-(f) / OECD §1.2",
+      "requirement": "专题负责人实际履行研究全过程职责：批准研究计划及其修订、确保全部试验数据（含试验系统意外反应）被准确记录和核实、及时记录并处理影响研究质量与完整性的意外情况、确认试验系统符合计划、确保适用 GLP 得到遵守，并在研究结束或终止时将全部原始数据、方案、标本和最终报告移交档案",
+      "requirementEn": "The Study Director performs the full set of duties: approving the protocol and its changes, ensuring all data including unanticipated test system responses are accurately recorded and verified, documenting and acting on unforeseen circumstances, confirming test systems match the protocol, ensuring applicable GLP is followed, and transferring all raw data, protocols, specimens and final reports to the archives",
+      "guidance": "不要只看任命文件，要核查专题负责人的实际介入痕迹：研究计划上的签名与日期、方案偏离与意外情况的评估记录、最终报告的签署、向档案移交的确认签名。常见缺陷是研究计划与最终报告由他人代签，或意外情况只做了记录而未评估其对研究完整性的影响。",
+      "guidanceEn": "Look for evidence the Study Director actually acted: signature and date on the plan, documented assessment of deviations and unforeseen circumstances, signature on the final report and archive transfer confirmation.",
+      "riskLevel": "critical",
+      "evidenceHint": "研究计划与修订签署页、方案偏离与意外情况评估记录、原始数据复核记录、最终报告签署页、档案移交清单"
+    },
+    {
+      "clauseRef": "OECD §2.1 / 21 CFR 58.35",
+      "requirement": "试验机构已指定质量保证部门并配备人员，质量保证人员由管理层任命、直接向管理层负责，且不参与其负责保证的研究的实施",
+      "requirementEn": "A Quality Assurance programme is established with designated personnel who are appointed by and directly responsible to management, and who are not involved in the conduct of the studies they assure",
+      "guidance": "核查 QA 的汇报线：QA 负责人应直接向机构负责人汇报，而不是向专题负责人或实验室主管汇报。再核查 QA 人员是否同时承担实验操作、数据采集或报告撰写——QA 参与研究实施是最常见的独立性缺陷，会直接使最终报告中的 QA 声明失去效力。",
+      "guidanceEn": "Check that QA reports to management rather than to study staff, and that QA personnel perform no study conduct work; otherwise the QA statement in the final report is worthless.",
+      "riskLevel": "critical",
+      "evidenceHint": "QA 部门组织架构与汇报线说明、QA 人员任命文件、QA 岗位说明书、QA 人员职责分工表、QA 是否参与研究执行的核查记录"
+    },
+    {
+      "clauseRef": "OECD §1.1(c)(d) / 21 CFR 58.29",
+      "requirement": "试验机构保存每名专业技术人员的资格、培训、经历和岗位说明书记录，人员数量与资质满足研究按时、正确实施的需要，人员清楚理解其承担的职责并接受相应培训",
+      "requirementEn": "Records of qualifications, training, experience and job descriptions are maintained for each professional and technical individual; sufficient qualified personnel are available for the timely and proper conduct of studies, and personnel understand and are trained for the functions they perform",
+      "guidance": "抽查 3 名技术人员的档案（含 1 名新入职人员），核对培训记录日期是否早于其首次独立操作日期、岗位说明书是否与实际承担的工作一致、培训是否有有效性评估而非只有签到。常见缺陷是关键岗位人员离职后由未经培训的人员接替。",
+      "guidanceEn": "Sample three personnel files; verify training predates independent work, job descriptions match actual duties, and effectiveness is assessed rather than attendance merely recorded.",
+      "riskLevel": "major",
+      "evidenceHint": "人员资质与培训档案、岗位说明书、培训计划与考核记录、人员操作授权表、在研工作量与人员配置对照表"
+    },
+    {
+      "clauseRef": "OECD §1.4 / 21 CFR 58.29",
+      "requirement": "试验机构已识别各岗位的职业健康危害并采取防护措施，人员执行健康预防要求，已知可能影响研究完整性的健康或医学状况已向指定人员报告并采取了人员岗位调整措施",
+      "requirementEn": "Occupational health hazards are identified with corresponding precautions in place; personnel exercise health precautions and report any known health or medical condition that could affect study integrity so that they can be excluded from the affected operations",
+      "guidance": "核查岗位健康风险评估、防护用品发放与使用记录、职业健康体检报告以及人员健康状态申报表。动物房、粉尘、过敏原和放射性操作岗位是重点。常见缺陷是有防护用品但无使用记录，或人员已申报呼吸道疾病仍被安排进入屏障动物房。",
+      "guidanceEn": "Review the health risk assessment, PPE issue and use records, health surveillance records and personnel health declarations; missing PPE-use records and unacted health declarations are common.",
+      "riskLevel": "major",
+      "evidenceHint": "岗位健康风险评估、防护用品发放与使用记录、职业健康体检报告、人员健康状况申报表、岗位调整记录"
+    },
+    {
+      "clauseRef": "OECD §1.1(m) / 21 CFR 58.35(a)",
+      "requirement": "试验机构维护现行有效的主计划表，内容包括受试物、试验系统、研究性质、试验开始日期、当前状态、申办者和专题负责人，并随研究进展及时更新",
+      "requirementEn": "A current master schedule is maintained, indexed by test article and showing the test system, nature of study, initiation date, current status, sponsor and Study Director, and is updated as studies progress",
+      "guidance": "将主计划表与在研研究台账、研究计划和 QA 稽查计划逐项对照，核查是否有研究未列入主计划表（尤其是短期试验和多场所研究的各个试验场所），以及研究状态是否已更新。主计划表未及时更新会造成 QA 稽查覆盖的盲区。",
+      "guidanceEn": "Reconcile the master schedule against study plans and QA audit schedules; the classic finding is studies missing from the schedule and therefore outside QA oversight.",
+      "riskLevel": "major",
+      "evidenceHint": "主计划表（含更新记录）、在研研究清单、QA 稽查计划、研究计划与最终报告台账"
+    },
+    {
+      "clauseRef": "OECD §2.2 / 21 CFR 58.35(b)(2)",
+      "requirement": "质量保证部门按书面程序对每项研究的关键阶段实施稽查，每项研究的关键阶段至少稽查一次，且稽查时间与该阶段实际执行时间一致而非事后补做",
+      "requirementEn": "QA conducts study-based inspections of the critical phases of each study in accordance with written procedures, covering each critical phase at least once, timed to coincide with the actual conduct of that phase rather than performed retrospectively",
+      "guidance": "调取 QA 稽查计划与稽查记录，对照该研究的实验记录日期，核查稽查是否发生在给药、解剖、称量、数据采集等关键阶段的实际执行时段。稽查日期集中出现在研究结束前是典型缺陷——那说明稽查是在补记录，而不是在监控研究。",
+      "guidanceEn": "Compare QA inspection dates with the experimental dates in the study records; inspections clustered at the end of a study indicate retrospective record-keeping, not oversight.",
+      "riskLevel": "critical",
+      "evidenceHint": "QA 稽查程序、研究稽查计划、分阶段稽查记录（含稽查日期与所查阶段）、关键阶段清单、稽查发现与整改跟踪表"
+    },
+    {
+      "clauseRef": "OECD §2.2 / 21 CFR 58.35(b)(2)-(3)",
+      "requirement": "质量保证部门按计划实施设施稽查（设施、装置、支持服务、计算机化系统、人员与记录），稽查记录包含稽查日期、被稽查对象或阶段、稽查人、发现的问题、建议采取的措施和再稽查日期，并定期向管理层与专题负责人提交书面状态报告",
+      "requirementEn": "QA performs facility-based inspections of facilities, installations, support services, computerised systems, personnel and records, keeping signed records of the inspection date, area or phase inspected, inspector, findings, actions recommended and taken and any reinspection date, and submits periodic written status reports to management and the Study Director",
+      "guidance": "核查设施稽查的年度计划与实际执行记录是否一致、到期未执行是否有说明。常见缺陷是只开展研究稽查而完全没有设施与计算机化系统稽查，或发现问题后无跟踪关闭的证据。",
+      "guidanceEn": "Check the facility inspection programme against executed records; the usual gap is no facility or computerised-system inspections at all, or findings without closure evidence.",
+      "riskLevel": "major",
+      "evidenceHint": "QA 稽查年度计划、设施稽查记录、计算机化系统稽查记录、QA 书面状态报告、稽查发现整改与关闭记录"
+    },
+    {
+      "clauseRef": "OECD §2.2 / 21 CFR 58.35(b)(5)-(6)",
+      "requirement": "每份最终报告包含由质量保证部门签署的 QA 声明，声明列出稽查的类型与日期（含所稽查的阶段）以及稽查结果向管理层、专题负责人和主要研究者报告的日期，并确认最终报告反映了原始数据",
+      "requirementEn": "Each final report contains a signed QA statement listing the types and dates of inspections, including the phases inspected, and the dates results were reported to management and the Study Director, and confirming that the final report reflects the raw data",
+      "guidance": "把 QA 声明中列出的稽查日期与 QA 稽查原始记录逐条核对，确认声明没有被复制或夸大。常见缺陷是多份研究的 QA 声明文字完全相同、声明日期与实际记录不符，或声明中报告的层级与实际汇报线不一致。",
+      "guidanceEn": "Reconcile the dates in the QA statement line by line against the underlying QA inspection records; identical statements across studies or dates that do not match are critical findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "最终报告中的 QA 声明、QA 稽查记录原件、QA 报告分发与收件记录、声明与记录逐条对照核查表"
+    },
+    {
+      "clauseRef": "OECD §3.1, §3.3 / 21 CFR 58.43(a), 58.47",
+      "requirement": "设施的规模、结构和位置适合研究需要，不同物种或试验系统之间、单个研究之间有效隔离；受试物与对照物的接收、储存和与载体混合设有相互独立的区域，防止污染和混淆",
+      "requirementEn": "The facility is of suitable size, construction and location, with effective separation of species or test systems and of individual studies; separate areas are provided for receipt, storage and mixing of test and reference items with carriers to prevent contamination and mix-ups",
+      "guidance": "沿实际人流和物流走一遍：不同物种是否共用走廊或操作间、检疫动物与在研动物是否隔离、受试物储存间是否与饲料间或动物房连通、给药混合物配制区是否与清洁区交叉。仅看平面图不足以判定，应现场核对门禁、标识与压差。",
+      "guidanceEn": "Walk the animal and material flow, checking species separation, quarantine segregation, and separation of test item storage and mixing areas.",
+      "riskLevel": "major",
+      "evidenceHint": "设施平面图与人流物流图、区域标识与门禁记录、房间功能清单与使用记录、受试物储存区温湿度记录"
+    },
+    {
+      "clauseRef": "OECD §3.2 / 21 CFR 58.43, 58.90(b)-(c)",
+      "requirement": "动物饲养设施、笼具和辅助设施适合所饲养的物种，笼具在使用中按适当间隔清洁和消毒，垫料按良好饲养规范更换，接触试验系统的材料不含干扰研究的污染物，虫害控制药剂的使用有记录",
+      "requirementEn": "Housing, cages and ancillary facilities are appropriate to the species; cages are cleaned and sanitised at appropriate intervals during use, bedding is changed per sound husbandry practice, materials contacting test systems are free of interfering contaminants, and pest control agent use is documented",
+      "guidance": "现场查看笼架、笼具清洁间隔与实际饲养密度，核查清洁消毒记录和虫害控制药剂使用记录。常见缺陷是清洁记录与动物房实际排班不符、垫料更换频次无记录，以及使用杀虫剂后未评估其对试验系统的影响。",
+      "guidanceEn": "Inspect cages, cleaning intervals and stocking density, and check that pesticide use is documented and assessed for impact on test systems.",
+      "riskLevel": "critical",
+      "evidenceHint": "动物房清洁消毒记录、垫料更换记录、虫害控制程序与检查施药记录、笼具清洗设备运行参数、饲养密度规定"
+    },
+    {
+      "clauseRef": "OECD §3.2 / 21 CFR 58.45",
+      "requirement": "动物饲养与试验区域的环境条件已明确规定并持续监测，温度、湿度、光照周期和通风的记录连续完整，超出规定范围的情况已调查并评估了对研究的影响",
+      "requirementEn": "Environmental conditions in animal and test areas are specified and monitored; temperature, humidity, light cycle and ventilation records are continuous and complete, and excursions outside specified ranges are investigated with the impact on the study assessed",
+      "guidance": "调取动物房温湿度记录（含夜间与周末），核查是否存在无记录的时段、监测探头校准证书是否在有效期内，以及超限报警是否触发了调查与影响评估。只做报警而不评估对研究数据影响的，是常见且严重的缺陷。",
+      "guidanceEn": "Request continuous temperature and humidity records including nights and weekends, verify probe calibration, and check that alarms triggered documented investigations and impact assessments.",
+      "riskLevel": "critical",
+      "evidenceHint": "环境条件规定、温湿度与光照连续记录、监测探头校准证书、超限报警记录与调查报告、影响评估结论"
+    },
+    {
+      "clauseRef": "OECD §3.4, §10.2, §10.3 / 21 CFR 58.51",
+      "requirement": "设有专用档案设施，具备防火、防潮、防虫和防灭失措施，仅经管理层授权的人员可以进入，已指定档案管理员，档案按索引有序存放、出入库有登记且能在合理时间内检索出指定记录",
+      "requirementEn": "Dedicated archive facilities protect records against fire, water, pests and loss, are accessible only to personnel authorised by management, are managed by a designated archivist, and are indexed so that any record can be retrieved promptly with movement in and out recorded",
+      "guidance": "做一次检索演练：随机指定一项已完成研究的原始数据或一份历史 SOP，计时看能否调出并出示出入库登记。同时核查档案室门禁记录、消防与除湿设施、档案管理员任命文件。检查员常要求现场演示检索，做不到即是重大缺陷。",
+      "guidanceEn": "Run a retrieval drill for a randomly named study record, and check access logs, fire and humidity protection, and the archivist appointment.",
+      "riskLevel": "critical",
+      "evidenceHint": "档案管理程序、档案管理员任命文件、档案索引、出入库登记簿、档案室门禁记录、消防与除湿设施检查记录、检索演练记录"
+    },
+    {
+      "clauseRef": "OECD §3.5 / 21 CFR 58.51",
+      "requirement": "研究产生的废弃受试物、污染垫料、动物尸体、生物危害废物和化学废物按规定分类收集和处置，处置过程有记录，受托处置方具备相应资质",
+      "requirementEn": "Waste test items, contaminated bedding, animal carcasses, biohazardous and chemical waste are segregated, collected and disposed of according to defined procedures with records, and disposal contractors hold the required qualifications",
+      "guidance": "核查各类废物的处置记录和危险废物转移单是否齐全、受托处置方的经营许可是否在有效期内。常见缺陷是动物尸体与化学废物混放，或处置记录的数量与实际产生量明显不符。",
+      "guidanceEn": "Check disposal records and hazardous waste transfer manifests against contractor licences, and look for quantities that do not reconcile with actual generation.",
+      "riskLevel": "minor",
+      "evidenceHint": "废物分类与处置程序、危险废物转移单、受托处置方资质与合同、动物尸体处置记录、废物暂存区检查记录"
+    },
+    {
+      "clauseRef": "OECD §4 / 21 CFR 58.61, 58.63",
+      "requirement": "用于生成数据的仪器与材料适合其预期用途且不干扰试验系统；仪器按书面程序定期检查、清洁、维护和校准，校准可溯源至国家或国际计量标准，维护与校准记录完整保存",
+      "requirementEn": "Apparatus and materials used in a study are suitable for their intended purpose and do not interfere with the test systems; apparatus is periodically inspected, cleaned, maintained and calibrated per written procedures, traceable to national or international measurement standards, with records kept",
+      "guidance": "现场核查仪器上是否贴有有效期内的校准标识，并把校准证书与仪器使用记录交叉核对——重点查找「校准已过期但仍有数据产生」的时段。同时核查仪器故障或维修后的再确认记录，以及化学试剂与溶液标签上的有效期和储存条件。",
+      "guidanceEn": "Check calibration labels against instrument use logs for data generated after calibration expiry, and verify requalification after repair.",
+      "riskLevel": "critical",
+      "evidenceHint": "仪器台账、校准计划与校准证书（含溯源声明）、维护与清洁记录、仪器使用记录、试剂溶液标签与有效期管理记录"
+    },
+    {
+      "clauseRef": "OECD §5.1-5.2 / 21 CFR 58.105",
+      "requirement": "试验系统（物理、化学、生物系统）的选择有依据，其来源、到达日期、到达时状态和规格有记录；新接收的动物和植物在健康状态评估前隔离，在首次给予受试物或对照物前有足够的适应期，健康评估结果与不适应个体的处置均有记录",
+      "requirementEn": "Test systems are selected on a documented rationale with records of source, date of arrival, arrival condition and specifications; newly received animals and plants are isolated until their health status is evaluated and are acclimatised for an adequate period before first administration of the test or reference item",
+      "guidance": "调取动物接收记录、检疫隔离记录、健康检查与适应期记录，核对适应期天数是否满足研究计划与机构程序要求，以及隔离期内出现异常死亡或发病的批次是否被排除使用。常见缺陷是动物到所当天即开始给药，或隔离期异常死亡未评估即继续使用该批动物。",
+      "guidanceEn": "Check receipt, isolation and acclimatisation records against the protocol; dosing on the day of arrival or continued use of a lot after unusual mortality are critical findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "试验系统来源与接收记录、检疫隔离记录、兽医健康检查记录、适应期记录、异常死亡或发病的调查与废弃处置记录"
+    },
+    {
+      "clauseRef": "OECD §5.2 / 21 CFR 58.90(a)",
+      "requirement": "动物按研究计划和机构程序饲养、处理和护理，饲养条件与观察频次符合研究计划要求，濒死或死亡动物按书面程序处置并记录",
+      "requirementEn": "Animals are housed, handled and cared for in accordance with the protocol and institutional procedures; housing conditions and observation frequency match the protocol, and moribund or dead animals are handled per written procedures with records",
+      "guidance": "对照研究计划逐项核对实际饲养条件（单笼或群养、饲料种类、给水方式）和临床观察频次是否一致。重点核查濒死动物的处置是否符合人道终点规定、死亡动物的发现时间与尸检安排是否记录完整。观察漏做而事后补记属严重缺陷。",
+      "guidanceEn": "Compare actual housing and observation frequency with the protocol, and check humane-endpoint handling and documentation for moribund and dead animals.",
+      "riskLevel": "critical",
+      "evidenceHint": "动物饲养与护理 SOP、动物房饲养记录、临床观察记录、人道终点处置记录、死亡动物记录与尸检报告"
+    },
+    {
+      "clauseRef": "OECD §5.2 / 21 CFR 58.90(d)",
+      "requirement": "每只或每组试验系统具有唯一且可追溯的识别标识，笼具或容器上的标识包含物种品系、来源、性别、剂量组和研究编号等研究计划要求的信息，个体离开饲养位置期间的标识仍可追溯",
+      "requirementEn": "Each test system, or group of test systems, has unique and traceable identification; housing or container labels carry the species or strain, source, sex, dose group and study number required by the protocol, and identity remains traceable when individuals leave their housing",
+      "guidance": "现场逐笼核对笼牌信息与研究计划、分组表是否一致，并抽查一只中途移出饲养间的动物（如送检、隔离、转笼）能否追溯回原笼位与剂量组。笼牌信息缺失或与分组表不符会导致数据无法归属，属严重缺陷。",
+      "guidanceEn": "Compare cage cards against the randomisation and group allocation tables, then trace one animal that left its housing back to its original cage and dose group.",
+      "riskLevel": "critical",
+      "evidenceHint": "笼牌与容器标签、分组与随机化记录、动物个体标识记录（耳号或芯片）、动物转移记录、剂量组分配表"
+    },
+    {
+      "clauseRef": "OECD §5.2 / 21 CFR 58.90(e)",
+      "requirement": "动物饲料和饮水（必要时含垫料）已分析其污染物水平，分析结果已与研究计划规定的限度比较并评估了对研究的影响，分析与评估记录完整",
+      "requirementEn": "Feed and water, and where relevant bedding, are analysed for contaminants; results are compared with the limits specified in the protocol and assessed for impact on the study, with records of both the analysis and the evaluation",
+      "guidance": "索取饲料与饮水的分析报告（含批号、检测项目、检出值与限度），核查是否覆盖本研究所用批次、结果超标时是否有影响评估结论。常见缺陷是分析报告的批号与所用饲料不对应，或只有供应商质检报告而没有本机构对污染物的评估。",
+      "guidanceEn": "Check that analyses cover the batches actually used, and that out-of-limit results carry a documented impact assessment.",
+      "riskLevel": "major",
+      "evidenceHint": "饲料与饮水分析报告（含批号）、研究计划规定的污染物限度、供应商质检报告、超标结果影响评估记录、饮水水质检测报告"
+    },
+    {
+      "clauseRef": "21 CFR 58.90 / 9 CFR Part 2（IACUC 审查）",
+      "requirement": "动物使用方案经机构动物护理与使用委员会或同等伦理审查机构审查批准，批准的方案版本与研究计划一致，实际使用的动物数量、人道终点和麻醉镇痛措施符合批准内容",
+      "requirementEn": "The animal use protocol is reviewed and approved by the Institutional Animal Care and Use Committee or equivalent ethics body; the approved version matches the study plan, and animal numbers, humane endpoints and anaesthesia or analgesia follow the approval",
+      "guidance": "核对伦理批件的研究编号、物种、批准动物数量与批准日期，与研究计划和实际动物接收数量比对。常见缺陷是实际使用动物数超过批准数量、方案修订后未向伦理委员会报批、人道终点执行与批件不一致。这属于动物福利问题，检查中通常按严重缺陷处理。",
+      "guidanceEn": "Compare the ethics approval (study number, species, animal numbers, dates) with the study plan and the animals actually received; exceedances are treated as critical welfare findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "伦理委员会批件、动物使用方案、方案修订报批记录、动物接收与使用数量统计、人道终点执行记录、麻醉镇痛记录"
+    },
+    {
+      "clauseRef": "OECD §6.1 / 21 CFR 58.107(a)",
+      "requirement": "受试物与对照物的接收、取样、处理和储存有书面程序，接收记录包含名称、批号、接收日期、接收数量、有效期和储存条件，储存条件得到执行且能防止污染、变质和混淆",
+      "requirementEn": "Written procedures cover receipt, sampling, handling and storage of test and reference items; receipt records show name, batch number, date received, quantity, expiry date and storage conditions, which are met and prevent contamination, deterioration and mix-up",
+      "guidance": "抽查 3 种受试物或对照物，核对接收记录、储存条件（含冰箱与冷库温度记录）与实物标签三者是否一致。常见缺陷是接收记录缺有效期或数量、实物标签与台账批号不符、需冷藏的对照物存放在室温柜中。",
+      "guidanceEn": "Sample three items and reconcile receipt records, actual storage conditions and physical labels; missing expiry dates and batch mismatches are common.",
+      "riskLevel": "major",
+      "evidenceHint": "受试物与对照物管理 SOP、接收与验收记录、储存条件温湿度记录、实物标签、分发与领用记录"
+    },
+    {
+      "clauseRef": "OECD §6.2 / 21 CFR 58.105(a)",
+      "requirement": "每一项受试物与对照物均已适当标识，每个批次的批号、纯度、组成、浓度及其他界定该批次所必需的特性已知并有文件支持；由申办者提供的受试物有经双方约定的同一性核实机制",
+      "requirementEn": "Each test and reference item is appropriately identified, and the batch number, purity, composition, concentration and other characteristics needed to define each batch are known and documented; where the sponsor supplies the item, an agreed mechanism verifies its identity",
+      "guidance": "核对受试物的分析证书、纯度与组成数据以及批号是否覆盖本研究实际使用的全部批次，并核查申办者提供受试物时的同一性核实记录（如留样比对、批号确认单）。常见缺陷是只有申办者提供的说明书而没有本机构的特性确认记录。",
+      "guidanceEn": "Verify that certificates of analysis, purity and composition data cover every batch used, and that sponsor-supplied items have a documented identity verification mechanism.",
+      "riskLevel": "critical",
+      "evidenceHint": "受试物分析证书、纯度与组成检测报告、批号清单与使用记录、申办者同一性核实记录、留样比对记录"
+    },
+    {
+      "clauseRef": "OECD §6.2 / 21 CFR 58.190(a)",
+      "requirement": "除短期试验外，每一批受试物均保留分析用留样，留样按规定条件储存并在规定期限内可获取，留样的处置（含提前销毁）经批准并有记录",
+      "requirementEn": "Except for short-term studies, an analytical sample of each batch of test item is retained, stored under defined conditions and retrievable for the required period; any disposal, including disposal before the retention period expires, is justified and documented",
+      "guidance": "现场查看留样柜并与受试物批次清单核对，重点查找已用完但仍需保留的批次是否留有样品、留样标签是否含批号与留样日期。留样被提前处置而无批准记录，是检查中常被指出的缺陷。",
+      "guidanceEn": "Reconcile retained samples against the list of batches used; missing samples for consumed batches or undocumented early disposal are typical findings.",
+      "riskLevel": "major",
+      "evidenceHint": "留样清单与留样台账、留样储存条件记录、留样处置审批与销毁记录、受试物批号使用台账"
+    },
+    {
+      "clauseRef": "OECD §6.2 / 21 CFR 58.113",
+      "requirement": "受试物经载体或溶剂混合、分散或溶解后给予试验系统时，已确定并记录混合物中受试物的均一性、浓度和稳定性，检测在研究计划规定的时间点执行，结果超出规定范围时已调查并评估影响",
+      "requirementEn": "Where test or reference items are administered in a vehicle, the homogeneity, concentration and stability of the item in that vehicle are determined and documented, testing is performed at protocol-specified time points, and out-of-specification results are investigated with the impact assessed",
+      "guidance": "核查混合物的均一性与浓度分析方案、实际检测记录（含配制后与使用末期的浓度）以及稳定性数据是否支持研究计划规定的使用期限。常见缺陷是混合物配好后使用超过稳定性支持的期限、浓度分析结果偏低但未调查即继续给药——这直接影响给药剂量与动物福利。",
+      "guidanceEn": "Check homogeneity, concentration and stability data against the actual in-use period; dosing beyond the stability-supported window is a critical finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "混合物配制与分析 SOP、均一性与浓度检测记录、混合物稳定性研究报告、配制与使用时间记录、超范围结果调查记录"
+    },
+    {
+      "clauseRef": "OECD §6.1 / 21 CFR 58.107(a)",
+      "requirement": "受试物与对照物的接收、储存、领用、剩余与销毁数量可以平衡核对，差异已调查并记录，分发过程能防止污染、变质和损坏并保持标识完整",
+      "requirementEn": "Receipt, storage, dispensing, remaining and destroyed quantities of test and reference items can be reconciled; discrepancies are investigated and documented, and distribution precludes contamination, deterioration or damage while preserving identification",
+      "guidance": "抽取一个剂量组做数量平衡：接收量减实际用量、剩余量与销毁量应等于零，差异必须调查。常见缺陷是台账只记领用不记剩余、混合物配制损耗无记录、差异以「记录误差」结案而无证据支持。",
+      "guidanceEn": "Reconcile one dose group end to end; differences closed as 'recording error' without supporting evidence are a frequent finding.",
+      "riskLevel": "major",
+      "evidenceHint": "受试物收发存台账、领用与退还记录、配制损耗记录、销毁记录、数量平衡计算表与差异调查报告"
+    },
+    {
+      "clauseRef": "OECD §7.1-7.2 / 21 CFR 58.81(a)-(b)(d)",
+      "requirement": "试验机构具有经管理层批准的书面 SOP 体系，SOP 覆盖受试物、仪器与计算机化系统、记录与报告、试验系统、QA 程序等研究计划未详细规定的常规活动；各试验单元或区域在工作现场随时可获得现行版本 SOP，修订版经管理层批准、版本受控并保存历史文件",
+      "requirementEn": "The facility has written SOPs approved by management covering routine activities not detailed in study plans, including test and reference items, apparatus and computerised systems, record keeping and reporting, test systems and QA procedures; current versions are immediately available where the work is performed, and revisions are management-approved, version-controlled and historically filed",
+      "guidance": "在动物房、解剖间和分析实验室各抽查 2 份正在使用的 SOP，与受控 SOP 清单核对版本号与生效日期；再核查历史 SOP 是否完整保存。现场使用作废版本、或操作性文件只存在于个人电脑中，是常见缺陷。",
+      "guidanceEn": "Spot-check version numbers of SOPs actually in use at several workstations against the master list, and confirm the historical file is complete.",
+      "riskLevel": "major",
+      "evidenceHint": "SOP 清单与版本记录、SOP 批准签名页、SOP 分发与回收记录、历史 SOP 档案、现场 SOP 版本核对记录"
+    },
+    {
+      "clauseRef": "OECD §7.3 / 21 CFR 58.81(c)",
+      "requirement": "与研究相关的 SOP 偏离已记录，经专题负责人（必要时含主要研究者）确认并注明日期，偏离对研究质量和完整性的影响已评估",
+      "requirementEn": "Deviations from SOPs related to a study are documented and acknowledged by dated signature of the Study Director and, where applicable, the Principal Investigator, with the impact on study quality and integrity assessed",
+      "guidance": "调取 SOP 偏离记录并与原始数据、方案偏离记录比对，核查偏离是否被及时发现和确认。常见缺陷是把 SOP 偏离混同于方案偏离、只记录而未评估影响、或缺少专题负责人确认签名。",
+      "guidanceEn": "Compare SOP deviation records with raw data and protocol deviation logs; missing Study Director acknowledgement or impact assessment is the usual gap.",
+      "riskLevel": "major",
+      "evidenceHint": "SOP 偏离记录表、专题负责人确认签名、偏离影响评估记录、方案偏离记录、相关原始数据"
+    },
+    {
+      "clauseRef": "OECD §8.1-8.2 / 21 CFR 58.120",
+      "requirement": "每项研究在开始前已有书面研究计划，经专题负责人签名并注明日期批准，由质量保证人员确认符合 GLP 并有书面记录；计划修订有理由说明并经专题负责人签署批准，与原计划一并保存；计划内容覆盖研究识别信息、申办者与试验机构信息、日期、试验方法与试验系统、给药途径与剂量、观察指标、统计方法和应保存的记录清单",
+      "requirementEn": "A written study plan exists before study initiation, approved by dated signature of the Study Director and verified for GLP compliance by QA with documentation; amendments are justified, dated and signed by the Study Director and kept with the plan; the plan covers study identification, sponsor and facility details, dates, test methods and test systems, route and dose, observations, statistical methods and the list of records to be retained",
+      "guidance": "抽查 3 份研究计划，核对批准日期是否早于试验开始日期、QA 符合性确认是否留有书面记录、计划内容是否缺项（最常见的缺项是统计方法、试验系统选择依据和应保存记录清单）。修订件无理由说明、或修订批准日期与实施日期矛盾，属严重缺陷。",
+      "guidanceEn": "Check approval dates precede study start, QA verification is documented, and the plan covers all required elements; amendments without justification are critical findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "研究计划（含签署页与日期）、QA 对研究计划的符合性确认记录、研究计划修订件、试验开始日期记录、计划内容要素核对表"
+    },
+    {
+      "clauseRef": "OECD §8.3.2 / 21 CFR 58.130(a)-(b)",
+      "requirement": "研究按批准的研究计划实施，试验系统按计划监测，实际执行的观察与检测频次、时间点与研究计划一致，未按计划执行的情况已记录并评估了对研究质量与完整性的影响",
+      "requirementEn": "The study is conducted in accordance with the approved study plan; test systems are monitored as specified, and actual observation and measurement frequencies match the plan, with any failure to follow the plan documented and its impact on quality and integrity assessed",
+      "guidance": "抽取一个剂量组的完整观察记录，与研究计划规定的时间点逐条比对，统计漏检、超窗和合并时间点的情况。方案要求每日观察而记录显示连续数日在同一时间批量填写，是典型的补记缺陷。",
+      "guidanceEn": "Compare one dose group's observation records against every protocol time point, looking for missed, out-of-window or batched entries.",
+      "riskLevel": "critical",
+      "evidenceHint": "研究计划、临床观察与检测原始记录、时间点偏差统计、方案偏离记录与影响评估、试验系统监测记录"
+    },
+    {
+      "clauseRef": "OECD §8.3.3-8.3.4 / 21 CFR 58.130(e)",
+      "requirement": "研究过程中产生的全部数据由录入人直接、及时、准确、清晰地记录并签名（或签注姓名缩写）和注明日期；对原始数据的任何修改均不遮蔽原记录，注明修改理由并由修改人签名或签注及注明日期，不使用铅笔、涂改液或其他覆盖原值的方式",
+      "requirementEn": "All data generated during the study are recorded directly, promptly, accurately and legibly by the individual entering them, and signed or initialled and dated; any change to raw data is made without obscuring the previous entry, states the reason, and is dated and signed or initialled by the person making the change, with no pencil, correction fluid or other obliteration",
+      "guidance": "翻阅 5 份原始记录（含仪器打印件和手工记录），重点查找涂改液痕迹、铅笔填写、无签名的修改、只改数值不写理由、粘贴覆盖、日期倒签、同一笔迹代签。再核对仪器打印数据与手工转录值是否一致。",
+      "guidanceEn": "Review five sets of raw records for correction fluid, pencil, unsigned changes, missing reasons, pasted-over entries and transcriptions that do not match instrument printouts.",
+      "riskLevel": "critical",
+      "evidenceHint": "原始数据记录本、仪器打印输出、记录修改示例、记录填写规范 SOP 与培训记录、人员签名样张"
+    },
+    {
+      "clauseRef": "OECD §8.3.5 / 21 CFR 58.130(e)",
+      "requirement": "直接输入计算机系统的数据在输入时识别录入人身份，系统设计保证完整保留审计追踪且不遮蔽原始数据，所有数据变更可与变更人关联（如通过带时间日期的电子签名）并记录变更理由；系统在用于研究前经过验证",
+      "requirementEn": "Data entered directly into a computerised system are attributed to the responsible individual at the time of entry; the system retains full audit trails without obscuring original data, allows every change to be associated with the person who made it, for example by timed and dated electronic signature, with a reason recorded, and is validated before use in a study",
+      "guidance": "现场要求演示一次数据修改：核查审计追踪是否显示原值、新值、修改人、时间戳和理由，以及普通用户能否自行关闭审计追踪。常见缺陷是审计追踪未启用、可被系统管理员删除、只保存修改后数值而无原值，或分析工作站时间未锁定。",
+      "guidanceEn": "Ask for a live data-change demonstration and check the audit trail shows old value, new value, user, timestamp and reason, and cannot be disabled by users.",
+      "riskLevel": "critical",
+      "evidenceHint": "计算机化系统验证文件、审计追踪配置与导出样例、用户账号与权限清单、电子签名配置、系统时间同步与锁定记录、数据备份与恢复记录"
+    },
+    {
+      "clauseRef": "OECD §8.3.1 / 21 CFR 58.130(c)",
+      "requirement": "每项研究有唯一识别编号并标注于该研究的所有相关物品上；研究产生的标本按试验系统、研究编号、标本性质和采集日期标识，标识信息随标本流转，能够追溯标本的来源与研究归属",
+      "requirementEn": "Each study has a unique identification applied to all items concerning it; specimens are identified by test system, study, nature and date of collection, with the identification accompanying the specimen throughout handling so that origin and study attribution remain traceable",
+      "guidance": "抽查病理标本、血液样本和留样，核对标签信息是否完整，并追踪一份从采集、运输、接收到检测的标本记录。常见缺陷是标本只有序号而无研究编号或采集日期、转运环节无交接记录、组织切片标签字迹不可辨。",
+      "guidanceEn": "Check specimen labels for all required identifiers and trace one specimen through collection, transport, receipt and analysis.",
+      "riskLevel": "major",
+      "evidenceHint": "研究编号规则、标本采集与标识记录、标本交接与流转记录、运输记录、病理标本与切片标签"
+    },
+    {
+      "clauseRef": "OECD §9.1-9.2 / 21 CFR 58.185",
+      "requirement": "每项研究编制最终报告，内容包括研究识别信息、申办者与试验机构信息、日期、QA 声明、材料与方法描述、结果（含计算与统计分析及评价结论），以及受试物与对照物留样、标本、原始数据和最终报告的储存地点；报告由专题负责人签名并注明日期，以表示对数据有效性的认可并说明 GLP 符合程度；主要研究者提交的分报告由其本人签名并注明日期；对报告的任何订正或补充以修正件形式发布，明确说明修正内容与理由并由专题负责人签署注明日期",
+      "requirementEn": "A final report is prepared for each study covering identification, sponsor and facility information, dates, the QA statement, materials and methods, results with calculations and statistical analysis and conclusions, and the storage locations for test and reference item samples, specimens, raw data and the final report; it is signed and dated by the Study Director indicating acceptance of responsibility for data validity and the extent of GLP compliance; Principal Investigator reports are signed and dated by them; corrections and additions are issued as amendments stating what is corrected and why, signed and dated by the Study Director",
+      "guidance": "对照最终报告要素清单逐项核对，重点核查储存地点是否真实可达、GLP 符合程度声明是否与研究实际情况一致、主要研究者分报告是否有本人签名。常见缺陷是报告缺少 QA 声明或储存地点、以重新出版报告的方式替代修正件而无修正说明。",
+      "guidanceEn": "Check the report against the required content list, verify storage locations are real and reachable, and confirm corrections are issued as amendments rather than re-issued reports.",
+      "riskLevel": "critical",
+      "evidenceHint": "最终报告原件（含签署页与日期）、主要研究者分报告、QA 声明、报告修正件、储存地点说明、GLP 符合程度声明"
+    },
+    {
+      "clauseRef": "OECD §10.1 / 21 CFR 58.195",
+      "requirement": "研究计划、原始数据、受试物与对照物留样、标本、最终报告、QA 稽查记录与主计划表、人员资格与培训记录、仪器维护与校准记录、计算机化系统验证文件、历史 SOP 和环境监测记录均按法规规定的期限在档案中保存；无规定保存期限时研究材料的最终处置已记录，在保存期满前处置任何材料均有理由说明和记录",
+      "requirementEn": "Study plans, raw data, test and reference item samples, specimens, final reports, QA inspection records and master schedules, personnel qualification and training records, apparatus maintenance and calibration records, computerised system validation documentation, the historical SOP file and environmental monitoring records are retained in the archives for the period specified by the authorities; where no period is specified the final disposition of study materials is documented, and any earlier disposal is justified and recorded",
+      "guidance": "索取档案清单并与上述各类别逐项比对，核查保存期限的确定依据（法规、申办者或机构规定）。常见缺陷是保存期限只写「长期」而无依据、QA 稽查记录或仪器校准记录未纳入归档范围、电子数据未与纸质记录一并保存。",
+      "guidanceEn": "Compare the archive inventory against each required record category and check the documented basis for the retention period; 'indefinite' without a basis is a common gap.",
+      "riskLevel": "critical",
+      "evidenceHint": "档案清单与归档目录、保存期限规定、归档移交记录、材料处置审批与记录、电子数据归档介质清单"
+    },
+    {
+      "clauseRef": "OECD No. 15 / No. 17 / 21 CFR 58.195",
+      "requirement": "电子记录与电子原始数据的归档保证其在全部保存期内可读、可检索、可重现，并包含必要的元数据、审计追踪与系统文档；有备份与恢复程序且经过实际恢复测试；硬件或软件退役、变更前完成数据迁移，并验证迁移后数据的完整性与可读性",
+      "requirementEn": "Electronic records and electronic raw data are archived so that they remain readable, retrievable and reproducible throughout the retention period, including metadata, audit trails and system documentation; backup and restore procedures exist and restoration has been tested; data migration before hardware or software retirement or change is completed with the integrity and readability of the migrated data verified",
+      "guidance": "关键动作是索取最近一次恢复演练记录，并现场尝试打开一份若干年前的电子原始数据（如早期色谱数据或生理记录仪数据）。只有备份日志而无恢复测试、或旧系统退役后数据无法读取，是极常见的严重缺陷。",
+      "guidanceEn": "Ask for the most recent restore test record and try opening an older electronic raw data file; backup logs alone or unreadable legacy data are critical findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "电子档案管理程序、备份策略与备份日志、恢复演练报告与记录、系统退役与数据迁移方案及验证报告、归档介质检查与迁移记录"
+    },
+    {
+      "clauseRef": "OECD No. 13 / 21 CFR 58.33",
+      "requirement": "多场所研究中，需要时已由管理层指定具备相应培训、资格和经验的主要研究者，研究计划与最终报告明确界定各主要研究者、试验机构和试验场所的角色与所委派的试验阶段；研究计划批准、最终报告批准以及确保全部适用 GLP 原则得到遵守的责任不得委派给主要研究者",
+      "requirementEn": "In multi-site studies, where needed, a suitably trained, qualified and experienced Principal Investigator is designated by management; the study plan and final report identify and define the role of each Principal Investigator and each test facility and test site and the delegated phases; responsibility for approving the study plan, approving the final report and ensuring all applicable GLP Principles are followed cannot be delegated to a Principal Investigator",
+      "guidance": "调取多场所研究的组织文件，核查主要研究者的书面指定、委派阶段清单，以及其提交的分报告是否有本人签名。常见缺陷是研究计划中未列明试验场所与主要研究者、委派阶段界限不清、试验场所未经 QA 稽查或无 QA 声明。",
+      "guidanceEn": "Check written Principal Investigator designation, the list of delegated phases and signed sub-reports; unclear delegation and uninspected test sites are frequent findings.",
+      "riskLevel": "critical",
+      "evidenceHint": "主要研究者指定文件与资质培训记录、多场所研究职责表、委派阶段清单、主要研究者分报告、研究计划与最终报告中的场所与角色说明"
+    },
+    {
+      "clauseRef": "OECD No. 13 / 21 CFR 58.31",
+      "requirement": "试验场所的管理责任已界定并实际履行，多场所研究中专题负责人、主要研究者、质量保证部门和试验人员之间存在明确的沟通渠道，方案修订、偏离、稽查发现等关键信息的传递有记录",
+      "requirementEn": "Test site management responsibilities are defined and performed, and in multi-site studies clear lines of communication exist between the Study Director, Principal Investigators, QA and study personnel, with records of the transfer of key information such as amendments, deviations and audit findings",
+      "guidance": "调取多场所研究的沟通记录（会议纪要、邮件、电话记录、方案与 SOP 传递确认单），核查关键信息是否实际传达到各试验场所。常见缺陷是试验场所不知道方案已修订、稽查发现未反馈到场所、场所 QA 与管理层之间无沟通证据。",
+      "guidanceEn": "Review communication records for the transfer of amendments, deviations and audit findings to each test site.",
+      "riskLevel": "major",
+      "evidenceHint": "试验场所管理责任说明、沟通程序与沟通记录、试验场所收到方案与 SOP 的确认、稽查发现反馈记录、场所 QA 报告"
+    },
+    {
+      "clauseRef": "OECD No. 11 / 21 CFR 58.120(a)",
+      "requirement": "申办者与试验机构之间的委托关系有书面约定，明确各方职责、记录与数据所有权、档案保存以及试验机构停止运营时的档案移交安排；申办者已被通知研究计划偏离与研究结果，并在法规要求时批准研究计划",
+      "requirementEn": "The sponsor-test facility relationship is defined in writing, covering each party's responsibilities, ownership of records and data, archiving and the transfer of archives if the facility ceases operation; the sponsor is informed of study plan deviations and results, and approves the study plan where required by regulation",
+      "guidance": "核查委托合同或研究协议、质量协议与档案移交条款，核对研究计划是否有申办者批准签名（适用时）、方案偏离是否通知申办者。常见缺陷是口头委托无合同、合同未约定机构关闭时档案的归属，以及申办者从未收到研究进展信息。",
+      "guidanceEn": "Review the contract or study agreement including archive transfer provisions, sponsor approval of the plan where required, and notification of deviations.",
+      "riskLevel": "major",
+      "evidenceHint": "委托研究合同或研究协议、质量协议、档案移交条款、申办者批准的研究计划、研究进展与偏离通知记录"
+    },
+    {
+      "clauseRef": "OECD No. 22 / 21 CFR 58.130(e)",
+      "requirement": "数据完整性治理措施覆盖数据的产生、处理、报告、保存与销毁全过程：数据可归属到具体人员、采集同步、原始可追溯、准确、完整、一致、持久、可获取；不存在未记录的删除、覆盖、重复检测取优或数据「调整」，已发现的数据完整性问题均经调查并评估了对研究数据可靠性的影响",
+      "requirementEn": "Data integrity governance covers the generation, processing, reporting, retention and destruction of data: data are attributable, contemporaneous, original, accurate, complete, consistent, enduring and available; there is no undocumented deletion, overwriting, selective retesting or data manipulation, and any data integrity issue is investigated with its impact on the reliability of study data assessed",
+      "guidance": "常用的实际测试：检查分析软件中是否存在被删除或未报告的进样（进样序列与报告数量不符）、是否有无记录的重新积分、原始数据文件夹的创建与修改时间是否与报告日期矛盾、是否存在共享账号或系统管理员代操作。发现问题后必须核查是否按偏差调查并评估了对已报告数据的影响。",
+      "guidanceEn": "Test for unreported injections, undocumented reintegration, file timestamps inconsistent with report dates, shared accounts and administrator-performed operations, then confirm any such finding went through a deviation investigation with impact assessment.",
+      "riskLevel": "critical",
+      "evidenceHint": "数据完整性政策与数据治理程序、审计追踪审阅记录、数据完整性事件调查记录、账号与权限管理记录、原始电子数据与报告的比对记录、数据完整性培训记录"
+    }
+  ]
+}

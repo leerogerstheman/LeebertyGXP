@@ -1,0 +1,141 @@
+{
+  "code": "GVP-PSUR",
+  "recordPrefix": "PSUR",
+  "name": "定期安全性更新报告",
+  "nameEn": "Periodic Safety Update Report",
+  "category": "safety_report",
+  "gxpAreas": ["GVP"],
+  "regulationRefs": [
+    "EU GVP Module VII - Periodic Safety Update Report (data lock point, reporting cycle, benefit-risk evaluation)",
+    "ICH E2C(R2) - Periodic Benefit-Risk Evaluation Report",
+    "21 CFR 314.80(c)(2) - periodic adverse drug experience reports",
+    "NMPA 药物警戒质量管理规范 - 定期安全性更新报告要求"
+  ],
+  "description": "按规定的数据锁定点与周期编制并提交定期安全性更新报告，包含获益-风险评价与监管机构意见的回复跟踪。",
+  "descriptionEn": "Prepares and submits periodic safety update reports at the required data lock point and cycle, including a benefit-risk evaluation and tracking of responses to regulatory authority questions.",
+  "slaDays": 90,
+  "requiresRootCause": false,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "data_locked", "drafting", "internal_review", "submitted", "authority_review", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "报告标题", "labelEn": "Report title", "type": "text", "required": true, "help": "格式建议：产品名 + 报告类型 + 数据锁定点" },
+    { "key": "product", "label": "产品名称", "labelEn": "Product", "type": "text", "required": true },
+    { "key": "summary", "label": "报告范围说明", "labelEn": "Scope", "type": "textarea", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] },
+    { "key": "dueDate", "label": "提交期限", "labelEn": "Submission deadline", "type": "date", "required": true }
+  ],
+
+  "steps": [
+    {
+      "code": "data_lock",
+      "name": "确定数据锁定点并锁定数据",
+      "nameEn": "Establish and lock the data lock point",
+      "role": ["pharmacovigilance"],
+      "type": "task",
+      "onComplete": "data_locked",
+      "requiresFields": ["dataLockPoint", "cycleJustification", "recordCount"],
+      "form": [
+        { "key": "dataLockPoint", "label": "数据锁定点（DLP）", "type": "date", "required": true, "help": "必须与法规要求的报告周期对应，不能随意选取" },
+        { "key": "cycleJustification", "label": "报告周期及依据", "type": "textarea", "required": true, "help": "如：欧盟每 6 个月（新活性物质前 2 年）、此后每年；或按 NMPA 要求" },
+        { "key": "recordCount", "label": "本周期纳入的个例报告数", "type": "text", "required": true },
+        { "key": "intervalFrom", "label": "本报告期起始日", "type": "date", "required": true },
+        { "key": "intervalTo", "label": "本报告期截止日", "type": "date", "required": true },
+        { "key": "cumulativeExposure", "label": "累积暴露量估算", "type": "textarea", "required": true, "help": "患者数或患者-年，估算方法与来源" }
+      ],
+      "guidance": "使用错误的数据锁定点会导致报告周期整体错位，是药物警戒检查中常见的严重缺陷。DLP 一旦确定必须记录依据。"
+    },
+    {
+      "code": "drafting",
+      "name": "报告撰写",
+      "nameEn": "Report drafting",
+      "role": ["pharmacovigilance", "clinical_pi"],
+      "type": "task",
+      "onComplete": "drafting",
+      "requiresFields": ["sectionsCompleted", "newSignals", "labelingChanges"],
+      "form": [
+        { "key": "sectionsCompleted", "label": "已完成章节", "type": "textarea", "required": true, "help": "按 GVP Module VII 结构：执行摘要、引言、上市许可状态、暴露量、个例报告汇总、研究、其他信息、获益-风险评价、结论" },
+        { "key": "caseSummaries", "label": "重点个例汇总", "type": "textarea", "required": true, "help": "严重、非预期、死亡病例的汇总分析" },
+        { "key": "newSignals", "label": "本周期新识别或更新的信号", "type": "textarea", "required": true, "help": "无信号也应明确说明已开展检测及结论" },
+        { "key": "labelingChanges", "label": "参考安全信息变更情况", "type": "textarea", "required": true, "help": "说明书/CCDS 是否更新、更新时间、对预期性判定的影响" },
+        { "key": "riskMinimisation", "label": "风险最小化措施执行情况", "type": "textarea", "required": false, "help": "RMP 承诺措施的落实情况与有效性" },
+        { "key": "literature", "label": "文献与数据库检索情况", "type": "textarea", "required": false }
+      ],
+      "guidance": "报告不只是数据罗列。检查员关注的是获益-风险评价是否有分析、结论是否与前次报告一致、变化是否有解释。"
+    },
+    {
+      "code": "benefit_risk",
+      "name": "获益-风险评价与结论",
+      "nameEn": "Benefit-risk evaluation and conclusion",
+      "role": ["pharmacovigilance"],
+      "type": "signature",
+      "signatureMeaning": "reviewed",
+      "onComplete": "internal_review",
+      "requiresFields": ["benefitRiskConclusion", "actionsRequired"],
+      "form": [
+        { "key": "benefitRiskConclusion", "label": "获益-风险总体结论", "type": "textarea", "required": true, "help": "必须明确：获益是否仍大于风险；如有变化，说明原因" },
+        { "key": "conclusionChange", "label": "与上次报告结论的比较", "type": "select", "required": true, "options": ["unchanged", "improved", "worsened", "changed_reason_unknown"] },
+        { "key": "actionsRequired", "label": "需要采取的措施", "type": "textarea", "required": true, "help": "如更新说明书、致医务人员函、风险最小化措施、进一步研究；无措施也需明示" },
+        { "key": "actionsTimeline", "label": "措施时间安排", "type": "textarea", "required": false },
+        { "key": "uncertainties", "label": "剩余不确定性", "type": "textarea", "required": false, "help": "如数据缺口、暴露量估算局限、长期安全性未知" }
+      ],
+      "guidance": "结论必须明确且可追溯。给出「获益大于风险」却没有分析依据，在评估中会被质疑。剩余不确定性应如实陈述。"
+    },
+    {
+      "code": "submission",
+      "name": "提交监管机构",
+      "nameEn": "Regulatory submission",
+      "role": ["pharmacovigilance", "ra_officer"],
+      "type": "task",
+      "onComplete": "submitted",
+      "requiresFields": ["submittedTo", "submissionDate", "withinTimeline"],
+      "form": [
+        { "key": "submittedTo", "label": "提交对象", "type": "textarea", "required": true, "help": "各国家/地区监管机构逐一列出" },
+        { "key": "submissionDate", "label": "提交日期", "type": "date", "required": true },
+        { "key": "submissionFormat", "label": "提交格式与渠道", "type": "text", "required": true },
+        { "key": "withinTimeline", "label": "是否在期限内提交", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "overdueReason", "label": "逾期原因", "type": "textarea", "required": false, "help": "逾期提交属严重缺陷，必须记录原因与纠正措施" },
+        { "key": "acknowledgement", "label": "受理回执编号", "type": "text", "required": false }
+      ],
+      "guidance": "逾期提交定期报告是药物警戒检查中的高频严重缺陷。若确有逾期，必须记录原因并启动 CAPA，而不是仅事后补交。"
+    },
+    {
+      "code": "authority_response",
+      "name": "监管意见回复与跟踪",
+      "nameEn": "Authority questions and follow-up",
+      "role": ["pharmacovigilance", "qa_manager"],
+      "type": "task",
+      "onComplete": "authority_review",
+      "optional": true,
+      "form": [
+        { "key": "questionsReceived", "label": "收到的监管问题", "type": "textarea", "required": true },
+        { "key": "responseSubmitted", "label": "回复内容与日期", "type": "textarea", "required": true },
+        { "key": "responseWithinTimeline", "label": "是否在要求期限内回复", "type": "select", "required": true, "options": ["yes", "no", "no_questions"] },
+        { "key": "resultingActions", "label": "导致的产品行动", "type": "textarea", "required": false, "help": "如说明书修订、风险最小化措施、进一步研究要求" },
+        { "key": "rmpUpdateRequired", "label": "是否需要更新风险管理计划", "type": "select", "required": true, "options": ["yes", "no", "not_applicable"] }
+      ],
+      "guidance": "监管机构的提问与回复也是安全性信息的一部分，应纳入主文件与后续报告。回复逾期同样会被记录。"
+    },
+    {
+      "code": "closure",
+      "name": "关闭与经验总结",
+      "nameEn": "Closure and lessons learned",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "form": [
+        { "key": "conclusion", "label": "关闭结论", "type": "textarea", "required": true },
+        { "key": "processIssue", "label": "本周期流程问题", "type": "textarea", "required": false, "help": "如数据提取延误、个例质量不足、时限紧张的原因" },
+        { "key": "processImprovement", "label": "流程改进措施", "type": "textarea", "required": false },
+        { "key": "nextDlp", "label": "下次数据锁定点", "type": "date", "required": false }
+      ],
+      "guidance": "定期报告是检验整个药物警戒体系运转的节点。把每周期暴露的流程问题记录下来并改进，比单次按时提交更有价值。"
+    }
+  ]
+}

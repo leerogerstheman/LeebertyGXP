@@ -1,0 +1,303 @@
+{
+  "code": "DI-ALCOA-PLUS",
+  "title": "数据完整性自查表（ALCOA+ / WHO / PIC-S / MHRA）",
+  "titleEn": "Data Integrity Self-Inspection Checklist (ALCOA+ / WHO / PIC-S / MHRA)",
+  "scope": "self_inspection",
+  "category": "data_integrity",
+  "gxpAreas": ["GDPR-DataIntegrity", "GMP", "GLP", "GCP", "GDP", "GAMP"],
+  "regulation": "WHO TRS 1033 Annex 4 Guideline on Data Integrity; PIC/S PI 041 Good Practices for Data Management and Integrity; MHRA GxP Data Integrity Guidance and Definitions (2018); FDA Data Integrity and Compliance With Drug CGMP Q&A (2018); OECD GLP No. 22 on data integrity",
+  "authority": "WHO / PIC/S / MHRA / FDA / OECD",
+  "version": "WHO TRS 1033 Annex 4 (2021); PIC/S PI 041-1 (2021); MHRA (2018); OECD No. 22 (2021)",
+  "description": "以 ALCOA+ 九项原则为主线，覆盖纸质与电子数据、组织文化、计算机化系统与外包活动的数据完整性自查。适用于 GMP/GLP/GCP/GDP 全领域，也可用于飞检前专项自查。",
+  "descriptionEn": "A self-inspection checklist organised around the ALCOA+ principles, covering paper and electronic data, organisational culture, computerised systems and outsourced activities across GMP, GLP, GCP and GDP.",
+  "items": [
+    {
+      "clauseRef": "ALCOA - Attributable / WHO §4.1",
+      "requirement": "所有 GxP 记录均可追溯到具体操作人，纸质记录有签署与日期，电子记录有唯一账号与审计追踪，不存在无法追溯的「无主记录」",
+      "requirementEn": "All GxP records are attributable to a specific person: paper records are signed and dated, electronic records have unique accounts and audit trails, and no orphan records exist",
+      "guidance": "现场抽查批记录、检验记录、设备使用日志，寻找：空白未签名的操作格、只有工号无签名、代签、笔迹明显为同一人但签署不同姓名。",
+      "guidanceEn": "Look for unsigned fields, proxy signatures and same-handwriting-different-name patterns.",
+      "riskLevel": "critical",
+      "evidenceHint": "原始记录样例、签名规范 SOP、电子账号与人员对应表、审计追踪样例"
+    },
+    {
+      "clauseRef": "ALCOA - Attributable / WHO §4.1",
+      "requirement": "不存在共用账号、通用账号或以岗位命名的账号（如 admin、lab1、operator），每个用户使用唯一个人账号",
+      "requirementEn": "No shared, generic or role-named accounts exist; every user has a unique personal account",
+      "guidance": "实际打开系统用户列表核查。共用账号是数据完整性检查中最高频的严重缺陷，因为它直接破坏了可归属性。",
+      "guidanceEn": "Inspect the actual user list; shared accounts are a critical finding because they destroy attributability.",
+      "riskLevel": "critical",
+      "evidenceHint": "用户清单、账号申请审批表、账号唯一性检查记录、已停用账号处理记录"
+    },
+    {
+      "clauseRef": "ALCOA - Legible / WHO §4.2",
+      "requirement": "所有记录清晰、可读、永久保存，使用不易擦除的介质（不褪色墨水、不可擦笔），不存在铅笔填写或可擦写记录",
+      "requirementEn": "Records are legible, permanent and recorded indelibly; no pencil or erasable entries exist in GxP records",
+      "guidance": "在生产区与实验室现场检查使用中的记录本与批记录，重点找铅笔、可擦笔、涂改液、修正带。",
+      "guidanceEn": "Physically inspect in-use records for pencil, erasable pens and correction fluid.",
+      "riskLevel": "critical",
+      "evidenceHint": "现场记录原件、记录填写规范、文具管控规定"
+    },
+    {
+      "clauseRef": "ALCOA - Contemporaneous / WHO §4.3",
+      "requirement": "记录在操作发生的当时填写，不存在事后补记；补记情况作为偏差处理并有明确标识",
+      "requirementEn": "Records are made at the time the activity is performed, with no retrospective entry; any late entry is handled as a deviation and clearly identified",
+      "guidance": "识别补记的方法：多份记录笔迹墨水一致且连续填写多日、时间戳与操作时间矛盾、批记录中连续多项操作时间间隔异常短。",
+      "guidanceEn": "Detect late entry through identical ink across multiple days or implausible time intervals.",
+      "riskLevel": "critical",
+      "evidenceHint": "批记录原始件、设备使用日志、时间戳记录、补记偏差处理记录"
+    },
+    {
+      "clauseRef": "ALCOA - Original / WHO §4.4",
+      "requirement": "原始数据（含纸质与电子）被明确识别、保留并受保护，不以誊抄件或转录件替代原始记录",
+      "requirementEn": "Original records, both paper and electronic, are identified, retained and protected; transcriptions do not replace originals",
+      "guidance": "关键问题：仪器工作站的电子数据是否为原始数据？纸质打印件是否为「真实副本」？核查 SOP 是否明确定义了原始数据的介质与保存方式。",
+      "guidanceEn": "Determine whether the instrument workstation data is the original record and how true copies are certified.",
+      "riskLevel": "critical",
+      "evidenceHint": "原始数据定义 SOP、电子数据保存位置与备份、真实副本核证记录、纸质与电子数据一致性核对记录"
+    },
+    {
+      "clauseRef": "ALCOA - Accurate / WHO §4.5",
+      "requirement": "记录内容准确、真实，无编造、篡改或选择性记录；所有数据（含失败与异常结果）均被记录并保留",
+      "requirementEn": "Records are accurate and truthful with no fabrication, falsification or selective reporting; all data including failures and outliers are recorded and retained",
+      "guidance": "核查是否有「只记录成功结果」的现象：如检验记录中从无失败数据、重复进样记录缺失、试针（trial injection）未记录。检查员会调取仪器原始序列与报告比对。",
+      "guidanceEn": "Compare instrument raw sequences with reported results; look for missing trial injections or omitted failures.",
+      "riskLevel": "critical",
+      "evidenceHint": "仪器原始数据序列、检验记录、失败数据记录、审计追踪（含删除记录）"
+    },
+    {
+      "clauseRef": "ALCOA - Accurate / MHRA §6.4",
+      "requirement": "任何试针、试算、探索性检验均被记录并保留，并在正式检验记录中说明其用途，不得删除",
+      "requirementEn": "Trial injections, trial runs and exploratory testing are recorded and retained, with their purpose documented, and are never deleted",
+      "guidance": "这是色谱系统检查的核心项目。抽查仪器序列，寻找「缺失编号」「未报告进样」「样品组被删除」的迹象。",
+      "guidanceEn": "This is the core chromatography finding area. Look for gaps in sequence numbering and unreported injections.",
+      "riskLevel": "critical",
+      "evidenceHint": "色谱序列原始文件、试针记录规范、试针审批记录、审计追踪中的删除记录"
+    },
+    {
+      "clauseRef": "ALCOA+ - Complete / WHO §4.6",
+      "requirement": "记录完整，包含所有必要的元数据（谁、何时、何地、何设备、何方法、何结果），不存在缺失的关键字段",
+      "requirementEn": "Records are complete with all necessary metadata (who, when, where, which equipment, which method, which result), with no missing critical fields",
+      "guidance": "核查电子数据是否保留了元数据（采集时间、操作者、仪器编号、方法版本）。仅有结果文件而无元数据不满足要求。",
+      "guidanceEn": "Electronic records must retain metadata such as acquisition time, operator, instrument ID and method version.",
+      "riskLevel": "critical",
+      "evidenceHint": "电子数据元数据样例、数据采集配置、记录完整性核查清单"
+    },
+    {
+      "clauseRef": "ALCOA+ - Consistent / WHO §4.7",
+      "requirement": "记录格式与填写方式一致，时间格式、单位、有效数字、术语使用统一，跨班次与跨部门无差异",
+      "requirementEn": "Record formats and conventions are consistent across shifts and departments, including time format, units, significant figures and terminology",
+      "guidance": "抽查不同班次、不同人员填写的同类记录，核查格式一致性。",
+      "guidanceEn": "Compare records completed by different shifts and personnel for format consistency.",
+      "riskLevel": "major",
+      "evidenceHint": "记录模板、不同班次记录样例、记录填写规范的培训记录"
+    },
+    {
+      "clauseRef": "ALCOA+ - Enduring / WHO §4.8",
+      "requirement": "记录在整个保存期内可读、可恢复，保存介质与系统在保存期内可支持读取，有应对技术淘汰的方案",
+      "requirementEn": "Records remain readable and retrievable throughout the retention period, with a plan for technology obsolescence",
+      "guidance": "核查老旧数据（5 年以上）是否仍可打开与检索。软盘、旧版专用软件、过时操作系统是典型风险点。",
+      "guidanceEn": "Test whether older data sets are still openable and searchable.",
+      "riskLevel": "major",
+      "evidenceHint": "保存期限规定、历史数据可读性测试记录、技术淘汰应对方案、数据格式迁移记录"
+    },
+    {
+      "clauseRef": "ALCOA+ - Available / WHO §4.9",
+      "requirement": "记录在需要时可被授权人员随时查阅（包括检查期间），查阅权限、流程与所需时间已明确",
+      "requirementEn": "Records are available for review by authorised personnel whenever needed, including during inspections, with defined access, process and timeframe",
+      "guidance": "进行演练：随机指定一个 3 年前的批次，计时看能否在 30 分钟内调出完整批记录与检验数据。检查员会实际做这个测试。",
+      "guidanceEn": "Rehearse retrieving a batch from 3 years ago within 30 minutes; inspectors perform this test.",
+      "riskLevel": "major",
+      "evidenceHint": "档案检索流程、档案索引、检索能力演练记录、授权查阅审批记录"
+    },
+    {
+      "clauseRef": "WHO §5 / MHRA §3",
+      "requirement": "管理层已建立数据完整性方针，明确数据完整性的期望与责任，并将数据完整性纳入质量体系与管理评审",
+      "requirementEn": "Management has established a data integrity policy defining expectations and responsibilities, integrated into the quality system and management review",
+      "guidance": "核查是否有专门的数据完整性方针文件，以及在管理评审记录中是否讨论过数据完整性问题。",
+      "guidanceEn": "Check for a dedicated data integrity policy and its discussion in management review.",
+      "riskLevel": "major",
+      "evidenceHint": "数据完整性方针、管理评审记录、质量目标中的数据完整性指标"
+    },
+    {
+      "clauseRef": "MHRA §4 / WHO §5.3",
+      "requirement": "组织文化鼓励透明报告错误，不存在因生产或进度压力而隐瞒、修改数据的现象，员工知晓数据完整性的期望",
+      "requirementEn": "Organisational culture encourages transparent error reporting with no data concealment driven by production pressure, and staff understand data integrity expectations",
+      "guidance": "访谈一线人员：如果操作出错会怎么做？如果记录漏填会怎么处理？注意是否存在「报错会被处罚」的隐性氛围。检查员会单独访谈操作人员。",
+      "guidanceEn": "Interview front-line staff about what happens when errors occur; inspectors interview operators separately.",
+      "riskLevel": "critical",
+      "evidenceHint": "数据完整性培训记录、偏差报告中「人为差错」的比例趋势、员工访谈记录、质量文化调查结果"
+    },
+    {
+      "clauseRef": "MHRA §6.1 / WHO §7",
+      "requirement": "已建立数据治理体系，明确数据所有者、数据生命周期各阶段（生成、处理、审核、报告、保存、归档、销毁）的控制要求",
+      "requirementEn": "A data governance system defines data owners and the controls at each data lifecycle stage from generation to destruction",
+      "guidance": "核查是否有数据生命周期地图或数据流图，标明每个环节的 GxP 数据及其控制措施。",
+      "guidanceEn": "Look for a data lifecycle map or data flow diagram with controls at each stage.",
+      "riskLevel": "major",
+      "evidenceHint": "数据治理程序、数据流图、数据所有者清单、数据生命周期控制矩阵"
+    },
+    {
+      "clauseRef": "MHRA §6.2 / PIC/S §7",
+      "requirement": "纸质与电子混合系统中，「真实副本（true copy）」的定义、核证方式与保存要求已明确规定并执行",
+      "requirementEn": "In hybrid systems, the definition, certification and retention of true copies are defined and applied",
+      "guidance": "核查纸质打印件是否经过核证（签名确认与原始电子数据一致），以及核证记录的完整性。",
+      "guidanceEn": "Verify printed copies are certified against the original electronic record.",
+      "riskLevel": "critical",
+      "evidenceHint": "真实副本核证 SOP、核证记录样例、纸质与电子数据比对记录"
+    },
+    {
+      "clauseRef": "MHRA §6.3",
+      "requirement": "手工（纸质）记录与电子记录并存时，已明确规定哪一方为原始数据，两者之间的核对与差异处理有程序",
+      "requirementEn": "Where manual and electronic records coexist, the original record is defined and reconciliation and discrepancy handling are proceduralised",
+      "guidance": "典型场景：仪器打印图谱 + 工作站电子数据。核查 SOP 是否明确原始数据为电子数据、打印件为副本。",
+      "guidanceEn": "Typical case: printed chromatograms plus workstation data. The SOP must define which is original.",
+      "riskLevel": "critical",
+      "evidenceHint": "原始数据定义 SOP、纸质与电子记录核对记录、差异处理记录"
+    },
+    {
+      "clauseRef": "MHRA §6.5 / PIC/S §8.2",
+      "requirement": "数据审核（review）有明确要求：审核人核查原始数据、审计追踪、元数据与计算结果，审核有记录且不可流于形式",
+      "requirementEn": "Data review explicitly covers raw data, audit trail, metadata and calculations, is documented and is not perfunctory",
+      "guidance": "核查数据审核是否包含审计追踪的审核。仅核对最终数值而从不查看审计追踪，是常见缺陷。核查是否有审核清单（checklist）支撑。",
+      "guidanceEn": "Check whether data review explicitly includes the audit trail, ideally supported by a review checklist.",
+      "riskLevel": "critical",
+      "evidenceHint": "数据审核 SOP、审核清单、审核记录（含审计追踪审核证据）、审核人培训记录"
+    },
+    {
+      "clauseRef": "MHRA §6.7",
+      "requirement": "记录的任何修改均保留原值、修改值、修改人、修改日期时间与修改理由，且修改可被识别",
+      "requirementEn": "Any record change retains the original value, the new value, the modifier, date/time and reason, and the change is identifiable",
+      "guidance": "核查纸质记录的修改划改方式（单线划去、保留原值、签名、日期、理由）以及电子系统的修改理由强制填写。",
+      "guidanceEn": "Check single-line strike-through with signature, date and reason on paper, and mandatory reason fields electronically.",
+      "riskLevel": "critical",
+      "evidenceHint": "修改规范 SOP、纸质修改样例、电子修改理由强制配置、审计追踪中的修改记录"
+    },
+    {
+      "clauseRef": "MHRA §6.8 / WHO §8",
+      "requirement": "已明确禁止的行为并已传达：禁止编造数据、禁止选择性使用数据、禁止删除或修改原始数据、禁止代签、禁止共用账号、禁止未授权的系统时间变更",
+      "requirementEn": "Prohibited behaviours are defined and communicated: no fabrication, no selective use of data, no deletion or alteration of raw data, no proxy signing, no shared accounts, no unauthorised time changes",
+      "guidance": "核查是否有明确的禁止行为清单，以及员工是否签署确认知晓。",
+      "guidanceEn": "Verify a documented prohibited-practices list and staff acknowledgement.",
+      "riskLevel": "major",
+      "evidenceHint": "禁止行为清单、员工签署的知晓确认书、数据完整性培训材料"
+    },
+    {
+      "clauseRef": "WHO §9 / PIC/S §9",
+      "requirement": "系统时间变更受控：变更需授权、有理由记录、变更本身被审计追踪记录；时间同步机制已配置",
+      "requirementEn": "System time changes are controlled: authorised, justified and audited, with time synchronisation configured",
+      "guidance": "实测：能否由普通用户修改系统时间？修改后是否留下记录？检查员常以此测试系统管控水平。",
+      "guidanceEn": "Test whether a normal user can change system time and whether it is logged.",
+      "riskLevel": "critical",
+      "evidenceHint": "时间变更控制程序、时间同步配置记录、时间变更的记录与授权"
+    },
+    {
+      "clauseRef": "WHO §10 / PIC/S §8.3",
+      "requirement": "数据的销毁受控：销毁经过授权、有清单与记录，且在保存期限届满后方可执行，销毁过程可追溯",
+      "requirementEn": "Data destruction is controlled: authorised, listed, recorded, performed only after retention expiry, and traceable",
+      "guidance": "核查销毁记录与保存期限规定的对应关系。提前销毁或销毁无授权记录均属缺陷。",
+      "guidanceEn": "Verify destruction records align with retention requirements and are authorised.",
+      "riskLevel": "major",
+      "evidenceHint": "数据销毁程序、销毁清单与授权记录、保存期限规定、销毁执行记录"
+    },
+    {
+      "clauseRef": "WHO §12 / PIC/S §10",
+      "requirement": "数据完整性相关的偏差与事件被识别、调查，根本原因分析深入到组织与系统性因素，而非归因于「人员疏忽」",
+      "requirementEn": "Data integrity deviations and incidents are investigated with root cause analysis reaching organisational and systemic factors rather than 'human error'",
+      "guidance": "抽查数据完整性事件的调查记录，核查根本原因是否触及体系层面。将数据完整性问题归因于个人疏忽而不改善体系，检查员会判定 CAPA 无效。",
+      "guidanceEn": "Check whether root causes address systemic issues; attributing to operator carelessness is inadequate.",
+      "riskLevel": "critical",
+      "evidenceHint": "数据完整性事件台账、调查报告、根本原因分析记录、CAPA 有效性与趋势分析"
+    },
+    {
+      "clauseRef": "PIC/S §11 / WHO §13",
+      "requirement": "外包活动（委托生产、检验、仓储、运输、IT 服务）的数据完整性要求已在合同中明确，并纳入供应商审计范围",
+      "requirementEn": "Data integrity requirements for outsourced activities are defined in contracts and included in supplier audit scope",
+      "guidance": "核查质量协议是否包含数据完整性条款、审计追踪查阅权、原始数据提供义务。",
+      "guidanceEn": "Verify contracts include data integrity clauses and audit trail access rights.",
+      "riskLevel": "major",
+      "evidenceHint": "质量协议中的数据完整性条款、供应商审计报告（含数据完整性部分）、受托方数据完整性声明"
+    },
+    {
+      "clauseRef": "PIC/S §8.1 / WHO §6",
+      "requirement": "备份与恢复程序经过验证，恢复演练有记录，备份内容包括审计追踪与元数据，异地或隔离保存",
+      "requirementEn": "Backup and restore are validated with documented restore drills, backups include audit trails and metadata, and are held off-site or segregated",
+      "guidance": "要求现场执行一次恢复，或提供最近 12 个月内的恢复演练报告。仅有备份成功日志不足以证明可恢复。",
+      "guidanceEn": "Request a restore drill report from the last 12 months; backup success logs alone are insufficient.",
+      "riskLevel": "critical",
+      "evidenceHint": "备份策略、备份日志、恢复演练报告、备份介质异地存放证明、备份完整性校验记录"
+    },
+    {
+      "clauseRef": "WHO §11 / PIC/S §8.4",
+      "requirement": "已建立数据完整性自检机制，自检覆盖纸质记录、电子系统与人员行为，自检结果形成报告并跟踪整改",
+      "requirementEn": "A data integrity self-inspection mechanism covers paper records, electronic systems and personnel behaviour, with reports and tracked remediation",
+      "guidance": "核查数据完整性是否已被纳入年度自检计划，以及自检是否触及人员行为层面（而不仅是系统配置）。",
+      "guidanceEn": "Check whether data integrity is in the annual self-inspection plan and covers behaviour, not just configuration.",
+      "riskLevel": "major",
+      "evidenceHint": "年度自检计划、数据完整性自检报告、整改跟踪记录、自检员培训记录"
+    },
+    {
+      "clauseRef": "WHO §14",
+      "requirement": "所有使用、审核或管理 GxP 数据的人员已接受数据完整性培训，培训内容涵盖 ALCOA+ 原则、禁止行为与报告途径",
+      "requirementEn": "All personnel creating, reviewing or managing GxP data have received data integrity training covering ALCOA+, prohibited practices and reporting routes",
+      "guidance": "核查培训是否覆盖全员（含临时工、承包商），以及培训是否有效（是否有考核与后续行为改善证据）。",
+      "guidanceEn": "Verify training coverage including temporary staff and contractors, with evidence of effectiveness.",
+      "riskLevel": "major",
+      "evidenceHint": "数据完整性培训矩阵、培训记录（含考核）、承包商培训记录、培训有效性评估"
+    },
+    {
+      "clauseRef": "FDA DI Q&A §3 / MHRA §6.6",
+      "requirement": "复杂的数据处理（积分、统计、图谱解析）有明确的规则与复核要求，参数修改被记录且需理由",
+      "requirementEn": "Complex data processing such as integration, statistics and spectral interpretation follows defined rules with review, and parameter changes are logged with justification",
+      "guidance": "这是色谱数据完整性检查的重点。核查积分参数的修改是否被记录、是否有「手动积分」的滥用。",
+      "guidanceEn": "Chromatography focus: verify integration parameter changes are logged and manual integration is controlled.",
+      "riskLevel": "critical",
+      "evidenceHint": "积分参数管理 SOP、手动积分审批记录、审计追踪中的积分参数修改记录、图谱解析复核记录"
+    },
+    {
+      "clauseRef": "FDA DI Q&A §5",
+      "requirement": "电子表格（Excel 等）用于 GxP 计算时经过验证（含公式锁定、版本控制、访问控制），非受控电子表格不得用于 GxP 计算",
+      "requirementEn": "Spreadsheets used for GxP calculations are validated with locked formulae, version control and access control; uncontrolled spreadsheets are not used",
+      "guidance": "核查使用中的 Excel 计算表是否有验证记录、公式是否锁定、是否有版本号与访问保护。这是极常见的缺陷领域。",
+      "guidanceEn": "Spreadsheets are a very common gap area: check validation, locked cells, versioning and protection.",
+      "riskLevel": "critical",
+      "evidenceHint": "电子表格清单、电子表格验证记录、公式锁定与保护设置截图、电子表格版本管理记录"
+    },
+    {
+      "clauseRef": "OECD GLP No. 22 §3",
+      "requirement": "GLP 研究中原始数据（含仪器输出、观察记录、样本记录）被完整保留，数据的所有权与归档符合 GLP 要求",
+      "requirementEn": "In GLP studies, raw data including instrument output, observations and specimen records are fully retained, with ownership and archiving meeting GLP requirements",
+      "guidance": "GLP 特定要求：原始数据归档后由档案管理员保管，研究负责人调阅需登记。核查档案室的进出登记与调阅记录。",
+      "guidanceEn": "GLP archives: verify archive custodian control and access logs.",
+      "riskLevel": "critical",
+      "evidenceHint": "GLP 原始数据归档清单、档案室调阅登记记录、档案管理员职责文件、数据所有权声明"
+    },
+    {
+      "clauseRef": "OECD GLP No. 22 §4",
+      "requirement": "GLP 电子数据的采集系统经过确认，审计追踪功能可用且启用，数据所有者对电子数据拥有控制权",
+      "requirementEn": "GLP electronic data acquisition systems are qualified with functional audit trails enabled, and the data owner has control over the electronic data",
+      "guidance": "核查 GLP 实验室仪器系统的审计追踪是否启用、数据是否保存在受控服务器而非本地磁盘。",
+      "guidanceEn": "Verify audit trails are enabled and data resides on controlled servers, not local drives.",
+      "riskLevel": "critical",
+      "evidenceHint": "仪器系统确认报告、审计追踪启用配置、数据存储路径与权限设置、服务器管理记录"
+    },
+    {
+      "clauseRef": "ICH E6(R2) §5.5.3 / GCP",
+      "requirement": "临床数据的源文件与源数据可追溯，EDC 系统稽查轨迹完整，数据修改保留稽查轨迹并有理由",
+      "requirementEn": "Clinical source documents and data are traceable, EDC audit trails are complete, and data changes retain the audit trail with reasons",
+      "guidance": "GCP 特定要求：核查 EDC/电子源数据的稽查轨迹是否可由申办者与检查员查阅，研究者对数据的控制权是否明确。",
+      "guidanceEn": "GCP focus: verify sponsor and inspector access to EDC audit trails and investigator control of data.",
+      "riskLevel": "critical",
+      "evidenceHint": "源文件与源数据定义、EDC 稽查轨迹样例、数据修改记录、研究者数据控制权声明"
+    },
+    {
+      "clauseRef": "WHO §8.2",
+      "requirement": "已建立并执行数据完整性事件的上报机制，员工可通过保密渠道报告数据完整性问题而无报复之虞",
+      "requirementEn": "A reporting mechanism for data integrity concerns exists, allowing confidential reporting without fear of retaliation",
+      "guidance": "核查是否建立了保密报告渠道，以及历史报告的处理记录。",
+      "guidanceEn": "Check for a confidential reporting channel and records of how reports were handled.",
+      "riskLevel": "major",
+      "evidenceHint": "数据完整性问题报告程序、保密报告渠道说明、历史报告与处理记录、不报复政策"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+LeebertyGXP - 桌面启动器
+LeebertyGXP - desktop launcher
+
+用法 / Usage:
+  1. 把本 exe 复制到包含 src\ 、web\ 、seed\ 的目录下（即项目根目录）。
+     Copy this exe into the folder that contains src\, web\ and seed\.
+  2. 双击运行。托盘会出现蓝黑底色的 GXP 图标。
+     Double-click it. A blue-black GXP icon appears in the notification area.
+  3. 程序会在自己的原生窗口中打开工作台（WebView2 渲染，非浏览器）。
+     The workbench opens in its own native window (embedded WebView2).
+
+托盘菜单 / Tray menu:
+  打开工作台        重新打开窗口
+  在浏览器中打开    用默认浏览器打开同一实例
+  生成演示数据      生成完整的虚构药厂场景
+  校验审计追踪      核对哈希链完整性
+  备份数据          备份数据库与审计链密钥
+  停止并退出        停止服务与后台工作流进程
+
+可选参数 / Optional:
+  LeebertyGXP.exe --port 8790    换端口
+  LeebertyGXP.exe --selftest     无界面自检（验证启动与停止）
+
+说明 / Notes:
+  * 本 exe 由 Windows 自带的 C# 编译器现场编译，不依赖任何第三方组件。
+    Compiled by the C# compiler shipped with Windows. No third-party components.
+  * 窗口为本机原生窗口，渲染内核是嵌入的 WebView2；同目录需要三个 SDK 文件：
+    Microsoft.Web.WebView2.Core.dll / Microsoft.Web.WebView2.WinForms.dll / WebView2Loader.dll（构建时自动复制）。
+    The window is native; it renders through embedded WebView2 and needs the three SDK files
+    above next to the exe (copied automatically by the build).
+  * 数据仍在 data\ 目录，与命令行启动完全一致。
+    Data still lives in data\, identical to the command-line launchers.

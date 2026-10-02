@@ -1,0 +1,312 @@
+{
+  "code": "GCP-E6R2",
+  "title": "ICH E6(R2) 临床试验质量管理规范自查表",
+  "titleEn": "ICH E6(R2) Good Clinical Practice Self-Inspection Checklist",
+  "scope": "self_inspection",
+  "category": "clinical",
+  "gxpAreas": ["GCP"],
+  "regulation": "ICH Harmonised Guideline E6(R2) - Integrated Addendum to ICH E6(R1); 21 CFR Parts 50, 56, 312; NMPA 药物临床试验质量管理规范 (2020)",
+  "authority": "ICH / FDA / NMPA",
+  "version": "E6(R2) adopted 2016-11-09; NMPA GCP effective 2020-07-01",
+  "description": "用于研究中心与申办者自查临床试验的 GCP 符合性。覆盖伦理委员会、知情同意、试验用药品管理、源数据与数据完整性、安全性报告、监查、必备文件与计算机化系统。每一项均为可判定的具体断言。",
+  "descriptionEn": "Self-inspection checklist for GCP compliance at investigational sites and sponsors, covering ethics committee oversight, informed consent, investigational product accountability, source data and data integrity, safety reporting, monitoring, essential documents and computerised systems.",
+  "items": [
+    {
+      "clauseRef": "1.1 / 1.2",
+      "requirement": "试验遵循 ICH E6(R2) 与赫尔辛基宣言的伦理原则，且在任何受试者入组前已获得伦理委员会与监管机构的必要批准",
+      "requirementEn": "The trial is conducted in accordance with ICH E6(R2) and the ethical principles of the Declaration of Helsinki, with all required ethics committee and regulatory approvals in place before any subject is enrolled",
+      "guidance": "核查伦理批件的日期是否早于首位受试者入组日期。入组先于批准是严重缺陷，属于受试者权益受损。",
+      "guidanceEn": "Check that the ethics approval date precedes the first subject's enrolment date.",
+      "riskLevel": "critical",
+      "evidenceHint": "伦理委员会批件（含日期）、监管机构批件、首位受试者入组日期记录、赫尔辛基宣言遵循声明"
+    },
+    {
+      "clauseRef": "1.25 / 1.27",
+      "requirement": "伦理委员会组成符合要求（至少 5 名成员、含不同性别的非医学背景成员与独立于研究机构的成员），委员名单与专业背景有记录",
+      "requirementEn": "The IRB/IEC is constituted as required, with a documented membership list including at least one member whose primary interest is non-scientific and one independent of the institution",
+      "guidance": "核查委员名单、任命文件、利益冲突声明。常见缺陷是委员名单多年未更新或缺少非医学背景成员。",
+      "guidanceEn": "Review the membership roster, appointment letters and conflict-of-interest declarations.",
+      "riskLevel": "major",
+      "evidenceHint": "伦理委员会委员名单、任命文件、简历、利益冲突声明、章程与工作程序"
+    },
+    {
+      "clauseRef": "1.26 / 3.1.4",
+      "requirement": "伦理委员会按不超过一年的间隔进行跟踪审查，跟踪审查记录完整",
+      "requirementEn": "The IRB/IEC conducts continuing review at intervals not exceeding one year, with records of each review",
+      "guidance": "核查跟踪审查日期间隔。超期未跟踪审查会导致试验失去伦理批准，是必须立即纠正的缺陷。",
+      "guidanceEn": "Verify continuing review intervals; a lapse invalidates the ethical approval.",
+      "riskLevel": "critical",
+      "evidenceHint": "伦理委员会跟踪审查记录、跟踪审查批件、审查会议纪要"
+    },
+    {
+      "clauseRef": "4.1.1 / 4.1.2",
+      "requirement": "研究者具备相应资质与经验，简历（含签名与日期）在有效期内（通常两年内更新），并持有有效的执业资格",
+      "requirementEn": "The investigator is qualified by training and experience, with a signed and dated CV updated within the last two years, and holds a current professional licence",
+      "guidance": "核查简历的签署日期。GCP 要求简历定期更新，超过两年未更新是常见缺陷。执业资格需核对有效期。",
+      "guidanceEn": "Check the CV signature date and licence validity.",
+      "riskLevel": "critical",
+      "evidenceHint": "研究者简历（签名+日期）、执业资格证书、GCP 培训证书、任命文件"
+    },
+    {
+      "clauseRef": "4.1.5 / 4.1.6",
+      "requirement": "所有参与试验的人员均在授权分工表（Delegation Log）中记录，授权范围与其资质相符，且有签名样张",
+      "requirementEn": "All trial personnel are listed on the delegation log with responsibilities matching their qualifications, and signature specimens are on file",
+      "guidance": "核查分工表的授权日期与实际操作日期的对应关系。常见缺陷是某人执行了未授权的操作，或分工表事后补填。",
+      "guidanceEn": "Cross-check authorisation dates against the dates tasks were actually performed.",
+      "riskLevel": "critical",
+      "evidenceHint": "授权分工表、人员签名样张、培训记录、资质证明"
+    },
+    {
+      "clauseRef": "4.2.1-4.2.5",
+      "requirement": "研究者在获得伦理委员会与监管机构批准后，按已批准的最新版方案实施试验，并有书面承诺遵守方案",
+      "requirementEn": "The investigator conducts the trial in accordance with the approved protocol, only after obtaining IRB/IEC and regulatory approval, and has signed a written commitment to comply",
+      "guidance": "核查研究者签署的方案签字页、方案版本号与实际执行版本。使用旧版方案是常见缺陷。",
+      "guidanceEn": "Verify the investigator's signed protocol signature page and the version in use.",
+      "riskLevel": "critical",
+      "evidenceHint": "方案签字页、方案版本记录、伦理批件、研究者承诺函"
+    },
+    {
+      "clauseRef": "4.3.2 / 4.5.2",
+      "requirement": "方案修订经伦理委员会与监管机构批准后方可实施，实施日期晚于批准日期；紧急修订有明确的法规依据",
+      "requirementEn": "Protocol amendments are implemented only after IRB/IEC and regulatory approval, with implementation dated after approval, and any urgent amendment has a documented regulatory basis",
+      "guidance": "对比修订批准日期与实施日期。严格核查是否存在「先实施后补批准」。方案修订的追溯性批准在检查中很难辩护。",
+      "guidanceEn": "Compare amendment approval dates with implementation dates to detect retrospective approval.",
+      "riskLevel": "critical",
+      "evidenceHint": "方案修订版本、伦理批件（含修订批准日期）、修订实施记录、监管备案文件"
+    },
+    {
+      "clauseRef": "4.4.1 / 4.4.2",
+      "requirement": "研究者按方案要求完成必要的医学检查与检验，检验由具备资质的实验室完成且实验室正常值范围可获得",
+      "requirementEn": "The investigator performs the medical examinations and tests required by the protocol, using qualified laboratories whose normal ranges are available",
+      "guidance": "核查中心实验室或本地实验室的资质证明、正常值范围文件、认证有效期。实验室认证过期是常见缺陷。",
+      "guidanceEn": "Verify laboratory certification validity and availability of normal ranges.",
+      "riskLevel": "major",
+      "evidenceHint": "实验室资质证明与认证有效期、正常值范围文件、检验项目清单"
+    },
+    {
+      "clauseRef": "4.4.3",
+      "requirement": "用于试验特定医学判断的设备经过校准并有校准记录，校准在有效期内",
+      "requirementEn": "Equipment used for trial-specific medical assessments is calibrated with records on file, and calibration is current",
+      "guidance": "核查心电图机、血压计、身高体重仪、离心机等的校准证书有效期。",
+      "guidanceEn": "Check calibration certificates for ECG machines, sphygmomanometers and centrifuges.",
+      "riskLevel": "major",
+      "evidenceHint": "设备校准证书、设备台账、校准计划、校准状态标识"
+    },
+    {
+      "clauseRef": "4.5.4",
+      "requirement": "研究者不实施任何偏离方案的操作；所有偏离均已记录并说明理由，重要偏离已向申办者与伦理委员会报告",
+      "requirementEn": "The investigator does not implement any deviation from the protocol; all deviations are documented with reasons, and important deviations are reported to the sponsor and IRB/IEC",
+      "guidance": "核查方案偏离记录与监查报告、伦理通报记录的对应关系。常见缺陷是「偏离有记录但未通报伦理委员会」。",
+      "guidanceEn": "Cross-check deviation logs against sponsor and ethics notifications.",
+      "riskLevel": "critical",
+      "evidenceHint": "方案偏离记录、监查报告与随访函、伦理委员会通报记录、方案偏离趋势分析"
+    },
+    {
+      "clauseRef": "4.6.1-4.6.3",
+      "requirement": "试验用药品由研究者或授权人员管理，储存条件符合方案与说明书要求，有温湿度记录且无超限未调查情况",
+      "requirementEn": "Investigational products are managed by the investigator or authorised staff, stored under the conditions required by the protocol and the product label, with temperature records and investigation of any excursion",
+      "guidance": "核查温湿度记录是否有缺失时段或超限。温度超限必须有影响评估与申办者确认，否则该批次药品不得使用。",
+      "guidanceEn": "Look for gaps or excursions in temperature records and confirm impact assessment.",
+      "riskLevel": "critical",
+      "evidenceHint": "试验用药品储存温湿度记录、超限调查报告、申办者确认函、储存条件说明"
+    },
+    {
+      "clauseRef": "4.6.4 / 8.2.16",
+      "requirement": "试验用药品的接收、发放、使用、回收与销毁数量平衡，差异已调查并记录",
+      "requirementEn": "Investigational product accountability records reconcile receipt, dispensing, use, return and destruction, with discrepancies investigated and documented",
+      "guidance": "现场清点实物数量与台账是否一致。数量不平衡是最常见的 GCP 严重缺陷之一，直接关系随机化与盲态完整性。",
+      "guidanceEn": "Physically count stock against the accountability log; imbalance is a critical finding.",
+      "riskLevel": "critical",
+      "evidenceHint": "试验用药品台账（收发存）、销毁记录、回收记录、数量平衡计算表、差异调查报告"
+    },
+    {
+      "clauseRef": "4.6.6 / 4.6.7",
+      "requirement": "盲态试验的揭盲仅在方案规定的情况下进行，揭盲有记录并立即通知申办者；紧急揭盲的代码破盲记录完整",
+      "requirementEn": "Unblinding occurs only as specified in the protocol, is documented and promptly reported to the sponsor, with complete emergency code-break records",
+      "guidance": "核查紧急揭盲信封的完整性（未使用的应封存完好）与破盲记录。信封被提前打开但无记录是严重缺陷。",
+      "guidanceEn": "Verify emergency envelopes remain sealed where unused, and that breaks are documented.",
+      "riskLevel": "critical",
+      "evidenceHint": "紧急揭盲信封（含封存状态核查记录）、破盲记录、申办者通知记录、随机化系统记录"
+    },
+    {
+      "clauseRef": "4.8.1 / 4.8.2",
+      "requirement": "在受试者参与任何试验相关操作之前获得知情同意，知情同意书由受试者本人与研究者签署并注明日期",
+      "requirementEn": "Informed consent is obtained before any trial-related procedure is performed, and the consent form is signed and dated by the subject and the investigator",
+      "guidance": "核对知情同意签署日期与首次试验操作日期（含筛选检查）的先后。签署晚于筛选检查是严重缺陷。",
+      "guidanceEn": "Compare the consent date with the first screening procedure; consent must come first.",
+      "riskLevel": "critical",
+      "evidenceHint": "知情同意书原件、筛选访视记录、门诊病历、签署日期对照表"
+    },
+    {
+      "clauseRef": "4.8.3 / 4.8.5",
+      "requirement": "知情同意过程有充分的时间和机会供受试者提问，且使用受试者能理解的语言；知情同意过程已记录在病历中",
+      "requirementEn": "The subject is given ample time and opportunity to ask questions, the consent discussion uses language the subject understands, and the process is documented in the medical record",
+      "guidance": "核查病历中是否有知情同意过程的记录（时间、地点、与谁讨论、是否给予提问机会）。仅有签名页而无过程记录是常见缺陷。",
+      "guidanceEn": "Look for a medical record note describing the consent discussion itself.",
+      "riskLevel": "major",
+      "evidenceHint": "病历中的知情同意过程记录、知情同意书、研究者授权分工表"
+    },
+    {
+      "clauseRef": "4.8.7 / 4.8.8",
+      "requirement": "知情同意书包含法规要求的全部要素（试验目的、程序、风险与获益、替代治疗、补偿与赔偿、保密、自愿参加与随时退出、联系方式等）",
+      "requirementEn": "The informed consent form contains all required elements including purpose, procedures, risks and benefits, alternatives, compensation and treatment for injury, confidentiality, voluntariness and right to withdraw, and contact details",
+      "guidance": "逐项核对 ICH E6(R2) §4.8.10 列出的 20 项要素。赔偿条款缺失在多地检查中都是重点。",
+      "guidanceEn": "Check against all required elements listed in ICH E6(R2) §4.8.10.",
+      "riskLevel": "critical",
+      "evidenceHint": "知情同意书模板、伦理批准版本、要素核对表、伦理委员会审查意见"
+    },
+    {
+      "clauseRef": "4.8.9",
+      "requirement": "受试者无阅读能力时，知情同意过程有公正见证人，见证人签字并注明日期，且受试者以其他方式表示同意",
+      "requirementEn": "Where a subject cannot read, the consent process involves an impartial witness who signs and dates the form, and the subject gives consent by other means",
+      "guidance": "核查见证人是否为真正「公正」（独立于试验团队）。常见缺陷是由研究护士充当见证人。",
+      "guidanceEn": "Verify the witness is genuinely independent of the trial team.",
+      "riskLevel": "major",
+      "evidenceHint": "知情同意书（含见证人签名页）、见证人身份说明、受试者口头同意记录"
+    },
+    {
+      "clauseRef": "4.8.10 / 4.8.11",
+      "requirement": "当新的重要信息可能影响受试者继续参加的意愿时，及时修订知情同意书并经伦理委员会批准，受试者重新签署",
+      "requirementEn": "When new information may affect a subject's willingness to continue, the consent form is promptly revised, approved by the IRB/IEC, and subjects are re-consented",
+      "guidance": "核查知情同意书修订后的重新签署记录与在组受试者名单的对应关系。漏签的受试者需要评估。",
+      "guidanceEn": "Verify re-consent completeness against the list of enrolled subjects.",
+      "riskLevel": "critical",
+      "evidenceHint": "知情同意书各版本、伦理批件、重新签署记录、在组受试者名单、重新签署进度跟踪表"
+    },
+    {
+      "clauseRef": "5.5.1 / 5.5.3",
+      "requirement": "申办者采用计算机化系统处理数据时，系统经过验证，有稽查轨迹、权限控制与数据备份，且研究者对录入数据保有控制权",
+      "requirementEn": "Where the sponsor uses computerised systems for data handling, they are validated with audit trails, access control and backup, and the investigator retains control of the data entered",
+      "guidance": "核查 EDC 系统的验证文件、稽查轨迹的可查阅性（研究者与检查员应能查阅）、数据修改必须有理由。",
+      "guidanceEn": "Verify EDC validation, audit trail availability to investigators and inspectors, and mandatory reasons for changes.",
+      "riskLevel": "critical",
+      "evidenceHint": "EDC 系统验证报告、稽查轨迹样例、账号权限清单、数据修改记录、数据备份与恢复记录"
+    },
+    {
+      "clauseRef": "5.5.2 / 4.9.0",
+      "requirement": "源数据可归属、清晰、同步、原始、准确、完整（ALCOA），修改保留原值并注明修改人、日期与理由",
+      "requirementEn": "Source data are attributable, legible, contemporaneous, original, accurate and complete (ALCOA), with corrections preserving the original entry plus the modifier, date and reason",
+      "guidance": "翻阅病历与检验报告，寻找涂改、事后补记、缺失签名与日期的情况。检查员会重点比对源数据与 CRF 的一致性。",
+      "guidanceEn": "Look for corrections without initial/date/reason and for late entries in source documents.",
+      "riskLevel": "critical",
+      "evidenceHint": "源文件（病历、检验报告、日记卡）、CRF、源数据核对记录、数据修改规范与培训记录"
+    },
+    {
+      "clauseRef": "4.9.0 / 4.9.1",
+      "requirement": "研究者确保 CRF 与源数据中报告的数据准确、完整、清晰、及时，CRF 的修改有签名与日期，且不掩盖原始数据",
+      "requirementEn": "The investigator ensures data reported in the CRF and source documents are accurate, complete, legible and timely, with CRF corrections signed and dated and not obscuring the original entry",
+      "guidance": "核查 CRF 的修改是否使用单线划改并签名注明日期。使用涂改液、覆盖原值或由他人代改都是缺陷。",
+      "guidanceEn": "Check for single-line strike-through with signature and date on CRF corrections.",
+      "riskLevel": "critical",
+      "evidenceHint": "CRF 原件、CRF 填写指南、数据修改记录、研究者培训记录"
+    },
+    {
+      "clauseRef": "4.11.1",
+      "requirement": "研究者或机构保留所有试验相关记录的保存期限符合法规要求（通常上市后两年或法规规定期限），并有明确的归档安排",
+      "requirementEn": "The investigator or institution retains all trial-related records for the required period and has a defined archiving arrangement",
+      "guidance": "核查档案室的物理条件（防火、防潮、门禁）与档案索引。核查是否与申办者有书面的记录保存协议。",
+      "guidanceEn": "Check archive room conditions, index and any written retention agreement with the sponsor.",
+      "riskLevel": "major",
+      "evidenceHint": "记录保存规定、档案室管理程序、档案索引与调阅登记、与申办者的保存协议"
+    },
+    {
+      "clauseRef": "5.18.1 / 5.18.3",
+      "requirement": "申办者按基于风险的思路制定监查计划，监查范围与频次基于试验的复杂程度、受试者数量与终点指标的重要性确定",
+      "requirementEn": "The sponsor defines a monitoring plan with scope and intensity based on a risk assessment considering trial complexity, subject numbers and endpoint criticality",
+      "guidance": "核查监查计划中是否有书面的风险评估依据，而非简单按「每 4 周一次」固定安排。",
+      "guidanceEn": "Verify the monitoring plan documents a risk rationale rather than a fixed schedule.",
+      "riskLevel": "major",
+      "evidenceHint": "监查计划、风险评估文件、监查员资质与培训记录、监查排期表"
+    },
+    {
+      "clauseRef": "5.18.4 / 5.18.6",
+      "requirement": "每次监查后形成书面监查报告，报告提交给申办者，发现的重大问题和偏离已跟踪至关闭",
+      "requirementEn": "Each monitoring visit results in a written monitoring report submitted to the sponsor, with significant findings and deviations tracked to closure",
+      "guidance": "核查监查报告、随访函（Follow-up Letter）与问题跟踪表的闭环。常见缺陷是发现问题但无关闭证据。",
+      "guidanceEn": "Verify findings are tracked to documented closure, not just reported.",
+      "riskLevel": "major",
+      "evidenceHint": "监查报告、监查随访函、问题跟踪表、申办者审阅记录、监查访视记录"
+    },
+    {
+      "clauseRef": "5.18.4 (c) / 5.20.1",
+      "requirement": "监查员对 CRF 与源数据进行源数据核对（SDV），核对范围与监查计划一致并有记录",
+      "requirementEn": "Monitors perform source data verification against the CRF as specified in the monitoring plan, with records of the verification performed",
+      "guidance": "核查 SDV 记录比例是否与监查计划一致。若计划要求 100% SDV 而实际记录缺失，属于方案偏离。",
+      "guidanceEn": "Check the SDV percentage recorded against the monitoring plan requirement.",
+      "riskLevel": "major",
+      "evidenceHint": "源数据核对记录、监查报告中的 SDV 章节、监查计划、数据质疑（Query）管理记录"
+    },
+    {
+      "clauseRef": "5.2.1 / 5.2.2",
+      "requirement": "申办者与研究者、机构、CRO 之间有书面协议，明确各方职责、数据所有权、发表安排、记录保存与赔偿条款",
+      "requirementEn": "Written agreements between sponsor, investigator, institution and any CRO define responsibilities, data ownership, publication arrangements, record retention and indemnification",
+      "guidance": "核查协议签署日期是否早于试验开始，以及职责划分是否与 E6(R2) §5.2.2 的要求一致。",
+      "guidanceEn": "Verify agreements were executed before trial start and cover all required elements.",
+      "riskLevel": "major",
+      "evidenceHint": "临床试验协议、财务披露声明、CRO 委托合同与转移的职责清单、保险与赔偿证明"
+    },
+    {
+      "clauseRef": "5.1.1 / 5.1.2",
+      "requirement": "申办者建立并维护质量保证与质量控制体系，有书面的 SOP 体系，且 SOP 对试验相关人员可获取",
+      "requirementEn": "The sponsor maintains quality assurance and quality control systems with written SOPs accessible to all relevant trial personnel",
+      "guidance": "核查 SOP 清单、生效日期与培训记录。常见缺陷是 SOP 存在但未培训或已被引用为旧版本。",
+      "guidanceEn": "Check SOP currency and the associated training records.",
+      "riskLevel": "major",
+      "evidenceHint": "SOP 清单与现行版本、SOP 培训记录、QA 稽查计划与报告、质量控制记录"
+    },
+    {
+      "clauseRef": "5.19.1 / 5.19.2",
+      "requirement": "申办者开展独立的稽查（Audit），稽查员独立于临床团队，稽查计划基于风险并形成书面报告",
+      "requirementEn": "The sponsor conducts independent audits by auditors independent of the clinical team, based on a risk-based audit plan with written reports",
+      "guidance": "核查稽查员的独立性（是否向临床团队汇报）与稽查报告的分发范围。稽查发现的问题需要有 CAPA 跟踪。",
+      "guidanceEn": "Verify auditor independence and CAPA tracking of audit findings.",
+      "riskLevel": "major",
+      "evidenceHint": "稽查计划、稽查员任命与独立性说明、稽查报告、稽查发现 CAPA 跟踪记录、稽查员资质"
+    },
+    {
+      "clauseRef": "8.1 / 8.3.1",
+      "requirement": "试验必备文件（Essential Documents）在试验开始前、进行中与结束后均完整归档，试验主文件（TMF）索引清晰、可快速检索",
+      "requirementEn": "Essential documents are complete at trial start, during conduct and after completion, with a clear and searchable trial master file index",
+      "guidance": "进行演练：随机指定一份文件，计时看能否在 5 分钟内从 TMF 中调出。检查员常做此测试。",
+      "guidanceEn": "Rehearse retrieving a randomly named document from the TMF within minutes.",
+      "riskLevel": "major",
+      "evidenceHint": "试验主文件（TMF）、文件索引、归档记录、文件版本清单、文件检索演练记录"
+    },
+    {
+      "clauseRef": "8.2.10 / 8.2.11",
+      "requirement": "研究者向伦理委员会提交了所有必要的进展报告与安全性报告，提交记录完整且及时",
+      "requirementEn": "The investigator submits all required progress and safety reports to the IRB/IEC, with complete and timely submission records",
+      "guidance": "核查 SAE 与方案偏离向伦理委员会通报的时限。迟报或漏报在检查中会被明确质疑。",
+      "guidanceEn": "Check timeliness of safety and deviation reporting to the ethics committee.",
+      "riskLevel": "critical",
+      "evidenceHint": "伦理提交记录、通报回执、进展报告、安全性报告、时限对照表"
+    },
+    {
+      "clauseRef": "4.11.2 / 5.15.1",
+      "requirement": "安全性数据（AE/SAE）的收集、评估、记录与报告符合方案与法规时限要求，SAE 在获知后立即（通常 24 小时内）报告申办者",
+      "requirementEn": "Safety data are collected, assessed, recorded and reported within protocol and regulatory timelines, with SAEs reported to the sponsor immediately (typically within 24 hours)",
+      "guidance": "核查 SAE 首次获知时间与报告时间的间隔。以「病例完成时间」而非「首次获知时间」计算时限是常见错误。",
+      "guidanceEn": "Verify the clock starts at first knowledge, not at case completion.",
+      "riskLevel": "critical",
+      "evidenceHint": "SAE 报告表、首次获知时间记录、申办者接收回执、SAE 跟踪表、时限计算记录"
+    },
+    {
+      "clauseRef": "4.13.1 / 5.14.1",
+      "requirement": "试验相关财务与补偿安排符合法规与伦理要求，受试者补偿（含交通与误工）按批准方案执行并有记录",
+      "requirementEn": "Financial and compensation arrangements comply with regulatory and ethical requirements, and subject compensation is paid as approved with records",
+      "guidance": "核查补偿标准是否与知情同意书一致，以及支付记录。补偿金额过高可能构成不当引诱。",
+      "guidanceEn": "Check compensation matches the approved consent form and is documented.",
+      "riskLevel": "minor",
+      "evidenceHint": "知情同意书中的补偿条款、补偿支付记录、财务披露声明、伦理委员会对补偿的审查意见"
+    },
+    {
+      "clauseRef": "2.10 / 5.6.1",
+      "requirement": "所有参与试验的人员均接受过 GCP 培训与方案相关培训，培训记录在有效期内并在试验开始前完成",
+      "requirementEn": "All trial personnel have received GCP and protocol-specific training before trial activities begin, with current training records",
+      "guidance": "核查培训日期是否早于该人员首次参与试验的日期。GCP 培训通常有有效期（如 2-3 年），需核对。",
+      "guidanceEn": "Verify training predates the person's first trial activity and remains current.",
+      "riskLevel": "critical",
+      "evidenceHint": "GCP 培训证书、方案培训记录、培训签到表、培训矩阵、人员到岗与参与试验日期对照表"
+    }
+  ]
+}

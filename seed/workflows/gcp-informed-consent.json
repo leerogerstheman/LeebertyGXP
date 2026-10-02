@@ -1,0 +1,147 @@
+{
+  "code": "GCP-IC",
+  "recordPrefix": "IC",
+  "name": "知情同意与受试者权益事件",
+  "nameEn": "Informed Consent and Subject Rights Event",
+  "category": "study_event",
+  "gxpAreas": ["GCP"],
+  "regulationRefs": [
+    "ICH E6(R2) §4.8 - informed consent of trial subjects; §4.8.8 required elements",
+    "21 CFR 50.20, 50.25 - general requirements and elements of informed consent",
+    "21 CFR 50.27 - documentation of informed consent",
+    "ICH E6(R2) §2.6 - freely given informed consent is the cornerstone of trial ethics",
+    "NMPA 药物临床试验质量管理规范 (2020) - 知情同意相关要求",
+    "Declaration of Helsinki §25-32"
+  ],
+  "description": "记录并调查知情同意相关事件：签署晚于试验操作、要素缺失、版本未更新、重新同意遗漏、特殊人群保护不足等。涉及受试者权益，严重程度起点即为 major。",
+  "descriptionEn": "Records and investigates informed consent events: consent dated after trial procedures, missing required elements, outdated versions, missed re-consent, inadequate protection of vulnerable subjects. Subject rights are involved, so severity starts at major.",
+  "slaDays": 10,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["major", "critical"],
+
+  "states": ["draft", "identified", "assessed", "reported", "capa_open", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "事件标题", "labelEn": "Event title", "type": "text", "required": true },
+    { "key": "summary", "label": "事件描述", "labelEn": "Description", "type": "textarea", "required": true },
+    { "key": "protocolNumber", "label": "试验方案编号及版本", "labelEn": "Protocol number and version", "type": "text", "required": true },
+    { "key": "studyCode", "label": "试验项目编号", "labelEn": "Trial code", "type": "text", "required": false },
+    { "key": "subjectId", "label": "受试者编号", "labelEn": "Subject identifier", "type": "text", "required": false, "help": "仅记录编号，本系统不存储受试者身份信息" },
+    { "key": "site", "label": "研究中心", "labelEn": "Investigational site", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "发生日期", "labelEn": "Date of occurrence", "type": "date", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["major", "critical"], "help": "知情同意事件默认 major；若受试者已接受试验操作或涉及特殊人群，应为 critical" }
+  ],
+
+  "steps": [
+    {
+      "code": "identify",
+      "name": "识别与记录",
+      "nameEn": "Identification and recording",
+      "role": ["clinical_monitor", "clinical_pi", "qa_specialist", "qa_auditor"],
+      "type": "task",
+      "onComplete": "identified",
+      "requiresFields": ["eventType", "factualAccount", "consentDate", "firstProcedureDate"],
+      "form": [
+        { "key": "eventType", "label": "事件类型", "type": "select", "required": true, "options": ["consent_after_procedure", "missing_required_element", "outdated_version_used", "reconsent_omitted", "no_witness_for_illiterate", "consent_not_documented_in_record", "subject_not_given_time_to_decide", "vulnerable_subject_inadequate_protection", "consent_form_not_irb_approved", "translation_issue", "other"] },
+        { "key": "factualAccount", "label": "事实描述（客观、可核查）", "type": "textarea", "required": true },
+        { "key": "consentDate", "label": "知情同意签署日期", "type": "date", "required": true },
+        { "key": "firstProcedureDate", "label": "首个试验相关操作日期", "type": "date", "required": true, "help": "含筛选检查；此日期必须晚于知情同意签署日期" },
+        { "key": "proceduresBeforeConsent", "label": "签署前已执行的操作", "type": "textarea", "required": false },
+        { "key": "consentVersionUsed", "label": "使用的知情同意书版本", "type": "text", "required": false },
+        { "key": "irbApprovedVersion", "label": "伦理批准的现行版本", "type": "text", "required": false },
+        { "key": "discoveredBy", "label": "发现人及方式", "type": "text", "required": true },
+        { "key": "sourceDataRef", "label": "源数据引用", "type": "text", "required": false, "help": "病历页码、知情同意书原件编号、门诊记录" }
+      ],
+      "guidance": "对比知情同意签署日期与首个试验操作日期是核查的核心。筛选检查也属于试验相关操作，签署晚于筛选访视即为偏离。"
+    },
+    {
+      "code": "assess_impact",
+      "name": "受试者权益与数据影响评估",
+      "nameEn": "Subject rights and data impact assessment",
+      "role": ["clinical_pi", "clinical_monitor", "qa_specialist"],
+      "type": "signature",
+      "signatureMeaning": "reviewed",
+      "onComplete": "assessed",
+      "requiresFields": ["subjectRightsImpact", "dataIntegrityImpact", "subjectContinues", "dataUseDecision"],
+      "persistFields": { "impact_assessment": "overallImpact", "root_cause": "rootCause" },
+      "form": [
+        { "key": "subjectRightsImpact", "label": "对受试者权益与安全的影响", "type": "textarea", "required": true, "help": "受试者是否在充分知情的前提下参与；是否遭受了本可避免的检查或用药" },
+        { "key": "dataIntegrityImpact", "label": "对数据完整性的影响", "type": "textarea", "required": true },
+        { "key": "dataUseDecision", "label": "该受试者数据的可用性判定", "type": "select", "required": true, "options": ["data_usable", "data_usable_with_sensitivity_analysis", "data_excluded", "irb_decision_required"] },
+        { "key": "subjectContinues", "label": "受试者是否继续参加", "type": "select", "required": true, "options": ["continues", "continues_with_monitoring", "withdrawn_by_subject", "withdrawn_by_investigator", "not_applicable"] },
+        { "key": "subjectInformed", "label": "是否已向受试者说明情况", "type": "select", "required": true, "options": ["yes", "no", "pending_irb_decision"] },
+        { "key": "medicalConsequence", "label": "医学后果评估", "type": "textarea", "required": true, "help": "是否发生需要治疗的不良事件，或受试者因此接受了不必要的有创操作" },
+        { "key": "overallImpact", "label": "总体影响结论", "type": "textarea", "required": true },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "vulnerablePopulation", "label": "是否涉及特殊人群", "type": "select", "required": true, "options": ["no", "yes_children", "yes_pregnant", "yes_cognitively_impaired", "yes_emergency_setting", "yes_other"] }
+      ],
+      "guidance": "知情同意的缺陷不能被「受试者表示理解」所弥补——书面知情同意是法规要求。涉及特殊人群时必须由伦理委员会参与数据可用性的判定，研究者不得单方决定。"
+    },
+    {
+      "code": "report",
+      "name": "报告与通报",
+      "nameEn": "Reporting and notification",
+      "role": ["clinical_pi", "clinical_monitor", "ra_officer", "pharmacovigilance"],
+      "type": "task",
+      "onComplete": "reported",
+      "requiresFields": ["irbNotified", "sponsorNotified"],
+      "form": [
+        { "key": "irbNotified", "label": "伦理委员会通报", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "irbNotificationDate", "label": "通报日期", "type": "date", "required": false },
+        { "key": "irbResponse", "label": "伦理委员会意见", "type": "textarea", "required": false, "help": "如要求重新知情同意、要求排除数据、要求提交进展报告" },
+        { "key": "sponsorNotified", "label": "申办者通报", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "regulatoryNotified", "label": "监管机构通报", "type": "select", "required": true, "options": ["yes", "no", "assess_further"] },
+        { "key": "reconsentRequired", "label": "是否需要重新知情同意", "type": "select", "required": true, "options": ["yes_subject_specific", "yes_all_subjects", "no"] },
+        { "key": "reconsentPlan", "label": "重新知情同意安排", "type": "textarea", "required": false, "help": "告知方式、时间安排、拒绝者的处理"},
+        { "key": "otherSubjectsAffected", "label": "其他受试者是否受影响", "type": "textarea", "required": true, "help": "是否为系统性做法而非个例，如筛查流程设计问题会影响全部受试者" }
+      ],
+      "guidance": "知情同意类事件通常必须通报伦理委员会。若属于流程设计问题（例如筛选流程总是在签署同意前完成检查），则受影响范围是全部受试者，必须排查。"
+    },
+    {
+      "code": "capa",
+      "name": "纠正预防措施",
+      "nameEn": "Corrective and preventive action",
+      "role": ["clinical_pi", "clinical_monitor", "qa_specialist", "trainer"],
+      "type": "task",
+      "onComplete": "capa_open",
+      "requiresFields": ["correctiveActions", "preventiveActions"],
+      "form": [
+        { "key": "correctiveActions", "label": "纠正措施", "type": "textarea", "required": true, "help": "受试者层面的补救：补充知情、重新同意、退出试验、医学随访" },
+        { "key": "preventiveActions", "label": "预防措施", "type": "textarea", "required": true, "help": "流程层面：修订筛选流程图、增加同意书核查清单、系统强制拦截" },
+        { "key": "siteRetraining", "label": "研究中心再培训", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "retrainingDetail", "label": "培训内容及参加人员", "type": "textarea", "required": false },
+        { "key": "processChange", "label": "流程改进措施", "type": "textarea", "required": false },
+        { "key": "monitoringPlanChange", "label": "监查计划调整", "type": "textarea", "required": false, "help": "如将该研究中心列为重点监查、对知情同意文件 100% 源数据核对" },
+        { "key": "systemControl", "label": "信息系统控制措施", "type": "textarea", "required": false, "help": "如 EDC 中知情同意日期早于访视日期时的质疑触发" },
+        { "key": "capaOwner", "label": "措施责任人", "type": "text", "required": true },
+        { "key": "capaDueDate", "label": "措施期限", "type": "date", "required": true }
+      ],
+      "guidance": "知情同意问题的预防措施往往落在流程和系统层面（如访视顺序、系统质疑），仅重复培训通常不足以关闭。"
+    },
+    {
+      "code": "close",
+      "name": "关闭与有效性",
+      "nameEn": "Closure and effectiveness",
+      "role": ["qa_manager", "qa_specialist"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "requiresFields": ["conclusion", "effectivenessResult"],
+      "persistFields": { "effectiveness_check": "effectivenessMethod", "effectiveness_result": "effectivenessResult" },
+      "form": [
+        { "key": "conclusion", "label": "关闭结论", "type": "textarea", "required": true },
+        { "key": "subjectOutcome", "label": "受试者最终状态", "type": "textarea", "required": true, "help": "是否继续参加、是否完成随访、医学结局" },
+        { "key": "dataUseFinal", "label": "数据最终处理方式", "type": "select", "required": true, "options": ["included_in_analysis", "included_with_sensitivity_analysis", "excluded_from_analysis", "excluded_from_efficacy_only"] },
+        { "key": "listedInReport", "label": "是否列入临床研究报告", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "effectivenessMethod", "label": "有效性检查方法", "type": "textarea", "required": true, "help": "如后续 20 例受试者知情同意流程 100% 核对结果、后续监查访视核查" },
+        { "key": "effectivenessResult", "label": "有效性结论", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] }
+      ],
+      "guidance": "ICH E3 要求临床研究报告列出所有重要方案偏离及其处理方式。知情同意类事件必须列入，不得因「已补救」而省略。"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "code": "GDP-COLD",
+  "recordPrefix": "COLD",
+  "name": "冷链温度超限偏差",
+  "nameEn": "Cold Chain Temperature Excursion",
+  "category": "distribution_event",
+  "gxpAreas": ["GDP"],
+  "regulationRefs": [
+    "EU GDP Guidelines 2013/C 343/01 §9（运输 · 温度控制、运输方式评估与偏离处理）",
+    "EU GDP Guidelines 2013/C 343/01 §3（厂房与设备 · 温度分布验证与最差条件、温控与监测）",
+    "EU GDP Guidelines 2013/C 343/01 §5（操作 · 储存条件与标签一致性）",
+    "WHO TRS 957 Annex 5 §3.3 - temperature control and monitoring during transport",
+    "21 CFR 205.50 - storage and handling of prescription drugs (temperature and conditions)"
+  ],
+  "description": "记录并调查储存或运输过程中的冷链温度超限，评估对产品质量的影响（含稳定性数据依据），作出放行/隔离/拒收决定。",
+  "descriptionEn": "Records and investigates cold chain temperature excursions during storage or transport, assesses product impact based on stability data, and decides release, quarantine or rejection.",
+  "slaDays": 14,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "reported", "contained", "impact_assessed", "disposition", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "偏差标题", "labelEn": "Excursion title", "type": "text", "required": true },
+    { "key": "summary", "label": "超限描述", "labelEn": "Description", "type": "textarea", "required": true, "help": "温度范围、持续时间、发生环节" },
+    { "key": "product", "label": "产品名称与规格", "labelEn": "Product", "type": "text", "required": true },
+    { "key": "batchNumber", "label": "批号", "labelEn": "Batch number", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "发生日期", "labelEn": "Date of occurrence", "type": "datetime", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] },
+    { "key": "site", "label": "发生场所 / 承运方", "labelEn": "Site or carrier", "type": "text", "required": true }
+  ],
+
+  "steps": [
+    {
+      "code": "report",
+      "name": "发现与报告",
+      "nameEn": "Detect and report",
+      "role": ["warehouse_keeper", "production_operator", "qa_specialist"],
+      "type": "task",
+      "onComplete": "reported",
+      "requiresFields": ["discoveryContext", "measuredRange"],
+      "form": [
+        { "key": "discoveryContext", "label": "发现经过", "type": "textarea", "required": true, "help": "如何发现：温度记录仪导出、报警、收货时审核记录" },
+        { "key": "requiredRange", "label": "规定储存 / 运输条件", "type": "text", "required": true, "help": "如 2-8℃" },
+        { "key": "measuredRange", "label": "实测温度范围", "type": "text", "required": true, "help": "最低值与最高值" },
+        { "key": "duration", "label": "超限持续时间", "type": "text", "required": true, "help": "累计超出范围的时间，非总运输时长" },
+        { "key": "loggerId", "label": "温度记录仪编号及校准状态", "type": "text", "required": true },
+        { "key": "immediateAction", "label": "即时措施", "type": "textarea", "required": true, "help": "隔离产品、停止发放、通知客户" }
+      ],
+      "guidance": "发现温度超限后首要动作是隔离产品而非放行。记录仪的校准状态必须核实——用未校准记录仪产生的数据本身就不成立。"
+    },
+    {
+      "code": "containment",
+      "name": "隔离与流向控制",
+      "nameEn": "Quarantine and distribution control",
+      "role": ["warehouse_keeper", "qa_specialist"],
+      "type": "task",
+      "onComplete": "contained",
+      "requiresFields": ["quarantinedQuantity", "distributionStatus"],
+      "form": [
+        { "key": "quarantinedQuantity", "label": "已隔离数量", "type": "text", "required": true },
+        { "key": "distributionStatus", "label": "产品当前流向状态", "type": "select", "required": true, "options": ["in_warehouse_only", "in_transit", "delivered_not_released", "released_to_market"] },
+        { "key": "customersNotified", "label": "是否已通知客户暂停使用", "type": "select", "required": true, "options": ["yes", "no", "not_applicable"] },
+        { "key": "quarantineLocation", "label": "隔离位置与标识", "type": "text", "required": true },
+        { "key": "affectedBatches", "label": "同批 / 同车次其他产品", "type": "textarea", "required": true, "help": "同一记录仪、同一保温箱、同一车次的其他产品是否受影响" }
+      ],
+      "guidance": "必须同时评估同一次运输中的其他产品。只处理已知那一批而遗漏同保温箱的其他产品，是常见缺陷。"
+    },
+    {
+      "code": "impact_assessment",
+      "name": "产品影响评估",
+      "nameEn": "Product impact assessment",
+      "role": ["qa_specialist", "qc_manager", "qa_manager"],
+      "type": "task",
+      "onComplete": "impact_assessed",
+      "requiresFields": ["stabilityBasis", "productImpact", "rootCause"],
+      "persistFields": { "root_cause": "rootCause", "impact_assessment": "productImpact" },
+      "form": [
+        { "key": "stabilityBasis", "label": "评估的稳定性数据依据", "type": "textarea", "required": true, "help": "必须引用具体依据：产品稳定性研究数据、供应商评估函、文献。不得仅以「时间较短」推断无影响" },
+        { "key": "mktBasis", "label": "允许的最大偏离（MKT / 短期偏离限度）", "type": "text", "required": false, "help": "如平均动力学温度或短期暴露限度" },
+        { "key": "productImpact", "label": "对产品质量的影响评估", "type": "textarea", "required": true },
+        { "key": "physicalInspection", "label": "外观检查结果", "type": "textarea", "required": false },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true, "help": "如保温箱配置与验证配置不符、冷媒预冷不足、装卸滞留超时、设备故障" },
+        { "key": "recurrenceRisk", "label": "再发风险评估", "type": "textarea", "required": false, "help": "同一路线 / 季节 / 操作人员是否可能再发" }
+      ],
+      "guidance": "影响评估必须引用稳定性数据或供应商评估结论。仅凭「超限时间短应无影响」而无依据的结论，在检查中不可辩护。这是冷链检查中最常见的严重缺陷。"
+    },
+    {
+      "code": "disposition",
+      "name": "处置决定",
+      "nameEn": "Disposition decision",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "disposition",
+      "onComplete": "disposition",
+      "requiresFields": ["disposition", "dispositionBasis"],
+      "form": [
+        { "key": "disposition", "label": "处置决定", "type": "select", "required": true, "options": ["release", "release_with_restriction", "quarantine_pending_testing", "reject_destroy", "return_to_manufacturer", "extend_investigation"] },
+        { "key": "dispositionBasis", "label": "决定依据", "type": "textarea", "required": true },
+        { "key": "restrictions", "label": "限制条件", "type": "textarea", "required": false, "help": "如缩短有效期、限制销售区域、增加稳定性考察" },
+        { "key": "testingRequired", "label": "是否需补充检验", "type": "select", "required": true, "options": ["no", "yes_identity", "yes_full_testing", "yes_stability"] },
+        { "key": "customerCommunication", "label": "客户沟通安排", "type": "textarea", "required": false },
+        { "key": "regulatoryNotification", "label": "是否需要报告监管机构", "type": "select", "required": true, "options": ["no", "yes", "assess_further"] }
+      ],
+      "guidance": "若判定放行但附加限制条件，限制必须可执行且可核查（如系统内标记、客户书面确认）。口头限制等于没有限制。"
+    },
+    {
+      "code": "capa",
+      "name": "纠正预防措施",
+      "nameEn": "Corrective and preventive action",
+      "role": ["qa_specialist", "warehouse_keeper", "engineering"],
+      "type": "task",
+      "onComplete": "closed",
+      "requiresFields": ["correctiveActions", "preventiveActions"],
+      "form": [
+        { "key": "correctiveActions", "label": "纠正措施", "type": "textarea", "required": true },
+        { "key": "preventiveActions", "label": "预防措施", "type": "textarea", "required": true, "help": "如修订装载作业指导书、增加冷媒预冷步骤、更新路线风险评估、系统增加超限自动拦截" },
+        { "key": "validationImpact", "label": "是否需重新验证保温箱配置", "type": "select", "required": true, "options": ["no", "yes", "not_applicable"] },
+        { "key": "trainingDelivered", "label": "承运方 / 人员培训", "type": "select", "required": true, "options": ["yes", "no", "not_required"] },
+        { "key": "effectivenessMethod", "label": "有效性检查方法", "type": "textarea", "required": true, "help": "如后续 10 车次温度记录审核、同季节抽查" },
+        { "key": "carrierAudit", "label": "是否需对承运方开展审计", "type": "select", "required": false, "options": ["yes", "no"] }
+      ],
+      "guidance": "若根本原因是保温箱配置与验证配置不符（例如冷媒数量不足），则属于验证状态失控，必须重新验证而不是仅做培训。"
+    }
+  ]
+}

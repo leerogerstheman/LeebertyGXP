@@ -1,0 +1,122 @@
+{
+  "code": "GPP-QC",
+  "recordPrefix": "PQ",
+  "name": "制剂检验超标与稳定性偏差",
+  "nameEn": "Preparation Test Failure and Stability Deviation",
+  "category": "preparation_event",
+  "gxpAreas": ["GPP"],
+  "regulationRefs": [
+    "NMPA《医疗机构制剂配制质量管理规范》(试行) - 质量管理与检验",
+    "21 CFR 211.192 - any unexplained discrepancy shall be thoroughly investigated (referenced for OOS expectations)",
+    "FDA Guidance: Investigating Out-of-Specification Test Results for Pharmaceutical Production (referenced for phase I/II structure)",
+    "《医疗机构制剂注册管理办法》- 制剂质量标准与稳定性要求"
+  ],
+  "description": "处理医疗机构制剂的检验结果超标、效期内质量下降或稳定性考察异常，作出制剂处置与效期调整决定。",
+  "descriptionEn": "Handles out-of-specification results, in-shelf-life quality decline or stability study anomalies for hospital preparations, and decides preparation disposition and shelf-life adjustment.",
+  "slaDays": 21,
+  "requiresRootCause": true,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "lab_investigation", "full_investigation", "qa_review", "disposition", "closed", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["closed", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "调查标题", "labelEn": "Investigation title", "type": "text", "required": true, "help": "如：某制剂效期第 3 个月含量下降至 92.1%（标准 ≥95.0%）" },
+    { "key": "summary", "label": "结果描述", "labelEn": "Result description", "type": "textarea", "required": true },
+    { "key": "product", "label": "制剂名称与规格", "labelEn": "Preparation", "type": "text", "required": true },
+    { "key": "batchNumber", "label": "配制批号", "labelEn": "Batch number", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "检验日期", "labelEn": "Test date", "type": "datetime", "required": true },
+    { "key": "criticality", "label": "严重程度", "labelEn": "Criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"] }
+  ],
+
+  "steps": [
+    {
+      "code": "lab_investigation",
+      "name": "实验室调查（阶段一）",
+      "nameEn": "Laboratory investigation (Phase I)",
+      "role": ["qc_analyst", "lab_technician"],
+      "type": "task",
+      "onComplete": "lab_investigation",
+      "requiresFields": ["labErrorFound", "phase1Conclusion"],
+      "form": [
+        { "key": "testMethod", "label": "检验方法（编号及版本）", "type": "text", "required": true },
+        { "key": "specification", "label": "质量标准限度", "type": "text", "required": true },
+        { "key": "observedResult", "label": "实测结果", "type": "text", "required": true },
+        { "key": "rawDataRef", "label": "原始数据引用", "type": "text", "required": true },
+        { "key": "instrumentUsed", "label": "所用仪器及校准状态", "type": "text", "required": true },
+        { "key": "calculationsVerified", "label": "计算复核", "type": "textarea", "required": true, "help": "稀释倍数、单位换算、软件参数、手工复算结果" },
+        { "key": "reagentCheck", "label": "试剂 / 对照品 / 培养基检查", "type": "textarea", "required": true, "help": "有效期、批号、储存条件、配制记录" },
+        { "key": "labErrorFound", "label": "是否发现实验室差错", "type": "select", "required": true, "options": ["yes_assignable_cause", "no", "inconclusive"] },
+        { "key": "phase1Conclusion", "label": "阶段一结论", "type": "textarea", "required": true }
+      ],
+      "guidance": "阶段一只能推翻因实验室差错导致的无效结果。若未发现明确实验室差错，结果仍然有效，不得用复测平均值掩盖。禁止在调查完成前重新取样或修改方法。"
+    },
+    {
+      "code": "full_investigation",
+      "name": "全面调查（阶段二）",
+      "nameEn": "Full investigation (Phase II)",
+      "role": ["qc_manager", "qa_specialist", "lab_manager"],
+      "type": "task",
+      "onComplete": "full_investigation",
+      "requiresFields": ["rootCause", "processReview", "stabilityImpact"],
+      "persistFields": { "root_cause": "rootCause", "impact_assessment": "stabilityImpact" },
+      "form": [
+        { "key": "processReview", "label": "配制过程复核", "type": "textarea", "required": true, "help": "批配制记录、投料量、配制参数、灭菌参数、洁净环境数据" },
+        { "key": "materialReview", "label": "起始物料复核", "type": "textarea", "required": true, "help": "来源、批号、效期、检验报告、储存条件" },
+        { "key": "containerReview", "label": "包装容器与储存条件复核", "type": "textarea", "required": true, "help": "容器相容性、密封性、避光、储存温度、发放环节条件" },
+        { "key": "stabilityImpact", "label": "对效期与稳定性的影响评估", "type": "textarea", "required": true, "help": "该制剂效期依据来源、是否需要缩短效期、是否影响已发放批次" },
+        { "key": "otherBatchesImpact", "label": "其他批次与已发放制剂影响", "type": "textarea", "required": true, "help": "同批剩余、同产品其他批次、已发放至临床科室的制剂" },
+        { "key": "rootCause", "label": "根本原因", "type": "textarea", "required": true },
+        { "key": "rootCauseMethod", "label": "分析方法", "type": "select", "required": true, "options": ["5 Whys", "Ishikawa / Fishbone", "Fault Tree Analysis", "Trend analysis"] }
+      ],
+      "guidance": "制剂效期问题必须回溯效期依据本身是否充分。若效期是照搬同类产品而未做本制剂稳定性考察，则根本原因是效期设定依据不足，属于体系性问题。"
+    },
+    {
+      "code": "qa_disposition",
+      "name": "QA 处置决定",
+      "nameEn": "QA disposition",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "disposition",
+      "onComplete": "disposition",
+      "requiresFields": ["disposition", "dispositionBasis", "shelfLifeAction"],
+      "form": [
+        { "key": "retestJustified", "label": "是否允许复测", "type": "select", "required": true, "options": ["no", "yes_documented_reason", "yes_original_invalid"] },
+        { "key": "retestPlan", "label": "复测方案", "type": "textarea", "required": false, "help": "若允许复测：样品量、份数、预先设定的判定规则" },
+        { "key": "disposition", "label": "制剂处置", "type": "select", "required": true, "options": ["release", "reject_destroy", "shorten_shelf_life", "recall_dispensed", "not_applicable"] },
+        { "key": "dispositionBasis", "label": "处置依据", "type": "textarea", "required": true },
+        { "key": "shelfLifeAction", "label": "效期处理", "type": "select", "required": true, "options": ["no_change", "shorten_immediately", "shorten_after_study", "suspend_preparation"] },
+        { "key": "newShelfLife", "label": "调整后效期", "type": "text", "required": false },
+        { "key": "dispensedRecall", "label": "已发放制剂的追回安排", "type": "textarea", "required": false, "help": "涉及患者时必须明确通知临床科室的范围与时限" },
+        { "key": "regulatoryNotification", "label": "是否需报告监管部门", "type": "select", "required": true, "options": ["no", "yes", "assess_further"] }
+      ],
+      "guidance": "「复测合格即放行」是检查中最高频的严重缺陷。复测必须有预先设定的方案和统计学依据。制剂效期缩短时必须追回已发放部分并通知临床科室。"
+    },
+    {
+      "code": "closure",
+      "name": "关闭与有效性检查",
+      "nameEn": "Closure and effectiveness check",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "closed",
+      "onComplete": "closed",
+      "independentOfAuthor": true,
+      "requiresFields": ["conclusion", "effectivenessResult"],
+      "persistFields": { "effectiveness_check": "effectivenessMethod", "effectiveness_result": "effectivenessResult" },
+      "form": [
+        { "key": "correctiveActions", "label": "纠正措施", "type": "textarea", "required": true },
+        { "key": "preventiveActions", "label": "预防措施", "type": "textarea", "required": true, "help": "如补充稳定性考察、修订质量标准、调整效期管理规定、增加留样考察点" },
+        { "key": "stabilityStudyAdded", "label": "是否新增稳定性考察", "type": "select", "required": true, "options": ["yes_ongoing", "yes_completed", "no"] },
+        { "key": "specRevised", "label": "质量标准是否修订", "type": "select", "required": true, "options": ["yes", "no"] },
+        { "key": "effectivenessMethod", "label": "有效性检查方法", "type": "textarea", "required": true, "help": "如后续 3 批稳定性考察数据、留样考察结果、效期内质量趋势" },
+        { "key": "effectivenessResult", "label": "有效性结论", "type": "select", "required": true, "options": ["effective", "partially_effective", "not_effective"] },
+        { "key": "conclusion", "label": "关闭结论", "type": "textarea", "required": true },
+        { "key": "trendMonitoring", "label": "趋势监控安排", "type": "textarea", "required": false, "help": "同类制剂是否纳入定期质量回顾" }
+      ],
+      "guidance": "制剂质量回顾应覆盖全部在配制品种。反复出现的同类超标说明效期设定或配制工艺存在系统性问题，需要重新评估而非逐批处理。"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "code": "SUP-AUDIT",
+  "recordPrefix": "SA",
+  "name": "供应商 / 受托方审计",
+  "nameEn": "Supplier and Contractor Audit",
+  "category": "external",
+  "gxpAreas": ["GMP", "GLP", "GCP", "GDP"],
+  "regulationRefs": [
+    "EU GMP Chapter 7 - outsourced activities; the contract giver is responsible for assessing competence",
+    "EU GMP Chapter 5.27-5.39 - supplier qualification and audit of starting materials",
+    "ICH Q10 §2.7 - management of outsourced activities and purchased materials",
+    "21 CFR 211.84 - testing and approval/rejection of components; supplier qualification",
+    "ICH E6(R2) §5.6 - sponsor oversight of CROs and service providers"
+  ],
+  "description": "对物料供应商、委托生产/检验方、CRO、仓储物流服务商等开展资质评估与现场审计，并跟踪缺陷整改。",
+  "descriptionEn": "Qualifies and audits material suppliers, contract manufacturers, contract laboratories, CROs and logistics providers, and tracks the remediation of findings.",
+  "slaDays": 60,
+  "requiresRootCause": false,
+  "requiresEffectivenessCheck": true,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["draft", "planned", "audit_performed", "report_issued", "capa_open", "qualified", "conditionally_qualified", "disqualified", "cancelled"],
+  "initialState": "draft",
+  "terminalStates": ["qualified", "conditionally_qualified", "disqualified", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "审计标题", "labelEn": "Audit title", "type": "text", "required": true },
+    { "key": "summary", "label": "审计目的与范围", "labelEn": "Purpose and scope", "type": "textarea", "required": true },
+    { "key": "site", "label": "被审计方名称与地址", "labelEn": "Auditee name and address", "type": "text", "required": true },
+    { "key": "occurredAt", "label": "审计日期", "labelEn": "Audit date", "type": "date", "required": true },
+    { "key": "criticality", "label": "物料/服务关键性", "labelEn": "Material / service criticality", "type": "select", "required": true, "options": ["minor", "major", "critical"], "help": "critical 表示直接影响产品质量或受试者安全" }
+  ],
+
+  "steps": [
+    {
+      "code": "plan",
+      "name": "审计计划",
+      "nameEn": "Audit planning",
+      "role": ["qa_auditor", "qa_specialist", "qa_manager"],
+      "type": "task",
+      "onComplete": "planned",
+      "form": [
+        { "key": "auditType", "label": "审计类型", "type": "select", "required": true, "options": ["initial_qualification", "routine", "for_cause", "follow_up", "desk_review", "remote"] },
+        { "key": "auditCriteria", "label": "审计依据", "type": "textarea", "required": true, "help": "如：EU GMP Chapter 7、ICH Q7、ISO 9001、委托协议条款" },
+        { "key": "scopeAreas", "label": "审计范围", "type": "textarea", "required": true },
+        { "key": "auditorTeam", "label": "审计组成员及专业背景", "type": "textarea", "required": true, "help": "EU GMP Ch.7 要求审计人员具备相应资质" },
+        { "key": "scheduledDate", "label": "计划审计日期", "type": "date", "required": true },
+        { "key": "previousAuditRef", "label": "上次审计编号及日期", "type": "text", "required": false },
+        { "key": "questionnaireSent", "label": "是否已发审计问卷", "type": "select", "required": false, "options": ["yes", "no", "not_applicable"] }
+      ],
+      "guidance": "审计范围应基于风险评估确定。关键物料供应商在批准前必须完成现场审计（或基于风险的有依据的豁免）。"
+    },
+    {
+      "code": "perform",
+      "name": "现场审计",
+      "nameEn": "On-site audit",
+      "role": ["qa_auditor", "qa_specialist"],
+      "type": "task",
+      "onComplete": "audit_performed",
+      "requiresFields": ["areasCovered", "observationsSummary"],
+      "form": [
+        { "key": "areasCovered", "label": "已覆盖区域与系统", "type": "textarea", "required": true, "help": "厂房设施、设备、物料管理、生产、QC、仓储、文件体系、人员培训、数据完整性" },
+        { "key": "observationsSummary", "label": "主要观察项", "type": "textarea", "required": true },
+        { "key": "criticalFindings", "label": "严重缺陷数量", "type": "text", "required": true },
+        { "key": "majorFindings", "label": "主要缺陷数量", "type": "text", "required": true },
+        { "key": "minorFindings", "label": "次要缺陷数量", "type": "text", "required": true },
+        { "key": "dataIntegrityReviewed", "label": "数据完整性审查情况", "type": "textarea", "required": true, "help": "审计追踪、权限管理、原始数据、备份恢复" },
+        { "key": "samplesTaken", "label": "是否取样", "type": "select", "required": false, "options": ["yes", "no"] }
+      ],
+      "guidance": "数据完整性是当前监管重点。审计追踪的可用性与权限设置必须实际查看系统，而非仅查阅文件。"
+    },
+    {
+      "code": "report",
+      "name": "审计报告",
+      "nameEn": "Audit report",
+      "role": ["qa_auditor", "qa_manager"],
+      "type": "task",
+      "onComplete": "report_issued",
+      "requiresFields": ["conclusion", "recommendation"],
+      "form": [
+        { "key": "conclusion", "label": "审计结论", "type": "textarea", "required": true },
+        { "key": "recommendation", "label": "资质建议", "type": "select", "required": true, "options": ["qualified", "conditionally_qualified", "not_qualified", "requires_follow_up"] },
+        { "key": "strengths", "label": "被审计方的优势", "type": "textarea", "required": false },
+        { "key": "reportIssuedAt", "label": "报告签发日期", "type": "date", "required": true },
+        { "key": "responseDueDate", "label": "整改回复期限", "type": "date", "required": true },
+        { "key": "nextAuditDue", "label": "下次审计到期日", "type": "date", "required": false, "help": "通常 1-3 年，基于风险确定" }
+      ],
+      "guidance": "审计报告应在约定时限内发给被审计方，并要求书面整改回复。"
+    },
+    {
+      "code": "capa_tracking",
+      "name": "整改跟踪",
+      "nameEn": "CAPA tracking",
+      "role": ["qa_specialist", "qa_auditor", "qa_manager"],
+      "type": "task",
+      "onComplete": "capa_open",
+      "form": [
+        { "key": "responseReceived", "label": "是否收到整改回复", "type": "select", "required": true, "options": ["yes", "no", "partial"] },
+        { "key": "responseAdequacy", "label": "整改措施充分性评价", "type": "textarea", "required": true },
+        { "key": "evidenceReviewed", "label": "已审核的整改证据", "type": "textarea", "required": false },
+        { "key": "reAuditRequired", "label": "是否需要复审", "type": "select", "required": true, "options": ["yes_onsite", "yes_desktop", "no"] },
+        { "key": "outstandingItems", "label": "未完成事项", "type": "textarea", "required": false }
+      ],
+      "guidance": "被审计方的回复仅声称已整改是不够的，必须索要客观证据（照片、修订后文件、记录）。"
+    },
+    {
+      "code": "qualification_decision",
+      "name": "资质决定",
+      "nameEn": "Qualification decision",
+      "role": ["qa_manager"],
+      "type": "signature",
+      "signatureMeaning": "approved",
+      "onComplete": "qualified",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "decision", "label": "资质决定", "type": "select", "required": true, "options": ["qualified", "conditionally_qualified", "disqualified"] },
+        { "key": "conditions", "label": "附加条件 / 限制", "type": "textarea", "required": false, "help": "如：限制供应范围、增加进货检验频次、限期整改" },
+        { "key": "approvedScope", "label": "批准的供应范围", "type": "textarea", "required": false },
+        { "key": "validUntil", "label": "资质有效期至", "type": "date", "required": false },
+        { "key": "justification", "label": "决定理由", "type": "textarea", "required": true }
+      ],
+      "guidance": "审计员不得批准自己审计的供应商资质（EU GMP Annex 11 §12.1 职责分离原则）。"
+    }
+  ]
+}

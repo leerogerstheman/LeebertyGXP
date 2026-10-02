@@ -1,0 +1,112 @@
+{
+  "code": "BATCH-EXEC",
+  "recordPrefix": "PRD",
+  "name": "生产批次执行",
+  "nameEn": "Production Batch Execution",
+  "category": "production",
+  "gxpAreas": ["GMP"],
+  "regulationRefs": [
+    "EU GMP Chapter 4 - Documentation of batch records",
+    "EU GMP Chapter 5 - Production operations and in-process controls",
+    "21 CFR 211.100 - written procedures for production and process control",
+    "ICH Q7 §8.3 - critical in-process controls and batch record completion"
+  ],
+  "description": "一份批记录的完整执行：领料核对、投料与工艺参数、过程取样、生产复核、放行评审。操作工按步骤执行并签名，数据与每一步关联，复核与放行由独立岗位完成。",
+  "descriptionEn": "Full execution of a batch record: material issue and check, charge and process parameters, in-process sampling, production review, and disposition. Steps are executed and signed by the operator, with review and release performed by independent roles.",
+  "slaDays": 14,
+  "requiresQaApproval": true,
+  "criticalityLevels": ["minor", "major", "critical"],
+
+  "states": ["scheduled", "material_issued", "in_processing", "sampled", "reviewed", "released", "rejected", "cancelled"],
+  "initialState": "scheduled",
+  "terminalStates": ["released", "rejected", "cancelled"],
+
+  "fields": [
+    { "key": "title", "label": "批次标题", "labelEn": "Batch title", "type": "text", "required": true },
+    { "key": "product", "label": "产品", "labelEn": "Product", "type": "text", "required": true },
+    { "key": "batchNumber", "label": "批号", "labelEn": "Batch number", "type": "text", "required": true },
+    { "key": "line", "label": "产线 / 车间", "labelEn": "Line / workshop", "type": "text", "required": true },
+    { "key": "plannedQty", "label": "计划产量", "labelEn": "Planned quantity", "type": "text", "required": true }
+  ],
+
+  "steps": [
+    {
+      "code": "material_issue",
+      "name": "领料与核对",
+      "nameEn": "Material issue and check",
+      "role": ["production_operator"],
+      "type": "task",
+      "onComplete": "material_issued",
+      "form": [
+        { "key": "materialCode", "label": "物料编码", "type": "text", "required": true },
+        { "key": "materialLot", "label": "物料批号", "type": "text", "required": true },
+        { "key": "quantityKg", "label": "领用数量（kg）", "type": "text", "required": true },
+        { "key": "materialStatus", "label": "物料状态检查", "type": "select", "required": true, "options": ["合格", "待验", "拒收"] },
+        { "key": "checks", "label": "核对内容", "type": "textarea", "required": true, "help": "品名/批号/数量与领料单一致；包装完好；在库效期内" }
+      ],
+      "guidance": "领料必须三查：品名一致、批号一致、数量一致。任何不一致不得投料，先按偏差/隔离处理。"
+    },
+    {
+      "code": "charge_and_parameters",
+      "name": "投料与工艺参数",
+      "nameEn": "Charge and process parameters",
+      "role": ["production_operator"],
+      "type": "task",
+      "onComplete": "in_processing",
+      "form": [
+        { "key": "chargeQtyKg", "label": "实际投料量（kg）", "type": "text", "required": true },
+        { "key": "mixingTimeMin", "label": "混合时间（min）", "type": "text", "required": true },
+        { "key": "mixingSpeed", "label": "混合转速（rpm）", "type": "text", "required": true },
+        { "key": "temperature", "label": "操作温度（℃）", "type": "text", "required": true },
+        { "key": "paramCheck", "label": "参数达标确认", "type": "select", "required": true, "options": ["达标", "不达标"] }
+      ],
+      "guidance": "实际参数必须落在批记录规定的范围内。超出范围属于批次异常，须按 OOS/偏差程序处理，不得自行调整后掩盖。"
+    },
+    {
+      "code": "process_sampling",
+      "name": "过程取样",
+      "nameEn": "In-process sampling",
+      "role": ["production_operator"],
+      "type": "task",
+      "onComplete": "sampled",
+      "form": [
+        { "key": "samplePoint", "label": "取样点", "type": "text", "required": true },
+        { "key": "sampleNo", "label": "样品编号", "type": "text", "required": true },
+        { "key": "sampleQty", "label": "取样量（g）", "type": "text", "required": true },
+        { "key": "retentionKept", "label": "留样保存", "type": "select", "required": true, "options": ["yes", "no"] }
+      ],
+      "guidance": "取样必须记录取样点与样品编号，样品与检验申请单一同转交 QC。留样按批留样规定保存。"
+    },
+    {
+      "code": "production_review",
+      "name": "生产复核",
+      "nameEn": "Production review",
+      "role": ["production_manager"],
+      "type": "signature",
+      "signatureMeaning": "reviewed",
+      "onComplete": "reviewed",
+      "independentOfAuthor": true,
+      "form": [
+        { "key": "reviewConclusion", "label": "复核结论", "type": "textarea", "required": true },
+        { "key": "deviationsDuringRun", "label": "过程偏差", "type": "textarea", "required": true, "help": "如实列出；没有写「无」" },
+        { "key": "recordComplete", "label": "批记录填写完整", "type": "select", "required": true, "options": ["yes", "no"] }
+      ],
+      "guidance": "复核必须独立于操作工进行，重点核查记录完整性与参数真实性，而不是复述操作工的结论。"
+    },
+    {
+      "code": "batch_disposition",
+      "name": "放行评审",
+      "nameEn": "Batch disposition",
+      "role": ["qc_manager", "qp"],
+      "type": "signature",
+      "signatureMeaning": "disposition",
+      "onComplete": "released",
+      "form": [
+        { "key": "disposition", "label": "处置结论", "type": "select", "required": true, "options": ["release", "retest", "reject"] },
+        { "key": "reason", "label": "判定理由", "type": "textarea", "required": true },
+        { "key": "regulatoryImpact", "label": "法规影响评估", "type": "select", "required": true, "options": ["none", "customer_notification", "withdrawal", "recall"] }
+      ],
+      "guidance": "放行依据是质量标准、检验结果与批记录审核结论。判定 retest 或 reject 时需说明后续处置。质量受权人（QP）对其签字担责。"
+    }
+  ]
+}
