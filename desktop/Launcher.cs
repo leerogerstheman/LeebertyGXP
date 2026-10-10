@@ -104,6 +104,7 @@ static class Program
             else if (args[i] == "--browser") browserMode = true;
             else if (args[i] == "--capture" && i + 1 < args.Length) capturePath = args[i + 1];
             else if (args[i] == "--theme" && i + 1 < args.Length) WindowTheme.Requested = WindowTheme.Normalize(args[i + 1]);
+            else if (args[i] == "--custom-titlebar") WindowTheme.CustomTitleBar = true;
         }
 
         nodeExe = FindNode();
@@ -570,7 +571,13 @@ static class Program
             return false;
         }
 
-        var form = new Form();
+        // --custom-titlebar hands the caption strip to the page, so the window has
+        // to be one that can give it up: ChromeForm answers WM_NCCALCSIZE with an
+        // empty non-client area. The default remains an ordinary window with the
+        // standard, correctly dark-themed caption.
+        Form form = WindowTheme.CustomTitleBar
+            ? (Form)new WindowTheme.ChromeForm()
+            : new Form();
         form.Text = AppName;
         try { form.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
         form.StartPosition = FormStartPosition.CenterScreen;
@@ -589,7 +596,7 @@ static class Program
 
         bool capture = capturePath != null;
 
-        wv.CoreWebView2InitializationCompleted += (s, e) =>
+        wv.CoreWebView2InitializationCompleted += async (s, e) =>
         {
             if (!e.IsSuccess || wv.CoreWebView2 == null)
             {
@@ -613,6 +620,50 @@ static class Program
                                          : CoreWebView2PreferredColorScheme.Light);
             }
             catch { }
+
+            // Custom title bar, second half. Both pieces have to be in place BEFORE
+            // the first navigation: Microsoft documents IsNonClientRegionSupportEnabled
+            // as taking effect "after the next navigation", and the shell marker has
+            // to be registered before the document is created or the page would paint
+            // one frame in the browser layout.
+            //
+            // If the engine refuses the setting the window keeps its standard
+            // caption - extending the frame without drag regions would leave a
+            // window with no caption and nothing to drag it by.
+            if (WindowTheme.CustomTitleBar)
+            {
+                bool nonClientOk = false;
+                try
+                {
+                    wv.CoreWebView2.Settings.IsNonClientRegionSupportEnabled = true;
+                    nonClientOk = wv.CoreWebView2.Settings.IsNonClientRegionSupportEnabled;
+                }
+                catch (Exception ex)
+                {
+                    LogLine("non-client region support unavailable: " + ex.Message);
+                }
+
+                if (nonClientOk && WindowTheme.ExtendFrameIntoClientArea(form))
+                {
+                    try
+                    {
+                        // Awaited rather than .Wait()ed: the WebView2 task posts its
+                        // continuation back to this UI thread, so blocking would
+                        // deadlock.
+                        await wv.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(
+                            WindowTheme.ShellMarkerScript());
+                        LogLine("custom title bar: enabled");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogLine("shell marker not registered: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    LogLine("custom title bar requested but not applied; keeping the system caption");
+                }
+            }
 
             if (capture)
             {
