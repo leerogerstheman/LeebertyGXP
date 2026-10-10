@@ -103,6 +103,7 @@ static class Program
             else if (args[i] == "--selftest") selfTest = true;
             else if (args[i] == "--browser") browserMode = true;
             else if (args[i] == "--capture" && i + 1 < args.Length) capturePath = args[i + 1];
+            else if (args[i] == "--theme" && i + 1 < args.Length) WindowTheme.Requested = WindowTheme.Normalize(args[i + 1]);
         }
 
         nodeExe = FindNode();
@@ -195,6 +196,8 @@ static class Program
             "Core.dll / WinForms.dll / WebView2Loader.dll");
         check("a WebView2 environment can be created (native window)", CanCreateWebViewEnvironment(),
             FindWebViewRuntime() ?? "no runtime / EdgeCore engine found");
+        check("the window chrome can be themed (dark title bar, rounded corners)",
+            CanApplyWindowChrome(), WindowTheme.Describe());
         check("the health probe reports no server on a free port", !HealthOk(), "port " + port);
 
         if (nodeExe == null) { Console.WriteLine("\n  " + failures + " failure(s)\n"); Environment.Exit(1); }
@@ -509,6 +512,35 @@ static class Program
     }
 
     /// <summary>
+    /// Prove that the window chrome can be themed without putting a window on
+    /// screen. The frame is the one part of the design system the browser suites
+    /// cannot reach, so it is checked here.
+    ///
+    /// The handle is created without Show(): DwmSetWindowAttribute works on a
+    /// window that exists but is not visible, so the self-test never flashes a
+    /// window at whoever is watching the build.
+    /// </summary>
+    static bool CanApplyWindowChrome()
+    {
+        try
+        {
+            using (var probe = new Form())
+            {
+                probe.ShowInTaskbar = false;
+                probe.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+                IntPtr handle = probe.Handle;             // creates it, does not show it
+                if (handle == IntPtr.Zero) return false;
+                return WindowTheme.Apply(probe, WindowTheme.IsDark());
+            }
+        }
+        catch (Exception ex)
+        {
+            LogLine("window chrome probe failed: " + ex.Message);
+            return false;
+        }
+    }
+
+    /// <summary>
     /// Build the real window: our frame (title, icon, size) with an embedded
     /// WebView2 control pointed at the local server. When capturePath is set the
     /// window renders, waits for a page load, saves a PNG of its own content and
@@ -546,6 +578,12 @@ static class Program
         form.MinimumSize = new Size(960, 600);
         form.BackColor = Color.FromArgb(16, 32, 54);
 
+        // Window chrome. design-system.css themes everything inside the client
+        // area; the title bar, the border and the corner radius are drawn by DWM
+        // and are unreachable from CSS. Attach() hooks HandleCreated rather than
+        // forcing the handle here, so StartPosition still wins.
+        WindowTheme.Attach(form);
+
         var wv = new WebView2 { Dock = DockStyle.Fill };
         form.Controls.Add(wv);
 
@@ -560,6 +598,21 @@ static class Program
                 return;
             }
             try { wv.CoreWebView2.Settings.IsStatusBarEnabled = false; } catch { }
+
+            // Keep the page in step with the window chrome. When the theme follows
+            // Windows this stays Auto, which tracks the system live - the same
+            // signal design-system.css reads through prefers-color-scheme. Pinning
+            // it to Light or Dark here would freeze the page while the title bar
+            // kept following the system.
+            try
+            {
+                int? scheme = WindowTheme.PreferredColorScheme();
+                wv.CoreWebView2.Profile.PreferredColorScheme = !scheme.HasValue
+                    ? CoreWebView2PreferredColorScheme.Auto
+                    : (scheme.Value == 1 ? CoreWebView2PreferredColorScheme.Dark
+                                         : CoreWebView2PreferredColorScheme.Light);
+            }
+            catch { }
 
             if (capture)
             {

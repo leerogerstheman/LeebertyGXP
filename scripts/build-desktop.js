@@ -83,6 +83,13 @@ function main() {
   const source = path.join(config.root, 'desktop', 'Launcher.cs');
   if (!fs.existsSync(source)) fail(`source not found: ${source}`);
 
+  // The window chrome - dark title bar, rounded corners, matching border - is the
+  // half of the design system that CSS cannot reach. It is byte-identical across
+  // LeebertyGXP, LeebertyPV and PE-Workbench, like web/css/design-system.css, so
+  // it is compiled in from a shared file rather than reimplemented per project.
+  const windowTheme = path.join(config.root, 'desktop', 'WindowTheme.cs');
+  if (!fs.existsSync(windowTheme)) fail(`source not found: ${windowTheme}`);
+
   const csc = findCsc();
   if (!csc) {
     log('csc.exe     NOT FOUND');
@@ -129,6 +136,7 @@ function main() {
     ...sdkRefs,
     ...iconArg,
     source,
+    windowTheme,
   ], { encoding: 'utf8' });
 
   if (compile.status !== 0) {
